@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomePageIntro: React.FC = () => {
     return (
-        <div className='absolute right-0 h-full w-[65%] md:w-[45%] flex justify-center  flex-col gap-5 md:gap-10'>
+        <div className='absolute right-0 h-full w-[65%] md:w-[45%] flex justify-start pt-50 md:pt-0 md:justify-center  flex-col gap-5 md:gap-10'>
             <div className='flex flex-col text-2xl md:text-6xl text-highlight font-bold gap-2 md:gap-4'>
                 <p>
                     Creating <br />
