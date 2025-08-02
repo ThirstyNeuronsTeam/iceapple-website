@@ -3,8 +3,6 @@ import "./globals.css";
 import localFont from "next/font/local";
 import Navbar from "@/components/navbar";
 
-
-
 export const metadata: Metadata = {
   title: "IceApple",
   description: "Provides Technology and Business Solutions",
@@ -68,14 +66,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${moskFont.variable} antialiased`}>
-      <body
-        className={`${moskFont.variable} font-main`}
-      >
-          <div>
-          <Navbar />
-          {children}
-          </div>
-      
+      <body className={`${moskFont.variable} font-main`}>
+        <Navbar />
+        <section>{children}</section>
       </body>
     </html>
   );
