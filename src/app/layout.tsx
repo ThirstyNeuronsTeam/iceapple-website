@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 import localFont from "next/font/local";
 import Navbar from "@/components/navbar";
 
@@ -66,9 +67,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${moskFont.variable} antialiased`}>
-      <body className={`${moskFont.variable} font-main`}>
+      <body className={cn`${moskFont.variable} font-main`}>
         <Navbar />
-        <section>{children}</section>
+        <main>{children}</main>
       </body>
     </html>
   );

@@ -39,16 +39,18 @@ const navLinks = [
   { name: "Contact Us", path: "/contact-us" },
 ];
 
-export function NavigationMenuDemo() {
+export function MenuSection() {
   return (
     <>
       <NavigationMenu className="hidden md:flex" viewport={false}>
-        <NavigationMenuList>
+        <NavigationMenuList className="2xl:gap-14 xl:gap-8">
           {navLinks.map((link, index) => {
             if (link.submenu) {
               return (
                 <NavigationMenuItem key={index}>
-                  <NavigationMenuTrigger>{link.name}</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-transparent 2xl:text-xl">
+                    {link.name}
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[200px] gap-4">
                       <li>
@@ -67,7 +69,10 @@ export function NavigationMenuDemo() {
               <NavigationMenuItem key={index}>
                 <NavigationMenuLink
                   asChild
-                  className={navigationMenuTriggerStyle()}
+                  className={
+                    (navigationMenuTriggerStyle(),
+                    "bg-transparent font-medium 2xl:text-xl")
+                  }
                 >
                   <Link href={link.path}>{link.name}</Link>
                 </NavigationMenuLink>

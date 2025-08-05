@@ -1,0 +1,16 @@
+{
+  "home": {
+    "heroSection": [
+  {
+    "id": 1,
+    "title1": "Creating",
+    "title2": "Tomorrow's",
+    "title3": "Solutions Today",
+    "content": "Innovation-driven tech resolution for Success",
+    "btntext":"Default Button",
+    "btnurl":"/",
+    "url": "/assets/general/home-page/home-page-banner.webp"
+ }
+    ]
+  }
+}
