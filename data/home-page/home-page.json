@@ -11,6 +11,8 @@
       }
     ],
     "aboutUs": {
+      "aboutImageOne": "/assets/general/home-page/about-image-1.jpg",
+      "aboutImageTwo": "/assets/general/home-page/about-image-2.jpg",
       "smallText": "A brief overview of ‘About us’",
       "heading": "Driven by the desire to drive innovation.",
       "content": [
