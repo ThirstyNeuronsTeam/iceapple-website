@@ -6,7 +6,7 @@ import React from "react";
 const Home: React.FC = () => {
   return (
     <section>
-      <HeroSection />
+      <HeroSection heroData={content.home.heroSection} />
       <AboutUsSection aboutUsData={content.home.aboutUs} />
     </section>
   );

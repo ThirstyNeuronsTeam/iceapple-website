@@ -1,15 +1,14 @@
 {
   "home": {
-    "heroSection": [
-      {
-        "id": 1,
-        "title": ["Creating", "Tomorrow's", "Solutions Today"],
-        "content": "Innovation-driven tech resolution for Success",
-        "btntext": "Default Button",
-        "btnurl": "/",
-        "url": "/assets/general/home-page/home-page-banner.webp"
-      }
-    ],
+    "heroSection": {
+      "id": 1,
+      "title": ["Creating", "Tomorrow's", "Solutions Today"],
+      "content": "Innovation-driven tech resolution for Success",
+      "btntext": "Default Button",
+      "btnurl": "/",
+      "url": "/assets/general/home-page/home-page-banner.webp",
+      "isBtnShow": true
+    },
     "aboutUs": {
       "aboutImageOne": "/assets/general/home-page/about-image-1.jpg",
       "aboutImageTwo": "/assets/general/home-page/about-image-2.jpg",
