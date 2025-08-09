@@ -1,16 +1,34 @@
 {
   "home": {
     "heroSection": [
-  {
-    "id": 1,
-    "title1": "Creating",
-    "title2": "Tomorrow's",
-    "title3": "Solutions Today",
-    "content": "Innovation-driven tech resolution for Success",
-    "btntext":"Default Button",
-    "btnurl":"/",
-    "url": "/assets/general/home-page/home-page-banner.webp"
- }
-    ]
+      {
+        "id": 1,
+        "title": ["Creating", "Tomorrow's", "Solutions Today"],
+        "content": "Innovation-driven tech resolution for Success",
+        "btntext": "Default Button",
+        "btnurl": "/",
+        "url": "/assets/general/home-page/home-page-banner.webp"
+      }
+    ],
+    "aboutUs": {
+      "smallText": "A brief overview of ‘About us’",
+      "heading": "Driven by the desire to drive innovation.",
+      "content": [
+        "We are a dynamic technology company providing innovative and cost-effective solutions for businesses across industries. Our passionate team of engineers, with expertise in Automotive, Industrial, and Gaming domains, focuses on developing deep technology products and delivering niche software development services.",
+        "With a vision to build a world-class technology services and product development company, IceApple leverages cutting-edge technologies like Artificial Intelligence, Machine Learning, web, cloud, IoT, mobile app development, and embedded software."
+      ],
+      "ourValues": [
+        {
+          "title": "Our Values",
+          "listItem": [
+            "Partnerships and Collaboration",
+            "Empowering Innovation",
+            "Long-lasting Relationships",
+            "Thriving Together",
+            "Inspiring Possibilities"
+          ]
+        }
+      ]
+    }
   }
 }

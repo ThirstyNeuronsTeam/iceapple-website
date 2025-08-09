@@ -3,11 +3,18 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import localFont from "next/font/local";
 import Navbar from "@/components/navbar";
+import { Inter } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "IceApple",
   description: "Provides Technology and Business Solutions",
 };
+
+export const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter", // optional for CSS variable
+  weight: ["400", "700"],
+});
 
 const moskFont = localFont({
   src: [
@@ -66,8 +73,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${moskFont.variable} antialiased`}>
-      <body className={cn`${moskFont.variable} font-main`}>
+    <html
+      lang="en"
+      className={`${moskFont.variable} ${inter.variable} antialiased`}
+    >
+      <body className={cn`${moskFont.variable} ${inter.variable} font-main`}>
         <Navbar />
         <main>{children}</main>
       </body>
