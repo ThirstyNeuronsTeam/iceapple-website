@@ -1,0 +1,27 @@
+{
+    "favBlogs":[],
+    "blogs": [
+        {
+            "id": "sgjdgsjfgdsf",
+            "template": "blogType1",
+            "category": "Tech",
+            "data": {
+                "title": "AI",
+                "date": "",
+                "content": "",
+                "image":""
+            }
+        },
+         {
+            "id": "sgjdgsjfgdsf",
+            "template": "blogType1",
+            "category": "Tech",
+            "data": {
+                "title": "AI",
+                "date": "",
+                "content": "",
+                "image":""
+            }
+        }
+    ]
+}
