@@ -9,9 +9,9 @@ type AboutUsProps = {
   aboutUsData: {
     aboutImageOne: string;
     aboutImageTwo: string;
-    smallText: string;
+    subHeading: string;
     heading: string;
-    content: string[];
+    contents: string[];
     ourValues: {
       title: string;
       listItem: string[];

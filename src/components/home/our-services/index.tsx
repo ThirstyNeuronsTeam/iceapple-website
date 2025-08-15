@@ -21,11 +21,12 @@ type ServicesProps = {
 
 const OurServicesSection: React.FC<ServicesProps> = ({ servicesData }) => {
   return (
-    <article className="relative before:hidden sm:before:block sm:before:content-[''] before:absolute before:top-[38%] before:h-[1000px] before:right-0 before:bg-[#F3F3F3] before:w-[49vw] after:content-[''] after:absolute after:top-0 after:h-[250px] sm:after:h-[600px] after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] z-0 after:-z-10">
+    <article className="relative before:hidden sm:before:block sm:before:content-[''] before:absolute before:top-[38%] before:h-[1000px] before:right-0 before:bg-[#F3F3F3] before:w-[49vw] after:content-[''] after:absolute after:top-0 after:h-[250px] sm:after:h-[350px] after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] z-0 after:-z-10">
       <div className="w-full mx-auto px-5 2xl:px-0 container">
-        <div className="relative pt-20 sm:py-20 max-w-md text-left sm:text-right">
+        <div className="relative pt-20 sm:pt-20 sm:pb-15 max-w-xl text-left sm:text-right">
           <HeadingSectionDetail
             align="smRight"
+            headingWidth="xl"
             headingData={content.home.ourServicesSection}
           />
         </div>
@@ -37,6 +38,7 @@ const OurServicesSection: React.FC<ServicesProps> = ({ servicesData }) => {
               <div
                 key={item.id}
                 className={`${item.alignRight === true ? "justify-end" : ""} 
+                ${item.sectionName === "one" ? "sm:right-[10%]" : ""}
                 ${
                   item.sectionName === "three" ? "sm:right-[20%]" : ""
                 } flex relative pb-80 sm:pb-0`}
@@ -66,7 +68,7 @@ const OurServicesSection: React.FC<ServicesProps> = ({ servicesData }) => {
                     item.reverse ? "md:ml-auto" : ""
                   } ${item.alignLeft ? "text-left" : "text-right "} ${
                     item.sectionName === "one"
-                      ? "bottom-[15%] sm:bottom-[inherit] sm:-top-[30%] p-5 md:p-10 md:pt-30 right-[10%] sm:right-[32%]"
+                      ? "bottom-[15%] sm:bottom-[inherit] sm:-top-[20%] p-5 md:p-10 md:pt-25 right-[10%] sm:right-[32%]"
                       : item.sectionName === "two"
                       ? "top-[30%] p-4 sm:p-14 pt-5 sm:pt-16 left-[10%] sm:left-[25%]"
                       : "bottom-[15%] sm:bottom-[inherit] sm:top-[40%] right-[10%] sm:right-[25%]"

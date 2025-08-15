@@ -12,9 +12,9 @@
     "aboutUs": {
       "aboutImageOne": "/assets/general/home-page/about-image-1.jpg",
       "aboutImageTwo": "/assets/general/home-page/about-image-2.jpg",
-      "smallText": "A brief overview of ‘About us’",
+      "subHeading": "A brief overview of ‘About us’",
       "heading": "Driven by the desire to drive innovation.",
-      "content": [
+      "contents": [
         "We are a dynamic technology company providing innovative and cost-effective solutions for businesses across industries. Our passionate team of engineers, with expertise in Automotive, Industrial, and Gaming domains, focuses on developing deep technology products and delivering niche software development services.",
         "With a vision to build a world-class technology services and product development company, IceApple leverages cutting-edge technologies like Artificial Intelligence, Machine Learning, web, cloud, IoT, mobile app development, and embedded software."
       ],
@@ -32,9 +32,9 @@
       ]
     },
     "ourServicesSection": {
-      "smallText": "Our Services",
+      "subHeading": "Our Services",
       "heading": "Building for the future",
-      "content": [""],
+      "contents": [],
       "services": [
         {
           "id": 1,

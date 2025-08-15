@@ -2,15 +2,17 @@ import React from "react";
 
 type HeadingProps = {
   headingData: {
-    smallText: string;
+    subHeading: string;
     heading: string;
-    content: string[];
+    contents: string[];
   };
   align?: "left" | "center" | "right" | "smRight";
+  headingWidth?: "w-full" | "xl";
 };
 const HeadingSectionDetail: React.FC<HeadingProps> = ({
   headingData,
   align = "left",
+  headingWidth = "auto",
 }) => {
   const alignmentClass = {
     left: "text-left",
@@ -18,6 +20,10 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
     right: "justify-end",
     smRight: "sm:justify-end",
   }[align];
+  const headingWidthClass = {
+    auto: "w-auto",
+    xl: "w-[80%]",
+  }[headingWidth];
   return (
     <>
       <div
@@ -25,21 +31,23 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
       >
         <div className="w-[8px] sm:w-[30px] h-[1px] sm:h-[5px] bg-[#0B68FF]"></div>
         <p className="text-blue-600 font-semibold text-xs sm:text-2xl">
-          {headingData.smallText}
+          {headingData.subHeading}
         </p>
       </div>
-      <h2 className="text-[22px] sm:text-7xl font-bold leading-none mb-2 sm:mb-11">
+      <h2
+        className={`${headingWidthClass} ml-auto text-[22px] sm:text-7xl font-bold leading-none mb-2 sm:mb-11`}
+      >
         {headingData.heading}
       </h2>
-      <div className="sm:px-16 font-inter">
-        {headingData.content.length > 0
-          ? headingData.content.map((item, index) => (
+      {headingData.contents
+        ? headingData.contents?.map((item, index) => (
+            <div key={index} className="sm:px-16 font-inter">
               <p className="text-sm sm:text-lg mb-5" key={index}>
                 {item}
               </p>
-            ))
-          : ""}
-      </div>
+            </div>
+          ))
+        : ""}
     </>
   );
 };
