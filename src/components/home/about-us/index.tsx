@@ -1,12 +1,9 @@
 "use client";
 import React from "react";
-// import homePageData from "../../../../data/home-page/home-page.json";
 import Image from "next/image";
 import { useDeviceType } from "../../../../hooks/useDeviceType";
 import HeadingSectionDetail from "@/components/common/heading";
 import content from "../../../../data/home-page/home-page.json";
-
-// import BannerSectionDetail from "@/components/common/section-detail";
 
 type AboutUsProps = {
   aboutUsData: {
@@ -23,9 +20,6 @@ type AboutUsProps = {
 };
 
 const AboutUs: React.FC<AboutUsProps> = ({ aboutUsData }) => {
-  //   const isBtnShow = true;
-  //   const page = "home";
-  //   const heroSection = heroData[page]?.heroSection || [];
   const deviceType = useDeviceType();
 
   return (
