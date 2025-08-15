@@ -2,7 +2,7 @@ import React from "react";
 
 const CompanyName: React.FC = () => {
   return (
-    <div className="pb-[7px]">
+    <div className="pb-1 sm:pb-[7px]">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 215 28" fill="none">
         <path
           d="M0.925232 27.7983V0.288788H5.88655V27.7983H0.925232Z"

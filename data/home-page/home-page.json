@@ -30,6 +30,43 @@
           ]
         }
       ]
+    },
+    "ourServicesSection": {
+      "smallText": "Our Services",
+      "heading": "Building for the future",
+      "content": [""],
+      "services": [
+        {
+          "id": 1,
+          "title": "Data Science Services",
+          "description": "Tap the untapped potential of data with IceApple's futuristic data science solutions. Partner with us and leverage vast data sets for actionable insights, improved customer experience, and optimized supply chain operations. Maximize your business value with data-driven decisions.",
+          "imgSrc": "/assets/general/home-page/data-science.webp",
+          "alignRight": true,
+          "alignLeft": false,
+          "sectionName": "one",
+          "shadow": true
+        },
+        {
+          "id": 2,
+          "title": "Application Services",
+          "description": "With specialization in creating stable, robust, and powerful custom apps our team of experts caters to unique business needs, With world-class technology and a powerful business orientation we deliver extravagant results for your organization. Take your organisation to new heights with our application solutions.",
+          "imgSrc": "/assets/general/home-page/application-services.webp",
+          "alignRight": false,
+          "alignLeft": true,
+          "sectionName": "two",
+          "shadow": true
+        },
+        {
+          "id": 3,
+          "title": "DevOps Services",
+          "description": "Looking to automatize, grow, and modernize your business faster? Discover the power of IceApple's DevOps Services. Our proprietary DevOps framework automates CI/CD pipelines and elevates your infrastructure automation, enabling faster growth and efficiency. Elevate your operations today.",
+          "imgSrc": "/assets/general/home-page/devops-services.webp",
+          "alignRight": true,
+          "alignLeft": false,
+          "sectionName": "three",
+          "shadow": true
+        }
+      ]
     }
   }
 }

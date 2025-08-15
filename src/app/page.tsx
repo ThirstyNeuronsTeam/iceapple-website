@@ -1,6 +1,7 @@
 import content from "../../data/home-page/home-page.json";
 import AboutUsSection from "@/components/home/about-us";
 import HeroSection from "@/components/home/hero-section";
+import OurServicesSection from "@/components/home/our-services";
 import React from "react";
 
 const Home: React.FC = () => {
@@ -8,6 +9,7 @@ const Home: React.FC = () => {
     <section>
       <HeroSection heroData={content.home.heroSection} />
       <AboutUsSection aboutUsData={content.home.aboutUs} />
+      <OurServicesSection heroData={content.home.heroSection} />
     </section>
   );
 };

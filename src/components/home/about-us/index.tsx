@@ -3,6 +3,9 @@ import React from "react";
 // import homePageData from "../../../../data/home-page/home-page.json";
 import Image from "next/image";
 import { useDeviceType } from "../../../../hooks/useDeviceType";
+import HeadingSectionDetail from "@/components/common/heading";
+import content from "../../../../data/home-page/home-page.json";
+
 // import BannerSectionDetail from "@/components/common/section-detail";
 
 type AboutUsProps = {
@@ -26,7 +29,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ aboutUsData }) => {
   const deviceType = useDeviceType();
 
   return (
-    <article className="relative before:hidden sm:before:block sm:before:vi before:content-[''] before:absolute before:-top-40 before:h-[500px] before:left-0 before:bg-[#ffffff] before:w-[49vw] after:content-[''] after:absolute after:bottom-0 sm:after:bottom-0 after:h-[648px] sm:after:h-[600px] after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[49vw] after:-z-1 pt-20 pb-110 w-full">
+    <article className="relative before:hidden sm:before:block sm:before:content-[''] before:absolute before:-top-40 before:h-[500px] before:left-0 before:bg-[#ffffff] before:w-[49vw] after:content-[''] after:absolute after:bottom-0 sm:after:bottom-0 after:h-[248px] sm:after:h-[600px] after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] after:-z-1 pt-20 pb-10 sm:pb-110 w-full">
       <div className="container mx-auto flex flex-col sm:grid sm:grid-cols-1 lg:grid-cols-3 gap-y-4 sm:gap-16">
         <div className="relative col-span-2 px-5 sm:px-40">
           <div className="relative aspect-[5/4] w-48 sm:w-full max-w-lg shadow-[0_6px_20px_rgba(0,0,0,40%)] sm:shadow-[0_42px_173px_rgba(0,0,0,70%)] overflow-hidden z-10">
@@ -62,22 +65,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ aboutUsData }) => {
             : ""}
         </div>
         <div className="z-30 col-span-2 sm:col-span-1 px-5 sm:px-0">
-          <div className="flex items-center gap-4 mb-2 sm:mb-0">
-            <div className="w-[8px] sm:w-[30px] h-[5px] bg-[#0B68FF]"></div>
-            <p className="text-blue-600 font-semibold text-xs sm:text-2xl">
-              {aboutUsData.smallText}
-            </p>
-          </div>
-          <h2 className="text-[22px] sm:text-7xl font-bold leading-none mb-2 sm:mb-11">
-            {aboutUsData.heading}
-          </h2>
-          <div className="sm:px-16 font-inter">
-            {aboutUsData.content.map((item, index) => (
-              <p className="text-sm sm:text-lg mb-5" key={index}>
-                {item}
-              </p>
-            ))}
-          </div>
+          <HeadingSectionDetail headingData={content.home.aboutUs} />
         </div>
         {deviceType === "mobile"
           ? aboutUsData.ourValues.map((item, index) => (

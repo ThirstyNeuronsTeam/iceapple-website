@@ -11,7 +11,7 @@ type HeroSectionProps = {
   };
 };
 
-const HeadingSectionDetail: React.FC<HeroSectionProps> = ({ sectionData }) => {
+const BannerSectionDetail: React.FC<HeroSectionProps> = ({ sectionData }) => {
   return (
     <div className="relative z-10 h-full flex order-1 sm:order-2">
       <div className="w-full max-w-xl space-y-6">
@@ -47,4 +47,4 @@ const HeadingSectionDetail: React.FC<HeroSectionProps> = ({ sectionData }) => {
   );
 };
 
-export default HeadingSectionDetail;
+export default BannerSectionDetail;

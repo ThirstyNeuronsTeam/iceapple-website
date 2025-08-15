@@ -1,7 +1,7 @@
 import React from "react";
 import content from "../../../../data/home-page/home-page.json";
 import Image from "next/image";
-import HeadingSectionDetail from "@/components/common/heading-section-detail";
+import BannerSectionDetail from "@/components/common/banner-section-detail";
 
 type HeadingSectionProps = {
   heroData: {
@@ -25,7 +25,7 @@ const HeroSection: React.FC<HeadingSectionProps> = ({ heroData }) => {
               />
             </div>
           </div>
-          <HeadingSectionDetail sectionData={content.home.heroSection} />
+          <BannerSectionDetail sectionData={content.home.heroSection} />
         </div>
       </div>
     </article>
