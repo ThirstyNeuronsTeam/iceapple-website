@@ -67,6 +67,63 @@
           "shadow": true
         }
       ]
+    },
+    "ourLegacySection": {
+      "subHeading": "Our Legacy",
+      "heading": "What we've built so far",
+      "contents": [],
+      "timeLine": [
+        {
+          "id": 1,
+          "year": "2015",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+          "bgColor": "#0B68FF",
+          "align": "right",
+          "aboveZIndex": "1",
+          "zIndex": "",
+          "alignMiddle": "center"
+        },
+        {
+          "id": 2,
+          "year": "2017",
+          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+          "bgColor": "#63A7FF",
+          "align": "left",
+          "aboveZIndex": "",
+          "zIndex": "1",
+          "alignMiddle": "end"
+        },
+        {
+          "id": 3,
+          "year": "2019",
+          "description": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit.",
+          "bgColor": "#94C2FF",
+          "align": "right",
+          "aboveZIndex": "",
+          "zIndex": "2",
+          "alignMiddle": "end"
+        },
+        {
+          "id": 4,
+          "year": "2021",
+          "description": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil.",
+          "bgColor": "#0B68FF",
+          "align": "left",
+          "aboveZIndex": "",
+          "zIndex": "3",
+          "alignMiddle": "end"
+        },
+        {
+          "id": 5,
+          "year": "2023",
+          "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.",
+          "bgColor": "#63A7FF",
+          "align": "right",
+          "aboveZIndex": "",
+          "zIndex": "4",
+          "alignMiddle": "end"
+        }
+      ]
     }
   }
 }

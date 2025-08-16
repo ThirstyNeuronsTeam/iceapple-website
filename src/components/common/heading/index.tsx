@@ -35,7 +35,7 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
         </p>
       </div>
       <h2
-        className={`${headingWidthClass} ml-auto text-[22px] sm:text-7xl font-bold leading-none mb-2 sm:mb-11`}
+        className={`${headingWidthClass} sm:ml-auto text-[22px] sm:text-7xl font-bold leading-none mb-2 sm:mb-11`}
       >
         {headingData.heading}
       </h2>
