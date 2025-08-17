@@ -129,36 +129,24 @@
       "subHeading": "Careers",
       "heading": "Embrace The Enlightenment Of Working With Us",
       "contents": [],
-      "services": [
+      "cardDescription": " Seize the opportunity to sculpt a rewarding career and shape your future with us",
+      "btnText": "Join us",
+      "btnUrl": "",
+      "info": [
         {
-          "id": 1,
-          "title": "Data Science Services",
-          "description": "Tap the untapped potential of data with IceApple's futuristic data science solutions. Partner with us and leverage vast data sets for actionable insights, improved customer experience, and optimized supply chain operations. Maximize your business value with data-driven decisions.",
-          "imgSrc": "/assets/general/home-page/data-science.webp",
-          "alignRight": true,
-          "alignLeft": false,
-          "sectionName": "one",
-          "shadow": true
+          "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+          "cardTitle": "Boundless Possibilities",
+          "cardBoxDescription": "We empower our people to discover a work-life balance and find diversity at the workplace. At IceApple, we don't just grow careers—we ignite industry impact by pushing boundaries and embracing challenges."
         },
         {
-          "id": 2,
-          "title": "Application Services",
-          "description": "With specialization in creating stable, robust, and powerful custom apps our team of experts caters to unique business needs, With world-class technology and a powerful business orientation we deliver extravagant results for your organization. Take your organisation to new heights with our application solutions.",
-          "imgSrc": "/assets/general/home-page/application-services.webp",
-          "alignRight": false,
-          "alignLeft": true,
-          "sectionName": "two",
-          "shadow": true
+          "cardImage": "/assets/general/home-page/win-together.webp",
+          "cardTitle": "Win Together",
+          "cardBoxDescription": "We thrive to lead with shared goals and foster a culture of collaboration to harness the power of synergy for remarkable outcomes."
         },
         {
-          "id": 3,
-          "title": "DevOps Services",
-          "description": "Looking to automatize, grow, and modernize your business faster? Discover the power of IceApple's DevOps Services. Our proprietary DevOps framework automates CI/CD pipelines and elevates your infrastructure automation, enabling faster growth and efficiency. Elevate your operations today.",
-          "imgSrc": "/assets/general/home-page/devops-services.webp",
-          "alignRight": true,
-          "alignLeft": false,
-          "sectionName": "three",
-          "shadow": true
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "How We Act",
+          "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
         }
       ]
     }
