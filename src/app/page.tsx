@@ -1,3 +1,4 @@
+import CareersSection from "@/components/home/careers";
 import content from "../../data/home-page/home-page.json";
 import AboutUsSection from "@/components/home/about-us";
 import HeroSection from "@/components/home/hero-section";
@@ -12,6 +13,7 @@ const Home: React.FC = () => {
       <AboutUsSection aboutUsData={content.home.aboutUs} />
       <OurServicesSection servicesData={content.home.ourServicesSection} />
       <OurLegacySection legacyData={content.home.ourLegacySection} />
+      <CareersSection careersData={content.home.careersSection} />
     </section>
   );
 };

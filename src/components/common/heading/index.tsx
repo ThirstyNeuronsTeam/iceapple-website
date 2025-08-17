@@ -20,10 +20,12 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
     right: "justify-end",
     smRight: "sm:justify-end",
   }[align];
+
   const headingWidthClass = {
     auto: "w-auto",
-    xl: "w-[80%]",
+    xl: "sm:w-[80%]",
   }[headingWidth];
+
   return (
     <>
       <div
