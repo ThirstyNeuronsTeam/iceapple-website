@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 import localFont from "next/font/local";
 import Navbar from "@/components/navbar";
 import { Inter } from "next/font/google";
+import content from "../../data/home-page/home-page.json";
+import Footer from "@/components/common/footer";
 
 export const metadata: Metadata = {
   title: "IceApple",
@@ -80,6 +82,7 @@ export default function RootLayout({
       <body className={cn`${moskFont.variable} ${inter.variable} font-main`}>
         <Navbar />
         <main>{children}</main>
+        <Footer footerData={content.home.footer} />
       </body>
     </html>
   );

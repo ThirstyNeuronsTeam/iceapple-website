@@ -18,6 +18,10 @@ type LegacyProps = {
     }[];
   };
 };
+interface CustomCSSProperties extends React.CSSProperties {
+  "--z-index"?: number | string;
+  "--triangle-color"?: string;
+}
 
 const OurLegacySection: React.FC<LegacyProps> = ({ legacyData }) => {
   const deviceType = useDeviceType();
@@ -39,13 +43,21 @@ const OurLegacySection: React.FC<LegacyProps> = ({ legacyData }) => {
               <div key={item.id}>
                 {item.align === "right" ? (
                   <div
-                    style={{ ["--z-index" as any]: item.zIndex }}
+                    style={
+                      {
+                        "--z-index": item.zIndex,
+                      } as CustomCSSProperties
+                    }
                     className={`flex flex-col w-1/2 sm:w-full ml-auto sm:grid sm:grid-cols-[1fr_auto_1fr] justify-end sm:items-center relative z-[${item.aboveZIndex}] z-[var(--z-index)]`}
                   >
                     <>
                       <div></div>
                       <div
-                        style={{ ["--triangle-color" as any]: item.bgColor }}
+                        style={
+                          {
+                            "--triangle-color": item.bgColor,
+                          } as CustomCSSProperties
+                        }
                         className={`bg-[var(--triangle-color)] w-[75px] sm:w-[200px] h-[30px] sm:h-[110px] flex text-white justify-center ${
                           deviceType === "mobile"
                             ? "items-center"
@@ -67,7 +79,11 @@ const OurLegacySection: React.FC<LegacyProps> = ({ legacyData }) => {
 
                 {item.align === "left" ? (
                   <div
-                    style={{ ["--z-index" as any]: item.zIndex }}
+                    style={
+                      {
+                        "--z-index": item.zIndex,
+                      } as CustomCSSProperties
+                    }
                     key={item.id}
                     className={`flex flex-col-reverse w-1/2 sm:w-full sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center text-right sm:text-left relative z-[${item.aboveZIndex}] z-[var(--z-index)]`}
                   >
@@ -78,7 +94,11 @@ const OurLegacySection: React.FC<LegacyProps> = ({ legacyData }) => {
                         </p>
                       </div>
                       <div
-                        style={{ ["--triangle-color" as any]: item.bgColor }}
+                        style={
+                          {
+                            "--triangle-color": item.bgColor,
+                          } as CustomCSSProperties
+                        }
                         className={`bg-[var(--triangle-color)] w-[75px] sm:w-[200px] h-[30px] sm:h-[110px] flex text-white justify-center ${
                           deviceType === "mobile" ? "items-center" : "items-end"
                         } ml-auto sm:ml-0 text-sm sm:text-[36px] sm:font-bold font-inter sm:font-main relative z-0 before:z-10 sm:before:content-[''] sm:before:absolute sm:before:-bottom-[54px] sm:before:border-l-[100px] sm:before:border-l-transparent sm:before:border-r-[100px] sm:before:border-r-transparent sm:before:border-t-[55px] before:border-t-[var(--triangle-color)] sm:before:transform-[rotate(0deg)]`}

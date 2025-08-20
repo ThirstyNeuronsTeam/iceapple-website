@@ -59,7 +59,10 @@ const AboutUs: React.FC<AboutUsProps> = ({ aboutUsData }) => {
             : ""}
         </div>
         <div className="z-30 col-span-2 sm:col-span-1 px-5 sm:px-0">
-          <HeadingSectionDetail headingData={content.home.aboutUs} />
+          <HeadingSectionDetail
+            contentClassName="pl-16"
+            headingData={content.home.aboutUs}
+          />
         </div>
         {deviceType === "mobile"
           ? aboutUsData.ourValues.map((item, index) => (

@@ -1,6 +1,7 @@
 import React from "react";
-
+import clsx from "clsx";
 type HeadingProps = {
+  contentClassName?: string;
   headingData: {
     subHeading: string;
     heading: string;
@@ -13,6 +14,7 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
   headingData,
   align = "left",
   headingWidth = "auto",
+  contentClassName,
 }) => {
   const alignmentClass = {
     left: "text-left",
@@ -43,7 +45,7 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
       </h2>
       {headingData.contents
         ? headingData.contents?.map((item, index) => (
-            <div key={index} className="sm:px-16 font-inter">
+            <div key={index} className={clsx(contentClassName, "font-inter")}>
               <p className="text-sm sm:text-lg mb-5" key={index}>
                 {item}
               </p>

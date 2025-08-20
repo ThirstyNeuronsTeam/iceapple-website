@@ -5,6 +5,8 @@ import HeroSection from "@/components/home/hero-section";
 import OurLegacySection from "@/components/home/our-legacy";
 import OurServicesSection from "@/components/home/our-services";
 import React from "react";
+import OurSuccessStoriesSection from "@/components/home/our-success-stories";
+import OurEnquiryFormSection from "@/components/home/our-enquiry-form";
 
 const Home: React.FC = () => {
   return (
@@ -13,7 +15,11 @@ const Home: React.FC = () => {
       <AboutUsSection aboutUsData={content.home.aboutUs} />
       <OurServicesSection servicesData={content.home.ourServicesSection} />
       <OurLegacySection legacyData={content.home.ourLegacySection} />
-      <CareersSection careersData={content.home.careersSection} />
+      <CareersSection />
+      <OurSuccessStoriesSection
+        successStoriesData={content.home.ourSuccessStoriesSection}
+      />
+      <OurEnquiryFormSection />
     </section>
   );
 };

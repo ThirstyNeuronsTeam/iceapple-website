@@ -129,6 +129,7 @@
       "subHeading": "Careers",
       "heading": "Embrace The Enlightenment Of Working With Us",
       "contents": [],
+      "cardTitle": "",
       "cardDescription": " Seize the opportunity to sculpt a rewarding career and shape your future with us",
       "btnText": "Join us",
       "btnUrl": "",
@@ -149,6 +150,118 @@
           "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
         }
       ]
+    },
+    "ourSuccessStoriesSection": {
+      "subHeading": "Uncovering Our Success Stories",
+      "heading": "Trusted Solution for Many",
+      "contents": [
+        "Turning ideas into realities, empowering clients with innovative solutions"
+      ],
+      "sliders": [
+        {
+          "id": 1,
+          "image": "/assets/general/home-page/slider.webp",
+          "cardTitle": "Journey of Transformation with CRVS",
+          "cardDescription": "We partnered with an African startup that revolutionized its Civil Registration and Vital Statistics system with NodeJS and Mongo DB to overcome challenges such as remote redeployment and complex requirements.",
+          "btnText": "Know More",
+          "btnUrl": "/"
+        }
+      ]
+    },
+    "enquiryFormSection": {
+      "subHeading": "",
+      "heading": "",
+      "contents": [],
+      "cardTitle": "We would love to hear from you",
+      "cardDescription": "Please fill out the form below and our team will get in touch with you shortly.",
+      "btnText": "",
+      "btnUrl": "",
+      "info": [
+        {
+          "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+          "cardTitle": "Boundless Possibilities",
+          "cardBoxDescription": "We empower our people to discover a work-life balance and find diversity at the workplace. At IceApple, we don't just grow careers—we ignite industry impact by pushing boundaries and embracing challenges."
+        },
+        {
+          "cardImage": "/assets/general/home-page/win-together.webp",
+          "cardTitle": "Win Together",
+          "cardBoxDescription": "We thrive to lead with shared goals and foster a culture of collaboration to harness the power of synergy for remarkable outcomes."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "How We Act",
+          "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
+        }
+      ]
+    },
+    "footer": {
+      "address": "Door No 11-13, Sivaji Colony, Edayarpalayam Coimbatore TN 641025 India",
+      "menuItems": [
+        {
+          "id": 1,
+          "menuName": "Home",
+          "menuUrl": "/"
+        },
+        {
+          "id": 2,
+          "menuName": "About Us",
+          "menuUrl": "/about-us"
+        },
+        {
+          "id": 3,
+          "menuName": "Industries",
+          "menuUrl": "/industries"
+        },
+        {
+          "id": 4,
+          "menuName": "Blog",
+          "menuUrl": "/blog"
+        },
+        {
+          "id": 5,
+          "menuName": "Case Studies",
+          "menuUrl": "/case-studies"
+        },
+        {
+          "id": 6,
+          "menuName": "Careers",
+          "menuUrl": "/careers"
+        },
+        {
+          "id": 7,
+          "menuName": "Contact Us",
+          "menuUrl": "/contact-us"
+        }
+      ],
+      "menuTitle": "Services",
+      "menuItemsTwo": [
+        {
+          "id": 2,
+          "menuName": "Apps",
+          "menuUrl": "/apps"
+        },
+        {
+          "id": 3,
+          "menuName": "Data Science",
+          "menuUrl": "/data-science"
+        },
+        {
+          "id": 4,
+          "menuName": "DevOps",
+          "menuUrl": "/devops"
+        }
+      ],
+      "companyInfo": [
+        {
+          "menuName": "sales@iceapple.tech",
+          "menuUrl": "mailto:sales@iceapple.tech"
+        },
+        {
+          "menuName": "+91-9176745461",
+          "menuUrl": "tel:+91-9176745461"
+        }
+      ],
+      "copyRight": "© Copyright IceApple Technology Solutions. All Rights Reserved"
     }
   }
 }

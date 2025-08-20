@@ -38,7 +38,7 @@ const BannerSectionDetail: React.FC<HeroSectionProps> = ({ sectionData }) => {
               </Link>
             )}
           </div>
-          <span className="absolute -right-10 top-1/2 transform -rotate-90 text-xl tracking-wide hidden lg:block font-bold">
+          <span className="absolute right-10 top-1/2 transform -rotate-90 text-xl tracking-wide hidden lg:block font-bold">
             Scroll Down
           </span>
         </div>

@@ -1,27 +1,10 @@
 import React from "react";
 import content from "../../../../data/home-page/home-page.json";
 import HeadingSectionDetail from "@/components/common/heading";
-
 import CardBlueBoxSection from "@/components/common/card-with-blue";
 import CardWithImageSection from "@/components/common/card-with-image";
 
-type CareersProps = {
-  careersData: {
-    services: {
-      id: number;
-      title: string;
-      description: string;
-      imgSrc: string;
-      alignRight?: boolean; // alternate layout
-      reverse?: boolean;
-      alignLeft: boolean;
-      sectionName: string;
-      shadow: boolean;
-    }[];
-  };
-};
-
-const CareersSection: React.FC<CareersProps> = ({ careersData }) => {
+const CareersSection: React.FC = ({}) => {
   return (
     <article>
       <div className="relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[60vw] z-0 after:-z-10">
@@ -34,7 +17,10 @@ const CareersSection: React.FC<CareersProps> = ({ careersData }) => {
                 headingData={content.home.careersSection}
               />
             </div>
-            <CardBlueBoxSection cardData={content.home.careersSection} />
+            <CardBlueBoxSection
+              mainClassNames="py-4 sm:py-0 px-4 sm:px-30 gap-y-4 sm:gap-y-12"
+              cardData={content.home.careersSection}
+            />
           </div>
         </div>
       </div>
