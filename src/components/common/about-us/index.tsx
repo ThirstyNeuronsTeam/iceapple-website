@@ -3,24 +3,31 @@ import React from "react";
 import Image from "next/image";
 import { useDeviceType } from "../../../../hooks/useDeviceType";
 import HeadingSectionDetail from "@/components/common/heading";
-import content from "../../../../data/home-page/home-page.json";
 import Wrapper from "@/components/common/wrapper";
 
 type AboutUsProps = {
-  aboutUsData: {
-    aboutImageOne: string;
-    aboutImageTwo: string;
-    subHeading: string;
-    heading: string;
-    contents: string[];
-    ourValues: {
-      title: string;
-      listItem: string[];
-    }[];
-  };
+  aboutImageOne: string;
+  aboutImageTwo: string;
+  subHeading: string;
+  heading: string;
+  contents: string[];
+  ourValues: OurValues[];
+  contentClassName: string;
+};
+type OurValues = {
+  title: string;
+  listItem: string[];
 };
 
-const AboutUs: React.FC<AboutUsProps> = ({ aboutUsData }) => {
+const AboutUs: React.FC<AboutUsProps> = ({
+  aboutImageOne,
+  aboutImageTwo,
+  subHeading,
+  heading,
+  contents,
+  ourValues,
+  contentClassName,
+}) => {
   const deviceType = useDeviceType();
 
   return (
@@ -29,7 +36,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ aboutUsData }) => {
         <div className="relative col-span-2 px-5 sm:px-40">
           <div className="relative aspect-[5/4] w-48 sm:w-full max-w-lg shadow-[0_6px_20px_rgba(0,0,0,40%)] sm:shadow-[0_42px_173px_rgba(0,0,0,70%)] overflow-hidden z-10">
             <Image
-              src={aboutUsData.aboutImageTwo}
+              src={aboutImageTwo}
               alt="Tech Lens"
               fill
               className="object-cover"
@@ -37,14 +44,14 @@ const AboutUs: React.FC<AboutUsProps> = ({ aboutUsData }) => {
           </div>
           <div className="shadow-[0_6px_20px_rgba(0,0,0,40%)] sm:shadow-none absolute bottom-[55%] sm:bottom-[5%] right-5 sm:right-[2%] aspect-[5/4] w-48 sm:w-full max-w-lg overflow-hidden z-20">
             <Image
-              src={aboutUsData.aboutImageOne}
+              src={aboutImageOne}
               alt="AI Face"
               fill
               className="object-cover"
             />
           </div>
           {deviceType === "desktop"
-            ? aboutUsData.ourValues.map((item, index) => (
+            ? ourValues?.map((item, index) => (
                 <div
                   key={index}
                   className="w-md sm:absolute -bottom-[25%] left-[5%] right-0 z-0 bg-white p-10 sm:pt-200"
@@ -61,12 +68,14 @@ const AboutUs: React.FC<AboutUsProps> = ({ aboutUsData }) => {
         </div>
         <div className="z-30 col-span-2 sm:col-span-1 px-5 sm:px-0">
           <HeadingSectionDetail
-            contentClassName="pl-16"
-            headingData={content.home.aboutUs}
+            contentClassName={contentClassName}
+            subHeading={subHeading}
+            heading={heading}
+            contents={contents}
           />
         </div>
         {deviceType === "mobile"
-          ? aboutUsData.ourValues.map((item, index) => (
+          ? ourValues?.map((item, index) => (
               <div
                 className="bg-white p-5 text-right w-max self-end"
                 key={index}

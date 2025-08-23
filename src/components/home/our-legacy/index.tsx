@@ -1,10 +1,13 @@
 "use client";
 import React from "react";
-import content from "../../../../data/home-page/home-page.json";
 import HeadingSectionDetail from "@/components/common/heading";
 import { useDeviceType } from "../../../../hooks/useDeviceType";
 
 type LegacyProps = {
+  subHeading: string;
+  heading: string;
+  contents: string[];
+  contentClassName: string;
   legacyData: {
     timeLine: {
       id: number;
@@ -23,7 +26,13 @@ interface CustomCSSProperties extends React.CSSProperties {
   "--triangle-color"?: string;
 }
 
-const OurLegacySection: React.FC<LegacyProps> = ({ legacyData }) => {
+const OurLegacySection: React.FC<LegacyProps> = ({
+  legacyData,
+  subHeading,
+  heading,
+  contents,
+  contentClassName,
+}) => {
   const deviceType = useDeviceType();
 
   return (
@@ -32,7 +41,10 @@ const OurLegacySection: React.FC<LegacyProps> = ({ legacyData }) => {
         <div className="relative sm:pl-40 pt-0 sm:pt-20 sm:pb-15 max-w-xl text-left">
           <HeadingSectionDetail
             align="left"
-            headingData={content.home.ourLegacySection}
+            contentClassName={contentClassName}
+            subHeading={subHeading}
+            heading={heading}
+            contents={contents}
           />
         </div>
       </div>

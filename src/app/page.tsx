@@ -1,6 +1,6 @@
 import CareersSection from "@/components/home/careers";
 import content from "../../data/home-page/home-page.json";
-import AboutUsSection from "@/components/home/about-us";
+import AboutUsSection from "@/components/common/about-us";
 import HeroSection from "@/components/common/hero-section";
 import OurLegacySection from "@/components/home/our-legacy";
 import OurServicesSection from "@/components/home/our-services";
@@ -12,11 +12,21 @@ const Home: React.FC = () => {
   return (
     <section>
       <HeroSection {...content.home.heroSection} />
-      <AboutUsSection aboutUsData={content.home.aboutUs} />
-      <OurServicesSection servicesData={content.home.ourServicesSection} />
-      <OurLegacySection legacyData={content.home.ourLegacySection} />
-      <CareersSection />
+      <AboutUsSection contentClassName="pl-16" {...content.home.aboutUs} />
+      <OurServicesSection
+        contentClassName=""
+        {...content.home.ourServicesSection}
+        servicesData={content.home.ourServicesSection}
+      />
+      <OurLegacySection
+        contentClassName=""
+        {...content.home.ourLegacySection}
+        legacyData={content.home.ourLegacySection}
+      />
+      <CareersSection contentClassName="" {...content.home.careersSection} />
       <OurSuccessStoriesSection
+        contentClassName=""
+        {...content.home.ourSuccessStoriesSection}
         successStoriesData={content.home.ourSuccessStoriesSection}
       />
       <OurEnquiryFormSection />

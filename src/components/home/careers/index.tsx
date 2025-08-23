@@ -4,7 +4,19 @@ import HeadingSectionDetail from "@/components/common/heading";
 import CardBlueBoxSection from "@/components/common/card-with-blue";
 import CardWithImageSection from "@/components/common/card-with-image";
 
-const CareersSection: React.FC = ({}) => {
+type careerProps = {
+  subHeading: string;
+  heading: string;
+  contents: string[];
+  contentClassName: string;
+};
+
+const CareersSection: React.FC<careerProps> = ({
+  subHeading,
+  heading,
+  contents,
+  contentClassName,
+}) => {
   return (
     <article>
       <div className="relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[60vw] z-0 after:-z-10">
@@ -14,7 +26,10 @@ const CareersSection: React.FC = ({}) => {
               <HeadingSectionDetail
                 align="right"
                 headingWidth="xl"
-                headingData={content.home.careersSection}
+                contentClassName={contentClassName}
+                subHeading={subHeading}
+                heading={heading}
+                contents={contents}
               />
             </div>
             <CardBlueBoxSection

@@ -1,9 +1,12 @@
 import React from "react";
-import content from "../../../../data/home-page/home-page.json";
 import HeadingSectionDetail from "@/components/common/heading";
 import Image from "next/image";
 
 type ServicesProps = {
+  subHeading: string;
+  heading: string;
+  contents: string[];
+  contentClassName: string;
   servicesData: {
     services: {
       id: number;
@@ -19,7 +22,13 @@ type ServicesProps = {
   };
 };
 
-const OurServicesSection: React.FC<ServicesProps> = ({ servicesData }) => {
+const OurServicesSection: React.FC<ServicesProps> = ({
+  servicesData,
+  subHeading,
+  heading,
+  contents,
+  contentClassName,
+}) => {
   return (
     <article className="relative before:hidden sm:before:block sm:before:content-[''] before:absolute before:top-[38%] before:h-[1000px] before:right-0 before:bg-[#F3F3F3] before:w-[49vw] after:content-[''] after:absolute after:top-0 after:h-[250px] sm:after:h-[350px] after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] z-0 after:-z-10">
       <div className="w-full mx-auto px-5 2xl:px-0 container">
@@ -27,7 +36,10 @@ const OurServicesSection: React.FC<ServicesProps> = ({ servicesData }) => {
           <HeadingSectionDetail
             align="smRight"
             headingWidth="xl"
-            headingData={content.home.ourServicesSection}
+            contentClassName={contentClassName}
+            subHeading={subHeading}
+            heading={heading}
+            contents={contents}
           />
         </div>
       </div>

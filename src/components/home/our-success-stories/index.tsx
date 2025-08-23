@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import content from "../../../../data/home-page/home-page.json";
 import HeadingSectionDetail from "@/components/common/heading";
 import {
   Carousel,
@@ -13,6 +12,10 @@ import Image from "next/image";
 import CardBlueBoxSection from "@/components/common/card-with-blue";
 
 type LegacyProps = {
+  subHeading: string;
+  heading: string;
+  contents: string[];
+  contentClassName: string;
   successStoriesData: {
     sliders: {
       id: number;
@@ -27,6 +30,10 @@ type LegacyProps = {
 
 const OurSuccessStoriesSection: React.FC<LegacyProps> = ({
   successStoriesData,
+  subHeading,
+  heading,
+  contents,
+  contentClassName,
 }) => {
   return (
     <article className="relative">
@@ -35,7 +42,10 @@ const OurSuccessStoriesSection: React.FC<LegacyProps> = ({
           <div className="relative pt-0 sm:pt-20 sm:pb-15 max-w-xl text-left">
             <HeadingSectionDetail
               align="left"
-              headingData={content.home.ourSuccessStoriesSection}
+              contentClassName={contentClassName}
+              subHeading={subHeading}
+              heading={heading}
+              contents={contents}
             />
           </div>
           <Carousel className="[&_[data-slot=carousel-item]]:relative">
