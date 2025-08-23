@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useDeviceType } from "../../../../hooks/useDeviceType";
 import HeadingSectionDetail from "@/components/common/heading";
 import content from "../../../../data/home-page/home-page.json";
+import Wrapper from "@/components/common/wrapper";
 
 type AboutUsProps = {
   aboutUsData: {
@@ -24,7 +25,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ aboutUsData }) => {
 
   return (
     <article className="relative before:hidden sm:before:block sm:before:content-[''] before:absolute before:-top-40 before:h-[500px] before:left-0 before:bg-[#ffffff] before:w-[49vw] after:content-[''] after:absolute after:bottom-0 sm:after:bottom-0 after:h-[248px] sm:after:h-[600px] after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] after:-z-1 pt-20 pb-10 sm:pb-110 w-full">
-      <div className="container mx-auto flex flex-col sm:grid sm:grid-cols-1 lg:grid-cols-3 gap-y-4 sm:gap-16">
+      <Wrapper className="mx-auto flex flex-col sm:grid sm:grid-cols-1 lg:grid-cols-3 gap-y-4 sm:gap-16">
         <div className="relative col-span-2 px-5 sm:px-40">
           <div className="relative aspect-[5/4] w-48 sm:w-full max-w-lg shadow-[0_6px_20px_rgba(0,0,0,40%)] sm:shadow-[0_42px_173px_rgba(0,0,0,70%)] overflow-hidden z-10">
             <Image
@@ -81,7 +82,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ aboutUsData }) => {
               </div>
             ))
           : ""}
-      </div>
+      </Wrapper>
     </article>
   );
 };

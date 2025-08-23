@@ -1,0 +1,272 @@
+{
+  "about": {
+    "heroSection": {
+      "id": 1,
+      "title": [
+        "Ignite Business",
+        "Brilliance With",
+        "Futuristic Digital",
+        "Solutions"
+      ],
+      "content": "Empower The Needs Of Today And Opportunities Of Tomorrow",
+      "btntext": "Default Button",
+      "btnurl": "/",
+      "url": "/assets/general/about-us/aboutus_main.png",
+      "isBtnShow": false
+    },
+    "aboutUs": {
+      "aboutImageOne": "/assets/general/home-page/about-image-1.jpg",
+      "aboutImageTwo": "/assets/general/home-page/about-image-2.jpg",
+      "subHeading": "A brief overview of ‘About us’",
+      "heading": "Driven by the desire to drive innovation.",
+      "contents": [
+        "We are a dynamic technology company providing innovative and cost-effective solutions for businesses across industries. Our passionate team of engineers, with expertise in Automotive, Industrial, and Gaming domains, focuses on developing deep technology products and delivering niche software development services.",
+        "With a vision to build a world-class technology services and product development company, IceApple leverages cutting-edge technologies like Artificial Intelligence, Machine Learning, web, cloud, IoT, mobile app development, and embedded software."
+      ],
+      "ourValues": [
+        {
+          "title": "Our Values",
+          "listItem": [
+            "Partnerships and Collaboration",
+            "Empowering Innovation",
+            "Long-lasting Relationships",
+            "Thriving Together",
+            "Inspiring Possibilities"
+          ]
+        }
+      ]
+    },
+    "ourServicesSection": {
+      "subHeading": "Our Services",
+      "heading": "Building for the future",
+      "contents": [],
+      "services": [
+        {
+          "id": 1,
+          "title": "Data Science Services",
+          "description": "Tap the untapped potential of data with IceApple's futuristic data science solutions. Partner with us and leverage vast data sets for actionable insights, improved customer experience, and optimized supply chain operations. Maximize your business value with data-driven decisions.",
+          "imgSrc": "/assets/general/home-page/data-science.webp",
+          "alignRight": true,
+          "alignLeft": false,
+          "sectionName": "one",
+          "shadow": true
+        },
+        {
+          "id": 2,
+          "title": "Application Services",
+          "description": "With specialization in creating stable, robust, and powerful custom apps our team of experts caters to unique business needs, With world-class technology and a powerful business orientation we deliver extravagant results for your organization. Take your organisation to new heights with our application solutions.",
+          "imgSrc": "/assets/general/home-page/application-services.webp",
+          "alignRight": false,
+          "alignLeft": true,
+          "sectionName": "two",
+          "shadow": true
+        },
+        {
+          "id": 3,
+          "title": "DevOps Services",
+          "description": "Looking to automatize, grow, and modernize your business faster? Discover the power of IceApple's DevOps Services. Our proprietary DevOps framework automates CI/CD pipelines and elevates your infrastructure automation, enabling faster growth and efficiency. Elevate your operations today.",
+          "imgSrc": "/assets/general/home-page/devops-services.webp",
+          "alignRight": true,
+          "alignLeft": false,
+          "sectionName": "three",
+          "shadow": true
+        }
+      ]
+    },
+    "ourLegacySection": {
+      "subHeading": "Our Legacy",
+      "heading": "What we've built so far",
+      "contents": [],
+      "timeLine": [
+        {
+          "id": 1,
+          "year": "2015",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+          "bgColor": "#0B68FF",
+          "align": "right",
+          "aboveZIndex": "1",
+          "zIndex": "",
+          "alignMiddle": "center"
+        },
+        {
+          "id": 2,
+          "year": "2017",
+          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.",
+          "bgColor": "#63A7FF",
+          "align": "left",
+          "aboveZIndex": "",
+          "zIndex": "-1",
+          "alignMiddle": "end"
+        },
+        {
+          "id": 3,
+          "year": "2019",
+          "description": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit.",
+          "bgColor": "#94C2FF",
+          "align": "right",
+          "aboveZIndex": "",
+          "zIndex": "-2",
+          "alignMiddle": "end"
+        },
+        {
+          "id": 4,
+          "year": "2021",
+          "description": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil.",
+          "bgColor": "#0B68FF",
+          "align": "left",
+          "aboveZIndex": "",
+          "zIndex": "-3",
+          "alignMiddle": "end"
+        },
+        {
+          "id": 5,
+          "year": "2023",
+          "description": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.",
+          "bgColor": "#63A7FF",
+          "align": "right",
+          "aboveZIndex": "",
+          "zIndex": "-4",
+          "alignMiddle": "end"
+        }
+      ]
+    },
+    "careersSection": {
+      "subHeading": "Careers",
+      "heading": "Embrace The Enlightenment Of Working With Us",
+      "contents": [],
+      "cardTitle": "",
+      "cardDescription": " Seize the opportunity to sculpt a rewarding career and shape your future with us",
+      "btnText": "Join us",
+      "btnUrl": "",
+      "info": [
+        {
+          "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+          "cardTitle": "Boundless Possibilities",
+          "cardBoxDescription": "We empower our people to discover a work-life balance and find diversity at the workplace. At IceApple, we don't just grow careers—we ignite industry impact by pushing boundaries and embracing challenges."
+        },
+        {
+          "cardImage": "/assets/general/home-page/win-together.webp",
+          "cardTitle": "Win Together",
+          "cardBoxDescription": "We thrive to lead with shared goals and foster a culture of collaboration to harness the power of synergy for remarkable outcomes."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "How We Act",
+          "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
+        }
+      ]
+    },
+    "ourSuccessStoriesSection": {
+      "subHeading": "Uncovering Our Success Stories",
+      "heading": "Trusted Solution for Many",
+      "contents": [
+        "Turning ideas into realities, empowering clients with innovative solutions"
+      ],
+      "sliders": [
+        {
+          "id": 1,
+          "image": "/assets/general/home-page/slider.webp",
+          "cardTitle": "Journey of Transformation with CRVS",
+          "cardDescription": "We partnered with an African startup that revolutionized its Civil Registration and Vital Statistics system with NodeJS and Mongo DB to overcome challenges such as remote redeployment and complex requirements.",
+          "btnText": "Know More",
+          "btnUrl": "/"
+        }
+      ]
+    },
+    "enquiryFormSection": {
+      "subHeading": "",
+      "heading": "",
+      "contents": [],
+      "cardTitle": "We would love to hear from you",
+      "cardDescription": "Please fill out the form below and our team will get in touch with you shortly.",
+      "btnText": "",
+      "btnUrl": "",
+      "info": [
+        {
+          "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+          "cardTitle": "Boundless Possibilities",
+          "cardBoxDescription": "We empower our people to discover a work-life balance and find diversity at the workplace. At IceApple, we don't just grow careers—we ignite industry impact by pushing boundaries and embracing challenges."
+        },
+        {
+          "cardImage": "/assets/general/home-page/win-together.webp",
+          "cardTitle": "Win Together",
+          "cardBoxDescription": "We thrive to lead with shared goals and foster a culture of collaboration to harness the power of synergy for remarkable outcomes."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "How We Act",
+          "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
+        }
+      ]
+    },
+    "footer": {
+      "address": "Door No 11-13, Sivaji Colony, Edayarpalayam Coimbatore TN 641025 India",
+      "menuItems": [
+        {
+          "id": 1,
+          "menuName": "Home",
+          "menuUrl": "/"
+        },
+        {
+          "id": 2,
+          "menuName": "About Us",
+          "menuUrl": "/about-us"
+        },
+        {
+          "id": 3,
+          "menuName": "Industries",
+          "menuUrl": "/industries"
+        },
+        {
+          "id": 4,
+          "menuName": "Blog",
+          "menuUrl": "/blog"
+        },
+        {
+          "id": 5,
+          "menuName": "Case Studies",
+          "menuUrl": "/case-studies"
+        },
+        {
+          "id": 6,
+          "menuName": "Careers",
+          "menuUrl": "/careers"
+        },
+        {
+          "id": 7,
+          "menuName": "Contact Us",
+          "menuUrl": "/contact-us"
+        }
+      ],
+      "menuTitle": "Services",
+      "menuItemsTwo": [
+        {
+          "id": 2,
+          "menuName": "Apps",
+          "menuUrl": "/apps"
+        },
+        {
+          "id": 3,
+          "menuName": "Data Science",
+          "menuUrl": "/data-science"
+        },
+        {
+          "id": 4,
+          "menuName": "DevOps",
+          "menuUrl": "/devops"
+        }
+      ],
+      "companyInfo": [
+        {
+          "menuName": "sales@iceapple.tech",
+          "menuUrl": "mailto:sales@iceapple.tech"
+        },
+        {
+          "menuName": "+91-9176745461",
+          "menuUrl": "tel:+91-9176745461"
+        }
+      ],
+      "copyRight": "© Copyright IceApple Technology Solutions. All Rights Reserved"
+    }
+  }
+}

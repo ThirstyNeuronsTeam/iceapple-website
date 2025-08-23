@@ -1,22 +1,13 @@
-import React from 'react';
-import aboutus_main from "@/assets/aboutus_main.png"
-import TopContent from '@/components/top-content';
-
-// /Users/senthilkumaranchinnathambi/Desktop/Desktop/work/collections/icepple-collection/iceapple-website/src/app/page.tsx
+import React from "react";
+import content from "../../../data/about-us-page/about-us-page.json";
+import HeroSection from "@/components/common/hero-section";
 
 const AboutUs: React.FC = () => {
   return (
-
-    <main className='-mt-25'>
-      <TopContent imageSrc={aboutus_main}>
-        <p>Ignite Business<br></br> Brilliance With <br></br>Futuristic Digital <br></br>Solutions</p>
-        <>Empower The Needs Of Today And Opportunities Of Tomorrow</>
-      </TopContent>
-
-    </main>
-
+    <section>
+      <HeroSection mainClassName="items-end" {...content.about.heroSection} />
+    </section>
   );
 };
 
 export default AboutUs;
-
