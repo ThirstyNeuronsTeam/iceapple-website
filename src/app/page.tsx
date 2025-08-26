@@ -12,7 +12,7 @@ const Home: React.FC = () => {
   return (
     <section>
       <HeroSection {...content.home.heroSection} />
-      <AboutUsSection contentClassName="pl-16" {...content.home.aboutUs} />
+      <AboutUsSection contentClassName="sm:pl-16" {...content.home.aboutUs} />
       <OurServicesSection
         contentClassName=""
         {...content.home.ourServicesSection}

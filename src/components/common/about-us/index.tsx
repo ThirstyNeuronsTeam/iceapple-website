@@ -57,11 +57,19 @@ const AboutUs: React.FC<AboutUsProps> = ({
                   className="w-md sm:absolute -bottom-[25%] left-[5%] right-0 z-0 bg-white p-10 sm:pt-200"
                 >
                   <h3 className="text-3xl font-bold mb-6">{item.title}</h3>
-                  <ul className="grid grid-cols-1 gap-y-4 text-gray-700 text-lg list-disc pl-6 font-inter">
-                    {item.listItem.map((list, index) => (
-                      <li key={index}>{list}</li>
-                    ))}
-                  </ul>
+                  {item.listItem.length > 1 ? (
+                    <ul className="grid grid-cols-1 gap-y-4 text-gray-700 text-lg list-disc pl-6 font-inter">
+                      {item.listItem.map((list, index) => (
+                        <li key={index}>{list}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="text-lg tracking-[1px]">
+                      {item.listItem.map((list, index) => (
+                        <p key={index}>{list}</p>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))
             : ""}
@@ -77,17 +85,27 @@ const AboutUs: React.FC<AboutUsProps> = ({
         {deviceType === "mobile"
           ? ourValues?.map((item, index) => (
               <div
-                className="bg-white p-5 text-right w-max self-end"
+                className={`${
+                  item.listItem.length > 1 ? "" : " w-max"
+                } bg-white p-5 text-right self-end`}
                 key={index}
               >
                 <h3 className="text-lg sm:text-3xl font-bold mb-2 sm:mb-6">
                   {item.title}
                 </h3>
-                <ul className="flex flex-col items-end gap-y-2 text-gray-700 text-sm sm:text-lg list-disc pl-6 font-inter">
-                  {item.listItem.map((list, index) => (
-                    <li key={index}>{list}</li>
-                  ))}
-                </ul>
+                {item.listItem.length > 1 ? (
+                  <ul className="flex flex-col items-end gap-y-2 text-gray-700 text-sm sm:text-lg list-disc pl-6 font-inter">
+                    {item.listItem.map((list, index) => (
+                      <li key={index}>{list}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="text-sm sm:text-lg tracking-[1px]">
+                    {item.listItem.map((list, index) => (
+                      <p key={index}>{list}</p>
+                    ))}
+                  </div>
+                )}
               </div>
             ))
           : ""}

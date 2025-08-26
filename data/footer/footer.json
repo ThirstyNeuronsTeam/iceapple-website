@@ -1,0 +1,71 @@
+{
+  "footer": {
+    "address": "Door No 11-13, Sivaji Colony, Edayarpalayam Coimbatore TN 641025 India",
+    "menuItems": [
+      {
+        "id": 1,
+        "menuName": "Home",
+        "menuUrl": "/"
+      },
+      {
+        "id": 2,
+        "menuName": "About Us",
+        "menuUrl": "/about-us"
+      },
+      {
+        "id": 3,
+        "menuName": "Industries",
+        "menuUrl": "/industries"
+      },
+      {
+        "id": 4,
+        "menuName": "Blog",
+        "menuUrl": "/blog"
+      },
+      {
+        "id": 5,
+        "menuName": "Case Studies",
+        "menuUrl": "/case-studies"
+      },
+      {
+        "id": 6,
+        "menuName": "Careers",
+        "menuUrl": "/careers"
+      },
+      {
+        "id": 7,
+        "menuName": "Contact Us",
+        "menuUrl": "/contact-us"
+      }
+    ],
+    "menuTitle": "Services",
+    "menuItemsTwo": [
+      {
+        "id": 2,
+        "menuName": "Apps",
+        "menuUrl": "/apps"
+      },
+      {
+        "id": 3,
+        "menuName": "Data Science",
+        "menuUrl": "/data-science"
+      },
+      {
+        "id": 4,
+        "menuName": "DevOps",
+        "menuUrl": "/devops"
+      }
+    ],
+    "companyInfo": [
+      {
+        "menuName": "sales@iceapple.tech",
+        "menuUrl": "mailto:sales@iceapple.tech"
+      },
+      {
+        "menuName": "+91-9176745461",
+        "menuUrl": "tel:+91-9176745461"
+      }
+    ],
+    "copyRight": "© Copyright IceApple Technology Solutions. All Rights Reserved"
+  }
+}

@@ -5,7 +5,7 @@ type HeadingProps = {
   subHeading: string;
   heading: string;
   contents?: string[];
-  align?: "left" | "center" | "right" | "smRight";
+  align?: "left" | "center" | "right" | "smRight" | "smRightXsLeft";
   headingWidth?: "w-full" | "xl";
 };
 const HeadingSectionDetail: React.FC<HeadingProps> = ({
@@ -21,6 +21,7 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
     center: "text-center",
     right: "justify-end",
     smRight: "sm:justify-end",
+    smRightXsLeft: "sm:justify-end justify-start",
   }[align];
 
   const headingWidthClass = {
