@@ -25,7 +25,7 @@ const WhatWeDoSection: React.FC<whatWeDoProps> = ({
 
   return (
     <article>
-      <div className="relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:left-0 after:bg-[#F3F3F3] pb-30 after:w-full z-0 after:-z-10">
+      <div className="relative after:content-[''] after:absolute after:top-0 sm:after:bottom-0 after:bottom-[70%] after:left-0 after:bg-[#F3F3F3] pb-30 after:w-full z-0 after:-z-10">
         <div className="w-full mx-auto px-5 2xl:px-0 container relative">
           <div className="relative pt-5 sm:pt-20 pb-5 pl-0 sm:pl-30 max-w-4xl text-left sm:text-right z-10">
             <HeadingSectionDetail
@@ -43,7 +43,7 @@ const WhatWeDoSection: React.FC<whatWeDoProps> = ({
             </div>
 
             <div className="relative sm:absolute right-0 top-0 z-10 w-full sm:w-1/4 order-1 sm:order-2 pb-20 sm:pb-0">
-              <div className="relative aspect-3/2 sm:aspect-square w-[60%] sm:w-auto">
+              <div className="relative aspect-3/2 sm:aspect-square w-[50%] sm:w-auto">
                 <Image src={imageTwo} fill alt="" />
               </div>
               {deviceType === "mobile" ? (

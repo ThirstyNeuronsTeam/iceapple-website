@@ -86,7 +86,7 @@ const AboutUs: React.FC<AboutUsProps> = ({
           ? ourValues?.map((item, index) => (
               <div
                 className={`${
-                  item.listItem.length > 1 ? "" : " w-max"
+                  item.listItem.length > 1 ? "w-max" : "w-3/4"
                 } bg-white p-5 text-right self-end`}
                 key={index}
               >
@@ -100,7 +100,7 @@ const AboutUs: React.FC<AboutUsProps> = ({
                     ))}
                   </ul>
                 ) : (
-                  <div className="text-sm sm:text-lg tracking-[1px]">
+                  <div className="text-sm sm:text-lg tracking-[1px] font-inter font-light leading-7">
                     {item.listItem.map((list, index) => (
                       <p key={index}>{list}</p>
                     ))}
