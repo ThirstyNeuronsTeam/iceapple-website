@@ -38,6 +38,49 @@
       "content": "Our exceptional software development expertise is everything from front-end development to back-end integration along with quality assurance and consultation. We as tech pioneers handle every phase of the software development lifecycle with utmost precision. Our agile software development approach includes five steps - Strategy, design, development, testing, and support. We follow never-ending research about trending development strategies to get maximum results for clients in every project in order to achieve business goals effectively & efficiently.",
       "imageOne": "/assets/general/about-us/what-we-do-1.png",
       "imageTwo": "/assets/general/about-us/what-we-do-2.jpg"
+    },
+    "ourTeam": {
+      "subHeading": "Our Team:",
+      "heading": "Introducing the Powerhouse Tech Squad",
+      "contents": [
+        "Our team’s “can do” attitude help you expand and scale your project rapidly. Hire talent and get premium results."
+      ],
+      "sectionBg": "/assets/general/about-us/team-bg.png",
+      "teamOne": {
+        "name": "Senthil",
+        "description": "A thought-provoking leader who carries 17+ years of experience in building Web-Applications.",
+        "image": "/assets/general/about-us/team-1.png"
+      },
+      "teamTwo": {
+        "name": "Arjun",
+        "description": "A hands-on individual, he comes with 17 years in building embedded systems solutions for varied domains.",
+        "image": "/assets/general/about-us/team-2.png"
+      },
+      "teamThree": {
+        "name": "Soundar",
+        "description": "Our AWS Dev-Ops & certified architect with 10+ years of experience in building Web Apps.",
+        "image": "/assets/general/about-us/team-3.png"
+      },
+      "teamFour": {
+        "name": "Sai",
+        "description": "An experienced software developer with 17+ Yrs. Exp in building Embedded systems & AIML solutions. He holds a PG in AI & ML a certified SAFe expert.",
+        "image": "/assets/general/about-us/team-4.png"
+      },
+      "teamFive": {
+        "name": "Saran",
+        "description": "One of our responsible leaders with 10+ Years of experience in building AI solutions, and web Applications for varied sectors.",
+        "image": "/assets/general/about-us/team-5.png"
+      },
+      "teamSix": {
+        "name": "Ramesh",
+        "description": "An exceptional Azure Dev Ops and AWS-certified Architect with more than 17 years of experience in developing Web Apps.",
+        "image": "/assets/general/about-us/team-6.png"
+      },
+      "teamSeven": {
+        "name": "Nagi",
+        "description": "Plays a key role in building Web UI and Mobile Apps and holds 10+ years of experience. He is also an expert in Vue.js, Angular, and React technologies.",
+        "image": "/assets/general/about-us/team-7.png"
+      }
     }
   }
 }

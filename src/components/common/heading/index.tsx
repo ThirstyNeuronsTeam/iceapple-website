@@ -18,7 +18,7 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
 }) => {
   const alignmentClass = {
     left: "text-left",
-    center: "text-center",
+    center: "text-center justify-center",
     right: "justify-end",
     smRight: "sm:justify-end",
     smRightXsLeft: "sm:justify-end justify-start",

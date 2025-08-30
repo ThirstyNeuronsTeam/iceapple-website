@@ -25,7 +25,7 @@ const WhatWeDoSection: React.FC<whatWeDoProps> = ({
 
   return (
     <article>
-      <div className="relative after:content-[''] after:absolute after:top-0 sm:after:bottom-0 after:bottom-[70%] after:left-0 after:bg-[#F3F3F3] pb-30 after:w-full z-0 after:-z-10">
+      <div className="relative after:content-[''] after:absolute after:top-0 sm:after:bottom-0 after:bottom-[70%] after:left-0 after:bg-[#F3F3F3] pb-15 sm:pb-30 after:w-full z-0 after:-z-10">
         <div className="w-full mx-auto px-5 2xl:px-0 container relative">
           <div className="relative pt-5 sm:pt-20 pb-5 pl-0 sm:pl-30 max-w-4xl text-left sm:text-right z-10">
             <HeadingSectionDetail
