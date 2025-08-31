@@ -81,6 +81,16 @@
         "description": "Plays a key role in building Web UI and Mobile Apps and holds 10+ years of experience. He is also an expert in Vue.js, Angular, and React technologies.",
         "image": "/assets/general/about-us/team-7.png"
       }
+    },
+    "careersSection": {
+      "subHeading": "Our History",
+      "heading": "Tracing Our Remarkable Legacy",
+      "contents": [],
+      "cardTitle": "",
+      "cardDescription": "IceApple started with the sole thought of offering premium software & web development services. It all started in 2020 when seven visionary individuals ignited the spark for a shared passion of innovation. From the beginning, we witnessed many challenges and were guided by our core values of creativity, and integrity by placing our customers first. Regardless of all the uncertainties, we are focused & determined to build something exceptional. As time passed, we grew stronger together and embraced new opportunities to upgrade our products and services, in order to reach the evolving needs of the clients. Today, we access organizations with top software developers and put out second-to-none solutions to develop performance while improving cost efficiency.",
+      "btnText": "",
+      "btnUrl": "",
+      "info": []
     }
   }
 }

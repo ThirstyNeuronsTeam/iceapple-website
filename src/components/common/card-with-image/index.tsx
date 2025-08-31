@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 type CardProps = {
-  cardData: {
+  cardWithImageData: {
     info: {
       cardImage: string;
       cardTitle: string;
@@ -10,11 +10,11 @@ type CardProps = {
     }[];
   };
 };
-const CardWithImageSection: React.FC<CardProps> = ({ cardData }) => {
+const CardWithImageSection: React.FC<CardProps> = ({ cardWithImageData }) => {
   return (
     <>
-      {cardData.info
-        ? cardData.info?.map((item, index) => (
+      {cardWithImageData.info
+        ? cardWithImageData.info?.map((item, index) => (
             <div
               key={index}
               className="flex flex-col justify-center items-start shadow-[8px_3px_42px_rgba(0,0,0,30%)] sm:shadow-[38px_47px_212px_rgba(0,0,0,30%)]"

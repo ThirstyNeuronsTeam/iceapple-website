@@ -23,7 +23,11 @@ const Home: React.FC = () => {
         {...content.home.ourLegacySection}
         legacyData={content.home.ourLegacySection}
       />
-      <CareersSection contentClassName="" {...content.home.careersSection} />
+      <CareersSection
+        sectionClass=""
+        contentClassName=""
+        {...content.home.careersSection}
+      />
       <OurSuccessStoriesSection
         contentClassName=""
         {...content.home.ourSuccessStoriesSection}

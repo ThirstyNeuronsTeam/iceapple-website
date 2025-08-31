@@ -4,6 +4,7 @@ import HeroSection from "@/components/common/hero-section";
 import AboutUsSection from "@/components/common/about-us";
 import WhatWeDoSection from "@/components/about-us/what-we-do";
 import OurTeamSection from "@/components/about-us/our-team";
+import OurHistorySection from "@/components/about-us/our-history";
 
 const AboutUs: React.FC = () => {
   return (
@@ -12,6 +13,11 @@ const AboutUs: React.FC = () => {
       <AboutUsSection contentClassName="sm:pl-16" {...content.about.aboutUs} />
       <WhatWeDoSection contentClassName="" {...content.about.whatWeDo} />
       <OurTeamSection contentClassName="" {...content.about.ourTeam} />
+      <OurHistorySection
+        sectionClass=""
+        contentClassName=""
+        {...content.about.careersSection}
+      />
     </section>
   );
 };

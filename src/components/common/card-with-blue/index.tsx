@@ -25,7 +25,7 @@ const CardBlueBoxSection: React.FC<CardProps> = ({
       <div
         className={clsx(
           mainClassNames,
-          "bg-[#0B68FF] max-w-lg flex flex-col justify-center text-white shadow-[6px_6px_16px_rgba(0,0,0,25%)] sm:shadow-[22px_27px_60px_rgba(0,0,0,25%)]"
+          "bg-[#0B68FF] flex flex-col justify-center text-white shadow-[6px_6px_16px_rgba(0,0,0,25%)] sm:shadow-[22px_27px_60px_rgba(0,0,0,25%)]"
         )}
       >
         {cardData.cardTitle ? (

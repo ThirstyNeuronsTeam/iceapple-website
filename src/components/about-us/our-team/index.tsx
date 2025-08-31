@@ -11,43 +11,36 @@ type ourTeamProps = {
   contents: string[];
   sectionBg: string;
   teamOne: {
-    id: number;
     name: string;
     description: string;
     image: string;
   };
   teamTwo: {
-    id: number;
     name: string;
     description: string;
     image: string;
   };
   teamThree: {
-    id: number;
     name: string;
     description: string;
     image: string;
   };
   teamFour: {
-    id: number;
     name: string;
     description: string;
     image: string;
   };
   teamFive: {
-    id: number;
     name: string;
     description: string;
     image: string;
   };
   teamSix: {
-    id: number;
     name: string;
     description: string;
     image: string;
   };
   teamSeven: {
-    id: number;
     name: string;
     description: string;
     image: string;
