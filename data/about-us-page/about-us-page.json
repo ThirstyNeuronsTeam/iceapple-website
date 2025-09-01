@@ -91,6 +91,66 @@
       "btnText": "",
       "btnUrl": "",
       "info": []
+    },
+    "whyChooseUsSection": {
+      "subHeading": "Why Choose us",
+      "heading": "Experience the Extraordinary with our Revolutionary Approach",
+      "contents": [],
+      "sectionBg": "",
+      "info": [
+        {
+          "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+          "cardTitle": "Code Crafters",
+          "cardBoxDescription": "Our code wizards get work done within time and budget, with all the specifications."
+        },
+        {
+          "cardImage": "/assets/general/home-page/win-together.webp",
+          "cardTitle": "Dedicated & Passionate Minds",
+          "cardBoxDescription": "Every project is assigned to beautiful minds who possess unwavering dedication and passion for programming. Nothing can hinder their progress."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "High Quality Products",
+          "cardBoxDescription": "Prepare to get a flawless professional app, built with modern technology, without bugs, and fully optimized for years of seamless usage and development."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "Unlimited Scalability & Support",
+          "cardBoxDescription": "We work based on software development motives to deliver maximum value and return on investment while devising ingenious strategies."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "Industry Specific Experience",
+          "cardBoxDescription": "Our team of core software developers boasts more than 10+ experience in the market and is equipped with industry-specific knowledge to serve extraordinary app development solutions."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "Source Code & IP Ownership",
+          "cardBoxDescription": "Our bespoke software solutions needs no licensing fees after project completion. You gain complete ownership of the intellectual property and source code of the proprietary software."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "Client Champions",
+          "cardBoxDescription": "An astound 90% of our clients hired us again. They believe in getting what they need with zero hassle."
+        }
+      ]
+    },
+    "ourSuccessStoriesSection": {
+      "subHeading": "Uncovering Our Success Stories",
+      "heading": "Trusted Solution for Many",
+      "contents": [
+        "Turning ideas into realities, empowering clients with innovative solutions"
+      ],
+      "sliders": [
+        {
+          "id": 1,
+          "image": "/assets/general/home-page/slider.webp",
+          "cardTitle": "Journey of Transformation with CRVS",
+          "cardDescription": "We partnered with an African startup that revolutionized its Civil Registration and Vital Statistics system with NodeJS and Mongo DB to overcome challenges such as remote redeployment and complex requirements.",
+          "btnText": "Know More",
+          "btnUrl": "/"
+        }
+      ]
     }
   }
 }

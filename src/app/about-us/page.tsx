@@ -5,6 +5,9 @@ import AboutUsSection from "@/components/common/about-us";
 import WhatWeDoSection from "@/components/about-us/what-we-do";
 import OurTeamSection from "@/components/about-us/our-team";
 import OurHistorySection from "@/components/about-us/our-history";
+import WhyChooseUsSection from "@/components/about-us/why-choose-us";
+import OurSuccessStoriesSection from "@/components/home/our-success-stories";
+import OurEnquiryFormSection from "@/components/home/our-enquiry-form";
 
 const AboutUs: React.FC = () => {
   return (
@@ -18,6 +21,16 @@ const AboutUs: React.FC = () => {
         contentClassName=""
         {...content.about.careersSection}
       />
+      <WhyChooseUsSection
+        contentClassName=""
+        {...content.about.whyChooseUsSection}
+      />
+      <OurSuccessStoriesSection
+        contentClassName=""
+        {...content.about.ourSuccessStoriesSection}
+        successStoriesData={content.about.ourSuccessStoriesSection}
+      />
+      <OurEnquiryFormSection />
     </section>
   );
 };

@@ -68,7 +68,12 @@ const OurHistorySection: React.FC<careerProps> = ({
       {info && (
         <div className="w-full mx-auto px-5 2xl:px-0 container">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-20 my-25">
-            <CardWithImageSection cardWithImageData={{ info }} />
+            <CardWithImageSection
+              sectionClass=""
+              sectionContentClass=""
+              sectionBodyClass="px-4 sm:px-20 py-5 sm:py-12 "
+              cardWithImageData={{ info }}
+            />
           </div>
         </div>
       )}
