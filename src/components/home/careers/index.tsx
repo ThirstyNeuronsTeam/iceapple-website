@@ -1,5 +1,4 @@
 import React from "react";
-import content from "../../../../data/home-page/home-page.json";
 import HeadingSectionDetail from "@/components/common/heading";
 import CardBlueBoxSection from "@/components/common/card-with-blue";
 import CardWithImageSection from "@/components/common/card-with-image";

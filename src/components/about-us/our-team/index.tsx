@@ -2,7 +2,6 @@
 import React from "react";
 import HeadingSectionDetail from "@/components/common/heading";
 import Image from "next/image";
-import clsx from "clsx";
 
 type ourTeamProps = {
   subHeading: string;
