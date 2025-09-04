@@ -1,7 +1,6 @@
 import React from "react";
 import HeadingSectionDetail from "@/components/common/heading";
 import CardBlueBoxSection from "@/components/common/card-with-blue";
-import CardWithImageSection from "@/components/common/card-with-image";
 import clsx from "clsx";
 
 type careerProps = {
