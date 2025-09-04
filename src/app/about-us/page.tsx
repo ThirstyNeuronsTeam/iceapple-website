@@ -19,7 +19,7 @@ const AboutUs: React.FC = () => {
       <OurHistorySection
         sectionClass=""
         contentClassName=""
-        {...content.about.careersSection}
+        {...content.about.historySection}
       />
       <WhyChooseUsSection
         contentClassName=""

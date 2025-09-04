@@ -24,7 +24,7 @@ const WhyChooseUsSection: React.FC<whyChooseUsProps> = ({
 }) => {
   return (
     <article>
-      <div className="relative pb-50">
+      <div className="relative pb-20 sm:pb-50">
         <div className="w-full mx-auto px-5 2xl:px-0 container relative">
           <div className="relative pt-5 sm:pt-20 pb-5 mx-auto text-center z-10">
             <HeadingSectionDetail
@@ -35,10 +35,10 @@ const WhyChooseUsSection: React.FC<whyChooseUsProps> = ({
               contents={contents}
             />
           </div>
-          <div className="grid grid-cols-3 gap-20 place-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-20 place-items-center">
             <CardWithImageSection
               sectionClass="last:col-span-1 flex justify-center"
-              sectionContentClass="min-h-[180px]"
+              sectionContentClass="min-h-auto sm:min-h-[180px]"
               sectionBodyClass="px-4 sm:px-15 py-5 sm:py-12 bg-white"
               cardWithImageData={{ info }}
             />
