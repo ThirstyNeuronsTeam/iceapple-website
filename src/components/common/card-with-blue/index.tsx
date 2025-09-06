@@ -29,16 +29,14 @@ const CardBlueBoxSection: React.FC<CardProps> = ({
         )}
       >
         {cardData.cardTitle ? (
-          <h5 className={clsx(headingClassNames, "mb-5")}>
-            {cardData.cardTitle}
-          </h5>
+          <h5 className={clsx(headingClassNames)}>{cardData.cardTitle}</h5>
         ) : (
           ""
         )}
         <p
           className={clsx(
             discriptionClassNames,
-            "text-sm sm:text-lg leading-5 sm:leading-9 font-inter"
+            "text-sm sm:text-lg leading-5 sm:leading-9 font-inter hidden sm:block"
           )}
         >
           {cardData.cardDescription}

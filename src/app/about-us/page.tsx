@@ -12,7 +12,11 @@ import OurEnquiryFormSection from "@/components/home/our-enquiry-form";
 const AboutUs: React.FC = () => {
   return (
     <section>
-      <HeroSection mainClassName="items-end" {...content.about.heroSection} />
+      <HeroSection
+        sectionId="hero"
+        mainClassName="items-end"
+        {...content.about.heroSection}
+      />
       <AboutUsSection contentClassName="sm:pl-16" {...content.about.aboutUs} />
       <WhatWeDoSection contentClassName="" {...content.about.whatWeDo} />
       <OurTeamSection contentClassName="" {...content.about.ourTeam} />

@@ -58,7 +58,7 @@ const OurSuccessStoriesSection: React.FC<LegacyProps> = ({
                   <div className="absolute bottom-0 right-0">
                     <CardBlueBoxSection
                       mainClassNames="px-5 sm:px-20 py-10 max-w-xl bg-[rgba(11,104,255,0.92)]"
-                      headingClassNames="text-5xl"
+                      headingClassNames="text-5xl mb-5"
                       discriptionClassNames="mb-4"
                       cardData={{
                         cardTitle: item.cardTitle,

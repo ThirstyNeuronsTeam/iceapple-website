@@ -18,6 +18,7 @@ import content from "../../../../data/home-page/home-page.json";
 import CardBlueBoxSection from "@/components/common/card-with-blue";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import Image from "next/image";
 
 // Schema
 const formSchema = z.object({
@@ -44,13 +45,21 @@ const OurEnquiryFormSection: React.FC = ({}) => {
   const [isOther, setIsOther] = useState(false);
 
   return (
-    <article className="relative py-20 after:content-[''] after:absolute after:top-0 after:bottom-0 after:right-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] z-0 after:-z-10">
+    <article className="relative py-20 after:content-[''] after:absolute after:top-[10%] sm:after:top-0 after:bottom-0 after:right-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] z-0 after:-z-10">
+      <div className="absolute top-0 sm:top-[30%] sm:left-0 right-0 w-[55vw] sm:w-[25vw] h-[300px] sm:h-[600px]">
+        <Image
+          fill
+          src="/assets/general/services/enquiry-form-service.png"
+          alt=""
+          objectFit="cover"
+        />
+      </div>
       <div className="w-full mx-auto px-5 2xl:px-0 container">
         <div className="grid grid-cols-1 gap-6 sm:gap-0 sm:grid-cols-[40%_60%]">
-          <div className="relative sm:pb-15 max-w-xl text-left">
+          <div className="relative sm:pb-15 w-3/5 sm:w-auto sm:max-w-xl text-left mb-30 sm:mb-0">
             <CardBlueBoxSection
               mainClassNames="px-5 sm:px-20 py-10 max-w-xl bg-[rgba(11,104,255,0.92)]"
-              headingClassNames="font-bold text-xl sm:text-7xl"
+              headingClassNames="font-bold text-xl sm:text-7xl mb-0 sm:mb-5"
               discriptionClassNames="mb-4"
               cardData={content.home.enquiryFormSection}
             />

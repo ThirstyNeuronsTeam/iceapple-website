@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import clsx from "clsx";
@@ -19,6 +20,11 @@ const BannerSectionDetail: React.FC<HeroSectionProps> = ({
   btnurl,
   isBtnShow,
 }) => {
+  const handleScroll = () => {
+    const hero = document.getElementById("hero"); // Hero should always have an id
+    const afterHero = hero?.nextElementSibling as HTMLElement;
+    afterHero?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div
       className={clsx(
@@ -26,7 +32,7 @@ const BannerSectionDetail: React.FC<HeroSectionProps> = ({
         "relative z-10 h-full flex order-1 sm:order-2"
       )}
     >
-      <div className="w-full max-w-xl space-y-6">
+      <div className="w-full max-w-[280px] sm:max-w-none space-y-6 pr-5 sm:pr-0">
         <div className="overflow-hidden">
           <div className="space-y-3 sm:space-y-6 lg:pl-10">
             <div className="text-[#0B68FF]">
@@ -50,7 +56,10 @@ const BannerSectionDetail: React.FC<HeroSectionProps> = ({
               </Link>
             )}
           </div>
-          <span className="absolute right-10 top-1/2 transform -rotate-90 text-xl tracking-wide hidden lg:block font-bold">
+          <span
+            onClick={handleScroll}
+            className="absolute right-10 top-1/4 transform -rotate-90 text-xl tracking-wide hidden lg:block font-bold"
+          >
             Scroll Down
           </span>
         </div>

@@ -11,7 +11,7 @@ import OurEnquiryFormSection from "@/components/home/our-enquiry-form";
 const Home: React.FC = () => {
   return (
     <section>
-      <HeroSection {...content.home.heroSection} />
+      <HeroSection sectionId="hero" {...content.home.heroSection} />
       <AboutUsSection contentClassName="sm:pl-16" {...content.home.aboutUs} />
       <OurServicesSection
         contentClassName=""

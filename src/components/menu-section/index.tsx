@@ -71,7 +71,7 @@ export function MenuSection() {
                 return (
                   <NavigationMenuItem key={index}>
                     <NavigationMenuTrigger className="bg-transparent 2xl:text-xl">
-                      {link.name}
+                      <Link href={link.path}>{link.name}</Link>
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="grid w-[200px] gap-4">

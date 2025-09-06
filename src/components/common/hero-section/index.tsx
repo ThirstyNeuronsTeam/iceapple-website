@@ -3,6 +3,7 @@ import Image from "next/image";
 import BannerSectionDetail from "@/components/common/banner-section-detail";
 
 type HeadingSectionProps = {
+  sectionId: string;
   id: number;
   title: string[];
   content: string;
@@ -20,9 +21,13 @@ const HeroSection: React.FC<HeadingSectionProps> = ({
   url,
   isBtnShow,
   mainClassName,
+  sectionId,
 }) => {
   return (
-    <article className="relative before:content-[''] before:absolute before:-top-20 before:bottom-80 sm:before:bottom-0 before:right-0 before:bg-[#F3F3F3] sm:before:w-[89vw] before:w-[80vw]">
+    <article
+      id={sectionId}
+      className="relative before:content-[''] before:absolute before:-top-20 before:bottom-80 sm:before:bottom-0 before:right-0 before:bg-[#F3F3F3] sm:before:w-[89vw] before:w-[80vw]"
+    >
       <div className="w-full mx-auto">
         <div className="relative pt-10 pb-20 sm:py-20 sm:grid flex flex-col lg:grid-cols-2 gap-6 sm:items-start items-end grid-column-end">
           <div className="relative w-full aspect-square order-2 sm:order-1">
