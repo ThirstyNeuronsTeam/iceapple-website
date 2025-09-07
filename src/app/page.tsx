@@ -6,7 +6,7 @@ import OurLegacySection from "@/components/home/our-legacy";
 import OurServicesSection from "@/components/home/our-services";
 import React from "react";
 import OurSuccessStoriesSection from "@/components/home/our-success-stories";
-import OurEnquiryFormSection from "@/components/home/our-enquiry-form";
+import OurEnquiryFormSection from "@/components/common/our-enquiry-form";
 
 const Home: React.FC = () => {
   return (
@@ -33,7 +33,7 @@ const Home: React.FC = () => {
         {...content.home.ourSuccessStoriesSection}
         successStoriesData={content.home.ourSuccessStoriesSection}
       />
-      <OurEnquiryFormSection />
+      <OurEnquiryFormSection {...content.home.enquiryFormSection} />
     </section>
   );
 };

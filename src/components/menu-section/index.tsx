@@ -61,6 +61,7 @@ export function MenuSection() {
     setOpenSub(openSub === name ? null : name);
   };
 
+  const [open, setOpen] = useState(false);
   return (
     <>
       {deviceType === "desktop" ? (
@@ -109,7 +110,7 @@ export function MenuSection() {
 
       {/* Mobile Navigation */}
       {["tablet", "mobile"].includes(deviceType) ? (
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger>
             <Menu className="w-6 h-6" />
           </SheetTrigger>
@@ -153,6 +154,7 @@ export function MenuSection() {
                     }
                     return (
                       <Link
+                        onClick={() => setOpen(false)}
                         key={index}
                         href={link.path}
                         className="block font-medium text-lg py-4"

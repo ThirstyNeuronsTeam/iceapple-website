@@ -61,7 +61,7 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
 }) => {
   return (
     <article>
-      <div className="relative pt-0 sm:pt-40 after:content-[''] after:absolute sm:after:bottom-0 after:left-0 after:right-0 after:bg-[#F3F3F3] pb-50 after:w-full z-0 after:-z-10 sm:after:h-200">
+      <div className="relative pt-0 sm:pt-40 after:content-[''] after:absolute sm:after:bottom-0 after:left-0 after:right-0 after:bg-[#F3F3F3] pb-15 sm:pb-50 after:w-full z-0 after:-z-10 sm:after:h-200">
         <div
           className="hidden sm:flex bg-cover bg-center w-[400px] h-[600px] absolute top-[5%] right-0 -z-[1]"
           style={{ backgroundImage: `url(${sectionBg})` }}

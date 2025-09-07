@@ -54,6 +54,31 @@
           "shadow": true
         }
       ]
+    },
+    "enquiryFormSection": {
+      "contents": [],
+      "image": "/assets/general/services/enquiry-form-service.png",
+      "cardTitle": "We would love to hear from you",
+      "cardDescription": "Please fill out the form below and our team will get in touch with you shortly.",
+      "btnText": "",
+      "btnUrl": "",
+      "info": [
+        {
+          "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+          "cardTitle": "Boundless Possibilities",
+          "cardBoxDescription": "We empower our people to discover a work-life balance and find diversity at the workplace. At IceApple, we don't just grow careers—we ignite industry impact by pushing boundaries and embracing challenges."
+        },
+        {
+          "cardImage": "/assets/general/home-page/win-together.webp",
+          "cardTitle": "Win Together",
+          "cardBoxDescription": "We thrive to lead with shared goals and foster a culture of collaboration to harness the power of synergy for remarkable outcomes."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "How We Act",
+          "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
+        }
+      ]
     }
   }
 }

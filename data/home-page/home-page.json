@@ -2,7 +2,11 @@
   "home": {
     "heroSection": {
       "id": 1,
-      "title": ["Creating", "Tomorrow's", "Solutions Today"],
+      "title": [
+        "Creating",
+        "Tomorrow's",
+        "Solutions Today"
+      ],
       "content": "Innovation-driven tech resolution for Success",
       "btntext": "Default Button",
       "btnurl": "/",
@@ -170,6 +174,7 @@
     },
     "enquiryFormSection": {
       "contents": [],
+      "image": "/assets/general/home-page/enquiry-form-home.png",
       "cardTitle": "We would love to hear from you",
       "cardDescription": "Please fill out the form below and our team will get in touch with you shortly.",
       "btnText": "",

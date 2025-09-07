@@ -7,7 +7,7 @@ import OurTeamSection from "@/components/about-us/our-team";
 import OurHistorySection from "@/components/about-us/our-history";
 import WhyChooseUsSection from "@/components/about-us/why-choose-us";
 import OurSuccessStoriesSection from "@/components/home/our-success-stories";
-import OurEnquiryFormSection from "@/components/home/our-enquiry-form";
+import OurEnquiryFormSection from "@/components/common/our-enquiry-form";
 
 const AboutUs: React.FC = () => {
   return (
@@ -34,7 +34,7 @@ const AboutUs: React.FC = () => {
         {...content.about.ourSuccessStoriesSection}
         successStoriesData={content.about.ourSuccessStoriesSection}
       />
-      <OurEnquiryFormSection />
+      <OurEnquiryFormSection {...content.about.enquiryFormSection} />
     </section>
   );
 };

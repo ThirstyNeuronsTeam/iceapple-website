@@ -36,7 +36,7 @@ const CardBlueBoxSection: React.FC<CardProps> = ({
         <p
           className={clsx(
             discriptionClassNames,
-            "text-sm sm:text-lg leading-5 sm:leading-9 font-inter hidden sm:block"
+            "text-sm sm:text-lg leading-5 sm:leading-9 font-inter"
           )}
         >
           {cardData.cardDescription}
