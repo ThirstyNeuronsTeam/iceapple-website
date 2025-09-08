@@ -1,0 +1,85 @@
+{
+    "appServices": {
+        "heroSection": {
+            "id": 1,
+            "title": [
+                "Fuel Innovation at",
+                "Unprecedented",
+                "Scale with our",
+                "Stellar, World-Class",
+                "Apps!"
+            ],
+            "content": "End-to-end application lifecycle coverage, encompassing new application development, maintenance, and management.",
+            "btntext": "Default Button",
+            "btnurl": "/",
+            "url": "/assets/general/services/app-development-hero.png",
+            "isBtnShow": false
+        },
+        "ourServicesSection": {
+            "subHeading": "Brief about the service",
+            "heading": "Full Spectrum Application Development Solutions That Drive Tangible Business Value",
+            "contents": [
+                "Iceapple excels in delivering transformative & impactful application services that leverage businesses in the digital landscape. Using our expertise in cutting-edge technologies, we deliver end-to-end custom application development and support, bespoken to meet your requirements. "
+            ],
+            "services": [
+                {
+                    "id": 1,
+                    "titleBlue": "DevOps:",
+                    "title": "Mobile App Development",
+                    "imgSrc": "/assets/general/home-page/data-science.webp",
+                    "alignRight": false,
+                    "alignLeft": false,
+                    "sectionName": "one",
+                    "shadow": true
+                },
+                {
+                    "id": 2,
+                    "titleBlue": "Apps:",
+                    "title": "Unleash your industry with stable, robust, and powerful custom apps",
+                    "description": "Our Application Development Services are curated with world-class tech a and a strong business orientation..",
+                    "imgSrc": "/assets/general/home-page/application-services.webp",
+                    "alignRight": true,
+                    "alignLeft": false,
+                    "sectionName": "two",
+                    "shadow": true
+                },
+                {
+                    "id": 3,
+                    "titleBlue": "Data Science:",
+                    "title": "Unveil the hidden insights in your data",
+                    "description": "Are you considering outsourcing a data science project or exploring staff augmentation services? Achieve transformative results with our exceptional solutions.",
+                    "imgSrc": "/assets/general/home-page/devops-services.webp",
+                    "alignRight": false,
+                    "alignLeft": true,
+                    "sectionName": "three",
+                    "shadow": true
+                }
+            ]
+        },
+        "enquiryFormSection": {
+            "contents": [],
+            "image": "/assets/general/services/enquiry-form-service.png",
+            "cardTitle": "We would love to hear from you",
+            "cardDescription": "Please fill out the form below and our team will get in touch with you shortly.",
+            "btnText": "",
+            "btnUrl": "",
+            "info": [
+                {
+                    "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+                    "cardTitle": "Boundless Possibilities",
+                    "cardBoxDescription": "We empower our people to discover a work-life balance and find diversity at the workplace. At IceApple, we don't just grow careers—we ignite industry impact by pushing boundaries and embracing challenges."
+                },
+                {
+                    "cardImage": "/assets/general/home-page/win-together.webp",
+                    "cardTitle": "Win Together",
+                    "cardBoxDescription": "We thrive to lead with shared goals and foster a culture of collaboration to harness the power of synergy for remarkable outcomes."
+                },
+                {
+                    "cardImage": "/assets/general/home-page/how-we-act.webp",
+                    "cardTitle": "How We Act",
+                    "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
+                }
+            ]
+        }
+    }
+}
