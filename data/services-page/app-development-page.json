@@ -16,6 +16,7 @@
             "isBtnShow": false
         },
         "ourServicesSection": {
+            "topContent": "Our team of skilled professionals have expertise in:",
             "subHeading": "Brief about the service",
             "heading": "Full Spectrum Application Development Solutions That Drive Tangible Business Value",
             "contents": [
@@ -57,11 +58,40 @@
             ],
             "bottomContent": "We are your trusted partner for quality assurance and innovative success in competitive markets."
         },
+        "aboutUs": {
+            "aboutImageOne": "/assets/general/services/app-about-1.jpg",
+            "aboutImageTwo": "/assets/general/services/app-about-2.jpg",
+            "subHeading": "Our Approach toward it",
+            "heading": "Embark on the golden rules of delivering cutting-edge applications With Excellence",
+            "contents": [
+                "Iceapple adopts an innovative approach to application services. We evaluate your unique business requirements to build curated solutions that align with the business goals and leverage cutting-edge technologies, implementing cloud services and micro services architectures to optimize scalability & performance. With automation testing and meticulous manuals, we ensure the robustness of the applications.",
+                "Our application services will reimagine the application landscape, with agility and speed, while innovating continuously to realize business value."
+            ],
+            "ourValues": [],
+            "contentClass": ""
+        },
+        "ourSuccessStoriesSection": {
+            "subHeading": "Resources",
+            "heading": "Discover a Goldmine of Knowledge in Our Resource Hub!",
+            "contents": [
+                "Delve deeper into a world of insights & perspectives on the latest trends!"
+            ],
+            "sliders": [
+                {
+                    "id": 1,
+                    "image": "/assets/general/home-page/slider.webp",
+                    "cardTitle": "Journey of Transformation with CRVS",
+                    "cardDescription": "We partnered with an African startup that revolutionized its Civil Registration and Vital Statistics system with NodeJS and Mongo DB to overcome challenges such as remote redeployment and complex requirements.",
+                    "btnText": "Know More",
+                    "btnUrl": "/"
+                }
+            ]
+        },
         "enquiryFormSection": {
             "contents": [],
-            "image": "/assets/general/services/enquiry-form-service.png",
-            "cardTitle": "We would love to hear from you",
-            "cardDescription": "Please fill out the form below and our team will get in touch with you shortly.",
+            "image": "/assets/general/services/app-enquiry.jpg",
+            "cardTitle": "We Hold The Key To Your Success",
+            "cardDescription": "Talk to our experts to get advice or a no-cost strategy session to transform your applications portfolio and drive business value.",
             "btnText": "",
             "btnUrl": "",
             "info": [

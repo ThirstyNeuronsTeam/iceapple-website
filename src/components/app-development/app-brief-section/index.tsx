@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { useDeviceType } from "../../../../hooks/useDeviceType";
 
 type AppServicesProps = {
+  topContent: string;
   subHeading: string;
   heading: string;
   contents: string[];
@@ -68,6 +69,7 @@ const ServiceItem: React.FC<{
 };
 
 const AppServicesSection: React.FC<AppServicesProps> = ({
+  topContent,
   subHeading,
   heading,
   contents,
@@ -94,7 +96,7 @@ const AppServicesSection: React.FC<AppServicesProps> = ({
       <div className="bg-[#F3F3F3]">
         <div className="mx-auto px-6 py-4 pb-16 sm:py-16 container">
           <p className="sm:text-3xl font-medium text-center mb-4 sm:mb-20">
-            Our team of skilled professionals have expertise in:
+            {topContent}
           </p>
           <div className="space-y-16 sm:space-y-40">
             {deviceType === "mobile" && (

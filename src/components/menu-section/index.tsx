@@ -140,6 +140,7 @@ export function MenuSection() {
                               {link.submenu.map((sublink, subIndex) => (
                                 <div key={subIndex}>
                                   <Link
+                                    onClick={() => setOpen(false)}
                                     href={sublink.path}
                                     className="block py-3"
                                   >
@@ -169,6 +170,7 @@ export function MenuSection() {
                   return (
                     <div key={index}>
                       <Link
+                        onClick={() => setOpen(false)}
                         key={index}
                         href={link.path}
                         className="block text-[#0B68FF] text-sm"
@@ -179,6 +181,7 @@ export function MenuSection() {
                         {link.submenu.map((sublink, subIndex) => (
                           <div key={subIndex}>
                             <Link
+                              onClick={() => setOpen(false)}
                               href={sublink.path}
                               className="block font-medium shadow-[0_2px_20px_rgba(0,0,0,20%)] px-2 py-5 text-center"
                             >

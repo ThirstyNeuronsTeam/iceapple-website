@@ -18,6 +18,7 @@ import CardBlueBoxSection from "@/components/common/card-with-blue";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
+import { useDeviceType } from "../../../../hooks/useDeviceType";
 
 type EnquiryProps = {
   image: string;
@@ -57,6 +58,8 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
 
   const [isOther, setIsOther] = useState(false);
 
+  const deviceType = useDeviceType();
+
   return (
     <article className="relative py-20 after:content-[''] after:absolute after:top-[10%] sm:after:top-0 after:bottom-0 after:right-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] z-0 after:-z-10">
       <div className="absolute top-0 sm:top-[30%] sm:left-0 right-0 w-[55vw] sm:w-[25vw] h-[300px] sm:h-[600px]">
@@ -64,7 +67,7 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
       </div>
       <div className="w-full mx-auto px-5 2xl:px-0 container">
         <div className="grid grid-cols-1 gap-6 sm:gap-0 sm:grid-cols-[40%_60%]">
-          <div className="relative sm:pb-15 w-3/5 sm:w-auto sm:max-w-xl text-left mb-30 sm:mb-0">
+          <div className="relative sm:pb-15 w-3/5 sm:w-auto sm:max-w-xl text-left mb-22 sm:mb-0">
             <CardBlueBoxSection
               mainClassNames="px-5 sm:px-20 py-10 max-w-xl bg-[rgba(11,104,255,0.92)]"
               headingClassNames="font-bold text-xl sm:text-7xl mb-0 sm:mb-5"
@@ -77,6 +80,11 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
               }}
             />
           </div>
+          {deviceType === "mobile" ? (
+            <p className="text-sm font-inter">{cardDescription}</p>
+          ) : (
+            ""
+          )}
           <div className="max-w-2xl sm:pl-20 font-inter">
             <Form {...form}>
               <form

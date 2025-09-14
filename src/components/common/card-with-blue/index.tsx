@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import clsx from "clsx";
+import { useDeviceType } from "../../../../hooks/useDeviceType";
 
 type CardProps = {
   mainClassNames?: string;
@@ -20,6 +22,8 @@ const CardBlueBoxSection: React.FC<CardProps> = ({
   headingClassNames,
   discriptionClassNames,
 }) => {
+  const deviceType = useDeviceType();
+
   return (
     <>
       <div
@@ -33,14 +37,18 @@ const CardBlueBoxSection: React.FC<CardProps> = ({
         ) : (
           ""
         )}
-        <p
-          className={clsx(
-            discriptionClassNames,
-            "text-sm sm:text-lg leading-5 sm:leading-9 font-inter"
-          )}
-        >
-          {cardData.cardDescription}
-        </p>
+        {deviceType === "desktop" ? (
+          <p
+            className={clsx(
+              discriptionClassNames,
+              "text-sm sm:text-lg leading-5 sm:leading-9 font-inter"
+            )}
+          >
+            {cardData.cardDescription}
+          </p>
+        ) : (
+          ""
+        )}
         {cardData.btnText ? (
           <Button
             asChild
