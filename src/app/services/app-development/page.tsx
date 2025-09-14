@@ -5,6 +5,7 @@ import OurEnquiryFormSection from "@/components/common/our-enquiry-form";
 import AppServicesSection from "@/components/app-development/app-brief-section";
 import AboutUsSection from "@/components/common/about-us";
 import OurSuccessStoriesSection from "@/components/home/our-success-stories";
+import OthersServicesSection from "@/components/app-development/others-brief-section";
 
 const AboutUs: React.FC = () => {
   return (
@@ -26,6 +27,11 @@ const AboutUs: React.FC = () => {
         successStoriesData={content.appServices.ourSuccessStoriesSection}
       />
       <OurEnquiryFormSection {...content.appServices.enquiryFormSection} />
+      <OthersServicesSection
+        contentClassName="w-full sm:w-1/4 ms-auto"
+        {...content.appServices.othersServicesSection}
+        servicesData={content.appServices.othersServicesSection}
+      />
     </section>
   );
 };

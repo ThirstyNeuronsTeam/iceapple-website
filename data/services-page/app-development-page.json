@@ -111,6 +111,33 @@
                     "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
                 }
             ]
+        },
+        "othersServicesSection": {
+            "topContent": "Other services brief with CTA",
+            "subHeading": "Other services brief with CTA",
+            "heading": "It's not the end. With IceApple, the possibilities are endless.",
+            "contents": [
+                "Discover the range of our services, and unlock that untapped potential of your business."
+            ],
+            "services": [
+                {
+                    "id": 1,
+                    "title": "DevOps",
+                    "imgSrc": "/assets/general/services/app-devops.jpg",
+                    "sectionName": "one",
+                    "alignRight": false,
+                    "mobileSectionName": "one"
+                },
+                {
+                    "id": 2,
+                    "title": "Data Science",
+                    "imgSrc": "/assets/general/services/app-data-science.jpg",
+                    "sectionName": "two",
+                    "alignRight": true,
+                    "mobileSectionName": "two"
+                }
+            ],
+            "bottomContent": "We are your trusted partner for quality assurance and innovative success in competitive markets."
         }
     }
 }
