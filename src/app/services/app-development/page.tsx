@@ -15,7 +15,7 @@ const AboutUs: React.FC = () => {
       <AppServicesSection
         contentClassName="w-full sm:w-3/4 ms-auto"
         {...content.appServices.ourServicesSection}
-        // servicesData={content.appServices.ourServicesSection}
+        servicesData={content.appServices.ourServicesSection}
       />
       <OurEnquiryFormSection {...content.appServices.enquiryFormSection} />
     </section>

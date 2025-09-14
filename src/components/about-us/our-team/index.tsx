@@ -89,7 +89,12 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                 </p>
               </div>
               <div className="absolute w-[146px] sm:w-[280px] h-[146px] sm:h-[280px] top-0 right-0">
-                <Image objectFit="cover" fill src={teamOne.image} alt="" />
+                <Image
+                  className="object-cover"
+                  fill
+                  src={teamOne.image}
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -104,7 +109,12 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                 </p>
               </div>
               <div className="absolute w-[146px] sm:w-[280px] h-[146px] sm:h-[280px] -top-[75%] left-0 -z-[1]">
-                <Image objectFit="cover" fill src={teamTwo.image} alt="" />
+                <Image
+                  className="object-cover"
+                  fill
+                  src={teamTwo.image}
+                  alt=""
+                />
               </div>
             </div>
             <div className="w-full sm:w-xl max-w-xl font-inter flex justify-end sm:justify-center sm:pt-80 relative sm:absolute left-0 right-0 mx-auto order-3 sm:order-2 mt-35 sm:mt-0">
@@ -117,7 +127,12 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                 </p>
               </div>
               <div className="absolute w-[146px] sm:w-[280px] h-[146px] sm:h-[280px] -top-[80%] sm:top-[15%] left-0 sm:left-0 sm:right-0 mx-auto -z-[1]">
-                <Image objectFit="cover" fill src={teamThree.image} alt="" />
+                <Image
+                  className="object-cover"
+                  fill
+                  src={teamThree.image}
+                  alt=""
+                />
               </div>
             </div>
             <div className="w-full sm:w-xl max-w-xl font-inter relative flex sm:justify-center order-2 sm:order-3 mt-40 sm:mt-0">
@@ -130,7 +145,12 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                 </p>
               </div>
               <div className="absolute w-[146px] sm:w-[280px] h-[146px] sm:h-[280px] -top-[75%] right-0 -z-[1]">
-                <Image objectFit="cover" fill src={teamFour.image} alt="" />
+                <Image
+                  className="object-cover"
+                  fill
+                  src={teamFour.image}
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -145,7 +165,12 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                 </p>
               </div>
               <div className="absolute w-[146px] sm:w-[280px] h-[146px] sm:h-[280px] -top-[75%] left-0 sm:right-30 -z-[1]">
-                <Image objectFit="cover" fill src={teamFive.image} alt="" />
+                <Image
+                  className="object-cover"
+                  fill
+                  src={teamFive.image}
+                  alt=""
+                />
               </div>
             </div>
             <div className="w-full sm:w-xl max-w-xl font-inter flex sm:mt-20 pt-30 pb-10 relative sm:absolute z-0 left-0 right-0 mx-auto bg-white order-1 sm:order-2">
@@ -158,7 +183,12 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                 </p>
               </div>
               <div className="absolute w-[146px] sm:w-[280px] h-[146px] sm:h-[280px] top-[10%] right-0 mx-auto -z-[1]">
-                <Image objectFit="cover" fill src={teamSix.image} alt="" />
+                <Image
+                  className="object-cover"
+                  fill
+                  src={teamSix.image}
+                  alt=""
+                />
               </div>
             </div>
             <div className="w-full sm:w-xl max-w-xl font-inter relative flex sm:justify-center mt-35 sm:mt-0 order-3 sm:order-3">
@@ -171,7 +201,12 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                 </p>
               </div>
               <div className="absolute w-[146px] sm:w-[280px] h-[146px] sm:h-[280px] -top-[75%] right-0 -z-[1]">
-                <Image objectFit="cover" fill src={teamSeven.image} alt="" />
+                <Image
+                  className="object-cover"
+                  fill
+                  src={teamSeven.image}
+                  alt=""
+                />
               </div>
             </div>
           </div>

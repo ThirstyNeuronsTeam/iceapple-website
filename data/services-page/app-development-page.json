@@ -24,37 +24,38 @@
             "services": [
                 {
                     "id": 1,
-                    "titleBlue": "DevOps:",
                     "title": "Mobile App Development",
-                    "imgSrc": "/assets/general/home-page/data-science.webp",
-                    "alignRight": false,
-                    "alignLeft": false,
+                    "imgSrc": "/assets/general/services/mobile-app.png",
                     "sectionName": "one",
-                    "shadow": true
+                    "alignRight": false,
+                    "mobileSectionName": "one"
                 },
                 {
                     "id": 2,
-                    "titleBlue": "Apps:",
-                    "title": "Unleash your industry with stable, robust, and powerful custom apps",
-                    "description": "Our Application Development Services are curated with world-class tech a and a strong business orientation..",
-                    "imgSrc": "/assets/general/home-page/application-services.webp",
-                    "alignRight": true,
-                    "alignLeft": false,
+                    "title": "E-commerce Integrations",
+                    "imgSrc": "/assets/general/services/e-commerce.png",
                     "sectionName": "two",
-                    "shadow": true
+                    "alignRight": true,
+                    "mobileSectionName": "two"
                 },
                 {
                     "id": 3,
-                    "titleBlue": "Data Science:",
-                    "title": "Unveil the hidden insights in your data",
-                    "description": "Are you considering outsourcing a data science project or exploring staff augmentation services? Achieve transformative results with our exceptional solutions.",
-                    "imgSrc": "/assets/general/home-page/devops-services.webp",
+                    "title": "Embedded Systems",
+                    "imgSrc": "/assets/general/services/embedded-systems.png",
+                    "sectionName": "one",
                     "alignRight": false,
-                    "alignLeft": true,
-                    "sectionName": "three",
-                    "shadow": true
+                    "mobileSectionName": "three"
+                },
+                {
+                    "id": 4,
+                    "title": "Full-Stack Development",
+                    "imgSrc": "/assets/general/services/full-stack-development.png",
+                    "sectionName": "two",
+                    "alignRight": true,
+                    "mobileSectionName": "four"
                 }
-            ]
+            ],
+            "bottomContent": "We are your trusted partner for quality assurance and innovative success in competitive markets."
         },
         "enquiryFormSection": {
             "contents": [],

@@ -32,13 +32,7 @@ const HeroSection: React.FC<HeadingSectionProps> = ({
         <div className="relative pt-10 pb-20 sm:py-20 sm:grid flex flex-col lg:grid-cols-2 gap-6 sm:items-start items-end grid-column-end">
           <div className="relative w-full aspect-square order-2 sm:order-1">
             <div className="overflow-hidden ">
-              <Image
-                src={url}
-                alt=""
-                fill
-                objectFit="cover"
-                className="object-cover"
-              />
+              <Image src={url} alt="" fill className="object-cover" priority />
             </div>
           </div>
           <BannerSectionDetail
