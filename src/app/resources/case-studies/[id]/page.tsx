@@ -26,7 +26,7 @@ type PageProps = {
 
 const CaseStudyDetailedPage = async ({params}:PageProps) => {
   const { id } = await params;
-  const resp = await fetch(`http://localhost:3000/data/case-studies/${id}.json`);
+  const resp = await fetch(`http://localhost:3000/data/resources/case-studies/${id}.json`);
   const content: CaseStudyContent = await resp.json();
   return (
     <section>
