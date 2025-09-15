@@ -1,0 +1,27 @@
+{
+    "heroSection": {
+        "id": "government_of_rwanda",
+        "companyName": "Government of Rwanda",
+        "tag": "Case Study",
+        "logoUrl": "/assets/general/case-study/gov_rwanda_logo.png",
+        "bannerUrl": "/assets/general/case-study/government_of_rwanda.jpg"
+    },
+    "details": [
+        {
+            "title": "Client Overview",
+            "content": "The Government of Rwanda experienced the urgent need for an efficient and modern civil registration system. Their challenge was addressed through Tech Solutions, a Rwanda-based technology firm instrumental in developing a nationwide CRVS system to revolutionize record management."
+        },
+        {
+            "title": "Challenge",
+            "content": "The existing CRVS system was limited in scalability, accuracy, and efficiency, which resulted in errors, duplicate records, and delayed key statistics. Citizens faced difficulties accessing crucial services due to outdated processes and lack of transparency."
+        },
+        {
+            "title": "Solution",
+            "content": "By joining hands with Tech Solutions, our team developed a modern and scalable infrastructure for seamless data storage and retrieval. The solution included biometric integration, mobile-friendly access, and advanced analytics for improved efficiency and real-time decision-making."
+        },
+        {
+            "title": "Impact",
+            "content": "The new system improved reliability and transparency, reduced delays in service delivery, and enabled the government to make data-driven decisions. It also enhanced citizen services with faster registrations, better record-keeping, and improved accountability."
+        }
+    ]
+}

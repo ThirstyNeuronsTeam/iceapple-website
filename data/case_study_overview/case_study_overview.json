@@ -1,0 +1,49 @@
+{
+    "heroSection": {
+        "id": 1,
+        "title": [
+            "Trailblazing",
+            "Game-Changing",
+            "IT Solutions"
+        ],
+        "content": " ",
+        "btntext": "Default Button",
+        "btnurl": "/",
+        "url": "/assets/general/case-study/headerCaseStudy.png",
+        "isBtnShow": false
+    },
+    "caseStudyGrid": {
+        "sectionHeading": "Lore Ipsum Lorem Ipsum Lorem Ipsum Lorem",
+        "sectionTitle": "Case Study",
+        "data": [
+            {
+                "id": "multi_core_ware",
+                "title": "MulticoreWare",
+                "description": "MulticoreWare is a well-known technology company that delivers software development and parallel computing solutions for automotive vehicles. They specialize in developing tools and solutions.",
+                "image": "/assets/general/case-study/multicore.png",
+                "link": "/case-studies/multi_core_ware"
+            },
+            {
+                "id": "government_of_rwanda",
+                "title": "The Government of Rwanda",
+                "description": "The Government of Rwanda experienced the urgent need for an efficient and modern civil registration system, which was achieved through an AI-powered CRVS system.",
+                "image": "/assets/general/case-study/government_of_rwanda.jpg",
+                "link": "/case-studies/government_of_rwanda"
+            },
+            {
+                "id": "my_next",
+                "title": "MyNext",
+                "description": "MyNext is a next-generation education technology company in Malaysia. Their mission is to revolutionize talent management across the education ecosystem.",
+                "image": "/assets/general/case-study/my_next.png",
+                "link": "/case-studies/my_next"
+            },
+            {
+                "id": "lorem_ipsum",
+                "title": "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem",
+                "description": "This is a global case study pertaining to the efficiency in crucial market transitions in 2020, highlighting lessons learned and strategies for future growth.",
+                "image": "/assets/general/case-study/lorem_ipsum.png",
+                "link": "/case-studies/lorem_ipsum"
+            }
+        ]
+    }
+}
