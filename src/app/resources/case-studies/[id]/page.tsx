@@ -1,10 +1,9 @@
 // /pages/case-studies/[id].tsx
 
-import { useRouter } from "next/router";
 import React from "react";
 import CaseStudyHero from "@/components/case-studies/case-studies-hero-section";
 import CaseStudyDetailedSection from "@/components/case-studies/case-studies-detailed-section";
-import content2 from "../../../../../../iceapple-website/data/case_study_overview/case_study_overview.json";
+import content2 from "../../../../../data/case_study_overview/case_study_overview.json";
 type Section = {
   title: string;
   content: string;
@@ -21,8 +20,12 @@ type CaseStudyContent = {
   details: Section[];
 };
 
-const CaseStudyDetailedPage: React.FC = async ({params}:any) => {
-  const { id } = params;
+type PageProps = {
+  params: Promise<{ id: string }>;
+};
+
+const CaseStudyDetailedPage = async ({params}:PageProps) => {
+  const { id } = await params;
   const resp = await fetch(`http://localhost:3000/data/case-studies/${id}.json`);
   const content: CaseStudyContent = await resp.json();
   return (
