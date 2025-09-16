@@ -28,23 +28,34 @@ const HeroSection: React.FC<HeadingSectionProps> = ({
       id={sectionId}
       className="relative before:content-[''] before:absolute before:-top-20 before:bottom-80 sm:before:bottom-0 before:right-0 before:bg-[#F3F3F3] sm:before:w-[89vw] before:w-[80vw]"
     >
-      <div className="w-full mx-auto">
-        <div className="relative pt-10 pb-20 sm:py-20 sm:grid flex flex-col lg:grid-cols-2 gap-6 sm:items-start items-end grid-column-end">
-          <div className="relative w-full aspect-square order-2 sm:order-1">
-            <div className="overflow-hidden ">
-              <Image src={url} alt="" fill className="object-cover" priority />
-            </div>
-          </div>
-          <BannerSectionDetail
-            title={title}
-            content={content}
-            btntext={btntext}
-            btnurl={btnurl}
-            isBtnShow={isBtnShow}
-            mainClassName={mainClassName}
-          />
-        </div>
-      </div>
+      <div className="relative w-full mx-auto">
+  <div className="flex flex-col-reverse sm:grid sm:grid-cols-[50%_50%]  py-12 ">
+    
+    {/* Text Section */}
+    <BannerSectionDetail
+      title={title}
+      content={content}
+      btntext={btntext}
+      btnurl={btnurl}
+      isBtnShow={isBtnShow}
+      mainClassName={mainClassName}
+    />
+
+    {/* Image Section */}
+    <div className="relative flex justify-center sm:justify-start">
+      <Image
+        src={url}
+        alt=""
+        width={1242}
+        height={828}
+        className="w-full max-w-md sm:max-w-none h-auto object-contain sm:object-cover"
+        priority
+      />
+    </div>
+  </div>
+</div>
+
+
     </article>
   );
 };

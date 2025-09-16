@@ -26,29 +26,36 @@ const CaseStudiesGrid: React.FC<CaseStudiesProps> = ({
   return (
     <section className="w-full bg-gray-50 px-4 sm:px-6 md:px-12 lg:px-16 py-16">
       {/* Section Title */}
-      <div className="flex items-center mb-3 md:mb-4">
-  <div className="w-6 sm:w-8 md:w-10 h-[3px] sm:h-[4px] md:h-[5px] bg-blue-500 mr-2 md:mr-3"></div>
-  <h2
-    className={`text-blue-600 font-medium tracking-wide 
-      ${deviceType === "mobile" ? "text-sm" : "text-base"} 
-      sm:text-lg md:text-xl lg:text-2xl text-left
-    `}
-    style={{ fontFamily: "'Mosk', sans-serif", letterSpacing: "0" }}
-  >
-    {sectionTitle}
-  </h2>
-</div>
-
-{/* Section Heading */}
-<h1
-  className={`font-bold w-full md:w-[70%] text-gray-900 mt-2 mb-12 
-    ${deviceType === "mobile" ? "text-2xl" : "text-4xl"} 
-    sm:text-3xl md:text-5xl lg:text-6xl text-left
+      <div
+        className={`mb-3 md:mb-4 
+    ${deviceType === "mobile" ? "flex justify-center items-center" : "flex items-center"}
   `}
-  style={{ fontFamily: "'Mosk', sans-serif" }}
->
-  {sectionHeading}
-</h1>
+      >
+        <div
+          className="w-6 sm:w-8 md:w-10 h-[3px] sm:h-[4px] md:h-[5px] bg-blue-500 mr-2 md:mr-3"
+        ></div>
+        <h2
+          className={`text-blue-600 font-medium tracking-wide 
+      ${deviceType === "mobile" ? "text-sm text-center" : "text-base text-left"} 
+      sm:text-lg md:text-xl lg:text-2xl
+    `}
+          style={{ fontFamily: "'Mosk', sans-serif", letterSpacing: "0" }}
+        >
+          {sectionTitle}
+        </h2>
+      </div>
+
+
+      {/* Section Heading */}
+      <h1
+        className={`font-bold w-full md:w-[70%] text-gray-900 mt-2 mb-12 
+    ${deviceType === "mobile" ? "text-2xl text-center" : "text-4xl text-left"} 
+    sm:text-3xl md:text-5xl lg:text-6xl
+  `}
+        style={{ fontFamily: "'Mosk', sans-serif" }}
+      >
+        {sectionHeading}
+      </h1>
 
 
       {/* Cards Grid */}

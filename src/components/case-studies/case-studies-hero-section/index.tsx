@@ -66,7 +66,7 @@ const CaseStudyHero: React.FC<HeroSectionProps> = ({
         <div
           className="absolute bg-white/50 p-4 md:p-6 w-[90%] md:w-[500px] lg:w-[622px] 
             h-auto min-h-[250px] md:min-h-[300px] lg:min-h-[375px] z-10 left-6 md:left-[100px] 
-            top-1/3 md:top-[45%] transform -translate-y-1/3 md:-translate-y-2"
+            top-1/3 md:top-[47%] transform -translate-y-1/3 md:-translate-y-2"
         >
           <div className="pt-6 md:pt-12">
             <div className="flex items-center mb-3 md:mb-4">
