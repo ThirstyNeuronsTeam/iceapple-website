@@ -32,7 +32,7 @@ const CaseStudiesGrid: React.FC<CaseStudiesProps> = ({
   `}
       >
         <div
-          className="w-6 sm:w-8 md:w-10 h-[3px] sm:h-[4px] md:h-[5px] bg-blue-500 mr-2 md:mr-3"
+          className="w-3 sm:w-8 md:w-10 h-[3px] sm:h-[4px] md:h-[5px] bg-blue-500 mr-2 md:mr-3"
         ></div>
         <h2
           className={`text-blue-600 font-medium tracking-wide 
