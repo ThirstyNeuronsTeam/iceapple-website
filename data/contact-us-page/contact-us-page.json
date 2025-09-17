@@ -1,0 +1,70 @@
+{
+  "contact": {
+    "heroSection": {
+      "id": 1,
+      "title": [
+        "From a Maze of ",
+        "Options to a Single",
+        "Destination - ",
+        "Your Quest for",
+        "Development",
+        "Services Ends Here"
+      ],
+      "content": "",
+      "btntext": "Default Button",
+      "btnurl": "/",
+      "url": "/assets/general/contact-us/contact-hero-section.png",
+      "isBtnShow": false
+    },
+    "contactDetailsSection": {
+      "subHeading": "Contact Details",
+      "heading": "Witness the Rise of Innovation With us",
+      "contents": [],
+      "contactItems": [
+        {
+          "id": "1",
+          "cardIcon": "/assets/general/contact-us/location-icon.png",
+          "cardHeading": "Location",
+          "cardContent": "Door No 11-13, Sivaji Colony, Edayarpalayam Coimbatore, India"
+        },
+        {
+          "id": "2",
+          "cardIcon": "/assets/general/contact-us/call-icon.png",
+          "cardHeading": "Call:",
+          "cardContent": "+91-9176745461 / +91-9361954376"
+        },
+        {
+          "id": "3",
+          "cardIcon": "/assets/general/contact-us/email-icon.png",
+          "cardHeading": "Email:",
+          "cardContent": "sales@iceapple.tech"
+        }
+      ]
+    },
+    "enquiryFormSection": {
+      "contents": [],
+      "image": "/assets/general/about-us/enquiry-form-about.png",
+      "cardTitle": "We would love to hear from you",
+      "cardDescription": "Please fill out the form below and our team will get in touch with you shortly.",
+      "btnText": "",
+      "btnUrl": "",
+      "info": [
+        {
+          "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+          "cardTitle": "Boundless Possibilities",
+          "cardBoxDescription": "We empower our people to discover a work-life balance and find diversity at the workplace. At IceApple, we don't just grow careers—we ignite industry impact by pushing boundaries and embracing challenges."
+        },
+        {
+          "cardImage": "/assets/general/home-page/win-together.webp",
+          "cardTitle": "Win Together",
+          "cardBoxDescription": "We thrive to lead with shared goals and foster a culture of collaboration to harness the power of synergy for remarkable outcomes."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "How We Act",
+          "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
+        }
+      ]
+    }
+  }
+}
