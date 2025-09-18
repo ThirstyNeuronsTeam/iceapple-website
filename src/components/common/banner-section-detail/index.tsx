@@ -32,7 +32,7 @@ const BannerSectionDetail: React.FC<HeroSectionProps> = ({
         "relative z-10 h-full flex order-1 sm:order-2"
       )}
     >
-      <div className="w-full max-w-[280px] sm:max-w-none space-y-6 pr-5 sm:pr-0">
+      <div className="w-full max-w-[280px] sm:max-w-none space-y-6 pr-5 sm:pr-0 ms-auto">
         <div className="overflow-hidden">
           <div className="space-y-3 sm:space-y-6 lg:pl-10">
             <div className="text-[#0B68FF]">
