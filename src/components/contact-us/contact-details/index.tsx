@@ -29,12 +29,17 @@ const ContactDetailsSection: React.FC<contactDetailsProps> = ({
 }) => {
   return (
     <article>
-      <div className="relative mb-50">
-        <div className="w-full mx-auto pl-5 2xl:px-0 container">
+      <div className="relative mb-10 sm:mb-50">
+        <div className="w-full mx-auto px-22 2xl:px-0 container">
           <div className="grid py-9 sm:py-16 gap-4">
-            <div className={clsx(sectionClass, "relative pt-5 sm:pt-20 pb-5")}>
+            <div
+              className={clsx(
+                sectionClass,
+                "relative pt-5 sm:pt-20 pb-5 text-center sm:text-left"
+              )}
+            >
               <HeadingSectionDetail
-                align="left"
+                align="smLeftXsCenter"
                 contentClassName={contentClassName}
                 subHeading={subHeading}
                 heading={heading}
@@ -42,10 +47,13 @@ const ContactDetailsSection: React.FC<contactDetailsProps> = ({
               />
             </div>
           </div>
-          <div className="grid gap-x-14 sm:grid-cols-3 px-60 mx-auto">
+          <div className="grid gap-x-14 gap-y-8 sm:gap-y-0 sm:grid-cols-3 sm:px-60 mx-auto">
             {contactData.contactItems.map((item) => (
-              <div key={item.id} className="flex gap-y-6 flex-col text-center">
-                <div className="relative w-[90px] h-[70px] mx-auto aspect-square">
+              <div
+                key={item.id}
+                className="flex gap-y-3 sm:gap-y-6 flex-col text-center"
+              >
+                <div className="relative w-[53px] sm:w-[90px] h-[50px] sm:h-[70px] mx-auto aspect-square">
                   <Image
                     fill
                     className="object-fill"
@@ -53,8 +61,10 @@ const ContactDetailsSection: React.FC<contactDetailsProps> = ({
                     alt=""
                   />
                 </div>
-                <h6 className="text-3xl font-bold">{item.cardHeading}</h6>
-                <p className="tracking-[2px] font-inter text-lg">
+                <h6 className="text-base sm:text-3xl font-bold">
+                  {item.cardHeading}
+                </h6>
+                <p className="tracking-[2px] font-inter text-sm sm:text-lg">
                   {item.cardContent}
                 </p>
               </div>

@@ -41,11 +41,17 @@
         }
       ]
     },
+    "contactMapSection": {
+      "subHeading": "Map",
+      "heading": "Locate us Effortlessly",
+      "contents": [],
+      "mapImage": "/assets/general/contact-us/map-.png"
+    },
     "enquiryFormSection": {
       "contents": [],
-      "image": "/assets/general/about-us/enquiry-form-about.png",
-      "cardTitle": "We would love to hear from you",
-      "cardDescription": "Please fill out the form below and our team will get in touch with you shortly.",
+      "image": "/assets/general/contact-us/contact-enquiry.png",
+      "cardTitle": "Embrace New Beginnings With Limitless Opportunities",
+      "cardDescription": "",
       "btnText": "",
       "btnUrl": "",
       "info": [

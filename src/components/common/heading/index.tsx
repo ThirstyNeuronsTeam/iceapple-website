@@ -32,7 +32,7 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
     smRightXsLeft: "sm:justify-end justify-start",
     smLeftXsRight: "sm:justify-start justify-end",
     smRightXsCenter: "sm:justify-end justify-center",
-    smLeftXsCenter: "sm:justify-end justify-start",
+    smLeftXsCenter: "sm:justify-start justify-center",
   }[align];
 
   const headingWidthClass = {
