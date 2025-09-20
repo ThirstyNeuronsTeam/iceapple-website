@@ -29,7 +29,7 @@ const ContactDetailsSection: React.FC<contactDetailsProps> = ({
 }) => {
   return (
     <article>
-      <div className="relative mb-10 sm:mb-50">
+      <div className="relative mb-10">
         <div className="w-full mx-auto px-22 2xl:px-0 container">
           <div className="grid py-9 sm:py-16 gap-4">
             <div

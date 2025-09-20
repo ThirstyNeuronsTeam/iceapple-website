@@ -5,6 +5,7 @@ type HeadingProps = {
   subHeading: string;
   heading: string;
   contents?: string[];
+  paraClassName?: string;
   align?:
     | "left"
     | "center"
@@ -14,7 +15,7 @@ type HeadingProps = {
     | "smLeftXsRight"
     | "smRightXsCenter"
     | "smLeftXsCenter";
-  headingWidth?: "w-full" | "xl" | "lg";
+  headingWidth?: "w-full" | "xl" | "lg" | "md";
 };
 const HeadingSectionDetail: React.FC<HeadingProps> = ({
   align = "left",
@@ -23,6 +24,7 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
   subHeading,
   heading,
   contents,
+  paraClassName,
 }) => {
   const alignmentClass = {
     left: "text-left",
@@ -39,6 +41,7 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
     auto: "w-auto",
     xl: "sm:w-[80%]",
     lg: "w-[75%] sm:w-[50%] ms-auto",
+    md: "w-full sm:w-2/4 ml-0 sm:ml-0",
   }[headingWidth];
 
   return (
@@ -62,7 +65,10 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
       </h2>
       {contents?.map((item, index) => (
         <div key={index} className={clsx(contentClassName, "font-inter")}>
-          <p className="text-sm sm:text-lg mb-5" key={index}>
+          <p
+            className={clsx(paraClassName, "text-sm sm:text-lg mb-5")}
+            key={index}
+          >
             {item}
           </p>
         </div>
