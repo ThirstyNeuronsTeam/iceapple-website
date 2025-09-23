@@ -2,10 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow } from "swiper/modules";
+import { EffectCoverflow, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 
 import styles from "./style.module.scss";
 import HeadingSectionDetail from "@/components/common/heading";
@@ -69,17 +70,20 @@ const GalleryCarousel: React.FC<galleryProps> = ({
             <Swiper
               effect="coverflow"
               grabCursor={true}
-              centeredSlides={true} // ✅ ensures active slide is centered
-              slidesPerView={3} // ✅ set a number, or use "auto" with correct width
-              loop={true}
+              centeredSlides={true}
+              slidesPerView={3}
               spaceBetween={30}
-              modules={[EffectCoverflow]}
+              modules={[EffectCoverflow, Autoplay]}
               coverflowEffect={{
                 rotate: 0,
                 stretch: 0,
                 depth: 100,
                 modifier: 1,
                 slideShadows: true,
+              }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
               }}
               className="mySwiper"
             >

@@ -1,0 +1,185 @@
+{
+  "industry": {
+    "heroSection": {
+      "id": 1,
+      "title": [
+        "Industry-Leading",
+        "Software Solutions:",
+        "Sky-Rocketing",
+        "Efficiency and",
+        "Growth"
+      ],
+      "content": "IceApple takes pride in crafting a diverse range of custom software solutions, empowering numerous industries to unlock new value, foster transparency, and inspire trust across their businesses.",
+      "btntext": "Default Button",
+      "btnurl": "/",
+      "url": "/assets/general/industry/industry-hero-section.png",
+      "isBtnShow": false
+    },
+    "ourIndustriesSection": {
+      "subHeading": "Industried we serve",
+      "heading": "Powering Industries With Transformative Industry Solutions",
+      "contents": [],
+      "services": [
+        {
+          "id": 1,
+          "title": "Healthcare",
+          "description": "Retransforming healthcare with our ingenious solutions, injecting innovation, streamlining operations, and catering smiles to healthcare experts. From intelligent analytics to digital health records- we are bringing a healthier future.",
+          "imgSrc": "/assets/general/industry/industry-health-care.jpg",
+          "alignRight": true,
+          "alignLeft": true,
+          "sectionName": "one",
+          "shadow": true
+        },
+        {
+          "id": 2,
+          "title": "Government",
+          "description": "We vowed to develop a more connected & inclusive society. From boosting citizen services to boosting administrative processes, our smart solutions is revolutionizing the government sector to shape a digital future that unlocks the full potential of the government services.",
+          "imgSrc": "/assets/general/industry/industry-government.jpg",
+          "alignRight": true,
+          "alignLeft": false,
+          "sectionName": "two",
+          "shadow": true
+        },
+        {
+          "id": 3,
+          "title": "Edu-tech",
+          "description": "Our innovative software solutions empower learners and educators to alter the education landscape with bespoke learning platforms and interactive virtual classrooms to address tomorrow’s challenges of learning. ",
+          "imgSrc": "/assets/general/industry/industry-edu.jpg",
+          "alignRight": false,
+          "alignLeft": true,
+          "sectionName": "three",
+          "shadow": true
+        },
+        {
+          "id": 4,
+          "title": "Retail",
+          "description": "We are rewriting the retail rules with cutting-edge software solutions to boost sales, deliver a seamless shopping experience, and enhance customer loyalty. From optimizing inventory to personalized recommendations, we are the retail revolutionaries that is transforming brick-and-mortar into retail powerhouses.",
+          "imgSrc": "/assets/general/industry/industry-retail.jpg",
+          "alignRight": true,
+          "alignLeft": false,
+          "sectionName": "four",
+          "shadow": true
+        },
+        {
+          "id": 5,
+          "title": "Automotive",
+          "description": "We are fueling the future of mobility with enhanced performance and redefining the driving experiences from connected car technologies to advanced vehicle diagnostics. Let’s meet at the path where success is paved using cutting-edge technology.",
+          "imgSrc": "/assets/general/industry/industry-automatic.jpg",
+          "alignRight": true,
+          "alignLeft": false,
+          "sectionName": "five",
+          "shadow": true
+        },
+        {
+          "id": 6,
+          "title": "Industrial",
+          "description": "We are powering the industrial revolution with our robust software solutions that enhance productivity, and optimize processes and efficiency. Reach us and let's reshape the industrial landscape together and unlock new possibilities for operational excellence",
+          "imgSrc": "/assets/general/industry/industry-.jpg",
+          "alignRight": true,
+          "alignLeft": false,
+          "sectionName": "two",
+          "shadow": true
+        },
+        {
+          "id": 7,
+          "title": "Telecom",
+          "description": " From advanced billing to customer management systems and cutting-edge network optimization, we empower telecom providers to offer exceptional services to stay ahead of the curve to experience the future of telecommunications.",
+          "imgSrc": "/assets/general/industry/industry-telecom.jpg",
+          "alignRight": false,
+          "alignLeft": true,
+          "sectionName": "three",
+          "shadow": true
+        },
+        {
+          "id": 8,
+          "title": "Development",
+          "description": "From immersive learning experiences through interactive platforms along with customizable training modules and advanced analytics tools to track progress, IceApple can unlock the full potential of the workforce and revolutionize development for better success and performance.",
+          "imgSrc": "/assets/general/industry/industry-development.jpg",
+          "alignRight": true,
+          "alignLeft": false,
+          "sectionName": "eight",
+          "shadow": true
+        }
+      ]
+    },
+    "ourSuccessStoriesSection": {
+      "subHeading": "Uncovering Our Success Stories",
+      "heading": "Trusted Solution for Many",
+      "contents": [
+        "Turning ideas into realities, empowering clients with innovative solutions"
+      ],
+      "sliders": [
+        {
+          "id": 1,
+          "image": "/assets/general/home-page/slider.webp",
+          "cardTitle": "Journey of Transformation with CRVS",
+          "cardDescription": "We partnered with an African startup that revolutionized its Civil Registration and Vital Statistics system with NodeJS and Mongo DB to overcome challenges such as remote redeployment and complex requirements.",
+          "btnText": "Know More",
+          "btnUrl": "/"
+        }
+      ]
+    },
+    "ourClientsSection": {
+      "subHeading": "Clients",
+      "heading": "Illuminating Success Together: Showcasing Limelight On Our Thriving Client Community",
+      "contents": [],
+      "services": [
+        {
+          "id": 1,
+          "title": "sample",
+          "imgSrc": "/assets/general/industry/client-sample-logo.jpg"
+        },
+        {
+          "id": 2,
+          "title": "sample",
+          "imgSrc": "/assets/general/industry/client-sample-logo.jpg"
+        },
+        {
+          "id": 3,
+          "title": "sample",
+          "imgSrc": "/assets/general/industry/client-sample-logo.jpg"
+        },
+        {
+          "id": 4,
+          "title": "sample",
+          "imgSrc": "/assets/general/industry/client-sample-logo.jpg"
+        },
+        {
+          "id": 5,
+          "title": "sample",
+          "imgSrc": "/assets/general/industry/client-sample-logo.jpg"
+        },
+        {
+          "id": 6,
+          "title": "sample",
+          "imgSrc": "/assets/general/industry/client-sample-logo.jpg"
+        }
+      ]
+    },
+    "enquiryFormSection": {
+      "contents": [],
+      "image": "/assets/general/industry/industry-enquiry-section.jpg",
+      "cardTitle": "Gaining an Edge with Innovative Software",
+      "cardDescription": "Need support in growing the business or monetizing the idea? Look no further than IceApple. We help you improve the business that wins over customers.",
+      "btnText": "",
+      "btnUrl": "",
+      "info": [
+        {
+          "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+          "cardTitle": "Boundless Possibilities",
+          "cardBoxDescription": "We empower our people to discover a work-life balance and find diversity at the workplace. At IceApple, we don't just grow careers—we ignite industry impact by pushing boundaries and embracing challenges."
+        },
+        {
+          "cardImage": "/assets/general/home-page/win-together.webp",
+          "cardTitle": "Win Together",
+          "cardBoxDescription": "We thrive to lead with shared goals and foster a culture of collaboration to harness the power of synergy for remarkable outcomes."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "How We Act",
+          "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
+        }
+      ]
+    }
+  }
+}
