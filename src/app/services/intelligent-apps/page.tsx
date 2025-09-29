@@ -1,5 +1,5 @@
 import React from "react";
-import content from "../../../../data/services-page/app-development-page.json";
+import content from "../../../../data/services-page/intelligent-apps.json";
 import HeroSection from "@/components/common/hero-section";
 import OurEnquiryFormSection from "@/components/common/our-enquiry-form";
 import AppServicesSection from "@/components/app-development/app-brief-section";
@@ -7,7 +7,7 @@ import AboutUsSection from "@/components/common/about-us";
 import OurSuccessStoriesSection from "@/components/home/our-success-stories";
 import OthersServicesSection from "@/components/app-development/others-brief-section";
 
-const AboutUs: React.FC = () => {
+const IntelligentApps: React.FC = () => {
   return (
     <section>
       <HeroSection
@@ -36,4 +36,4 @@ const AboutUs: React.FC = () => {
   );
 };
 
-export default AboutUs;
+export default IntelligentApps;

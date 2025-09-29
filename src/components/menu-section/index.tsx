@@ -23,10 +23,9 @@ const navLinks = [
   {
     name: "Services",
     path: "/services",
-    submenu: [
-      { name: "App Development", path: "/services/app-development" },
-      { name: "Data Science Services", path: "/services/data-science" },
-      { name: "DevOps Services", path: "/services/devops" },
+     submenu: [
+      { name: "Intelligent Apps", path: "/services/intelligent-apps" },
+      { name: "Intelligent Devices", path: "/services/intelligent-devices" },
     ],
   },
   { name: "Industries", path: "/industries" },
@@ -34,8 +33,8 @@ const navLinks = [
     name: "Resources",
     path: "/resources",
     submenu: [
-      { name: "Blog", path: "/resources/blog" },
-      { name: "Case Study", path: "/resources/case-studies" },
+      { name: "Blog", path: "/resources/blogs" },
+      { name: "Case Studies", path: "/resources/case-studies" },
     ],
   },
   { name: "Careers", path: "/careers" },
@@ -46,9 +45,8 @@ const navLinksMobile = [
     name: "Services",
     path: "/services",
     submenu: [
-      { name: "Apps", path: "/services/app-development" },
-      { name: "Data Science", path: "/services/data-science" },
-      { name: "DevOps", path: "/services/devops" },
+      { name: "Intelligent Apps", path: "/services/intelligent-apps" },
+      { name: "Intelligent Devices", path: "/services/intelligent-devices" },
     ],
   },
 ];

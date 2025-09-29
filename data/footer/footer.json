@@ -1,6 +1,6 @@
 {
   "footer": {
-    "address": "Door No 11-13, Sivaji Colony, Edayarpalayam Coimbatore TN 641025 India",
+    "address": "Plot no 10, Door No-2/563, V.Nagar, Semmozhi Salai, Sholinganallur Main Rd, Perumbakkam, Chennai, Tamil Nadu 600100",
     "menuItems": [
       {
         "id": 1,
@@ -19,8 +19,8 @@
       },
       {
         "id": 4,
-        "menuName": "Blog",
-        "menuUrl": "/blog"
+        "menuName": "Blogs",
+        "menuUrl": "/blogs"
       },
       {
         "id": 5,

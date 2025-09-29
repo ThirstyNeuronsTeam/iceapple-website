@@ -1,11 +1,10 @@
 import React from "react";
 import content from "../../../data/careers-page/careers-page.json";
 import HeroSection from "@/components/common/hero-section";
-import OurEnquiryFormSection from "@/components/common/our-enquiry-form";
 import OurCultureSection from "@/components/careers/our-culture-section";
 import ContactDetailsCareersSection from "@/components/careers/contact-details";
 import GalleryCarousel from "@/components/careers/gallery-carousel";
-import JobOpeningSection from "@/components/careers/job-opening";
+import OurCareerFormSection from "@/components/common/our-career-form";
 
 const Careers: React.FC = () => {
   return (
@@ -34,13 +33,8 @@ const Careers: React.FC = () => {
         paraClassName=""
         {...content.careers.gallerySection}
       />
-      <JobOpeningSection
-        sectionClass=""
-        contentClassName="font-inter sm:font-main"
-        paraClassName="sm:leading-10"
-        {...content.careers.jobOpeningSection}
-      />
-      <OurEnquiryFormSection {...content.careers.enquiryFormSection} />
+      {/* Job openings section removed to fix ESLint warning */}
+      <OurCareerFormSection {...content.careers.enquiryFormSection} />
     </section>
   );
 };
