@@ -2,6 +2,7 @@
 import React from "react";
 import BlogsHeader from "@/components/blogs/blog-header";
 import DynamicTextBlock from "@/components/blogs/DynamicTextBlock";
+import { parseStringPromise } from "xml2js";
 
 // ----------------- Types -----------------
 type XmlItem = {
@@ -33,13 +34,14 @@ type PageProps = {
 // ----------------- Fetch Function -----------------
 async function fetchBlogById(id: string): Promise<BlogContent | null> {
   try {
-    const res = await fetch("http://localhost:3000/api/fetch-xml/", {
+    const res = await fetch("https://medium.com/feed/iceapple-tech-talks/", {
       cache: "no-store",
     });
 
     if (!res.ok) return null;
 
-    const xmlJson = await res.json();
+    const xmlData = await res.text();
+         const xmlJson = await parseStringPromise(xmlData, { explicitArray: false });
     const items: XmlItem[] = Array.isArray(xmlJson?.rss?.channel?.item)
       ? xmlJson.rss.channel.item
       : [xmlJson?.rss?.channel?.item];

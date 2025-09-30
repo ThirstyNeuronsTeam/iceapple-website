@@ -79,7 +79,7 @@ const ResourcesGrid: React.FC<GridProps> = ({
           deviceType !== "mobile"
             ? "grid grid-cols-1 md:grid-cols-2 gap-8 pr-4 md:pr-6 lg:pr-16"
             : "space-y-6 pr-4"
-        } ${expanded ? "max-h-[1000px] overflow-y-auto pr-2" : ""}`} // 👈 scroll only when expanded
+        } ${expanded ? "h-max pr-2" : "h-max"}`} // 👈 scroll only when expanded
       >
         {visibleData.map((study, index) => (
           <div
@@ -132,7 +132,7 @@ const ResourcesGrid: React.FC<GridProps> = ({
             className={`px-8 py-4 rounded-full bg-blue-900 text-white font-medium transition-colors duration-200 hover:bg-blue-800 
               ${deviceType === "mobile" ? "w-full" : "w-auto"}`}
           >
-            {expanded ? "Show Less" : "View All Case Studies"}
+            {expanded ? "Show Less" : "View All"}
           </button>
         </div>
       )}
