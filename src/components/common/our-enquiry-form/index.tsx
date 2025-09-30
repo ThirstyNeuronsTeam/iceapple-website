@@ -54,7 +54,7 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
 }) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    mode: "onBlur",
+    mode: "all",
     defaultValues: {
       name: "",
       email: "",
@@ -283,7 +283,11 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                   )}
                 />
 
-                <Button type="submit" className="rounded-none text-xl py-4 px-8 bg-[#002656]">
+                <Button
+                  type="submit"
+                  className="rounded-none text-xl py-4 px-8 bg-[#002656] disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={!form.formState.isValid}
+                >
                   Submit
                 </Button>
 

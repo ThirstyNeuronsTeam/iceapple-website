@@ -16,7 +16,7 @@ export async function POST(req: Request) {
   try {
     const body: ClientFormBody = await req.json();
     const client = await clientPromise;
-    const db = client.db("iceapple");
+    const db = client.db("iceapplewebsite");
     const collection = db.collection("clients");
 
     // Save to DB (upsert by email)

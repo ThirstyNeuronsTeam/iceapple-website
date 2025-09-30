@@ -19,6 +19,7 @@ import { ChevronDown, ChevronUp, Menu } from "lucide-react";
 import { useDeviceType } from "../../../hooks/useDeviceType";
 
 const navLinks = [
+  { name: "Home", path: "/" },
   { name: "About Us", path: "/about-us" },
   {
     name: "Services",
@@ -31,7 +32,7 @@ const navLinks = [
   { name: "Industries", path: "/industries" },
   {
     name: "Resources",
-    path: "/resources",
+    path: "",
     submenu: [
       { name: "Blog", path: "/resources/blogs" },
       { name: "Case Studies", path: "/resources/case-studies" },
