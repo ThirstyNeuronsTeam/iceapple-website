@@ -1,6 +1,8 @@
 // /pages/case-studies/[id].tsx
 
 import React from "react";
+import path from 'path';
+import fs from 'fs';
 import CaseStudyHero from "@/components/case-studies/case-studies-hero-section";
 import CaseStudyDetailedSection from "@/components/case-studies/case-studies-detailed-section";
 import content2 from "../../../../../data/case_study_overview/case_study_overview.json";
@@ -24,10 +26,12 @@ type PageProps = {
   params: Promise<{ id: string }>;
 };
 
-const CaseStudyDetailedPage = async ({params}:PageProps) => {
+const CaseStudyDetailedPage = async ({ params }: PageProps) => {
+  
   const { id } = await params;
-  const resp = await fetch(`http://localhost:3000/data/resources/case-studies/${id}.json`);
-  const content: CaseStudyContent = await resp.json();
+  const p = path.join(process.cwd(), 'public', 'data', 'resources', 'case-studies', `${id}.json`);
+  const content: CaseStudyContent = JSON.parse(fs.readFileSync(p, 'utf8'));
+
   return (
     <section>
       <CaseStudyHero {...content?.heroSection} />
