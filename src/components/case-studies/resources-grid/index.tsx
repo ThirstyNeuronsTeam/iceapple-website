@@ -1,41 +1,27 @@
 "use client";
 
 import { useDeviceType } from "../../../../hooks/useDeviceType";
-import InfoCard from "../info-card";
-import { useState } from "react";
-import { usePathname } from "next/navigation";
-import { BlogPostCard } from "@/components/blogs/blogs-card";
+import { PropsWithChildren, useState } from "react";
+import React from "react";
 
-type CardData = {
-  title: string;
-  description: string;
-  image: string;
-  date?: string;
-  readTime?: string;
-  link: string;
-  creator?:string
-};
-
-type GridProps = {
+interface GridProps extends PropsWithChildren {
   sectionTitle: string;
   sectionHeading: string;
-  data: CardData[];
-  zigzag?: boolean; // enable/disable zigzag
 };
 
 const ResourcesGrid: React.FC<GridProps> = ({
   sectionTitle,
   sectionHeading,
-  data,
-  zigzag = false,
+  children,
 }) => {
   const deviceType = useDeviceType();
-  const pathname = usePathname(); // 👈 get current path
   const [expanded, setExpanded] = useState(false);
 
+  const items = React.Children.toArray(children).filter(React.isValidElement) as React.ReactElement[];
+
   // Show only first 4 if not expanded
-  const visibleData = expanded ? data : data.slice(0, 4);
-    const isBlogPage = pathname.includes("/blogs"); // 👈 adjust logic as needed
+  const filteredItems = expanded ? items : items?.slice(0, 4);
+  //const isBlogPage = pathname.includes("/blogs"); // 👈 adjust logic as needed
 
   return (
     <section className="w-full bg-gray-50 px-4 sm:px-6 md:px-12 lg:px-16 py-16">
@@ -76,58 +62,20 @@ const ResourcesGrid: React.FC<GridProps> = ({
 
       {/* Cards Grid */}
       <div
-        className={`${
-          deviceType !== "mobile"
-            ? "grid grid-cols-1 md:grid-cols-2 gap-8 pr-4 md:pr-6 lg:pr-16"
-            : "space-y-6 pr-4"
-        } ${expanded ? "h-max pr-2" : "h-max"}`} // 👈 scroll only when expanded
+        className={`${deviceType !== "mobile"
+          ? "grid grid-cols-1 md:grid-cols-2 gap-8 pr-4 md:pr-6 lg:pr-16"
+          : "space-y-6 pr-4"
+          } ${expanded ? "h-max pr-2" : "h-max"}`} // 👈 scroll only when expanded
       >
-        {visibleData.map((study, index) => (
-          <div
-            key={index}
-            className={
-              zigzag
-                ? deviceType === "mobile"
-                  ? `flex ${index % 2 === 0 ? "justify-start" : "justify-end"}`
-                  : index % 2 !== 0
-                  ? "md:mt-[35%] flex"
-                  : "flex"
-                : "flex justify-center"
-            }
-          >
-            <div
-              className={
-                deviceType === "mobile"
-                  ? "w-10/12 pr-4"
-                  : "w-full md:w-11/12 lg:w-auto md:pr-4 mx-auto"
-              }
-            >
-              {isBlogPage ? (
-                <BlogPostCard
-                  title={study.title}
-                  date={study.date}
-                  readTime={study.readTime}
-                  description={study.description}
-                  imageUrl={study.image}
-                  link={study.link}
-                  creator={study.creator ?? ""}
-                />
-              ) : (
-                <InfoCard
-                  title={study.title}
-                  description={study.description}
-                  image={study.image}
-                  link={study.link}
-                  className="rounded-none"
-                />
-              )}
-            </div>
-          </div>
-        ))}
+
+        {
+          filteredItems
+        }
+
       </div>
 
       {/* View All Button */}
-      {data.length > 4 && (
+      {items.length > 4 && (
         <div className="flex justify-center mt-14">
           <button
             onClick={() => setExpanded(!expanded)}
