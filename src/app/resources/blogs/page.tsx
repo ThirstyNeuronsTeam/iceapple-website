@@ -2,8 +2,10 @@ import content from "../../../../data/blogs/blog-main.json";
 import HeroSection from "@/components/common/hero-section";
 import ResourcesGrid from "@/components/case-studies/resources-grid";
 import OurEnquiryFormSection from "@/components/common/our-enquiry-form";
- 
+ import path from "path";
+import fs from "fs";
 import { parseStringPromise } from "xml2js";
+
  
 interface XmlItem {
   guid: { _: string };
@@ -30,17 +32,11 @@ interface NormalizedData {
 }
  
 async function fetchXmlData(): Promise<NormalizedData | null> {
-
-  console.log("fetchxmldata")
     try {
-      const response = await fetch("https://medium.com/feed/iceapple-tech-talks/", {
-        next: { revalidate: 300 },
-      });
-      if (!response.ok) {
-        throw new Error(`Failed to fetch XML: ${response.status}`);
-      }
+       const p = path.join(process.cwd(), "data", "blogs", "iceapple-tech-talks.xml");
+      
+          const xmlData = fs.readFileSync(p, "utf8");
  
-      const xmlData = await response.text();
       const jsonData = await parseStringPromise(xmlData, { explicitArray: false });
  
       const channel = jsonData?.rss?.channel;

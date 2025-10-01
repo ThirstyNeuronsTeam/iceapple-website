@@ -3,6 +3,8 @@ import React from "react";
 import BlogsHeader from "@/components/blogs/blog-header";
 import DynamicTextBlock from "@/components/blogs/DynamicTextBlock";
 import { parseStringPromise } from "xml2js";
+import path from "path";
+import fs from "fs";
 
 // ----------------- Types -----------------
 type XmlItem = {
@@ -31,17 +33,34 @@ type PageProps = {
   params: Promise<{ id: string }>;
 };
 
+// Pre-render these params at build time
+export async function generateStaticParams() {
+  const dir = path.join(process.cwd(), "public", "assets","general","blogs", "content");
+
+  let files: string[] = [];
+  try {
+    files = fs.readdirSync(dir);
+  } catch {
+    files = [];
+  }
+
+  return files
+    .filter((f) => f.endsWith(".html"))
+    .map((file) => ({
+      id: file.replace(/\.html$/, ""),
+    }));
+}
+
 // ----------------- Fetch Function -----------------
 async function fetchBlogById(id: string): Promise<BlogContent | null> {
+
   try {
-    const res = await fetch("https://medium.com/feed/iceapple-tech-talks/", {
-      cache: "no-store",
-    });
 
-    if (!res.ok) return null;
+    const p = path.join(process.cwd(), "data", "blogs", "iceapple-tech-talks.xml");
 
-    const xmlData = await res.text();
-         const xmlJson = await parseStringPromise(xmlData, { explicitArray: false });
+    const xmlData = fs.readFileSync(p, "utf8");
+
+    const xmlJson = await parseStringPromise(xmlData, { explicitArray: false });
     const items: XmlItem[] = Array.isArray(xmlJson?.rss?.channel?.item)
       ? xmlJson.rss.channel.item
       : [xmlJson?.rss?.channel?.item];

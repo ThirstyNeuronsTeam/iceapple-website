@@ -7,7 +7,7 @@ declare global {
 }
 
 const uri: string = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/careerDB";
-console.log("uri",uri)
+
 const options = {}; // You can add MongoClientOptions if needed
 
 // Use a global variable to preserve MongoClient across hot reloads in development

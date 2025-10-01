@@ -34,7 +34,7 @@ const navLinks = [
     name: "Resources",
     path: "",
     submenu: [
-      { name: "Blog", path: "/resources/blogs" },
+      { name: "Blogs", path: "/resources/blogs" },
       { name: "Case Studies", path: "/resources/case-studies" },
     ],
   },
