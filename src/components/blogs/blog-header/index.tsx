@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { BookOpenText, Calendar } from "lucide-react";
+import { BookOpenText, Calendar, User } from "lucide-react";
 
 type HeroSectionProps = {
   blogName: string;
@@ -8,6 +8,7 @@ type HeroSectionProps = {
   bannerUrl: string;
   date: string;
   readTime: string;
+  creator: string;
 };
 
 const BlogsHeader: React.FC<HeroSectionProps> = ({
@@ -16,6 +17,7 @@ const BlogsHeader: React.FC<HeroSectionProps> = ({
   bannerUrl,
   date,
   readTime,
+  creator
 }) => {
   return (
     <section className="relative w-full min-h-[600px] md:min-h-[800px] lg:min-h-[900px] bg-white">
@@ -84,6 +86,10 @@ const BlogsHeader: React.FC<HeroSectionProps> = ({
             </h1>
 
             {/* Date + Time */}
+            <div className="flex items-center gap-1">
+              <User className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500" />
+              <span>{creator}</span>
+            </div>
             <div className="flex items-center text-gray-600 text-sm mt-4 space-x-6">
               <div className="flex items-center space-x-2">
                 <Calendar size={18} className="text-blue-500" />

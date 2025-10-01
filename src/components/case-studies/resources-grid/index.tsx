@@ -13,6 +13,7 @@ type CardData = {
   date?: string;
   readTime?: string;
   link: string;
+  creator?:string
 };
 
 type GridProps = {
@@ -98,7 +99,7 @@ const ResourcesGrid: React.FC<GridProps> = ({
               className={
                 deviceType === "mobile"
                   ? "w-10/12 pr-4"
-                  : "w-full md:w-11/12 lg:w-auto pr-4 mx-auto"
+                  : "w-full md:w-11/12 lg:w-auto md:pr-4 mx-auto"
               }
             >
               {isBlogPage ? (
@@ -109,6 +110,7 @@ const ResourcesGrid: React.FC<GridProps> = ({
                   description={study.description}
                   imageUrl={study.image}
                   link={study.link}
+                  creator={study.creator ?? ""}
                 />
               ) : (
                 <InfoCard

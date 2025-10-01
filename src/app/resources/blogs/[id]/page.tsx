@@ -13,6 +13,7 @@ type XmlItem = {
   description?: string;
   "content:encoded"?: string;
   pubDate: string;
+  "dc:creator"?:string
 };
 
 type HeroSection = {
@@ -22,6 +23,7 @@ type HeroSection = {
   date: string;
   readTime: string;
   bannerUrl: string;
+  creator:string
 };
 
 type BlogContent = {
@@ -76,6 +78,7 @@ async function fetchBlogById(id: string): Promise<BlogContent | null> {
       heroSection: {
         id,
         blogName: blog.title || "Untitled",
+        creator : blog["dc:creator"] ?? "",
         tag: "Blog",
         date: new Date(blog.pubDate).toLocaleDateString("en-US", {
           year: "numeric",

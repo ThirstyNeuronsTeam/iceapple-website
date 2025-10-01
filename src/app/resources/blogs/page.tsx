@@ -13,6 +13,7 @@ interface XmlItem {
   description?: string;
   "content:encoded"?: string;
   pubDate: string;
+  "dc:creator": string;
 }
  
 interface NormalizedItem {
@@ -23,6 +24,7 @@ interface NormalizedItem {
   date: string;
   readTime: string;
   link: string;
+  creator:string;
 }
  
 interface NormalizedData {
@@ -38,6 +40,8 @@ async function fetchXmlData(): Promise<NormalizedData | null> {
           const xmlData = fs.readFileSync(p, "utf8");
  
       const jsonData = await parseStringPromise(xmlData, { explicitArray: false });
+
+      console.log(jsonData)
  
       const channel = jsonData?.rss?.channel;
       if (!channel) return null;
@@ -52,6 +56,7 @@ async function fetchXmlData(): Promise<NormalizedData | null> {
           id,
           title: item.title || "",
           description: contentText,
+          creator : item["dc:creator"],
           image: "/assets/general/blogs/blogs_card.jpg",
           date: new Date(item.pubDate).toLocaleDateString("en-US", {
             year: "numeric",

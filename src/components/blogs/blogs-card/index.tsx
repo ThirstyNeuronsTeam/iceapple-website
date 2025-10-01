@@ -1,4 +1,4 @@
-import { BookOpenText, Calendar } from "lucide-react"
+import { BookOpenText, Calendar, User } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -9,9 +9,10 @@ interface BlogPostCardProps {
   description: string
   imageUrl: string
   link: string
+  creator: string;
 }
 
-export function BlogPostCard({ title, date, readTime, description, imageUrl, link }: BlogPostCardProps) {
+export function BlogPostCard({ title, date, readTime, description, imageUrl, link, creator }: BlogPostCardProps) {
   return (
     <div
       className="
@@ -43,9 +44,13 @@ export function BlogPostCard({ title, date, readTime, description, imageUrl, lin
         >
           {title}
         </h3>
-
+        <div className="flex items-center gap-1">
+          <User className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500" />
+          <span>{creator}</span>
+        </div>
         {/* Date and Read Time */}
         <div className="flex items-center gap-3 sm:gap-4 mb-2 sm:mb-3 text-xs sm:text-sm text-gray-600">
+
           <div className="flex items-center gap-1">
             <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500" />
             <span>{date}</span>
@@ -57,18 +62,19 @@ export function BlogPostCard({ title, date, readTime, description, imageUrl, lin
           </div>
         </div>
 
+
         {/* description and "Read More" Link */}
         <p className="text-gray-700 text-sm leading-relaxed flex-1">
-  {description.split(" ").length > 15
-    ? description.split(" ").slice(0, 15).join(" ") + "..."
-    : description}{" "}
-  <Link
-    href={link}
-    className="text-sm font-medium text-blue-600 hover:text-blue-800 hover:underline ml-1"
-  >
-    Read More
-  </Link>
-</p>
+          {description.split(" ").length > 15
+            ? description.split(" ").slice(0, 15).join(" ") + "..."
+            : description}{" "}
+          <Link
+            href={link}
+            className="text-sm font-medium text-blue-600 hover:text-blue-800 hover:underline ml-1"
+          >
+            Read More
+          </Link>
+        </p>
       </div>
     </div>
   )
