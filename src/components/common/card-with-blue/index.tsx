@@ -15,12 +15,14 @@ type CardProps = {
     btnText: string;
     btnUrl: string;
   };
+  cardDescriptionMobile: boolean;
 };
 const CardBlueBoxSection: React.FC<CardProps> = ({
   cardData,
   mainClassNames,
   headingClassNames,
   discriptionClassNames,
+  cardDescriptionMobile,
 }) => {
   const deviceType = useDeviceType();
 
@@ -37,7 +39,20 @@ const CardBlueBoxSection: React.FC<CardProps> = ({
         ) : (
           ""
         )}
-        {deviceType === "desktop" ? (
+        {cardDescriptionMobile ? (
+          deviceType === "desktop" ? (
+            <p
+              className={clsx(
+                discriptionClassNames,
+                "text-sm sm:text-lg leading-5 sm:leading-9 font-inter"
+              )}
+            >
+              {cardData.cardDescription}
+            </p>
+          ) : (
+            ""
+          )
+        ) : (
           <p
             className={clsx(
               discriptionClassNames,
@@ -46,8 +61,6 @@ const CardBlueBoxSection: React.FC<CardProps> = ({
           >
             {cardData.cardDescription}
           </p>
-        ) : (
-          ""
         )}
         {cardData.btnText ? (
           <Button

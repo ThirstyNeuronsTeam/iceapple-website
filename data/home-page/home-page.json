@@ -169,6 +169,14 @@
           "cardDescription": "We partnered with an African startup that revolutionized its Civil Registration and Vital Statistics system with NodeJS and Mongo DB to overcome challenges such as remote redeployment and complex requirements.",
           "btnText": "Know More",
           "btnUrl": "/"
+        },
+        {
+          "id": 2,
+          "image": "/assets/general/home-page/slider.webp",
+          "cardTitle": "Journey of Transformation with CRVS",
+          "cardDescription": "We partnered with an African startup that revolutionized its Civil Registration and Vital Statistics system with NodeJS and Mongo DB to overcome challenges such as remote redeployment and complex requirements.",
+          "btnText": "Know More",
+          "btnUrl": "/"
         }
       ]
     },

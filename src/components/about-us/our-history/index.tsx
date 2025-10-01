@@ -39,6 +39,7 @@ const OurHistorySection: React.FC<careerProps> = ({
                 btnText,
                 btnUrl,
               }}
+              cardDescriptionMobile={false}
             />
             <div
               className={clsx(

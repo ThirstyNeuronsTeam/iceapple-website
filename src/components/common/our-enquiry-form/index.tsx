@@ -31,16 +31,19 @@ type EnquiryProps = {
 
 // Zod schema
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Username must be at least 2 characters." }),
+  name: z
+    .string()
+    .min(2, { message: "Username must be at least 2 characters." }),
   email: z.email({ message: "Invalid email address" }),
-  phone: z.string()
+  phone: z
+    .string()
     .min(10, { message: "Phone number must be at least 10 digits" })
     .max(15, { message: "Phone number can't exceed 15 digits" })
     .regex(/^[0-9]+$/, { message: "Phone number must contain only digits" }),
   company: z.string().optional(),
   message: z.string().optional(),
   heardAboutUs: z.array(z.string()).optional(),
-  authorize: z.boolean().refine(val => val === true, {
+  authorize: z.boolean().refine((val) => val === true, {
     message: "Authorization required",
   }),
 });
@@ -67,7 +70,10 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
   });
 
   const [isOther, setIsOther] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
   const deviceType = useDeviceType();
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
@@ -80,12 +86,18 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
       const data = await res.json();
 
       if (data.success) {
-        setSubmitStatus({ type: "success", message: "Details submitted successfully!" });
+        setSubmitStatus({
+          type: "success",
+          message: "Details submitted successfully!",
+        });
         form.reset();
         form.clearErrors();
         setIsOther(false);
       } else {
-        setSubmitStatus({ type: "error", message: data.message || "Failed to submit form" });
+        setSubmitStatus({
+          type: "error",
+          message: data.message || "Failed to submit form",
+        });
       }
     } catch (err) {
       console.error(err);
@@ -109,25 +121,42 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
               mainClassNames="px-5 sm:px-20 py-10 max-w-xl bg-[rgba(11,104,255,0.92)]"
               headingClassNames="font-bold text-xl sm:text-7xl mb-0 sm:mb-5"
               discriptionClassNames="mb-4"
-              cardData={{ cardTitle, cardDescription, btnText, btnUrl }}
+              cardDescriptionMobile={true}
+              cardData={{
+                cardTitle,
+                cardDescription,
+                btnText,
+                btnUrl,
+              }}
             />
           </div>
 
-          {deviceType === "mobile" && <p className="text-sm font-inter">{cardDescription}</p>}
+          {deviceType === "mobile" && (
+            <p className="text-sm font-inter">{cardDescription}</p>
+          )}
 
           {/* Form section */}
           <div className="max-w-2xl sm:pl-20 font-inter">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 {/* Username */}
                 <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-medium text-sm sm:text-xl">Name *</FormLabel>
+                      <FormLabel className="font-medium text-sm sm:text-xl">
+                        Name *
+                      </FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="Enter your name" className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg" />
+                        <Input
+                          {...field}
+                          placeholder="Enter your name"
+                          className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -140,9 +169,15 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-medium text-sm sm:text-xl">Email ID *</FormLabel>
+                      <FormLabel className="font-medium text-sm sm:text-xl">
+                        Email ID *
+                      </FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="Enter your email" className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg" />
+                        <Input
+                          {...field}
+                          placeholder="Enter your email"
+                          className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -155,9 +190,15 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-medium text-sm sm:text-xl">Phone Number *</FormLabel>
+                      <FormLabel className="font-medium text-sm sm:text-xl">
+                        Phone Number *
+                      </FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="Enter your phone number" className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg" />
+                        <Input
+                          {...field}
+                          placeholder="Enter your phone number"
+                          className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -170,9 +211,15 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                   name="company"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-medium text-sm sm:text-xl">Company</FormLabel>
+                      <FormLabel className="font-medium text-sm sm:text-xl">
+                        Company
+                      </FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="Enter your company" className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg" />
+                        <Input
+                          {...field}
+                          placeholder="Enter your company"
+                          className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -185,9 +232,15 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-medium text-sm sm:text-xl">Message</FormLabel>
+                      <FormLabel className="font-medium text-sm sm:text-xl">
+                        Message
+                      </FormLabel>
                       <FormControl>
-                        <Textarea {...field} placeholder="Enter your message" className="w-full min-h-[150px] rounded-none border border-gray-300 px-3 py-2 text-sm" />
+                        <Textarea
+                          {...field}
+                          placeholder="Enter your message"
+                          className="w-full min-h-[150px] rounded-none border border-gray-300 px-3 py-2 text-sm"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -200,26 +253,41 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                   name="heardAboutUs"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="font-medium text-sm sm:text-xl">How did you hear about us?</FormLabel>
+                      <FormLabel className="font-medium text-sm sm:text-xl">
+                        How did you hear about us?
+                      </FormLabel>
                       <FormControl>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-3">
-                          {["searchEngine", "socialMedia", "referral", "advertisement"].map(option => (
-                            <div key={option} className="flex items-center gap-3">
+                          {[
+                            "searchEngine",
+                            "socialMedia",
+                            "referral",
+                            "advertisement",
+                          ].map((option) => (
+                            <div
+                              key={option}
+                              className="flex items-center gap-3"
+                            >
                               <Checkbox
                                 checked={field.value?.includes(option) || false}
                                 onCheckedChange={(checked) => {
                                   const newValue = checked
                                     ? [...(field.value || []), option]
-                                    : (field.value || []).filter(v => v !== option);
+                                    : (field.value || []).filter(
+                                        (v) => v !== option
+                                      );
                                   field.onChange(newValue);
                                 }}
                                 className="w-6 h-6 rounded-none border-black"
                               />
                               <Label className="text-sm sm:text-lg">
-                                {option === "searchEngine" ? "Search Engine" :
-                                  option === "socialMedia" ? "Social Media" :
-                                    option === "referral" ? "Referral" :
-                                      "Advertisement"}
+                                {option === "searchEngine"
+                                  ? "Search Engine"
+                                  : option === "socialMedia"
+                                  ? "Social Media"
+                                  : option === "referral"
+                                  ? "Referral"
+                                  : "Advertisement"}
                               </Label>
                             </div>
                           ))}
@@ -231,10 +299,21 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                               onCheckedChange={(val) => {
                                 setIsOther(!!val);
                                 if (!val) {
-                                  field.onChange((field.value || []).filter(v => !v.startsWith("other:")));
+                                  field.onChange(
+                                    (field.value || []).filter(
+                                      (v) => !v.startsWith("other:")
+                                    )
+                                  );
                                 } else {
-                                  if (!(field.value || []).some(v => v.startsWith("other:"))) {
-                                    field.onChange([...(field.value || []), "other:"]);
+                                  if (
+                                    !(field.value || []).some((v) =>
+                                      v.startsWith("other:")
+                                    )
+                                  ) {
+                                    field.onChange([
+                                      ...(field.value || []),
+                                      "other:",
+                                    ]);
                                   }
                                 }
                               }}
@@ -248,8 +327,12 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                                 className="border-b border-black focus-visible:ring-0"
                                 onChange={(e) => {
                                   const val = e.target.value.trim();
-                                  const cleaned = (field.value || []).filter(v => !v.startsWith("other:"));
-                                  field.onChange(val ? [...cleaned, `other:${val}`] : cleaned);
+                                  const cleaned = (field.value || []).filter(
+                                    (v) => !v.startsWith("other:")
+                                  );
+                                  field.onChange(
+                                    val ? [...cleaned, `other:${val}`] : cleaned
+                                  );
                                 }}
                               />
                             )}
@@ -274,7 +357,9 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                             className="w-6 h-6 rounded-none border-black"
                           />
                           <Label className="text-xs sm:text-base">
-                            I authorize IceApple to collect and use the personal information I have provided above to contact me and respond to my inquiry.
+                            I authorize IceApple to collect and use the personal
+                            information I have provided above to contact me and
+                            respond to my inquiry.
                           </Label>
                         </div>
                       </FormControl>
@@ -293,7 +378,13 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
 
                 {/* Submit status */}
                 {submitStatus && (
-                  <div className={`p-3 mt-2 rounded ${submitStatus.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}>
+                  <div
+                    className={`p-3 mt-2 rounded ${
+                      submitStatus.type === "success"
+                        ? "bg-green-100 text-green-800"
+                        : "bg-red-100 text-red-800"
+                    }`}
+                  >
                     {submitStatus.message}
                   </div>
                 )}

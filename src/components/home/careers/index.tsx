@@ -55,6 +55,7 @@ const CareersSection: React.FC<careerProps> = ({
             </div>
             <CardBlueBoxSection
               mainClassNames="max-w-lg py-4 sm:py-0 px-4 sm:px-30 gap-y-4 sm:gap-y-12"
+              cardDescriptionMobile={false}
               cardData={{
                 cardTitle,
                 cardDescription,
