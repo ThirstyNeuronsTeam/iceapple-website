@@ -36,7 +36,7 @@ const BannerSectionDetail: React.FC<HeroSectionProps> = ({
         <div className="overflow-hidden">
           <div className="space-y-3 sm:space-y-6 lg:pl-10">
             <div className="text-[#0B68FF]">
-              <h1 className="text-[28px] flex flex-col sm:text-7xl font-extrabold leading-none">
+              <h1 className="flex flex-col  font-extrabold leading-none text-[clamp(1.75rem,4vw,4.5rem)]">
                 {title?.map((item, index) => (
                   <div className="w-max" key={index}>
                     {item}
@@ -44,7 +44,7 @@ const BannerSectionDetail: React.FC<HeroSectionProps> = ({
                 ))}
               </h1>
             </div>
-            <p className="text-sm sm:text-2xl font-medium mb-4 sm:mb-11 w-3/4 sm:w-full">
+            <p className="font-medium mb-4 sm:mb-11 w-3/4 sm:w-full text-[clamp(0.875rem,1.5vw,1.5rem)]">
               {content}
             </p>
             {isBtnShow && btnurl && btntext && (

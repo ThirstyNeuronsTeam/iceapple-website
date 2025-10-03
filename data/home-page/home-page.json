@@ -8,10 +8,10 @@
         "Solutions Today"
       ],
       "content": "Innovation-driven tech resolution for Success",
-      "btntext": "",
+      "btntext": "Default Button",
       "btnurl": "/",
       "url": "/assets/general/home-page/home-page-banner.webp",
-      "isBtnShow": true
+      "isBtnShow": false
     },
     "aboutUs": {
       "aboutImageOne": "/assets/general/home-page/about-image-1.jpg",

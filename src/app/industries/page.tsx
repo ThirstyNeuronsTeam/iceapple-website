@@ -10,7 +10,7 @@ const Industries: React.FC = () => {
   return (
     <section>
       <HeroSection
-        sectionId="hero"
+        sectionId=""
         mainClassName="items-end"
         {...content.industry.heroSection}
       />
