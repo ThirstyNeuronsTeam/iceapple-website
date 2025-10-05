@@ -52,14 +52,14 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
         >
           <div className="w-[8px] sm:w-[30px] h-[1px] sm:h-[5px] bg-[#0B68FF]"></div>
 
-          <p className="text-blue-600 font-semibold text-xs sm:text-2xl">
+          <p className="text-blue-600 font-semibold text-xs sm:text-xl xl:text-2xl">
             {subHeading || ""}
           </p>
         </div>
       )}
 
       <h2
-        className={`${headingWidthClass} sm:ml-auto text-[22px] sm:text-7xl font-bold leading-none mb-2 sm:mb-11`}
+        className={`${headingWidthClass} sm:ml-auto text-[22px] sm:text-4xl xl:text-7xl font-bold leading-none mb-2 sm:mb-11`}
       >
         {heading}
       </h2>

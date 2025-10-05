@@ -119,7 +119,7 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
           <div className="relative sm:pb-15 w-3/5 sm:w-auto sm:max-w-xl text-left mb-22 sm:mb-0">
             <CardBlueBoxSection
               mainClassNames="px-5 sm:px-20 py-10 max-w-xl bg-[rgba(11,104,255,0.92)]"
-              headingClassNames="font-bold text-xl sm:text-7xl mb-0 sm:mb-5"
+              headingClassNames="font-bold text-xl sm:text-5xl xl:text-7xl mb-0 sm:mb-5"
               discriptionClassNames="mb-4"
               cardDescriptionMobile={true}
               cardData={{

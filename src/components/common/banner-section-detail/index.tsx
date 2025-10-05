@@ -58,7 +58,7 @@ const BannerSectionDetail: React.FC<HeroSectionProps> = ({
           </div>
           <span
             onClick={handleScroll}
-            className="absolute right-10 top-1/4 transform -rotate-90 text-xl tracking-wide hidden lg:block font-bold"
+            className="cursor-pointer absolute right-10 sm:top-3/4 xl:top-1/4 transform -rotate-90 text-xl tracking-wide hidden lg:block font-bold"
           >
             Scroll Down
           </span>

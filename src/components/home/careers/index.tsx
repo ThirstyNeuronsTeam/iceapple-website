@@ -35,7 +35,7 @@ const CareersSection: React.FC<careerProps> = ({
 }) => {
   return (
     <article>
-      <div className="relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[60vw] z-0 after:-z-10">
+      <div className="relative after:content-[''] after:absolute after:top-0 after:bottom-0 after:left-0 after:bg-[#F3F3F3] sm:after:w-[60vw] after:w-[80vw] z-0 after:-z-10">
         <div className="w-full mx-auto pl-5 2xl:px-0 container">
           <div className="grid grid-cols-[40%_55%] sm:grid-cols-2 py-9 sm:py-16 gap-4">
             <div
@@ -54,7 +54,7 @@ const CareersSection: React.FC<careerProps> = ({
               />
             </div>
             <CardBlueBoxSection
-              mainClassNames="max-w-lg py-4 sm:py-0 px-4 sm:px-30 gap-y-4 sm:gap-y-12"
+              mainClassNames="max-w-lg py-4 sm:py-0 px-4 xl:px-30 gap-y-4 sm:gap-y-12"
               cardDescriptionMobile={false}
               cardData={{
                 cardTitle,
@@ -68,11 +68,11 @@ const CareersSection: React.FC<careerProps> = ({
       </div>
       {info && (
         <div className="w-full mx-auto px-5 2xl:px-0 container">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-20 my-25">
+          <div className="grid sm:flex lg:grid grid-cols-1 sm:grid-cols-3 sm:overflow-x-auto xl:overflow-visible gap-10 sm:gap-10 xl:gap-20 my-25">
             <CardWithImageSection
-              sectionClass=""
+              sectionClass="sm:min-w-[500px] lg:min-w-full"
               sectionContentClass=""
-              sectionBodyClass="px-4 sm:px-20 py-5 sm:py-12 "
+              sectionBodyClass="px-4 sm:px-6 xl:px-20 py-5 sm:py-12 "
               cardWithImageData={{ info }}
             />
           </div>

@@ -57,7 +57,7 @@ const OurServicesSection: React.FC<ServicesProps> = ({
               >
                 {/* Image Section */}
                 <div
-                  className={`w-1/2 sm:w-full max-w-lg aspect-square relative  ${
+                  className={`w-1/2 sm:w-full max-w-sm xl:max-w-lg aspect-square relative  ${
                     item.reverse ? "md:ml-auto md:mr-0" : ""
                   }`}
                 >
@@ -76,14 +76,14 @@ const OurServicesSection: React.FC<ServicesProps> = ({
 
                 {/* Content Section overlapping */}
                 <div
-                  className={`absolute max-w-[285px] sm:max-w-md bg-[rgba(255,255,255,80%)] z-10  ${
+                  className={`absolute max-w-[285px] sm:max-w-md md:max-w-md lg:max-w-lg bg-[rgba(255,255,255,80%)] z-10  ${
                     item.reverse ? "md:ml-auto" : ""
                   } ${item.alignLeft ? "text-left" : "text-right "} ${
                     item.sectionName === "one"
-                      ? "bottom-[15%] sm:bottom-[inherit] sm:-top-[20%] p-5 md:p-10 md:pt-25 right-[10%] sm:right-[32%]"
+                      ? "bottom-[15%] sm:bottom-[inherit] sm:-top-[20%] p-5 md:p-10 md:pt-25 right-[10%] sm:right-[45%] md:right-[40%] lg:right-[36%] xl:right-[32%]"
                       : item.sectionName === "two"
-                      ? "top-[30%] p-4 sm:p-14 pt-5 sm:pt-16 left-[10%] sm:left-[25%]"
-                      : "bottom-[15%] sm:bottom-[inherit] sm:top-[40%] right-[10%] sm:right-[25%]"
+                      ? "top-[30%] p-4 sm:p-14 pt-5 sm:pt-16 left-[10%] sm:left-[45%] md:left-[35%] xl:left-[25%]"
+                      : "bottom-[15%] sm:bottom-[inherit] sm:top-[40%] right-[10%] sm:right-[45%] md:right-[25%] lg:right-[25%]"
                   } p-6 md:p-10`}
                 >
                   <h3

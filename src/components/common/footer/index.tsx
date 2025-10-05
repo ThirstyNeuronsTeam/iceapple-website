@@ -25,11 +25,11 @@ type FooterProps = {
 const Footer: React.FC<FooterProps> = ({ footerData }) => {
   return (
     <>
-      <div className="mt-9 sm:mt-40 px-5 sm:px-0 mx-auto container">
+      <div className="mt-9 sm:mt-40 px-5 2xl:px-0 mx-auto container">
         <div className="flex flex-col gap-4 md:flex-row font-inter mb-14 sm:mb-20">
           <div className="sm:w-[35%] order-1">
             <LogoWithCompanyName />
-            <p className="sm:w-2/3 mt-4 sm:mt-10 text-sm sm:text-2xl">
+            <p className="sm:w-2/3 mt-4 sm:mt-10 text-sm sm:text-lg xl:text-2xl">
               {footerData.address}
             </p>
           </div>
@@ -54,7 +54,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               </ul>
             </div>
           </div>
-          <div className="text-sm sm:text-2xl sm:w-[25%] order-2 sm:order-3">
+          <div className="text-sm sm:text-lg xl:text-2xl sm:w-[25%] order-2 sm:order-3">
             <div className="grid grid-cols-1 gap-1 sm:gap-10">
               {footerData.companyInfo?.map((item, index) => (
                 <Link key={index} href={item.menuUrl}>

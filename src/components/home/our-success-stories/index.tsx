@@ -38,7 +38,7 @@ const OurSuccessStoriesSection: React.FC<LegacyProps> = ({
   return (
     <article className="relative mt-15 sm:mt-60">
       <div className="w-full mx-auto px-5 2xl:px-0 container">
-        <div className="grid grid-cols-1 sm:grid-cols-[40%_60%] pb-0 sm:pb-60">
+        <div className="grid grid-cols-1 sm:grid-cols-[40%_60%] pb-0 sm:pb-20 xl:pb-60">
           <div className="relative sm:pb-15 max-w-xl text-left">
             <HeadingSectionDetail
               align="left"
@@ -52,13 +52,13 @@ const OurSuccessStoriesSection: React.FC<LegacyProps> = ({
             <CarouselContent className="overflow-visible">
               {successStoriesData.sliders.map((item, index) => (
                 <CarouselItem key={index}>
-                  <div className="flex flex-col sm:flex-row sm:pr-20">
-                    <div className="w-[150px] sm:w-[450px] h-[170px] sm:h-[600px] aspect-3/2 absolute -top-30 sm:-top-50 -z-[1]">
+                  <div className="flex flex-col sm:flex-row xl:pr-20">
+                    <div className="w-[150px] sm:w-[250px] xl:w-[450px] h-[170px] sm:h-[400px] xl:h-[600px] aspect-3/2 absolute -top-30 sm:-top-50 -z-[1]">
                       <Image fill src={item.image} alt="" />
                     </div>
                     <div className="flex justify-end w-full pb-20 sm:pb-50">
                       <CardBlueBoxSection
-                        mainClassNames="px-5 sm:px-20 py-10 max-w-xs sm:max-w-xl bg-[rgba(11,104,255,0.92)] relative sm:-bottom-[20%]"
+                        mainClassNames="px-5 sm:px-10 xl:px-20 py-10 max-w-xs sm:max-w-md xl:max-w-xl bg-[rgba(11,104,255,0.92)] relative sm:-bottom-[10%] xl:-bottom-[20%]"
                         headingClassNames="text-sm sm:text-5xl mb-5"
                         discriptionClassNames="mb-4"
                         cardDescriptionMobile={false}

@@ -31,10 +31,10 @@ const AboutUs: React.FC<AboutUsProps> = ({
   const deviceType = useDeviceType();
 
   return (
-    <article className="relative before:hidden sm:before:block sm:before:content-[''] before:absolute before:-top-40 before:h-[500px] before:left-0 before:bg-[#ffffff] before:w-[49vw] after:content-[''] after:absolute after:bottom-0 sm:after:bottom-0 after:h-[248px] sm:after:h-[600px] after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] after:-z-1 pt-20 pb-10 sm:pb-110 w-full">
-      <Wrapper className="mx-auto flex flex-col sm:grid sm:grid-cols-1 lg:grid-cols-3 gap-y-4 sm:gap-16">
-        <div className="relative col-span-2 px-5 sm:px-40">
-          <div className="relative aspect-[5/4] w-48 sm:w-full max-w-lg shadow-[0_6px_20px_rgba(0,0,0,40%)] sm:shadow-[0_42px_173px_rgba(0,0,0,70%)] overflow-hidden z-10">
+    <article className="relative before:hidden sm:before:block sm:before:content-[''] before:absolute before:-top-40 before:h-[500px] before:left-0 before:bg-[#ffffff] before:w-[49vw] after:content-[''] after:absolute after:bottom-0 sm:after:bottom-0 after:h-[248px] sm:after:h-[600px] after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] after:-z-1 pt-20 pb-10 sm:pb-40 xl:pb-80 w-full">
+      <Wrapper className="mx-auto flex flex-col sm:grid sm:grid-cols-1 lg:grid-cols-3 gap-y-4 sm:gap-16 px-5 2xl:px-0">
+        <div className="relative col-span-2 px-5 sm:px-10 xl:px-40">
+          <div className="relative aspect-[4/3] xl:aspect-[5/4] w-48 sm:w-full max-w-sm xl:max-w-lg shadow-[0_6px_20px_rgba(0,0,0,40%)] sm:shadow-[0_42px_173px_rgba(0,0,0,70%)] overflow-hidden z-10">
             <Image
               src={aboutImageTwo}
               alt="Tech Lens"
@@ -42,7 +42,7 @@ const AboutUs: React.FC<AboutUsProps> = ({
               className="object-cover"
             />
           </div>
-          <div className="shadow-[0_6px_20px_rgba(0,0,0,40%)] sm:shadow-none absolute bottom-[55%] sm:bottom-[5%] right-5 sm:right-[2%] aspect-[5/4] w-48 sm:w-full max-w-lg overflow-hidden z-20">
+          <div className="shadow-[0_6px_20px_rgba(0,0,0,40%)] sm:shadow-none absolute sm:top-[25%] bottom-[55%] sm:bottom-[inherit] xl:bottom-[5%] right-5 sm:right-[2%] aspect-[4/3] xl:aspect-[5/4] w-48 sm:w-full max-w-sm xl:max-w-lg overflow-hidden z-20">
             <Image
               src={aboutImageOne}
               alt="AI Face"
@@ -54,7 +54,7 @@ const AboutUs: React.FC<AboutUsProps> = ({
             ? ourValues?.map((item, index) => (
                 <div
                   key={index}
-                  className="w-md sm:absolute -bottom-[25%] left-[5%] right-0 z-0 bg-white p-10 sm:pt-200"
+                  className="w-md sm:absolute -bottom-[15%] xl:-bottom-[25%] left-[5%] right-0 z-0 bg-white p-10 sm:pt-200"
                 >
                   <h3 className="text-3xl font-bold mb-6">{item.title}</h3>
                   {item.listItem.length > 1 ? (
