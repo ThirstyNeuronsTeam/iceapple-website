@@ -87,7 +87,7 @@ export default async function BlogsMainPage() {
 
   return (
     <section>
-      <HeroSection sectionId="" mainClassName="items-end" {...content.heroSection} />
+      <HeroSection sectionId=" " mainClassName="items-end" {...content.heroSection} />
 
       <div className="container mx-auto px-4">
         <ResourcesGrid {...(normalizedData ?? content.caseStudyGrid)}>
