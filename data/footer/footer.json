@@ -42,18 +42,13 @@
     "menuItemsTwo": [
       {
         "id": 2,
-        "menuName": "Apps",
-        "menuUrl": "/apps"
+        "menuName": "Intelligent Apps",
+        "menuUrl": "/services/intelligent-apps"
       },
       {
         "id": 3,
-        "menuName": "Data Science",
-        "menuUrl": "/data-science"
-      },
-      {
-        "id": 4,
-        "menuName": "DevOps",
-        "menuUrl": "/devops"
+        "menuName": "Intelligent Devices",
+        "menuUrl": "/services/intelligent-devices"
       }
     ],
     "companyInfo": [

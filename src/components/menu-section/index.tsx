@@ -24,7 +24,7 @@ const navLinks = [
   {
     name: "Services",
     path: "/services",
-     submenu: [
+    submenu: [
       { name: "Intelligent Apps", path: "/services/intelligent-apps" },
       { name: "Intelligent Devices", path: "/services/intelligent-devices" },
     ],
@@ -113,7 +113,7 @@ export function MenuSection() {
           <SheetTrigger>
             <Menu className="w-6 h-6" />
           </SheetTrigger>
-          <SheetContent side="right" className="w-full">
+          <SheetContent side="right" className="w-full overflow-y-auto">
             <div className="items-start w-full max-w-full">
               <div className="w-3/4 p-15 flex flex-col gap-y-3 relative before:content-[''] before:absolute before:-top-0 before:bottom-0 before:left-0 before:right-0 before:bg-[#F3F3F3] before:-z-1">
                 {navLinks
@@ -124,7 +124,7 @@ export function MenuSection() {
                         <div key={index}>
                           <button
                             onClick={() => toggleSubmenu(link.name)}
-                            className="flex justify-between w-full font-medium text-lg"
+                            className="flex items-center justify-between w-full font-medium text-lg py-4"
                           >
                             <span>{link.name}</span>
                             {openSub === link.name ? (
