@@ -76,7 +76,6 @@ const BlogsHeader: React.FC<HeroSectionProps> = ({
     text-[clamp(20px,5vw,72px)]
   "
               style={{
-                fontFamily: "Mosk",
                 fontWeight: 700,
                 lineHeight: "120%",
                 letterSpacing: "0px",

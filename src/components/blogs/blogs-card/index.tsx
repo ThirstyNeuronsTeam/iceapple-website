@@ -12,13 +12,26 @@ interface BlogPostCardProps {
   creator: string;
 }
 
+function capitalizeFirstLetters(str:string) {
+  return str
+  .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
 export function BlogPostCard({ title, date, readTime, description, imageUrl, link, creator }: BlogPostCardProps) {
+  
   return (
     <div
       className="
-        w-full h-auto 
-         shadow-sm hover:shadow-md 
-        transition-shadow overflow-hidden flex flex-col p-6
+        w-full
+    sm:w-full
+    max-w-[95vw] sm:max-w-full
+    mx-auto
+    h-auto 
+    shadow-sm hover:shadow-md 
+    transition-shadow overflow-hidden flex flex-col p-6
       "
     >
       {/* Image Section */}
@@ -40,14 +53,21 @@ export function BlogPostCard({ title, date, readTime, description, imageUrl, lin
             text-base sm:text-2xl lg:text-3xl
             mb-2 sm:mb-4
           "
-          style={{ fontFamily: "Mosk" }}
         >
           {title}
         </h3>
         <div className="flex items-center gap-1">
           <User className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500" />
-          <span>{creator}</span>
+          <span
+            className="
+      text-xs sm:text-sm lg:text-base 
+      font-medium text-gray-800 
+    "
+          >
+            {capitalizeFirstLetters(creator)}
+          </span>
         </div>
+
         {/* Date and Read Time */}
         <div className="flex items-center gap-3 sm:gap-4 mb-2 sm:mb-3 text-xs sm:text-sm text-gray-600">
 

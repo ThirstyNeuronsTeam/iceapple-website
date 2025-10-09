@@ -27,7 +27,7 @@ export default function CardWrapper({ zigzag, children, index }: CardWrapperProp
         <div
             className={
                 deviceType === "mobile"
-                    ? "w-10/12 pr-4"
+  ? "max-w-[95vw] w-full mx-auto"
                     : "w-full md:w-11/12 lg:w-auto md:pr-4 mx-auto"
             }
         >

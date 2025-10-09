@@ -79,7 +79,6 @@ const CaseStudyHero: React.FC<HeroSectionProps> = ({
             <h1
               className="font-bold text-gray-900"
               style={{
-                fontFamily: "Mosk",
                 fontWeight: 700,
                 fontSize: "clamp(32px, 6vw, 72px)",
                 lineHeight: "117%",

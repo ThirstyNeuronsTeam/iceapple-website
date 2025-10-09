@@ -41,7 +41,7 @@ const CaseStudyDetailedSection: React.FC<CaseStudyDetailedSectionProps> = ({
               className="bg-blue-600 shadow-md flex items-center justify-start px-4 text-white 
               max-w-[643px] h-auto py-4 
                text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-[2px] sm:tracking-[3px]"
-    style={{ fontFamily: "'Mosk', sans-serif", lineHeight: "121%" }}
+    style={{ lineHeight: "121%" }}
             >
               {section.title}
             </div>

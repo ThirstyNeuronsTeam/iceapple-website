@@ -51,7 +51,7 @@
 }
 
 body {
-  font-family: var(--font-main), var(--font-inter), Arial, Helvetica, sans-serif;
+  font-family: var(--font-main), var(--font-inter), Arial, Helvetica, sans-serif !important;
 }
 
 :root {

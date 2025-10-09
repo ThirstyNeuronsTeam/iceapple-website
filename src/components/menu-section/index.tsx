@@ -93,7 +93,7 @@ export function MenuSection() {
                     asChild
                     className={
                       (navigationMenuTriggerStyle(),
-                      "bg-transparent font-medium 2xl:text-xl")
+                        "bg-transparent font-medium 2xl:text-xl")
                     }
                   >
                     <Link href={link.path}>{link.name}</Link>
@@ -115,54 +115,53 @@ export function MenuSection() {
           </SheetTrigger>
           <SheetContent side="right" className="w-full overflow-y-auto">
             <div className="items-start w-full max-w-full">
-              <div className="w-3/4 p-15 flex flex-col gap-y-3 relative before:content-[''] before:absolute before:-top-0 before:bottom-0 before:left-0 before:right-0 before:bg-[#F3F3F3] before:-z-1">
-                {navLinks
-                  .filter((link) => link.name !== "Services")
-                  .map((link, index) => {
-                    if (link.submenu) {
-                      return (
-                        <div key={index}>
-                          <button
-                            onClick={() => toggleSubmenu(link.name)}
-                            className="flex items-center justify-between w-full font-medium text-lg py-4"
-                          >
-                            <span>{link.name}</span>
-                            {openSub === link.name ? (
-                              <ChevronUp />
-                            ) : (
-                              <ChevronDown />
-                            )}
-                          </button>
+              <div className="w-3/4 py-4 p-15 flex flex-col gap-y-3 relative before:content-[''] before:absolute before:-top-0 before:bottom-0 before:left-0 before:right-0 before:bg-[#F3F3F3] before:-z-1">
+                {
+                  navLinks
+                    .filter((link) => link.name !== "Services")
+                    .map((link, index) => {
+                      if (link.submenu) {
+                        return (
+                          <div key={index}>
+                            <button
+                              onClick={() => toggleSubmenu(link.name)}
+                              className={`flex justify-between w-full font-medium text-lg py-4`} // Add py-4 here
+                            >
+                              <span>{link.name}</span>
+                              {openSub === link.name ? <ChevronUp /> : <ChevronDown />}
+                            </button>
 
-                          {openSub === link.name && (
-                            <div className="pl-4 mt-2 space-y-2">
-                              {link.submenu.map((sublink, subIndex) => (
-                                <div key={subIndex}>
-                                  <Link
-                                    onClick={() => setOpen(false)}
-                                    href={sublink.path}
-                                    className="block py-3"
-                                  >
-                                    {sublink.name}
-                                  </Link>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
+                            {openSub === link.name && (
+                              <div className="pl-4 mt-2 space-y-2">
+                                {link.submenu.map((sublink, subIndex) => (
+                                  <div key={subIndex}>
+                                    <Link
+                                      onClick={() => setOpen(false)}
+                                      href={sublink.path}
+                                      className="block py-3"
+                                    >
+                                      {sublink.name}
+                                    </Link>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      }
+                      return (
+                        <Link
+                          onClick={() => setOpen(false)}
+                          key={index}
+                          href={link.path}
+                          className="block font-medium text-lg py-4"
+                        >
+                          {link.name}
+                        </Link>
                       );
-                    }
-                    return (
-                      <Link
-                        onClick={() => setOpen(false)}
-                        key={index}
-                        href={link.path}
-                        className="block font-medium text-lg py-4"
-                      >
-                        {link.name}
-                      </Link>
-                    );
-                  })}
+                    })
+                }
+
               </div>
               <div className="p-10 font-medium">
                 {navLinksMobile.map((link, index) => {

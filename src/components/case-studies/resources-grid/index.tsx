@@ -41,7 +41,7 @@ const ResourcesGrid: React.FC<GridProps> = ({
               : "text-base text-left"} 
             sm:text-lg md:text-xl lg:text-2xl
           `}
-          style={{ fontFamily: "'Mosk', sans-serif", letterSpacing: "0" }}
+          style={{  letterSpacing: "0" }}
         >
           {sectionTitle}
         </h2>
@@ -55,7 +55,6 @@ const ResourcesGrid: React.FC<GridProps> = ({
             : "text-4xl text-left"} 
           sm:text-3xl md:text-5xl lg:text-6xl
         `}
-        style={{ fontFamily: "'Mosk', sans-serif" }}
       >
         {sectionHeading}
       </h1>

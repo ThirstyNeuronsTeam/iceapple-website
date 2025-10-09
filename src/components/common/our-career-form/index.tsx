@@ -37,7 +37,11 @@ const careerSchema = z.object({
     .max(15, { message: "Phone is too long" })
     .regex(/^[0-9]+$/, "Digits only"),
   linkedIn: z.string().url({ message: "Valid LinkedIn URL required" }),
-  resume: z.instanceof(File, { message: "Resume file is required" }),
+  // resume: z.instanceof(File, { message: "Resume file is required" }),
+  resume: z.any().refine(
+    (val) => typeof File === "undefined" || val instanceof File,
+    { message: "Resume file is required" }
+  ),
   authorize: z.boolean().refine((val) => val === true, {
     message: "Authorization required",
   }),

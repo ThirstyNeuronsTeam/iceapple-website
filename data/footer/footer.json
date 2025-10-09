@@ -40,16 +40,8 @@
     ],
     "menuTitle": "Services",
     "menuItemsTwo": [
-      {
-        "id": 2,
-        "menuName": "Intelligent Apps",
-        "menuUrl": "/services/intelligent-apps"
-      },
-      {
-        "id": 3,
-        "menuName": "Intelligent Devices",
-        "menuUrl": "/services/intelligent-devices"
-      }
+      { "id":1,"menuName": "Intelligent Apps", "menuUrl": "/services/intelligent-apps" },
+      { "id":2,"menuName": "Intelligent Devices", "menuUrl": "/services/intelligent-devices" }
     ],
     "companyInfo": [
       {

@@ -22,7 +22,6 @@ export default function InfoCard({
 
   // Dynamic font sizes with clamp for better responsiveness
   const titleStyle = {
-    fontFamily: "Mosk, sans-serif",
     fontWeight: 700,
     fontStyle: "normal",
     fontSize:
