@@ -17,7 +17,10 @@ const AboutUs: React.FC = () => {
         mainClassName="items-end"
         {...content.about.heroSection}
       />
-      <AboutUsSection contentClassName="sm:pl-16" {...content.about.aboutUs} />
+      <AboutUsSection
+        contentClassName="sm:pl-0 xl:pl-16"
+        {...content.about.aboutUs}
+      />
       <WhatWeDoSection contentClassName="" {...content.about.whatWeDo} />
       <OurTeamSection contentClassName="" {...content.about.ourTeam} />
       <OurHistorySection

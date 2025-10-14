@@ -14,7 +14,8 @@ type HeadingProps = {
     | "smRightXsLeft"
     | "smLeftXsRight"
     | "smRightXsCenter"
-    | "smLeftXsCenter";
+    | "smLeftXsCenter"
+    | "xlLeftXsRight";
   headingWidth?: "w-full" | "xl" | "lg" | "md";
 };
 const HeadingSectionDetail: React.FC<HeadingProps> = ({
@@ -33,6 +34,7 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
     smRight: "sm:justify-end",
     smRightXsLeft: "sm:justify-end justify-start",
     smLeftXsRight: "sm:justify-start justify-end",
+    xlLeftXsRight: "xl:justify-start justify-end",
     smRightXsCenter: "sm:justify-end justify-center",
     smLeftXsCenter: "sm:justify-start justify-center",
   }[align];
