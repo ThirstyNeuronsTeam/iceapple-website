@@ -22,7 +22,7 @@ const ContactMapSection: React.FC<contactMapProps> = ({
 }) => {
   return (
     <article>
-      <div className="relative mb-10 sm:mb-30">
+      <div className="relative mb-10 xl:mb-30">
         <div className="w-full mx-auto px-5 2xl:px-0 container">
           <div className="grid py-5 sm:py-16 gap-4">
             <div
@@ -41,7 +41,7 @@ const ContactMapSection: React.FC<contactMapProps> = ({
             </div>
           </div>
           <div className="grid gap-x-14">
-            <div className="relative w-full h-[250px] sm:h-[800px] mx-auto aspect-square">
+            <div className="relative w-full h-[250px] sm:h-[500px] xl:h-[800px] mx-auto aspect-square">
               <Image fill className="object-fill" src={mapImage} alt="" />
             </div>
           </div>

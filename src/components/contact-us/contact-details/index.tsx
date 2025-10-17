@@ -31,15 +31,15 @@ const ContactDetailsSection: React.FC<contactDetailsProps> = ({
     <article>
       <div className="relative mb-10">
         <div className="w-full mx-auto px-22 2xl:px-0 container">
-          <div className="grid py-9 sm:py-16 gap-4">
+          <div className="grid py-9 xl:py-16 gap-4">
             <div
               className={clsx(
                 sectionClass,
-                "relative pt-5 sm:pt-20 pb-5 text-center sm:text-left"
+                "relative pt-5 xl:pt-20 pb-5 text-center xl:text-left"
               )}
             >
               <HeadingSectionDetail
-                align="smLeftXsCenter"
+                align="xlLeftXsCenter"
                 contentClassName={contentClassName}
                 subHeading={subHeading}
                 heading={heading}
@@ -47,13 +47,13 @@ const ContactDetailsSection: React.FC<contactDetailsProps> = ({
               />
             </div>
           </div>
-          <div className="grid gap-x-14 gap-y-8 sm:gap-y-0 sm:grid-cols-3 sm:px-60 mx-auto">
+          <div className="grid gap-x-14 gap-y-8 xl:gap-y-0 xl:grid-cols-3 xl:px-60 mx-auto">
             {contactData.contactItems.map((item) => (
               <div
                 key={item.id}
-                className="flex gap-y-3 sm:gap-y-6 flex-col text-center"
+                className="flex gap-y-3 xl:gap-y-6 flex-col text-center"
               >
-                <div className="relative w-[53px] sm:w-[90px] h-[50px] sm:h-[70px] mx-auto aspect-square">
+                <div className="relative w-[53px] xl:w-[90px] h-[50px] xl:h-[70px] mx-auto aspect-square">
                   <Image
                     fill
                     className="object-fill"

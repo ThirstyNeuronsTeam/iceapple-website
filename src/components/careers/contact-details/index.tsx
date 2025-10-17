@@ -34,7 +34,7 @@ const ContactDetailsCareersSection: React.FC<contactDetailsCareersProps> = ({
             <div
               className={clsx(
                 sectionClass,
-                "relative pt-5 sm:pt-20 pb-5 text-center sm:text-right"
+                "relative pt-5 xl:pt-20 pb-5 text-center sm:text-right"
               )}
             >
               <HeadingSectionDetail
@@ -49,7 +49,7 @@ const ContactDetailsCareersSection: React.FC<contactDetailsCareersProps> = ({
           </div>
         </div>
         <div className="w-full mx-auto px-5 2xl:px-0 container">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 xl:gap-20">
             <CardWithImageSection
               sectionClass=""
               sectionContentClass=""

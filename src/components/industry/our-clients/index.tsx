@@ -32,9 +32,9 @@ const OurClientsSection: React.FC<ClientsProps> = ({
   contentClassName,
 }) => {
   return (
-    <article className="relative z-0 pb-5 sm:pb-20 mb-0 sm:mb-50">
+    <article className="relative z-0 pb-5 sm:pb-20 mb-0 sm:mb-20 xl:mb-50">
       <div className="w-full mx-auto px-5 2xl:px-0 container">
-        <div className="relative pt-20 sm:pt-20 sm:pb-15 text-center sm:px-30">
+        <div className="relative pt-20 sm:pt-10 xl:pt-20 sm:pb-15 text-center sm:px-30">
           <HeadingSectionDetail
             align="center"
             headingWidth="w-full"
@@ -69,10 +69,14 @@ const OurClientsSection: React.FC<ClientsProps> = ({
                   spaceBetween: 20,
                 },
                 768: {
-                  slidesPerView: 4,
+                  slidesPerView: 2,
                   spaceBetween: 40,
                 },
                 1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 50,
+                },
+                1200: {
                   slidesPerView: 5,
                   spaceBetween: 50,
                 },

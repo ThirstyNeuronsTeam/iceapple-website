@@ -38,10 +38,11 @@ const careerSchema = z.object({
     .regex(/^[0-9]+$/, "Digits only"),
   linkedIn: z.string().url({ message: "Valid LinkedIn URL required" }),
   // resume: z.instanceof(File, { message: "Resume file is required" }),
-  resume: z.any().refine(
-    (val) => typeof File === "undefined" || val instanceof File,
-    { message: "Resume file is required" }
-  ),
+  resume: z
+    .any()
+    .refine((val) => typeof File === "undefined" || val instanceof File, {
+      message: "Resume file is required",
+    }),
   authorize: z.boolean().refine((val) => val === true, {
     message: "Authorization required",
   }),
@@ -133,7 +134,7 @@ const OurCareerFormSection: React.FC<CareerFormProps> = ({
           <div className="relative sm:pb-15 w-3/5 sm:w-auto sm:max-w-xl text-left mb-22 sm:mb-0">
             <CardBlueBoxSection
               mainClassNames="px-5 sm:px-20 py-10 max-w-xl bg-[rgba(11,104,255,0.92)]"
-              headingClassNames="font-bold text-xl sm:text-7xl mb-0 sm:mb-5"
+              headingClassNames="font-bold text-xl sm:text-3xl xl:text-7xl mb-0 sm:mb-5"
               discriptionClassNames="mb-4"
               cardData={{ cardTitle, cardDescription, btnText, btnUrl }}
               cardDescriptionMobile={true}

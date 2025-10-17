@@ -30,7 +30,7 @@ const OurIndustrySection: React.FC<IndustryProps> = ({
   contentClassName,
 }) => {
   return (
-    <article className="relative z-0 pb-5 sm:pb-20 mb-0 sm:mb-50 before:hidden sm:before:block sm:before:content-[''] before:absolute before:top-[26%] before:h-[1300px] before:right-0 before:bg-[#F3F3F3] before:w-[49vw]">
+    <article className="relative z-0 pb-5 sm:pb-20 mb-0 xl:mb-50 before:hidden sm:before:block sm:before:content-[''] before:absolute before:top-[26%] before:h-[1300px] before:right-0 before:bg-[#F3F3F3] before:w-[49vw]">
       <div className="absolute top-[50%] h-[1200px] left-0 w-full z-0 mb-50 before:hidden sm:before:block sm:before:content-[''] before:absolute before:top-[28%] before:h-[1000px] before:left-0 before:bg-[#F3F3F3] before:w-[45vw]"></div>
       <div className="absolute bottom-0 h-[1200px] right-0 w-full z-0 mb-50 before:hidden sm:before:block sm:before:content-[''] before:absolute before:top-[28%] before:h-[1000px] before:right-0 before:bg-[#F3F3F3] before:w-[85vw]"></div>
       <div className="w-full mx-auto px-5 2xl:px-0 container">
