@@ -30,10 +30,10 @@ const BannerSectionDetail: React.FC<HeroSectionProps> = ({
       className={clsx(
         mainClassName,
         // Responsive flex direction tweaks for smaller screens
-        "relative z-10 h-full sm:pt-16 flex flex-col sm:flex-row order-1 sm:order-2"
+        "relative z-10 h-full sm:pt-16 flex flex-col sm:flex-row items-center order-1 sm:order-2"
       )}
     >
-      <div className="w-full max-w-[280px] sm:max-w-none space-y-6 pr-4 sm:pr-16 sm:pr-0 ms-auto">
+      <div className="w-full max-w-[280px] sm:max-w-none space-y-6 pr-4 ms-auto">
         <div className="overflow-hidden">
           <div className="space-y-3 sm:space-y-6 lg:pl-10">
             <div className="text-[#0B68FF]">

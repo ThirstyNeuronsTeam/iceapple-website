@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 import {
@@ -54,10 +55,26 @@ const navLinksMobile = [
 
 export function MenuSection() {
   const deviceType = useDeviceType();
+  const pathname = usePathname();
   const [openSub, setOpenSub] = useState<string | null>(null);
 
   const toggleSubmenu = (name: string) => {
     setOpenSub(openSub === name ? null : name);
+  };
+
+  const isLinkActive = (link: typeof navLinks[number]) => {
+    // If link has a path, match root exactly, otherwise check startsWith for sections
+    if (link.path) {
+      if (link.path === "/") return pathname === "/";
+      return pathname?.startsWith(link.path);
+    }
+
+    // If no path but has submenu, check sublinks
+    if (link.submenu) {
+      return link.submenu.some((s) => (s.path === "/" ? pathname === "/" : pathname?.startsWith(s.path)));
+    }
+
+    return false;
   };
 
   const [open, setOpen] = useState(false);
@@ -71,14 +88,24 @@ export function MenuSection() {
                 return (
                   <NavigationMenuItem key={index}>
                     <NavigationMenuTrigger className="bg-transparent 2xl:text-xl">
-                      <Link href={link.path}>{link.name}</Link>
+                      <Link
+                        href={link.path || '#'}
+                        className={`hover:!text-[#0B68FF] ${isLinkActive(link) ? '!text-[#0B68FF]' : ''}`}
+                      >
+                        {link.name}
+                      </Link>
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="grid w-[200px] gap-4">
                         <li>
                           {link.submenu.map((sublink, subIndex) => (
                             <NavigationMenuLink asChild key={subIndex}>
-                              <Link href={sublink.path}>{sublink.name}</Link>
+                              <Link
+                                href={sublink.path}
+                                className={`hover:!text-[#0B68FF] ${pathname?.startsWith(sublink.path) ? '!text-[#0B68FF]' : ''}`}
+                              >
+                                {sublink.name}
+                              </Link>
                             </NavigationMenuLink>
                           ))}
                         </li>
@@ -88,7 +115,7 @@ export function MenuSection() {
                 );
               }
               return (
-                <NavigationMenuItem key={index}>
+                  <NavigationMenuItem key={index}>
                   <NavigationMenuLink
                     asChild
                     className={
@@ -96,7 +123,9 @@ export function MenuSection() {
                         "bg-transparent font-medium 2xl:text-xl")
                     }
                   >
-                    <Link href={link.path}>{link.name}</Link>
+                    <Link href={link.path} className={`hover:!text-[#0B68FF] ${isLinkActive(link) ? '!text-[#0B68FF]' : ''}`}>
+                      {link.name}
+                    </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
               );
@@ -125,9 +154,9 @@ export function MenuSection() {
                           <div key={index}>
                             <button
                               onClick={() => toggleSubmenu(link.name)}
-                              className={`flex justify-between w-full font-medium text-lg py-4`} // Add py-4 here
+                              className={`flex justify-between w-full font-medium text-lg py-4 hover:!text-[#0B68FF]`}
                             >
-                              <span>{link.name}</span>
+                              <span className="hover:!text-[#0B68FF]">{link.name}</span>
                               {openSub === link.name ? <ChevronUp /> : <ChevronDown />}
                             </button>
 
@@ -138,7 +167,7 @@ export function MenuSection() {
                                     <Link
                                       onClick={() => setOpen(false)}
                                       href={sublink.path}
-                                      className="block py-3"
+                                      className={`block py-3 hover:!text-[#0B68FF] ${pathname?.startsWith(sublink.path) ? '!text-[#0B68FF] underline' : ''}`}
                                     >
                                       {sublink.name}
                                     </Link>
@@ -154,7 +183,7 @@ export function MenuSection() {
                           onClick={() => setOpen(false)}
                           key={index}
                           href={link.path}
-                          className="block font-medium text-lg py-4"
+                          className={`block font-medium text-lg py-4 hover:!text-[#0B68FF] ${isLinkActive(link) ? '!text-[#0B68FF] underline' : ''}`}
                         >
                           {link.name}
                         </Link>
@@ -171,7 +200,7 @@ export function MenuSection() {
                         onClick={() => setOpen(false)}
                         key={index}
                         href={link.path}
-                        className="block text-[#0B68FF] text-sm"
+                        className={`block text-[#0B68FF] text-sm hover:underline ${isLinkActive(link) ? 'underline' : ''}`}
                       >
                         {link.name}
                       </Link>
@@ -181,7 +210,7 @@ export function MenuSection() {
                             <Link
                               onClick={() => setOpen(false)}
                               href={sublink.path}
-                              className="block font-medium shadow-[0_2px_20px_rgba(0,0,0,20%)] px-2 py-5 text-center"
+                              className={`block font-medium shadow-[0_2px_20px_rgba(0,0,0,20%)] px-2 py-5 text-center hover:!text-[#0B68FF] ${pathname?.startsWith(sublink.path) ? '!text-[#0B68FF]' : ''}`}
                             >
                               {sublink.name}
                             </Link>

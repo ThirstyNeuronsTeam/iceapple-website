@@ -38,7 +38,7 @@ const HeroSection: React.FC<HeadingSectionProps> = ({
             btntext={btntext}
             btnurl={btnurl}
             isBtnShow={isBtnShow}
-            mainClassName={`${mainClassName || ""} mt-6 sm:-translate-y-1/4       `} // space only on mobile
+            mainClassName={`${mainClassName || ""} mt-6        `} // space only on mobile
             />
 
           {/* Image Section */}

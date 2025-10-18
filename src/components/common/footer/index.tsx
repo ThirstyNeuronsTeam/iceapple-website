@@ -1,3 +1,4 @@
+"use client";
 import LogoWithCompanyName from "@/components/logoWithCompanyName";
 import Link from "next/link";
 import React from "react";
@@ -23,9 +24,19 @@ type FooterProps = {
   };
 };
 const Footer: React.FC<FooterProps> = ({ footerData }) => {
+  const handleScrollUp = () => {
+    const hero = document.getElementById("hero");
+    if (hero) {
+      hero.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // fallback to top
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <>
-      <div className="mt-9 sm:mt-40 px-5 2xl:px-0 mx-auto container">
+  <div className="relative mt-9 sm:mt-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
         <div className="flex flex-col gap-4 md:flex-row font-inter mb-14 sm:mb-20">
           <div className="sm:w-[35%] order-1">
             <LogoWithCompanyName />
@@ -64,8 +75,17 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
             </div>
           </div>
         </div>
+        {/* Scroll Up button similar to banner (visible on xl and up) */}
+        <button
+          type="button"
+          onClick={handleScrollUp}
+          aria-label="Scroll to top"
+          className="cursor-pointer absolute -right-20 top-4 transform -rotate-90 text-xl tracking-wide font-bold hidden xl:block"
+        >
+          Scroll Up
+        </button>
       </div>
-      <div className="px-0 mx-auto container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
         <hr className="border-1 border-[#696969]" />
         <p className="font-inter text-sm sm:text-lg text-center my-11">
           {footerData.copyRight}

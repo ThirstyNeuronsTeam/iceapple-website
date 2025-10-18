@@ -46,7 +46,9 @@ export default function InfoCard({
   };
 
   return (
-    <div
+    <Link
+      href={link}
+      aria-label={`Read more about ${title}`}
       className={`bg-white shadow-md overflow-hidden rounded-md flex flex-col ${className}`}
     >
       {/* Responsive Image Container */}
@@ -72,14 +74,9 @@ export default function InfoCard({
           {description.split(" ").length > 15
             ? description.split(" ").slice(0, 15).join(" ") + "..."
             : description}{" "}
-          <Link
-            href={link}
-            className="text-sm font-medium text-blue-600 hover:underline ml-1"
-          >
-            Read More
-          </Link>
+          <span className="text-sm font-medium text-blue-600 ml-1">Read More</span>
         </p>
       </div>
-    </div>
+    </Link>
   );
 }

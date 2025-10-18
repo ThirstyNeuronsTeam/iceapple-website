@@ -21,9 +21,9 @@ function capitalizeFirstLetters(str:string) {
 }
 
 export function BlogPostCard({ title, date, readTime, description, imageUrl, link, creator }: BlogPostCardProps) {
-  
   return (
-    <div
+    <Link
+      href={link}
       className="
         w-full
     sm:w-full
@@ -45,13 +45,14 @@ export function BlogPostCard({ title, date, readTime, description, imageUrl, lin
       </div>
 
       {/* Card Content Section */}
-      <div className="flex-1 p-4 sm:p-6 flex flex-col">
+  <div className="flex-1 p-4 sm:p-6 flex flex-col h-full">
         {/* Title */}
         <h3
           className="
             font-bold text-gray-900 leading-[121%] tracking-[0.03em]
             text-base sm:text-2xl lg:text-3xl
             mb-2 sm:mb-4
+            line-clamp-2
           "
         >
           {title}
@@ -96,6 +97,6 @@ export function BlogPostCard({ title, date, readTime, description, imageUrl, lin
           </Link>
         </p>
       </div>
-    </div>
+    </Link>
   )
 }

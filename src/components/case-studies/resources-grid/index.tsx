@@ -62,7 +62,7 @@ const ResourcesGrid: React.FC<GridProps> = ({
       {/* Cards Grid */}
       <div
         className={`${deviceType !== "mobile"
-          ? "grid grid-cols-1 md:grid-cols-2 gap-8 pr-4 md:pr-6 lg:pr-16"
+          ? "grid grid-cols-1 md:grid-cols-2 gap-8 pr-4 md:pr-6 lg:pr-16 items-stretch"
           : "space-y-6 pr-4"
           } ${expanded ? "h-max pr-2" : "h-max"}`} // 👈 scroll only when expanded
       >
