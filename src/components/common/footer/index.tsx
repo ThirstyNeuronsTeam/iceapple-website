@@ -82,7 +82,7 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
           type="button"
           onClick={handleScrollUp}
           aria-label="Scroll to top"
-          className="cursor-pointer absolute -right-20 top-4 transform -rotate-90 text-xl tracking-wide font-bold hidden xl:block"
+          className="cursor-pointer absolute -right-2 top-4 transform -rotate-90 text-xl tracking-wide font-bold hidden xl:block"
         >
           Scroll Up
         </button>
