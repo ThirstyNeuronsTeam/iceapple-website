@@ -20,12 +20,12 @@
       {
         "id": 4,
         "menuName": "Blogs",
-        "menuUrl": "/blogs"
+        "menuUrl": "resources/blogs"
       },
       {
         "id": 5,
         "menuName": "Case Studies",
-        "menuUrl": "/case-studies"
+        "menuUrl": "resources/case-studies"
       },
       {
         "id": 6,

@@ -38,9 +38,11 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
     <>
   <div className="relative mt-9 sm:mt-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
         <div className="flex flex-col gap-4 md:flex-row font-inter mb-14 sm:mb-20">
-          <div className="sm:w-[35%] order-1">
-            <LogoWithCompanyName />
-            <p className="sm:w-2/3 mt-4 sm:mt-10 text-sm sm:text-lg xl:text-2xl">
+          <div className="footer-logo-section sm:w-[35%] order-1">
+            <div className="footer-logo-wrapper">
+              <LogoWithCompanyName />
+            </div>
+            <p className="footer-address mt-4 sm:mt-10 text-sm sm:text-lg xl:text-2xl">
               {footerData.address}
             </p>
           </div>
