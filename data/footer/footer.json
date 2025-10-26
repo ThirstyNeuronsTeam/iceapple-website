@@ -20,12 +20,12 @@
       {
         "id": 4,
         "menuName": "Blogs",
-        "menuUrl": "resources/blogs"
+        "menuUrl": "/resources/blogs"
       },
       {
         "id": 5,
         "menuName": "Case Studies",
-        "menuUrl": "resources/case-studies"
+        "menuUrl": "/resources/case-studies"
       },
       {
         "id": 6,
@@ -40,8 +40,16 @@
     ],
     "menuTitle": "Services",
     "menuItemsTwo": [
-      { "id":1,"menuName": "Intelligent Apps", "menuUrl": "/services/intelligent-apps" },
-      { "id":2,"menuName": "Intelligent Devices", "menuUrl": "/services/intelligent-devices" }
+      {
+        "id": 1,
+        "menuName": "Intelligent Apps",
+        "menuUrl": "/services/intelligent-apps"
+      },
+      {
+        "id": 2,
+        "menuName": "Intelligent Devices",
+        "menuUrl": "/services/intelligent-devices"
+      }
     ],
     "companyInfo": [
       {
