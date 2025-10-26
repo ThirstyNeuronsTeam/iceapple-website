@@ -29,24 +29,85 @@ type EnquiryProps = {
   btnUrl: string;
 };
 
+// Popular country codes with their phone number length requirements
+const countryCodes = [
+  { code: "+91", country: "India", minLength: 10, maxLength: 10 },
+  { code: "+1", country: "US/CA", minLength: 10, maxLength: 10 },
+  { code: "+44", country: "UK", minLength: 10, maxLength: 10 },
+  { code: "+61", country: "Australia", minLength: 9, maxLength: 9 },
+  { code: "+86", country: "China", minLength: 11, maxLength: 11 },
+  { code: "+81", country: "Japan", minLength: 10, maxLength: 10 },
+  { code: "+49", country: "Germany", minLength: 10, maxLength: 11 },
+  { code: "+33", country: "France", minLength: 9, maxLength: 9 },
+  { code: "+39", country: "Italy", minLength: 9, maxLength: 10 },
+  { code: "+34", country: "Spain", minLength: 9, maxLength: 9 },
+  { code: "+7", country: "Russia", minLength: 10, maxLength: 10 },
+  { code: "+55", country: "Brazil", minLength: 10, maxLength: 11 },
+  { code: "+52", country: "Mexico", minLength: 10, maxLength: 10 },
+  { code: "+27", country: "South Africa", minLength: 9, maxLength: 9 },
+  { code: "+971", country: "UAE", minLength: 9, maxLength: 9 },
+  { code: "+65", country: "Singapore", minLength: 8, maxLength: 8 },
+  { code: "+82", country: "South Korea", minLength: 9, maxLength: 10 },
+  { code: "+31", country: "Netherlands", minLength: 9, maxLength: 9 },
+  { code: "+46", country: "Sweden", minLength: 9, maxLength: 10 },
+  { code: "+41", country: "Switzerland", minLength: 9, maxLength: 9 },
+];
+
 // Zod schema
-const formSchema = z.object({
-  name: z
-    .string()
-    .min(2, { message: "Username must be at least 2 characters." }),
-  email: z.email({ message: "Invalid email address" }),
-  phone: z
-    .string()
-    .min(10, { message: "Phone number must be at least 10 digits" })
-    .max(15, { message: "Phone number can't exceed 15 digits" })
-    .regex(/^[0-9]+$/, { message: "Phone number must contain only digits" }),
-  company: z.string().optional(),
-  message: z.string().optional(),
-  heardAboutUs: z.array(z.string()).optional(),
-  authorize: z.boolean().refine((val) => val === true, {
-    message: "Authorization required",
-  }),
-});
+const formSchema = z
+  .object({
+    name: z
+      .string()
+      .min(2, { message: "Name must be at least 2 characters." })
+      .max(50, { message: "Name must not exceed 50 characters." }),
+    email: z
+      .string()
+      .email({ message: "Invalid email address" })
+      .max(100, { message: "Email must not exceed 100 characters." }),
+    countryCode: z
+      .string()
+      .min(1, { message: "Country code is required" })
+      .regex(/^\+[0-9]+$/, { message: "Invalid country code format" }),
+    phone: z
+      .string()
+      .min(1, { message: "Phone number is required" })
+      .regex(/^[0-9]+$/, { message: "Phone number must contain only digits" }),
+    company: z
+      .string()
+      .max(100, { message: "Company name must not exceed 100 characters." })
+      .optional(),
+    message: z
+      .string()
+      .max(500, { message: "Message must not exceed 500 characters." })
+      .optional(),
+    heardAboutUs: z.array(z.string()).optional(),
+    authorize: z.boolean().refine((val) => val === true, {
+      message: "Authorization required",
+    }),
+  })
+  .superRefine((data, ctx) => {
+    // Find the country code configuration
+    const countryConfig = countryCodes.find((c) => c.code === data.countryCode);
+    if (!countryConfig) return; // If country code not found, skip validation
+
+    const phoneLength = data.phone.length;
+    const isValid =
+      phoneLength >= countryConfig.minLength &&
+      phoneLength <= countryConfig.maxLength;
+
+    if (!isValid) {
+      const lengthMsg =
+        countryConfig.minLength === countryConfig.maxLength
+          ? `exactly ${countryConfig.minLength} digits`
+          : `${countryConfig.minLength}-${countryConfig.maxLength} digits`;
+
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: `Phone number for ${countryConfig.country} must be ${lengthMsg}`,
+        path: ["phone"],
+      });
+    }
+  });
 
 const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
   image,
@@ -61,6 +122,7 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
     defaultValues: {
       name: "",
       email: "",
+      countryCode: "+91",
       phone: "",
       company: "",
       message: "",
@@ -70,6 +132,7 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
   });
 
   const [isOther, setIsOther] = useState(false);
+  const [otherInputValue, setOtherInputValue] = useState("");
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error";
     message: string;
@@ -79,9 +142,16 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setSubmitStatus(null);
     try {
+      // Combine country code and phone number for API submission
+      const submissionData = {
+        ...values,
+        phone: `${values.countryCode} ${values.phone}`,
+        countryCode: undefined, // Remove separate countryCode field
+      };
+
       const res = await fetch("/api/client", {
         method: "POST",
-        body: JSON.stringify(values),
+        body: JSON.stringify(submissionData),
       });
       const data = await res.json();
 
@@ -93,6 +163,7 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
         form.reset();
         form.clearErrors();
         setIsOther(false);
+        setOtherInputValue("");
       } else {
         setSubmitStatus({
           type: "error",
@@ -146,105 +217,218 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                 <FormField
                   control={form.control}
                   name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="font-medium text-sm sm:text-xl">
-                        Name *
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          placeholder="Enter your name"
-                          className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                  render={({ field }) => {
+                    const maxLength = 50;
+                    const currentLength = field.value?.length || 0;
+                    const isNearLimit = currentLength >= maxLength * 0.9;
+                    const isAtLimit = currentLength >= maxLength;
+
+                    return (
+                      <FormItem>
+                        <FormLabel className="font-medium text-sm sm:text-xl">
+                          Name *
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder="Enter your name"
+                            maxLength={maxLength}
+                            className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg"
+                          />
+                        </FormControl>
+                        <div className="flex justify-between items-center">
+                          <FormMessage />
+                          {isNearLimit && (
+                            <p className={`text-xs ${isAtLimit ? 'text-red-600 font-semibold' : 'text-orange-600'}`}>
+                              {isAtLimit ? 'Maximum character limit reached' : `${currentLength}/${maxLength} characters`}
+                            </p>
+                          )}
+                        </div>
+                      </FormItem>
+                    );
+                  }}
                 />
 
                 {/* Email */}
                 <FormField
                   control={form.control}
                   name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="font-medium text-sm sm:text-xl">
-                        Email ID *
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          placeholder="Enter your email"
-                          className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                  render={({ field }) => {
+                    const maxLength = 100;
+                    const currentLength = field.value?.length || 0;
+                    const isNearLimit = currentLength >= maxLength * 0.9;
+                    const isAtLimit = currentLength >= maxLength;
+
+                    return (
+                      <FormItem>
+                        <FormLabel className="font-medium text-sm sm:text-xl">
+                          Email ID *
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder="Enter your email"
+                            maxLength={maxLength}
+                            className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg"
+                          />
+                        </FormControl>
+                        <div className="flex justify-between items-center">
+                          <FormMessage />
+                          {isNearLimit && (
+                            <p className={`text-xs ${isAtLimit ? 'text-red-600 font-semibold' : 'text-orange-600'}`}>
+                              {isAtLimit ? 'Maximum character limit reached' : `${currentLength}/${maxLength} characters`}
+                            </p>
+                          )}
+                        </div>
+                      </FormItem>
+                    );
+                  }}
                 />
 
-                {/* Phone */}
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="font-medium text-sm sm:text-xl">
-                        Phone Number *
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          placeholder="Enter your phone number"
-                          className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                {/* Phone Number with Country Code */}
+                <div className="space-y-3">
+                  <FormLabel className="font-medium text-sm sm:text-xl">
+                    Phone Number *
+                  </FormLabel>
+                  <div className="flex gap-3">
+                    {/* Country Code */}
+                    <FormField
+                      control={form.control}
+                      name="countryCode"
+                      render={({ field }) => (
+                        <FormItem className="w-[100px] sm:w-[120px]">
+                          <FormControl>
+                            <div className="relative">
+                              {/* Display selected code only */}
+                              <div className="absolute inset-0 flex items-center justify-between px-3 pointer-events-none h-16 border border-gray-300 bg-white">
+                                <span className="text-sm sm:text-lg">{field.value}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                  <path fill="#333" d="M6 9L1 4h10z"/>
+                                </svg>
+                              </div>
+                              {/* Hidden select with full options */}
+                              <select
+                                {...field}
+                                onChange={(e) => {
+                                  field.onChange(e);
+                                  // Trigger revalidation of phone field when country code changes
+                                  if (form.getValues("phone")) {
+                                    form.trigger("phone");
+                                  }
+                                }}
+                                className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 cursor-pointer opacity-0"
+                              >
+                                {countryCodes.map((item) => (
+                                  <option key={item.code} value={item.code}>
+                                    {item.code} ({item.country})
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    {/* Phone Number */}
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => {
+                        const selectedCountry = countryCodes.find(
+                          (c) => c.code === form.watch("countryCode")
+                        );
+                        const maxLength = selectedCountry?.maxLength || 15;
+
+                        return (
+                          <FormItem className="flex-1">
+                            <FormControl>
+                              <Input
+                                {...field}
+                                placeholder="Enter your phone number"
+                                maxLength={maxLength}
+                                className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg"
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        );
+                      }}
+                    />
+                  </div>
+                </div>
 
                 {/* Company */}
                 <FormField
                   control={form.control}
                   name="company"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="font-medium text-sm sm:text-xl">
-                        Company
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          placeholder="Enter your company"
-                          className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                  render={({ field }) => {
+                    const maxLength = 100;
+                    const currentLength = field.value?.length || 0;
+                    const isNearLimit = currentLength >= maxLength * 0.9;
+                    const isAtLimit = currentLength >= maxLength;
+
+                    return (
+                      <FormItem>
+                        <FormLabel className="font-medium text-sm sm:text-xl">
+                          Company
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder="Enter your company"
+                            maxLength={maxLength}
+                            className="h-16 w-full rounded-none border border-gray-300 px-3 py-2 text-sm sm:text-lg"
+                          />
+                        </FormControl>
+                        <div className="flex justify-between items-center">
+                          <FormMessage />
+                          {isNearLimit && (
+                            <p className={`text-xs ${isAtLimit ? 'text-red-600 font-semibold' : 'text-orange-600'}`}>
+                              {isAtLimit ? 'Maximum character limit reached' : `${currentLength}/${maxLength} characters`}
+                            </p>
+                          )}
+                        </div>
+                      </FormItem>
+                    );
+                  }}
                 />
 
                 {/* Message */}
                 <FormField
                   control={form.control}
                   name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="font-medium text-sm sm:text-xl">
-                        Message
-                      </FormLabel>
-                      <FormControl>
-                        <Textarea
-                          {...field}
-                          placeholder="Enter your message"
-                          className="w-full min-h-[150px] rounded-none border border-gray-300 px-3 py-2 text-sm"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                  render={({ field }) => {
+                    const maxLength = 500;
+                    const currentLength = field.value?.length || 0;
+                    const isNearLimit = currentLength >= maxLength * 0.9;
+                    const isAtLimit = currentLength >= maxLength;
+
+                    return (
+                      <FormItem>
+                        <FormLabel className="font-medium text-sm sm:text-xl">
+                          Message
+                        </FormLabel>
+                        <FormControl>
+                          <Textarea
+                            {...field}
+                            placeholder="Enter your message"
+                            maxLength={maxLength}
+                            className="w-full min-h-[150px] rounded-none border border-gray-300 px-3 py-2 text-sm"
+                          />
+                        </FormControl>
+                        <div className="flex justify-between items-center">
+                          <FormMessage />
+                          {isNearLimit && (
+                            <p className={`text-xs ${isAtLimit ? 'text-red-600 font-semibold' : 'text-orange-600'}`}>
+                              {isAtLimit ? 'Maximum character limit reached' : `${currentLength}/${maxLength} characters`}
+                            </p>
+                          )}
+                        </div>
+                      </FormItem>
+                    );
+                  }}
                 />
 
                 {/* Heard About Us */}
@@ -293,48 +477,61 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                           ))}
 
                           {/* Other option */}
-                          <div className="flex items-center gap-3">
-                            <Checkbox
-                              checked={isOther}
-                              onCheckedChange={(val) => {
-                                setIsOther(!!val);
-                                if (!val) {
-                                  field.onChange(
-                                    (field.value || []).filter(
-                                      (v) => !v.startsWith("other:")
-                                    )
-                                  );
-                                } else {
-                                  if (
-                                    !(field.value || []).some((v) =>
-                                      v.startsWith("other:")
-                                    )
-                                  ) {
-                                    field.onChange([
-                                      ...(field.value || []),
-                                      "other:",
-                                    ]);
+                          <div className="flex flex-col gap-2 sm:col-span-2">
+                            <div className="flex items-center gap-3">
+                              <Checkbox
+                                checked={isOther}
+                                onCheckedChange={(val) => {
+                                  setIsOther(!!val);
+                                  if (!val) {
+                                    setOtherInputValue("");
+                                    field.onChange(
+                                      (field.value || []).filter(
+                                        (v) => !v.startsWith("other:")
+                                      )
+                                    );
+                                  } else {
+                                    if (
+                                      !(field.value || []).some((v) =>
+                                        v.startsWith("other:")
+                                      )
+                                    ) {
+                                      field.onChange([
+                                        ...(field.value || []),
+                                        "other:",
+                                      ]);
+                                    }
                                   }
-                                }
-                              }}
-                              className="w-6 h-6 rounded-none border-black"
-                            />
-                            <Label className="text-sm sm:text-lg">Other</Label>
-                            {isOther && (
-                              <Input
-                                type="text"
-                                placeholder="If other, please specify"
-                                className="border-b border-black focus-visible:ring-0"
-                                onChange={(e) => {
-                                  const val = e.target.value.trim();
-                                  const cleaned = (field.value || []).filter(
-                                    (v) => !v.startsWith("other:")
-                                  );
-                                  field.onChange(
-                                    val ? [...cleaned, `other:${val}`] : cleaned
-                                  );
                                 }}
+                                className="w-6 h-6 rounded-none border-black"
                               />
+                              <Label className="text-sm sm:text-lg">Other</Label>
+                            </div>
+                            {isOther && (
+                              <div className="ml-9 space-y-1">
+                                <Input
+                                  type="text"
+                                  placeholder="If other, please specify"
+                                  maxLength={50}
+                                  value={otherInputValue}
+                                  className="border-b border-black focus-visible:ring-0"
+                                  onChange={(e) => {
+                                    const val = e.target.value;
+                                    setOtherInputValue(val);
+                                    const cleaned = (field.value || []).filter(
+                                      (v) => !v.startsWith("other:")
+                                    );
+                                    field.onChange(
+                                      val.trim() ? [...cleaned, `other:${val.trim()}`] : cleaned
+                                    );
+                                  }}
+                                />
+                                {otherInputValue.length >= 45 && (
+                                  <p className={`text-xs ${otherInputValue.length >= 50 ? 'text-red-600 font-semibold' : 'text-orange-600'}`}>
+                                    {otherInputValue.length >= 50 ? 'Maximum character limit reached' : `${otherInputValue.length}/50 characters`}
+                                  </p>
+                                )}
+                              </div>
                             )}
                           </div>
                         </div>

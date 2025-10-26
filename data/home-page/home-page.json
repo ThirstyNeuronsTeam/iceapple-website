@@ -2,11 +2,7 @@
   "home": {
     "heroSection": {
       "id": 1,
-      "title": [
-        "Creating",
-        "Tomorrow's",
-        "Solutions Today"
-      ],
+      "title": ["Creating", "Tomorrow's", "Solutions Today"],
       "content": "Innovation-driven tech resolution for Success",
       "btntext": "Default Button",
       "btnurl": "/",
@@ -136,7 +132,7 @@
       "cardTitle": "",
       "cardDescription": " Seize the opportunity to sculpt a rewarding career and shape your future with us",
       "btnText": "Join us",
-      "btnUrl": "",
+      "btnUrl": "/careers",
       "info": [
         {
           "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
