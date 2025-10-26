@@ -84,17 +84,14 @@ export function BlogPostCard({ title, date, readTime, description, imageUrl, lin
         </div>
 
 
-        {/* description and "Read More" Link */}
+        {/* description and "Read More" text */}
         <p className="text-gray-700 text-sm leading-relaxed flex-1">
           {description.split(" ").length > 15
             ? description.split(" ").slice(0, 15).join(" ") + "..."
             : description}{" "}
-          <Link
-            href={link}
-            className="text-sm font-medium text-blue-600 hover:text-blue-800 hover:underline ml-1"
-          >
+          <span className="text-sm font-medium text-blue-600 hover:underline ml-1">
             Read More
-          </Link>
+          </span>
         </p>
       </div>
     </Link>
