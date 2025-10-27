@@ -32,7 +32,7 @@ const OurServicesSection: React.FC<ServicesProps> = ({
   return (
     <article className="relative before:hidden sm:before:block sm:before:content-[''] before:absolute before:top-[38%] before:h-[1000px] before:right-0 before:bg-[#F3F3F3] before:w-[49vw] after:content-[''] after:absolute after:top-0 after:h-[250px] sm:after:h-[350px] after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] z-0 after:-z-10">
       <div className="w-full mx-auto px-5 2xl:px-0 container">
-        <div className="relative pt-20 sm:pt-20 sm:pb-15 max-w-xl text-left sm:text-right">
+        <div className="relative pt-10 sm:pt-20 sm:pb-15 max-w-xl text-left sm:text-right">
           <HeadingSectionDetail
             align="smRight"
             headingWidth="xl"
