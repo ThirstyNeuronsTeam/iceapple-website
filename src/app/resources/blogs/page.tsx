@@ -52,14 +52,56 @@ async function fetchXmlData(): Promise<NormalizedData | null> {
 
     const normalizeItem = (item: XmlItem): NormalizedItem => {
       const id = item.guid._.split("/").pop() || item.guid._;
-      const contentText = item["content:encoded"]?.replace(/<[^>]*>/g, "") || item.description || "";
+      const contentHtml = item["content:encoded"] || item.description || "";
+      const contentText = contentHtml.replace(/<[^>]*>/g, "");
+
+      // Extract image from content:encoded HTML
+      const extractImage = (html: string): string => {
+        // Find all img tags (match both single and double quotes)
+        const imgRegex = /<img[^>]+src=["']([^"'>]+)["']/gi;
+        const matches = Array.from(html.matchAll(imgRegex));
+
+        // Loop through all images and find the first valid one (not a tracking pixel)
+        for (const match of matches) {
+          const imgSrc = match[1];
+
+          // Filter out Medium tracking pixels and only keep actual content images
+          const isTrackingPixel =
+            imgSrc.includes('medium.com/_/stat') ||
+            imgSrc.includes('width="1"') ||
+            imgSrc.includes('height="1"');
+
+          // Check if it's a valid Medium CDN image
+          const isMediumCDN =
+            imgSrc.includes('cdn-images-1.medium.com') ||
+            imgSrc.includes('cdn-images.medium.com') ||
+            imgSrc.includes('miro.medium.com');
+
+          const hasImageFormat =
+            imgSrc.includes('.jpg') ||
+            imgSrc.includes('.jpeg') ||
+            imgSrc.includes('.png') ||
+            imgSrc.includes('.gif') ||
+            imgSrc.includes('.webp') ||
+            // Match Medium's image format without extension (e.g., /1024/0*q3_SGI0prc4yssxl or /1*ABC123)
+            imgSrc.match(/\/\d+[*/][a-zA-Z0-9_-]+$/);
+
+          const isValidImage = isMediumCDN && hasImageFormat;
+
+          if (!isTrackingPixel && isValidImage) {
+            return imgSrc;
+          }
+        }
+
+        return "/assets/general/blogs/blogs_card.jpg";
+      };
 
       return {
         id,
         title: item.title || "",
         description: contentText,
         creator: item["dc:creator"],
-        image: "/assets/general/blogs/blogs_card.jpg",
+        image: extractImage(contentHtml),
         date: new Date(item.pubDate).toLocaleDateString("en-US", {
           year: "numeric",
           month: "long",
