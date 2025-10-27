@@ -27,10 +27,10 @@ const HeroSection: React.FC<HeadingSectionProps> = ({
   return (
     <article
       id={sectionId}
-      className="relative before:content-[''] before:absolute before:-top-20 before:bottom-80 sm:before:bottom-0 before:right-0 before:bg-[#F3F3F3] sm:before:w-[89vw] before:w-[80vw]"
+      className="relative before:content-[''] before:absolute before:top-0 before:h-1/2 sm:before:-top-20 sm:before:bottom-0 sm:before:h-auto before:right-0 before:bg-[#F3F3F3] sm:before:w-[89vw] before:w-[80vw]"
     >
       <div className="relative w-full mx-auto">
-        <div className="flex flex-col-reverse sm:grid sm:grid-cols-2 py-12 items-center min-h-[500px] sm:min-h-[600px] gap-8 sm:gap-12">
+        <div className="flex flex-col-reverse sm:grid sm:grid-cols-2 py-12 items-center sm:items-center min-h-[500px] sm:min-h-[600px] gap-8 sm:gap-12">
           {/* Text Section */}
           <BannerSectionDetail
             title={title}
@@ -42,12 +42,12 @@ const HeroSection: React.FC<HeadingSectionProps> = ({
             />
 
           {/* Image Section */}
-          <div className="relative w-full h-[300px] sm:h-[600px] flex justify-center sm:justify-start">
+          <div className="relative w-full h-[300px] sm:h-[600px] flex justify-center sm:justify-start -mt-20 sm:mt-0">
           <Image
               src={url}
               alt=""
               fill
-              className="object-contain object-center rounded-xl bg-gray-100"
+              className="object-contain object-center rounded-xl"
               priority
             />
           </div>
