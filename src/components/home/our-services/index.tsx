@@ -30,9 +30,9 @@ const OurServicesSection: React.FC<ServicesProps> = ({
   contentClassName,
 }) => {
   return (
-    <article className="relative before:hidden sm:before:block sm:before:content-[''] before:absolute before:top-[38%] before:h-[1000px] before:right-0 before:bg-[#F3F3F3] before:w-[49vw] after:content-[''] after:absolute after:top-0 after:h-[250px] sm:after:h-[350px] after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] z-0 after:-z-10">
+    <article className="relative before:hidden sm:before:block sm:before:content-[''] before:absolute before:top-[34%] before:h-[1000px] xl:before:h-[1200px] before:right-0 before:bg-[#F3F3F3] before:w-[49vw] lg:before:w-[52vw] xl:before:w-[49vw] after:content-[''] after:absolute after:top-0 after:h-[250px] sm:after:h-[350px] after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] z-0 after:-z-10">
       <div className="w-full mx-auto px-5 2xl:px-0 container">
-        <div className="relative pt-10 sm:pt-20 sm:pb-15 max-w-xl text-left sm:text-right">
+        <div className="relative pt-20 sm:pt-20 sm:pb-15 max-w-xl text-left sm:text-right">
           <HeadingSectionDetail
             align="smRight"
             headingWidth="xl"
@@ -52,12 +52,14 @@ const OurServicesSection: React.FC<ServicesProps> = ({
                 className={`${item.alignRight === true ? "justify-end" : ""} 
                 ${item.sectionName === "one" ? "sm:right-[10%]" : ""}
                 ${
-                  item.sectionName === "three" ? "sm:right-[20%]" : ""
-                } flex relative pb-80 sm:pb-0`}
+                  item.sectionName === "three"
+                    ? "sm:right-[10%] md:mt-[45%] lg:mt-[25%] xl:mt-[20%] 2xl:mt-[20%] lg:mb-[10%]"
+                    : ""
+                } flex relative pb-60 sm:pb-0`}
               >
                 {/* Image Section */}
                 <div
-                  className={`w-1/2 sm:w-full max-w-sm xl:max-w-lg aspect-square relative  ${
+                  className={`w-1/2 sm:w-full max-w-sm xl:max-w-lg aspect-square relative lg:top-[35px] xl:top-[0px] ${
                     item.reverse ? "md:ml-auto md:mr-0" : ""
                   }`}
                 >
@@ -80,10 +82,10 @@ const OurServicesSection: React.FC<ServicesProps> = ({
                     item.reverse ? "md:ml-auto" : ""
                   } ${item.alignLeft ? "text-left" : "text-right "} ${
                     item.sectionName === "one"
-                      ? "bottom-[15%] sm:bottom-[inherit] sm:-top-[20%] p-5 md:p-10 md:pt-25 right-[10%] sm:right-[45%] md:right-[40%] lg:right-[36%] xl:right-[32%]"
+                      ? "top-[32%] bottom-[15%] sm:bottom-[inherit] sm:-top-[28%] p-5 md:p-10 md:pt-25 right-[10%] sm:right-[45%] md:right-[40%] lg:right-[36%] xl:right-[32%]"
                       : item.sectionName === "two"
-                      ? "top-[30%] p-4 sm:p-14 pt-5 sm:pt-16 left-[10%] sm:left-[45%] md:left-[35%] xl:left-[25%]"
-                      : "bottom-[15%] sm:bottom-[inherit] sm:top-[40%] right-[10%] sm:right-[45%] md:right-[25%] lg:right-[25%]"
+                      ? "top-[32%] sm:top-[45%] p-4 sm:p-14 pt-5 sm:pt-16 left-[10%] sm:left-[45%] md:left-[35%] lg:left-[25%] xl:left-[25%]"
+                      : "top-[32%] bottom-[15%] sm:bottom-[inherit] sm:top-[60%] right-[10%] sm:right-[45%] md:right-[25%] lg:right-[25%]"
                   } p-6 md:p-10`}
                 >
                   <h3
@@ -97,6 +99,10 @@ const OurServicesSection: React.FC<ServicesProps> = ({
                     {item.description}
                   </p>
                 </div>
+
+                {item.sectionName === "two" && (
+                  <div className="absolute  w-[40vw] h-[280px] bg-[#F3F3F3] left-[-15%] top-[60%] sm:hidden"></div>
+                )}
               </div>
             ))}
           </div>
