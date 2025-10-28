@@ -33,9 +33,6 @@ const CardWithImageSection: React.FC<CardProps> = ({
             >
               <div className="aspect-3/2 w-full relative">
                 <Image fill sizes="100vw" src={item.cardImage} alt="" />{" "}
-                {item.cardTitle === "Win Together" && (
-                  <div className="absolute  w-[60vw] h-[480px] bg-[#F3F3F3] right-[-20%] top-[55%] z-[-2] sm:hidden"></div>
-                )}
               </div>
               <div
                 className={clsx(
