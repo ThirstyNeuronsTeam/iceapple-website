@@ -36,8 +36,8 @@ const WhatWeDoSection: React.FC<whatWeDoProps> = ({
             />
           </div>
           <div className="sm:-mt-[7%] relative z-0 flex flex-col gap-5">
-            <div className="sm:bg-white sm:px-15 sm:py-10 lg:py-30 max-w-3xl xl:ml-10 order-2 sm:order-1">
-              <p className="text-sm sm:text-lg leading-6 sm:leading-10 font-inter sm:font-main">
+            <div className="sm:bg-white py-10 sm:px-15 sm:py-10 lg:py-30 max-w-3xl xl:ml-10 order-2 sm:order-1">
+              <p className="text-sm sm:text-lg leading-6 sm:leading-10 font-inter sm:font-main lg:pr-30 xl:pr-0 text-black">
                 {content}
               </p>
             </div>
@@ -51,7 +51,7 @@ const WhatWeDoSection: React.FC<whatWeDoProps> = ({
                 ""
               )}
               {deviceType === "mobile" ? (
-                <div className="absolute -right-[5%] bottom-[0%] z-10 w-3/5 transform scale-x-[-1]">
+                <div className="absolute -right-[-5%] bottom-[0%] top-[2%] z-10 w-3/5 transform scale-x-[-1]">
                   <div className="relative aspect-square">
                     <Image src={imageOne} fill alt="" />
                   </div>

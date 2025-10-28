@@ -179,13 +179,17 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
   return (
     <article className="relative py-20 after:content-[''] after:absolute after:top-[10%] sm:after:top-0 after:bottom-0 after:right-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] z-0 after:-z-10">
       {/* Image */}
-      <div className="absolute top-0 sm:top-[30%] sm:left-0 right-0 w-[55vw] sm:w-[25vw] h-[300px] sm:h-[600px]">
+      <div className="absolute top-0 sm:top-[30%] sm:left-0 right-0 w-[55vw] sm:w-[25vw] h-[300px] sm:h-[600px] hidden sm:block">
         <Image fill src={image} alt="" className="object-cover" />
       </div>
 
       {/* Form container */}
       <div className="w-full mx-auto px-5 2xl:px-0 container">
-        <div className="grid grid-cols-1 gap-6 sm:gap-0 sm:grid-cols-[40%_60%]">
+        <div className="grid grid-cols-1 gap-6 sm:gap-0 sm:grid-cols-[40%_60%] relative">
+          <div className="absolute top-[-5%] sm:top-[30%] right-0 sm:left-0 w-[55vw] sm:w-[25vw] h-[300px] sm:h-[600px] sm:hidden">
+            <Image fill src={image} alt="" className="object-cover" />
+          </div>
+
           {/* Card section */}
           <div className="relative sm:pb-15 w-3/5 sm:w-auto sm:max-w-xl text-left mb-22 sm:mb-0">
             <CardBlueBoxSection
@@ -203,7 +207,7 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
           </div>
 
           {deviceType === "mobile" && (
-            <p className="text-sm font-inter">{cardDescription}</p>
+            <p className="text-sm font-inter mt-10">{cardDescription}</p>
           )}
 
           {/* Form section */}
@@ -239,8 +243,16 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                         <div className="flex justify-between items-center">
                           <FormMessage />
                           {isNearLimit && (
-                            <p className={`text-xs ${isAtLimit ? 'text-red-600 font-semibold' : 'text-orange-600'}`}>
-                              {isAtLimit ? 'Maximum character limit reached' : `${currentLength}/${maxLength} characters`}
+                            <p
+                              className={`text-xs ${
+                                isAtLimit
+                                  ? "text-red-600 font-semibold"
+                                  : "text-orange-600"
+                              }`}
+                            >
+                              {isAtLimit
+                                ? "Maximum character limit reached"
+                                : `${currentLength}/${maxLength} characters`}
                             </p>
                           )}
                         </div>
@@ -275,8 +287,16 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                         <div className="flex justify-between items-center">
                           <FormMessage />
                           {isNearLimit && (
-                            <p className={`text-xs ${isAtLimit ? 'text-red-600 font-semibold' : 'text-orange-600'}`}>
-                              {isAtLimit ? 'Maximum character limit reached' : `${currentLength}/${maxLength} characters`}
+                            <p
+                              className={`text-xs ${
+                                isAtLimit
+                                  ? "text-red-600 font-semibold"
+                                  : "text-orange-600"
+                              }`}
+                            >
+                              {isAtLimit
+                                ? "Maximum character limit reached"
+                                : `${currentLength}/${maxLength} characters`}
                             </p>
                           )}
                         </div>
@@ -301,9 +321,16 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                             <div className="relative">
                               {/* Display selected code only */}
                               <div className="absolute inset-0 flex items-center justify-between px-3 pointer-events-none h-16 border border-gray-300 bg-white">
-                                <span className="text-sm sm:text-lg">{field.value}</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                                  <path fill="#333" d="M6 9L1 4h10z"/>
+                                <span className="text-sm sm:text-lg">
+                                  {field.value}
+                                </span>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="12"
+                                  height="12"
+                                  viewBox="0 0 12 12"
+                                >
+                                  <path fill="#333" d="M6 9L1 4h10z" />
                                 </svg>
                               </div>
                               {/* Hidden select with full options */}
@@ -385,8 +412,16 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                         <div className="flex justify-between items-center">
                           <FormMessage />
                           {isNearLimit && (
-                            <p className={`text-xs ${isAtLimit ? 'text-red-600 font-semibold' : 'text-orange-600'}`}>
-                              {isAtLimit ? 'Maximum character limit reached' : `${currentLength}/${maxLength} characters`}
+                            <p
+                              className={`text-xs ${
+                                isAtLimit
+                                  ? "text-red-600 font-semibold"
+                                  : "text-orange-600"
+                              }`}
+                            >
+                              {isAtLimit
+                                ? "Maximum character limit reached"
+                                : `${currentLength}/${maxLength} characters`}
                             </p>
                           )}
                         </div>
@@ -421,8 +456,16 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                         <div className="flex justify-between items-center">
                           <FormMessage />
                           {isNearLimit && (
-                            <p className={`text-xs ${isAtLimit ? 'text-red-600 font-semibold' : 'text-orange-600'}`}>
-                              {isAtLimit ? 'Maximum character limit reached' : `${currentLength}/${maxLength} characters`}
+                            <p
+                              className={`text-xs ${
+                                isAtLimit
+                                  ? "text-red-600 font-semibold"
+                                  : "text-orange-600"
+                              }`}
+                            >
+                              {isAtLimit
+                                ? "Maximum character limit reached"
+                                : `${currentLength}/${maxLength} characters`}
                             </p>
                           )}
                         </div>
@@ -505,7 +548,9 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                                 }}
                                 className="w-6 h-6 rounded-none border-black"
                               />
-                              <Label className="text-sm sm:text-lg">Other</Label>
+                              <Label className="text-sm sm:text-lg">
+                                Other
+                              </Label>
                             </div>
                             {isOther && (
                               <div className="ml-9 space-y-1">
@@ -522,13 +567,23 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                                       (v) => !v.startsWith("other:")
                                     );
                                     field.onChange(
-                                      val.trim() ? [...cleaned, `other:${val.trim()}`] : cleaned
+                                      val.trim()
+                                        ? [...cleaned, `other:${val.trim()}`]
+                                        : cleaned
                                     );
                                   }}
                                 />
                                 {otherInputValue.length >= 45 && (
-                                  <p className={`text-xs ${otherInputValue.length >= 50 ? 'text-red-600 font-semibold' : 'text-orange-600'}`}>
-                                    {otherInputValue.length >= 50 ? 'Maximum character limit reached' : `${otherInputValue.length}/50 characters`}
+                                  <p
+                                    className={`text-xs ${
+                                      otherInputValue.length >= 50
+                                        ? "text-red-600 font-semibold"
+                                        : "text-orange-600"
+                                    }`}
+                                  >
+                                    {otherInputValue.length >= 50
+                                      ? "Maximum character limit reached"
+                                      : `${otherInputValue.length}/50 characters`}
                                   </p>
                                 )}
                               </div>
