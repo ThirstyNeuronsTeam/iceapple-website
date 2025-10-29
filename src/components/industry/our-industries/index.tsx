@@ -84,7 +84,7 @@ const OurIndustrySection: React.FC<IndustryProps> = ({
                     alt={item.title}
                     fill
                     sizes="100vw"
-                    className={`${
+                    className={`object-cover ${
                       item.shadow
                         ? "shadow-[0_6px_20px_rgba(0,0,0,40%))] sm:shadow-[0_93px_128px_rgba(0,0,0,25%))]"
                         : ""
