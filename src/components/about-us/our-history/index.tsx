@@ -44,7 +44,7 @@ const OurHistorySection: React.FC<careerProps> = ({
             <div
               className={clsx(
                 sectionClass,
-                "flex justify-center flex-col relative pt-5 sm:pt-20 pb-5 max-w-xl text-right xl:text-left order-1 xl:order-2 w-[70vw] sm:w-auto"
+                "flex justify-center flex-col relative pt-5 sm:pt-20 pb-5 max-w-xl text-right xl:text-left order-1 xl:order-2 w-[70vw] sm:w-auto lg:w-[300px] xl-w-auto"
               )}
             >
               <HeadingSectionDetail
