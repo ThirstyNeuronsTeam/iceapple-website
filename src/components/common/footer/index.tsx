@@ -87,9 +87,9 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
           Scroll Up
         </button>
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
-        <hr className="border-1 border-[#696969]" />
-        <p className="font-inter text-sm sm:text-lg text-center my-11">
+      <div className="max-w-7xl mx-auto">
+        <hr className="border-1 border-[#696969] sm:mx-4 lg:mx-0" />
+        <p className="font-inter text-sm sm:text-lg text-center my-11 px-4 sm:px-6 lg:px-0">
           {footerData.copyRight}
         </p>
       </div>
