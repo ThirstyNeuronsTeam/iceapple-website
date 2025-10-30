@@ -1,0 +1,27 @@
+{
+    "heroSection": {
+        "id": "my_next",
+        "companyName": "MyNext",
+        "tag": "Case Study",
+        "logoUrl": "/assets/general/case-study/my_next_logo.png",
+        "bannerUrl": "/assets/general/case-study/my_next1.jpg"
+    },
+    "details":[
+        {
+            "title": "Client Overview",
+            "content": "MyNext is a next-generation education technology company in Malaysia. The main aim of the deployment is to revolutionize talent management across the education ecosystem. To achieve this, they approached Tech Solutions and MyData Tech, a technology company, to build an end-to-end customized talent management solution."
+        },
+        {
+            "title": "Challenge",
+            "content": "MyNext’s existing deployment process was error-prone, time-consuming, and lacked scalability. They required a robust and secure architecture that could support seamless deployment and provide accurate results. Specifically, they needed an automated system that could simplify large-scale deployments and reduce manual intervention."
+        },
+        {
+            "title": "Solution",
+            "content": "Tech Solutions built and deployed a customized system for MyNext, leveraging advanced cloud infrastructure and automation tools. This included seamless integration with existing platforms, user-friendly dashboards, and AI-powered reporting features. The solution automated the deployment process, reduced human error, and improved system reliability."
+        },
+        {
+            "title": "Impact",
+            "content": "The implemented solution significantly improved the MyNext talent management application. The automated deployment system reduced errors, improved accuracy, and enabled faster rollouts of new features. This resulted in a more efficient process with reduced costs and better user experience."
+        }
+    ]
+}

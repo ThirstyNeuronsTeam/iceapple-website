@@ -1,0 +1,84 @@
+{
+    "heroSection": {
+        "id": 1,
+        "title": [
+            " From Riddles to",
+            "Revelations- Unveil",
+            "Captivating Tech",
+            "Stories and Unlock",
+            "Business Prosperity!"
+        ],
+        "content": "Exposing all the expert insights to up-level your organization's brilliance.",
+        "btntext": "Default Button",
+        "btnurl": "/",
+        "url": "/assets/general/blogs/blogs_header.png",
+        "isBtnShow": false
+    },
+    "caseStudyGrid": {
+        "sectionHeading": "Lore Ipsum Lorem Ipsum Lorem Ipsum Lorem",
+        "sectionTitle": "Blogs",
+        "data": [
+            {
+                "id": 1,
+                "title": "How to Build a killer Social Media Marketing Strategy in 2022",
+                "description": "There is no doubt pertaining to the efficacy in social media marketing in 2022 and if we were to learn the most important lesson from the pandemic, it would be...",
+                "image": "/assets/general/blogs/blogs_card.jpg",
+                "date": "July 21, 2021",
+                "readTime": "3 Min",
+                "link": "/resources/blogs/social-media-marketing-strategy-2022"
+            },
+            {
+                "id": 2,
+                "title": "How to Build a killer Social Media Marketing Strategy in 2022",
+                "description": "There is no doubt pertaining to the efficacy in social media marketing in 2022 and if we were to learn the most important lesson from the pandemic, it would be...",
+                "image": "/assets/general/blogs/blogs_card.jpg",
+                "date": "July 21, 2021",
+                "readTime": "3 Min",
+                "link": "/resources/blogs/social-media-marketing-strategy-2022"
+            },
+            {
+                "id": 3,
+                "title": "How to Build a killer Social Media Marketing Strategy in 2022",
+                "description": "There is no doubt pertaining to the efficacy in social media marketing in 2022 and if we were to learn the most important lesson from the pandemic, it would be...",
+                "image": "/assets/general/blogs/blogs_card.jpg",
+                "date": "July 21, 2021",
+                "readTime": "3 Min",
+                "link": "/resources/blogs/social-media-marketing-strategy-2022"
+            },
+            {
+                "id": 4,
+                "title": "How to Build a killer Social Media Marketing Strategy in 2022",
+                "description": "There is no doubt pertaining to the efficacy in social media marketing in 2022 and if we were to learn the most important lesson from the pandemic, it would be...",
+                "image": "/assets/general/blogs/blogs_card.jpg",
+                "date": "July 21, 2021",
+                "readTime": "3 Min",
+                "link": "/resources/blogs/social-media-marketing-strategy-2022"
+            }
+        ]
+    },
+    "enquiryFormSection": {
+      "contents": [],
+      "image": "/assets/general/about-us/enquiry-form-about.png",
+      "cardTitle": "Feeling Inspired?",
+      "cardDescription": "Take the first step towards your project's success and reach out to us today.",
+      "btnText": "",
+      "btnUrl": "",
+      "info": [
+        {
+          "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+          "cardTitle": "Boundless Possibilities",
+          "cardBoxDescription": "We empower our people to discover a work-life balance and find diversity at the workplace. At IceApple, we don't just grow careers—we ignite industry impact by pushing boundaries and embracing challenges."
+        },
+        {
+          "cardImage": "/assets/general/home-page/win-together.webp",
+          "cardTitle": "Win Together",
+          "cardBoxDescription": "We thrive to lead with shared goals and foster a culture of collaboration to harness the power of synergy for remarkable outcomes."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "How We Act",
+          "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
+        }
+      ]
+    }
+}

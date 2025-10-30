@@ -1,0 +1,143 @@
+{
+    "appServices": {
+        "heroSection": {
+            "id": 1,
+            "title": [
+                "Fuel Innovation at",
+                "Unprecedented",
+                "Scale with our",
+                "Stellar, World-Class",
+                "Apps!"
+            ],
+            "content": "End-to-end application lifecycle coverage, encompassing new application development, maintenance, and management.",
+            "btntext": "Default Button",
+            "btnurl": "/",
+            "url": "/assets/general/services/app-development-hero.png",
+            "isBtnShow": false
+        },
+        "ourServicesSection": {
+            "topContent": "Our team of skilled professionals have expertise in:",
+            "subHeading": "Brief about the service",
+            "heading": "Full Spectrum Application Development Solutions That Drive Tangible Business Value",
+            "contents": [
+                "Iceapple excels in delivering transformative & impactful application services that leverage businesses in the digital landscape. Using our expertise in cutting-edge technologies, we deliver end-to-end custom application development and support, bespoken to meet your requirements. "
+            ],
+            "services": [
+                {
+                    "id": 1,
+                    "title": "Mobile App Development",
+                    "imgSrc": "/assets/general/services/mobile-app.png",
+                    "sectionName": "one",
+                    "alignRight": false,
+                    "mobileSectionName": "one"
+                },
+                {
+                    "id": 2,
+                    "title": "E-commerce Integrations",
+                    "imgSrc": "/assets/general/services/e-commerce.png",
+                    "sectionName": "two",
+                    "alignRight": true,
+                    "mobileSectionName": "two"
+                },
+                {
+                    "id": 3,
+                    "title": "Embedded Systems",
+                    "imgSrc": "/assets/general/services/embedded-systems.png",
+                    "sectionName": "one",
+                    "alignRight": false,
+                    "mobileSectionName": "three"
+                },
+                {
+                    "id": 4,
+                    "title": "Full-Stack Development",
+                    "imgSrc": "/assets/general/services/full-stack-development.png",
+                    "sectionName": "two",
+                    "alignRight": true,
+                    "mobileSectionName": "four"
+                }
+            ],
+            "bottomContent": "We are your trusted partner for quality assurance and innovative success in competitive markets."
+        },
+        "aboutUs": {
+            "aboutImageOne": "/assets/general/services/app-about-1.jpg",
+            "aboutImageTwo": "/assets/general/services/app-about-2.jpg",
+            "subHeading": "Our Approach toward it",
+            "heading": "Embark on the golden rules of delivering cutting-edge applications With Excellence",
+            "contents": [
+                "Iceapple adopts an innovative approach to application services. We evaluate your unique business requirements to build curated solutions that align with the business goals and leverage cutting-edge technologies, implementing cloud services and micro services architectures to optimize scalability & performance. With automation testing and meticulous manuals, we ensure the robustness of the applications.",
+                "Our application services will reimagine the application landscape, with agility and speed, while innovating continuously to realize business value."
+            ],
+            "ourValues": [],
+            "contentClass": ""
+        },
+        "ourSuccessStoriesSection": {
+            "subHeading": "Resources",
+            "heading": "Discover a Goldmine of Knowledge in Our Resource Hub!",
+            "contents": [
+                "Delve deeper into a world of insights & perspectives on the latest trends!"
+            ],
+            "sliders": [
+                {
+                    "id": 1,
+                    "image": "/assets/general/home-page/slider.webp",
+                    "cardTitle": "Journey of Transformation with CRVS",
+                    "cardDescription": "We partnered with an African startup that revolutionized its Civil Registration and Vital Statistics system with NodeJS and Mongo DB to overcome challenges such as remote redeployment and complex requirements.",
+                    "btnText": "Know More",
+                    "btnUrl": "/"
+                }
+            ]
+        },
+        "enquiryFormSection": {
+            "contents": [],
+            "image": "/assets/general/services/app-enquiry.jpg",
+            "cardTitle": "We Hold The Key To Your Success",
+            "cardDescription": "Talk to our experts to get advice or a no-cost strategy session to transform your applications portfolio and drive business value.",
+            "btnText": "",
+            "btnUrl": "",
+            "info": [
+                {
+                    "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+                    "cardTitle": "Boundless Possibilities",
+                    "cardBoxDescription": "We empower our people to discover a work-life balance and find diversity at the workplace. At IceApple, we don't just grow careers—we ignite industry impact by pushing boundaries and embracing challenges."
+                },
+                {
+                    "cardImage": "/assets/general/home-page/win-together.webp",
+                    "cardTitle": "Win Together",
+                    "cardBoxDescription": "We thrive to lead with shared goals and foster a culture of collaboration to harness the power of synergy for remarkable outcomes."
+                },
+                {
+                    "cardImage": "/assets/general/home-page/how-we-act.webp",
+                    "cardTitle": "How We Act",
+                    "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
+                }
+            ]
+        },
+        "othersServicesSection": {
+            "topContent": "Other services brief with CTA",
+            "subHeading": "Other services brief with CTA",
+            "heading": "It's not the end. With IceApple, the possibilities are endless.",
+            "contents": [
+                "Discover the range of our services, and unlock that untapped potential of your business."
+            ],
+            "services": [
+                {
+                    "id": 1,
+                    "title": "DevOps",
+                    "imgSrc": "/assets/general/services/app-devops.jpg",
+                    "sectionName": "one",
+                    "alignRight": false,
+                    "mobileSectionName": "one"
+                },
+                {
+                    "id": 2,
+                    "title": "Data Science",
+                    "imgSrc": "/assets/general/services/app-data-science.jpg",
+                    "sectionName": "two",
+                    "alignRight": true,
+                    "mobileSectionName": "two"
+                }
+            ],
+            "bottomContent": "We are your trusted partner for quality assurance and innovative success in competitive markets."
+        }
+    }
+}

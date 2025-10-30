@@ -1,0 +1,3137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0112)https://medium.com/iceapple-tech-talks/web-audio-api-part-1-playing-filtering-and-visualizing-sound-147254dd6379 -->
+<html lang="en" data-rh="lang">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta
+      http-equiv="origin-trial"
+      content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="
+    />
+    <title>
+      Web Audio API — Part 1: Building a Real-Time Audio Visualizer with Web
+      Audio API and Canvas | by Senthil Kumaran Chinnathambi | IceApple Tech
+      Talks | Sep, 2025 | Medium
+    </title>
+    <meta
+      data-rh="true"
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1"
+    />
+    <meta data-rh="true" name="theme-color" content="#000000" />
+    <meta data-rh="true" name="twitter:app:name:iphone" content="Medium" />
+    <meta data-rh="true" name="twitter:app:id:iphone" content="828256236" />
+    <meta data-rh="true" property="al:ios:app_name" content="Medium" />
+    <meta data-rh="true" property="al:ios:app_store_id" content="828256236" />
+    <meta
+      data-rh="true"
+      property="al:android:package"
+      content="com.medium.reader"
+    />
+    <meta data-rh="true" property="fb:app_id" content="542599432471018" />
+    <meta data-rh="true" property="og:site_name" content="Medium" />
+    <meta data-rh="true" property="al:android:app_name" content="Medium" />
+    <link
+      data-rh="true"
+      rel="icon"
+      href="https://miro.medium.com/v2/5d8de952517e8160e40ef9841c781cdc14a5db313057fa3c3de41c6f5b494b19"
+    />
+    <link
+      data-rh="true"
+      rel="search"
+      type="application/opensearchdescription+xml"
+      title="Medium"
+      href="https://medium.com/osd.xml"
+    />
+    <link
+      data-rh="true"
+      rel="manifest"
+      href="https://medium.com/manifest.json"
+    />
+    <link data-rh="true" rel="preconnect" href="https://www.google.com/" />
+    <link
+      data-rh="true"
+      rel="preconnect"
+      href="https://www.gstatic.com/"
+      crossorigin=""
+    />
+    <link
+      data-rh="true"
+      id="glyph_preload_link"
+      rel="preload"
+      as="style"
+      type="text/css"
+      href="./147254dd6379_files/unbound.css"
+    />
+    <link
+      data-rh="true"
+      id="glyph_link"
+      rel="stylesheet"
+      type="text/css"
+      href="./147254dd6379_files/unbound.css"
+    />
+    <script async="" src="./147254dd6379_files/shim.js"></script>
+    <script
+      type="text/javascript"
+      async=""
+      charset="utf-8"
+      src="./147254dd6379_files/recaptcha__en_gb.js"
+      crossorigin="anonymous"
+      integrity="sha384-QZAQRz2ZxC/H6yYFOil6r8TKDHVk5HgCQUwcUffO3y+BJNjJgA3RDv26B6wONaiS"
+    ></script>
+    <script
+      data-rh="true"
+      src="./147254dd6379_files/enterprise.js"
+      async="true"
+    ></script>
+    <style type="text/css" data-fela-rehydration="526" data-fela-type="STATIC">
+      html {
+        box-sizing: border-box;
+        -webkit-text-size-adjust: 100%;
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        color: rgba(0, 0, 0, 0.8);
+        position: relative;
+        min-height: 100vh;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      dl,
+      dd,
+      ol,
+      ul,
+      menu,
+      figure,
+      blockquote,
+      p,
+      pre,
+      form {
+        margin: 0;
+      }
+      menu,
+      ol,
+      ul {
+        padding: 0;
+        list-style: none;
+        list-style-image: none;
+      }
+      main {
+        display: block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a,
+      button,
+      input {
+        -webkit-tap-highlight-color: transparent;
+      }
+      img,
+      svg {
+        vertical-align: middle;
+      }
+      button {
+        background: transparent;
+        overflow: visible;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        margin: 0;
+      }
+      :root {
+        --reach-tabs: 1;
+        --reach-menu-button: 1;
+      }
+      #speechify-root {
+        font-family: Sohne, sans-serif;
+      }
+      div[data-popper-reference-hidden="true"] {
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .grecaptcha-badge {
+        visibility: hidden;
+      }
+      /*XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>*/
+      .hljs {
+        background: #fff;
+        color: black;
+      } /* Gray DOCTYPE selectors like WebKit */
+      .xml .hljs-meta {
+        color: #c0c0c0;
+      }
+      .hljs-comment,
+      .hljs-quote {
+        color: #007400;
+      }
+      .hljs-tag,
+      .hljs-attribute,
+      .hljs-keyword,
+      .hljs-selector-tag,
+      .hljs-literal,
+      .hljs-name {
+        color: #aa0d91;
+      }
+      .hljs-variable,
+      .hljs-template-variable {
+        color: #3f6e74;
+      }
+      .hljs-code,
+      .hljs-string,
+      .hljs-meta .hljs-string {
+        color: #c41a16;
+      }
+      .hljs-regexp,
+      .hljs-link {
+        color: #0e0eff;
+      }
+      .hljs-title,
+      .hljs-symbol,
+      .hljs-bullet,
+      .hljs-number {
+        color: #1c00cf;
+      }
+      .hljs-section,
+      .hljs-meta {
+        color: #643820;
+      }
+      .hljs-title.class_,
+      .hljs-class .hljs-title,
+      .hljs-type,
+      .hljs-built_in,
+      .hljs-params {
+        color: #5c2699;
+      }
+      .hljs-attr {
+        color: #836c28;
+      }
+      .hljs-subst {
+        color: #000;
+      }
+      .hljs-formula {
+        background-color: #eee;
+        font-style: italic;
+      }
+      .hljs-addition {
+        background-color: #baeeba;
+      }
+      .hljs-deletion {
+        background-color: #ffc8bd;
+      }
+      .hljs-selector-id,
+      .hljs-selector-class {
+        color: #9b703f;
+      }
+      .hljs-doctag,
+      .hljs-strong {
+        font-weight: bold;
+      }
+      .hljs-emphasis {
+        font-style: italic;
+      }
+    </style>
+    <style
+      type="text/css"
+      data-fela-rehydration="526"
+      data-fela-type="KEYFRAME"
+    >
+      @-webkit-keyframes k1 {
+        0% {
+          opacity: 0.8;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 0.8;
+        }
+      }
+      @-moz-keyframes k1 {
+        0% {
+          opacity: 0.8;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 0.8;
+        }
+      }
+      @keyframes k1 {
+        0% {
+          opacity: 0.8;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 0.8;
+        }
+      }
+      @-webkit-keyframes k2 {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @-moz-keyframes k2 {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes k2 {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @-webkit-keyframes k1 {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @-moz-keyframes k1 {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes k1 {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @-webkit-keyframes k2 {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @-moz-keyframes k2 {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes k2 {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @-webkit-keyframes k3 {
+        0% {
+          opacity: 0.8;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 0.8;
+        }
+      }
+      @-moz-keyframes k3 {
+        0% {
+          opacity: 0.8;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 0.8;
+        }
+      }
+      @keyframes k3 {
+        0% {
+          opacity: 0.8;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 0.8;
+        }
+      }
+    </style>
+    <style type="text/css" data-fela-rehydration="526" data-fela-type="RULE">
+      .a {
+        font-family: medium-content-sans-serif-font, -apple-system,
+          BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+          "Open Sans", "Helvetica Neue", sans-serif;
+      }
+      .b {
+        font-weight: 400;
+      }
+      .c {
+        background-color: rgba(255, 255, 255, 1);
+      }
+      .d {
+        display: none;
+      }
+      .m {
+        display: block;
+      }
+      .n {
+        position: sticky;
+      }
+      .o {
+        top: 0;
+      }
+      .p {
+        z-index: 500;
+      }
+      .q {
+        padding: 0 24px;
+      }
+      .r {
+        align-items: center;
+      }
+      .s {
+        border-bottom: solid 1px #f2f2f2;
+      }
+      .z {
+        height: 41px;
+      }
+      .ab {
+        line-height: 20px;
+      }
+      .ac {
+        display: flex;
+      }
+      .ae {
+        gap: 32px;
+      }
+      .af {
+        height: 57px;
+      }
+      .ag {
+        flex: 1 0 auto;
+      }
+      .ah {
+        color: inherit;
+      }
+      .ai {
+        fill: inherit;
+      }
+      .aj {
+        font-size: inherit;
+      }
+      .ak {
+        border: none;
+      }
+      .al {
+        font-family: inherit;
+      }
+      .am {
+        letter-spacing: inherit;
+      }
+      .an {
+        font-weight: inherit;
+      }
+      .ao {
+        padding: 0;
+      }
+      .ap {
+        margin: 0;
+      }
+      .aq {
+        cursor: pointer;
+      }
+      .ar:disabled {
+        cursor: not-allowed;
+      }
+      .as:disabled {
+        color: #6b6b6b;
+      }
+      .at:disabled {
+        fill: #6b6b6b;
+      }
+      .aw {
+        width: auto;
+      }
+      .ax path {
+        fill: #242424;
+      }
+      .ay {
+        height: 25px;
+      }
+      .az {
+        margin-left: 24px;
+      }
+      .ba {
+        border-radius: 20px;
+      }
+      .bb {
+        width: 240px;
+      }
+      .bc {
+        background: #f9f9f9;
+      }
+      .bd path {
+        fill: #6b6b6b;
+      }
+      .bf {
+        outline: none;
+      }
+      .bg {
+        font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      .bh {
+        font-size: 14px;
+      }
+      .bi {
+        width: 100%;
+      }
+      .bj {
+        padding: 10px 20px 10px 0;
+      }
+      .bk {
+        background-color: transparent;
+      }
+      .bl {
+        color: #242424;
+      }
+      .bm::placeholder {
+        color: #6b6b6b;
+      }
+      .bn {
+        display: inline-block;
+      }
+      .bo {
+        margin-left: 12px;
+      }
+      .bp {
+        margin-right: 12px;
+      }
+      .bq {
+        border-radius: 4px;
+      }
+      .br {
+        height: 24px;
+      }
+      .bx {
+        background-color: #f9f9f9;
+      }
+      .by {
+        border-radius: 50%;
+      }
+      .bz {
+        height: 32px;
+      }
+      .ca {
+        width: 32px;
+      }
+      .cb {
+        flex: 0 0 auto;
+      }
+      .cd {
+        flex: 1 1 auto;
+      }
+      .ci {
+        justify-content: center;
+      }
+      .co {
+        max-width: 680px;
+      }
+      .cp {
+        min-width: 0;
+      }
+      .cq {
+        animation: k1 1.2s ease-in-out infinite;
+      }
+      .cr {
+        height: 100vh;
+      }
+      .cs {
+        margin-bottom: 16px;
+      }
+      .ct {
+        margin-top: 48px;
+      }
+      .cu {
+        align-items: flex-start;
+      }
+      .cv {
+        flex-direction: column;
+      }
+      .cw {
+        justify-content: space-between;
+      }
+      .cx {
+        margin-bottom: 24px;
+      }
+      .dd {
+        width: 80%;
+      }
+      .de {
+        background-color: #f2f2f2;
+      }
+      .dk {
+        height: 44px;
+      }
+      .dl {
+        width: 44px;
+      }
+      .dm {
+        margin: auto 0;
+      }
+      .dn {
+        margin-bottom: 4px;
+      }
+      .do {
+        height: 16px;
+      }
+      .dp {
+        width: 120px;
+      }
+      .dq {
+        width: 80px;
+      }
+      .dw {
+        margin-bottom: 8px;
+      }
+      .dx {
+        width: 96%;
+      }
+      .dy {
+        width: 98%;
+      }
+      .dz {
+        width: 81%;
+      }
+      .ed {
+        margin-left: 8px;
+      }
+      .ee {
+        color: #6b6b6b;
+      }
+      .ef {
+        font-size: 13px;
+      }
+      .eg {
+        height: 100%;
+      }
+      .eh {
+        padding: 0 24px 0 16px;
+      }
+      .ei {
+        fill: #6b6b6b;
+      }
+      .ej:disabled {
+        opacity: 0.3;
+      }
+      .ek svg {
+        color: #6b6b6b;
+      }
+      .em {
+        position: relative;
+      }
+      .eo {
+        height: 40px;
+      }
+      .ep {
+        width: 40px;
+      }
+      .eq {
+        position: absolute;
+      }
+      .er {
+        width: 1px;
+      }
+      .es {
+        height: 1px;
+      }
+      .et {
+        margin: -1px;
+      }
+      .eu {
+        overflow: hidden;
+      }
+      .ev {
+        clip: rect(0, 0, 0, 0);
+      }
+      .ew {
+        white-space: nowrap;
+      }
+      .ex {
+        border-width: 0;
+      }
+      .ey {
+        width: 8px;
+      }
+      .fb {
+        border: inherit;
+      }
+      .fc {
+        gap: 8px;
+      }
+      .ff {
+        background: transparent;
+      }
+      .fg svg {
+        margin-left: 4px;
+      }
+      .fh svg {
+        fill: #6b6b6b;
+      }
+      .fj {
+        box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+      }
+      .fl {
+        box-sizing: border-box;
+      }
+      .fr {
+        margin: 0 24px;
+      }
+      .fv {
+        background: rgba(255, 255, 255, 1);
+      }
+      .fw {
+        border: 1px solid #f2f2f2;
+      }
+      .fx {
+        box-shadow: 0 1px 4px #f2f2f2;
+      }
+      .fy {
+        max-height: 100vh;
+      }
+      .fz {
+        overflow-y: auto;
+      }
+      .ga {
+        left: 0;
+      }
+      .gb {
+        top: calc(100vh + 100px);
+      }
+      .gc {
+        bottom: calc(100vh + 100px);
+      }
+      .gd {
+        width: 10px;
+      }
+      .ge {
+        pointer-events: none;
+      }
+      .gf {
+        word-break: break-word;
+      }
+      .gg {
+        word-wrap: break-word;
+      }
+      .gh:after {
+        display: block;
+      }
+      .gi:after {
+        content: "";
+      }
+      .gj:after {
+        clear: both;
+      }
+      .gk {
+        line-height: 1.23;
+      }
+      .gl {
+        letter-spacing: 0;
+      }
+      .gm {
+        font-style: normal;
+      }
+      .gn {
+        font-weight: 700;
+      }
+      .hx {
+        gap: 12px;
+      }
+      .hy {
+        align-items: baseline;
+      }
+      .hz {
+        width: 36px;
+      }
+      .ia {
+        height: 36px;
+      }
+      .ib {
+        border: 2px solid rgba(255, 255, 255, 1);
+      }
+      .ic {
+        z-index: 0;
+      }
+      .id {
+        box-shadow: none;
+      }
+      .ie {
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .if {
+        margin-bottom: 2px;
+      }
+      .ig {
+        flex-wrap: nowrap;
+      }
+      .ii {
+        width: 12px;
+      }
+      .ij {
+        flex-wrap: wrap;
+      }
+      .ik {
+        padding-left: 8px;
+      }
+      .il {
+        padding-right: 8px;
+      }
+      .jm > * {
+        flex-shrink: 0;
+      }
+      .jn {
+        overflow-x: scroll;
+      }
+      .jo::-webkit-scrollbar {
+        display: none;
+      }
+      .jp {
+        scrollbar-width: none;
+      }
+      .jq {
+        -ms-overflow-style: none;
+      }
+      .jr {
+        width: 74px;
+      }
+      .js {
+        flex-direction: row;
+      }
+      .jt {
+        z-index: 2;
+      }
+      .ju {
+        margin-right: 4px;
+      }
+      .jx {
+        -webkit-user-select: none;
+      }
+      .jy {
+        border: 0;
+      }
+      .jz {
+        cursor: progress;
+      }
+      .ka {
+        fill: rgba(117, 117, 117, 1);
+      }
+      .kd {
+        opacity: 0.25;
+      }
+      .ke {
+        outline: 0;
+      }
+      .kf {
+        user-select: none;
+      }
+      .kg > svg {
+        pointer-events: none;
+      }
+      .kp {
+        margin-left: 4px;
+      }
+      .kq {
+        margin-top: 0px;
+      }
+      .kr {
+        opacity: 1;
+      }
+      .ks {
+        padding: 4px 0;
+      }
+      .kv {
+        width: 16px;
+      }
+      .kw {
+        padding: 8px 2px;
+      }
+      .kz svg path {
+        fill: #6b6b6b;
+      }
+      .la {
+        display: inline-flex;
+      }
+      .lg {
+        max-width: 100%;
+      }
+      .lw {
+        line-height: 1.58;
+      }
+      .lx {
+        letter-spacing: -0.004em;
+      }
+      .ly {
+        font-family: source-serif-pro, Georgia, Cambria, "Times New Roman",
+          Times, serif;
+      }
+      .mt {
+        margin-bottom: -0.46em;
+      }
+      .mu {
+        text-decoration: underline;
+      }
+      .mv {
+        line-height: 1.12;
+      }
+      .mw {
+        letter-spacing: -0.022em;
+      }
+      .mx {
+        font-weight: 600;
+      }
+      .ns {
+        margin-bottom: -0.28em;
+      }
+      .ny {
+        margin-left: auto;
+      }
+      .nz {
+        margin-right: auto;
+      }
+      .oa {
+        max-width: 1417px;
+      }
+      .og {
+        clear: both;
+      }
+      .oi {
+        cursor: zoom-in;
+      }
+      .oj {
+        z-index: auto;
+      }
+      .ol {
+        height: auto;
+      }
+      .om {
+        margin-top: 10px;
+      }
+      .on {
+        text-align: center;
+      }
+      .oo {
+        max-width: 728px;
+      }
+      .or {
+        max-width: 1435px;
+      }
+      .os {
+        box-shadow: inset 3px 0 0 0 #242424;
+      }
+      .ot {
+        padding-left: 23px;
+      }
+      .ou {
+        margin-left: -20px;
+      }
+      .ov {
+        font-style: italic;
+      }
+      .pb {
+        padding-top: 5px;
+      }
+      .pc {
+        padding-bottom: 5px;
+      }
+      .pd {
+        margin-bottom: 26px;
+      }
+      .pe {
+        margin-top: 6px;
+      }
+      .pf {
+        margin-top: 8px;
+      }
+      .pg {
+        margin-right: 8px;
+      }
+      .ph {
+        padding: 8px 16px;
+      }
+      .pi {
+        border-radius: 100px;
+      }
+      .pj {
+        transition: background 300ms ease;
+      }
+      .pl {
+        border-top: none;
+      }
+      .pm {
+        margin-bottom: 50px;
+      }
+      .pn {
+        height: 52px;
+      }
+      .po {
+        max-height: 52px;
+      }
+      .pp {
+        box-sizing: content-box;
+      }
+      .pq {
+        position: static;
+      }
+      .pr {
+        z-index: 1;
+      }
+      .pt {
+        max-width: 155px;
+      }
+      .pz {
+        margin-right: 20px;
+      }
+      .qa {
+        margin-bottom: 64px;
+      }
+      .qn {
+        height: 48px;
+      }
+      .qo {
+        width: 48px;
+      }
+      .qq {
+        height: 64px;
+      }
+      .qr {
+        width: 64px;
+      }
+      .qs {
+        align-self: flex-end;
+      }
+      .qw {
+        padding-right: 4px;
+      }
+      .qx {
+        font-weight: 500;
+      }
+      .rk {
+        white-space: pre-wrap;
+      }
+      .rl {
+        margin: 0 8px;
+      }
+      .rm {
+        margin-top: 16px;
+      }
+      .rs {
+        height: 0px;
+      }
+      .rt {
+        gap: 18px;
+      }
+      .ru {
+        fill: rgba(61, 61, 61, 1);
+      }
+      .rw {
+        padding-bottom: 20px;
+      }
+      .rx {
+        border-bottom: 1px solid #f2f2f2;
+      }
+      .sd {
+        margin-top: 32px;
+      }
+      .se {
+        fill: #242424;
+      }
+      .sf {
+        background: 0;
+      }
+      .sg {
+        border-color: #242424;
+      }
+      .sk:disabled {
+        cursor: inherit !important;
+      }
+      .sl:disabled:hover {
+        color: #242424;
+      }
+      .sm:disabled:hover {
+        fill: #242424;
+      }
+      .sn:disabled:hover {
+        border-color: #242424;
+      }
+      .so {
+        border-radius: 99em;
+      }
+      .su {
+        border-width: 1px;
+      }
+      .sv {
+        border-style: solid;
+      }
+      .sw {
+        text-decoration: none;
+      }
+      .tc {
+        border-bottom: solid 1px #e5e5e5;
+      }
+      .td {
+        margin-top: 72px;
+      }
+      .te {
+        padding: 24px 0;
+      }
+      .tf {
+        margin-bottom: 0px;
+      }
+      .tg {
+        margin-right: 16px;
+      }
+      .au:hover:not(:disabled) {
+        color: rgba(25, 25, 25, 1);
+      }
+      .av:hover:not(:disabled) {
+        fill: rgba(25, 25, 25, 1);
+      }
+      .el:hover svg {
+        color: #000000;
+      }
+      .fd:hover {
+        color: #242424;
+      }
+      .fe:hover {
+        fill: #242424;
+      }
+      .fi:hover svg {
+        fill: #242424;
+      }
+      .fk:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      .ih:hover {
+        text-decoration: underline;
+      }
+      .kc:hover {
+        fill: rgba(117, 117, 117, 1);
+      }
+      .kt:hover {
+        fill: #000000;
+      }
+      .ku:hover p {
+        color: #000000;
+      }
+      .kx:hover:not(:disabled) svg path {
+        fill: #000000;
+      }
+      .pk:hover {
+        background-color: #f2f2f2;
+      }
+      .qp:hover {
+        background-color: none;
+      }
+      .rv:hover {
+        fill: rgba(25, 25, 25, 1);
+      }
+      .sh:hover {
+        color: #000000;
+      }
+      .si:hover {
+        border-color: #242424;
+      }
+      .sj:hover {
+        cursor: pointer;
+      }
+      .be:focus-within path {
+        fill: #242424;
+      }
+      .kb:focus {
+        fill: rgba(117, 117, 117, 1);
+      }
+      .ky:focus svg path {
+        fill: #000000;
+      }
+      .lh:focus svg {
+        color: #000000;
+      }
+      .ok:focus {
+        transform: scale(1.01);
+      }
+      .kh:active {
+        border-style: none;
+      }
+    </style>
+    <style
+      type="text/css"
+      data-fela-rehydration="526"
+      data-fela-type="RULE"
+      media="all and (min-width: 1080px)"
+    >
+      .e {
+        display: none;
+      }
+      .bw {
+        width: 64px;
+      }
+      .cc {
+        display: block;
+      }
+      .cn {
+        margin: 0 64px;
+      }
+      .dc {
+        height: 48px;
+      }
+      .dj {
+        margin-bottom: 52px;
+      }
+      .dv {
+        margin-bottom: 48px;
+      }
+      .fa {
+        display: flex;
+      }
+      .fq {
+        margin-bottom: 50px;
+      }
+     
+      .hi {
+        font-size: 42px;
+      }
+      .hj {
+        margin-top: 1.19em;
+      }
+      .hk {
+        margin-bottom: 32px;
+      }
+      .hl {
+        line-height: 52px;
+      }
+      .hm {
+        letter-spacing: -0.011em;
+      }
+      .hv {
+        align-items: center;
+      }
+      .hw {
+        flex-direction: row;
+      }
+      .iy {
+        border-top: solid 1px #f2f2f2;
+      }
+      .iz {
+        border-bottom: solid 1px #f2f2f2;
+      }
+      .ja {
+        margin: 32px 0 0;
+      }
+      .jb {
+        padding: 3px 8px;
+      }
+      .jk > * {
+        margin-right: 24px;
+      }
+      .jl > :last-child {
+        margin-right: 0;
+      }
+      .ko {
+        margin-top: 0px;
+      }
+      .lf {
+        margin: 0;
+      }
+      .mp {
+        font-size: 20px;
+      }
+      .mq {
+        margin-top: 2.14em;
+      }
+      .mr {
+        line-height: 32px;
+      }
+      .ms {
+        letter-spacing: -0.003em;
+      }
+      .no {
+        font-size: 24px;
+      }
+      .np {
+        margin-top: 1.95em;
+      }
+      .nq {
+        line-height: 30px;
+      }
+      .nr {
+        letter-spacing: -0.016em;
+      }
+      .nx {
+        margin-top: 0.94em;
+      }
+      .of {
+        margin-top: 56px;
+      }
+      .pa {
+        max-width: 1192px;
+      }
+      .py {
+        display: inline-block;
+      }
+      .qd {
+        margin-bottom: 0;
+      }
+      .qe {
+        margin-right: 20px;
+      }
+      .qt {
+        max-width: 500px;
+      }
+      .ri {
+        line-height: 24px;
+      }
+      .rj {
+        letter-spacing: 0;
+      }
+      .rr {
+        margin-bottom: 88px;
+      }
+      .sc {
+        margin: 40px 0 16px;
+      }
+      .st {
+        width: min-width;
+      }
+      .tb {
+        padding-top: 72px;
+      }
+    </style>
+    <style
+      type="text/css"
+      data-fela-rehydration="526"
+      data-fela-type="RULE"
+      media="all and (max-width: 1079.98px)"
+    >
+      .f {
+        display: none;
+      }
+      .kn {
+        margin-top: 0px;
+      }
+      .op {
+        margin-left: auto;
+      }
+      .oq {
+        text-align: center;
+      }
+      .px {
+        display: inline-block;
+      }
+    </style>
+    <style
+      type="text/css"
+      data-fela-rehydration="526"
+      data-fela-type="RULE"
+      media="all and (max-width: 903.98px)"
+    >
+      .g {
+        display: none;
+      }
+      .km {
+        margin-top: 0px;
+      }
+      .pw {
+        display: inline-block;
+      }
+    </style>
+    <style
+      type="text/css"
+      data-fela-rehydration="526"
+      data-fela-type="RULE"
+      media="all and (max-width: 727.98px)"
+    >
+      .h {
+        display: none;
+      }
+      .kk {
+        margin-top: 0px;
+      }
+      .kl {
+        margin-right: 0px;
+      }
+      .pv {
+        display: inline-block;
+      }
+    </style>
+    <style
+      type="text/css"
+      data-fela-rehydration="526"
+      data-fela-type="RULE"
+      media="all and (max-width: 551.98px)"
+    >
+      .i {
+        display: none;
+      }
+      .t {
+        display: flex;
+      }
+      .u {
+        justify-content: space-between;
+      }
+      .bs {
+        width: 24px;
+      }
+      .ce {
+        min-width: 100%;
+      }
+      .cj {
+        margin: 0 24px;
+      }
+      .cy {
+        height: 40px;
+      }
+      .df {
+        margin-bottom: 44px;
+      }
+      .dr {
+        margin-bottom: 32px;
+      }
+      .ea {
+        justify-content: center;
+      }
+      .fm {
+        margin-bottom: 2px;
+      }
+      .go {
+        font-size: 32px;
+      }
+      .gp {
+        margin-top: 1.01em;
+      }
+      .gq {
+        margin-bottom: 24px;
+      }
+      .gr {
+        line-height: 38px;
+      }
+      .gs {
+        letter-spacing: -0.014em;
+      }
+      .hn {
+        align-items: flex-start;
+      }
+      .ho {
+        flex-direction: column-reverse;
+      }
+      .im {
+        margin: 24px -24px 0;
+      }
+      .in {
+        padding: 0;
+      }
+      .jc > * {
+        margin-right: 8px;
+      }
+      .jd > :last-child {
+        margin-right: 24px;
+      }
+      .jv {
+        margin-left: 0px;
+      }
+      .ki {
+        margin-top: 0px;
+      }
+      .kj {
+        margin-right: 0px;
+      }
+      .lb {
+        margin: 0;
+      }
+      .li {
+        border: 1px solid #f2f2f2;
+      }
+      .lj {
+        border-radius: 99em;
+      }
+      .lk {
+        padding: 0px 16px 0px 12px;
+      }
+      .ll {
+        height: 38px;
+      }
+      .lm {
+        align-items: center;
+      }
+      .lo svg {
+        margin-right: 8px;
+      }
+      .lz {
+        font-size: 18px;
+      }
+      .ma {
+        margin-top: 1.56em;
+      }
+      .mb {
+        line-height: 28px;
+      }
+      .mc {
+        letter-spacing: -0.003em;
+      }
+      .my {
+        font-size: 20px;
+      }
+      .mz {
+        margin-top: 1.2em;
+      }
+      .na {
+        line-height: 24px;
+      }
+      .nb {
+        letter-spacing: 0;
+      }
+      .nt {
+        margin-top: 0.67em;
+      }
+      .ob {
+        margin-top: 40px;
+      }
+      .ow {
+        max-width: 100%;
+      }
+      .pu {
+        display: inline-block;
+      }
+      .qc {
+        flex-direction: column;
+      }
+      .ql {
+        margin-bottom: 20px;
+      }
+      .qm {
+        margin-right: 0;
+      }
+      .qy {
+        font-size: 24px;
+      }
+      .qz {
+        line-height: 30px;
+      }
+      .ra {
+        letter-spacing: -0.016em;
+      }
+      .rn {
+        margin-bottom: 64px;
+      }
+      .ry {
+        margin: 32px 0 16px;
+      }
+      .sp {
+        width: 100%;
+      }
+      .sx {
+        padding-top: 48px;
+      }
+      .ln:hover {
+        border-color: #e5e5e5;
+      }
+    </style>
+    <style
+      type="text/css"
+      data-fela-rehydration="526"
+      data-fela-type="RULE"
+      media="all and (min-width: 904px) and (max-width: 1079.98px)"
+    >
+      .j {
+        display: none;
+      }
+      .bv {
+        width: 64px;
+      }
+      .ch {
+        min-width: 100%;
+      }
+      .cm {
+        margin: 0 64px;
+      }
+      .db {
+        height: 48px;
+      }
+      .di {
+        margin-bottom: 52px;
+      }
+      .du {
+        margin-bottom: 48px;
+      }
+      .ez {
+        display: flex;
+      }
+      .fp {
+        margin-bottom: 50px;
+      }
+      .ft {
+        max-width: 680px;
+      }
+      .hd {
+        font-size: 42px;
+      }
+      .he {
+        margin-top: 1.19em;
+      }
+      .hf {
+        margin-bottom: 32px;
+      }
+      .hg {
+        line-height: 52px;
+      }
+      .hh {
+        letter-spacing: -0.011em;
+      }
+      .ht {
+        align-items: center;
+      }
+      .hu {
+        flex-direction: row;
+      }
+      .iu {
+        border-top: solid 1px #f2f2f2;
+      }
+      .iv {
+        border-bottom: solid 1px #f2f2f2;
+      }
+      .iw {
+        margin: 32px 0 0;
+      }
+      .ix {
+        padding: 3px 8px;
+      }
+      .ji > * {
+        margin-right: 24px;
+      }
+      .jj > :last-child {
+        margin-right: 0;
+      }
+      .le {
+        margin: 0;
+      }
+      .ml {
+        font-size: 20px;
+      }
+      .mm {
+        margin-top: 2.14em;
+      }
+      .mn {
+        line-height: 32px;
+      }
+      .mo {
+        letter-spacing: -0.003em;
+      }
+      .nk {
+        font-size: 24px;
+      }
+      .nl {
+        margin-top: 1.95em;
+      }
+      .nm {
+        line-height: 30px;
+      }
+      .nn {
+        letter-spacing: -0.016em;
+      }
+      .nw {
+        margin-top: 0.94em;
+      }
+      .oe {
+        margin-top: 56px;
+      }
+      .oz {
+        max-width: 1192px;
+      }
+      .qf {
+        margin-bottom: 0;
+      }
+      .qg {
+        margin-right: 20px;
+      }
+      .qu {
+        max-width: 500px;
+      }
+      .rg {
+        line-height: 24px;
+      }
+      .rh {
+        letter-spacing: 0;
+      }
+      .rq {
+        margin-bottom: 88px;
+      }
+      .sb {
+        margin: 40px 0 16px;
+      }
+      .ss {
+        width: min-width;
+      }
+      .ta {
+        padding-top: 72px;
+      }
+    </style>
+    <style
+      type="text/css"
+      data-fela-rehydration="526"
+      data-fela-type="RULE"
+      media="all and (min-width: 728px) and (max-width: 903.98px)"
+    >
+      .k {
+        display: none;
+      }
+      .x {
+        display: flex;
+      }
+      .y {
+        justify-content: space-between;
+      }
+      .bu {
+        width: 64px;
+      }
+      .cg {
+        min-width: 100%;
+      }
+      .cl {
+        margin: 0 48px;
+      }
+      .da {
+        height: 48px;
+      }
+      .dh {
+        margin-bottom: 52px;
+      }
+      .dt {
+        margin-bottom: 48px;
+      }
+      .ec {
+        justify-content: center;
+      }
+      .fo {
+        margin-bottom: 50px;
+      }
+      .fs {
+        max-width: 680px;
+      }
+      .gy {
+        font-size: 42px;
+      }
+      .gz {
+        margin-top: 1.19em;
+      }
+      .ha {
+        margin-bottom: 32px;
+      }
+      .hb {
+        line-height: 52px;
+      }
+      .hc {
+        letter-spacing: -0.011em;
+      }
+      .hr {
+        align-items: center;
+      }
+      .hs {
+        flex-direction: row;
+      }
+      .iq {
+        border-top: solid 1px #f2f2f2;
+      }
+      .ir {
+        border-bottom: solid 1px #f2f2f2;
+      }
+      .is {
+        margin: 32px 0 0;
+      }
+      .it {
+        padding: 3px 8px;
+      }
+      .jg > * {
+        margin-right: 24px;
+      }
+      .jh > :last-child {
+        margin-right: 0;
+      }
+      .ld {
+        margin: 0;
+      }
+      .mh {
+        font-size: 20px;
+      }
+      .mi {
+        margin-top: 2.14em;
+      }
+      .mj {
+        line-height: 32px;
+      }
+      .mk {
+        letter-spacing: -0.003em;
+      }
+      .ng {
+        font-size: 24px;
+      }
+      .nh {
+        margin-top: 1.95em;
+      }
+      .ni {
+        line-height: 30px;
+      }
+      .nj {
+        letter-spacing: -0.016em;
+      }
+      .nv {
+        margin-top: 0.94em;
+      }
+      .od {
+        margin-top: 56px;
+      }
+      .oy {
+        max-width: 100%;
+      }
+      .qh {
+        margin-bottom: 0;
+      }
+      .qi {
+        margin-right: 20px;
+      }
+      .qv {
+        max-width: 500px;
+      }
+      .re {
+        line-height: 24px;
+      }
+      .rf {
+        letter-spacing: 0;
+      }
+      .rp {
+        margin-bottom: 88px;
+      }
+      .sa {
+        margin: 40px 0 16px;
+      }
+      .sr {
+        width: min-width;
+      }
+      .sz {
+        padding-top: 72px;
+      }
+    </style>
+    <style
+      type="text/css"
+      data-fela-rehydration="526"
+      data-fela-type="RULE"
+      media="all and (min-width: 552px) and (max-width: 727.98px)"
+    >
+      .l {
+        display: none;
+      }
+      .v {
+        display: flex;
+      }
+      .w {
+        justify-content: space-between;
+      }
+      .bt {
+        width: 24px;
+      }
+      .cf {
+        min-width: 100%;
+      }
+      .ck {
+        margin: 0 24px;
+      }
+      .cz {
+        height: 40px;
+      }
+      .dg {
+        margin-bottom: 44px;
+      }
+      .ds {
+        margin-bottom: 32px;
+      }
+      .eb {
+        justify-content: center;
+      }
+      .fn {
+        margin-bottom: 2px;
+      }
+      .gt {
+        font-size: 32px;
+      }
+      .gu {
+        margin-top: 1.01em;
+      }
+      .gv {
+        margin-bottom: 24px;
+      }
+      .gw {
+        line-height: 38px;
+      }
+      .gx {
+        letter-spacing: -0.014em;
+      }
+      .hp {
+        align-items: flex-start;
+      }
+      .hq {
+        flex-direction: column-reverse;
+      }
+      .io {
+        margin: 24px 0 0;
+      }
+      .ip {
+        padding: 0;
+      }
+      .je > * {
+        margin-right: 8px;
+      }
+      .jf > :last-child {
+        margin-right: 8px;
+      }
+      .jw {
+        margin-left: 0px;
+      }
+      .lc {
+        margin: 0;
+      }
+      .lp {
+        border: 1px solid #f2f2f2;
+      }
+      .lq {
+        border-radius: 99em;
+      }
+      .lr {
+        padding: 0px 16px 0px 12px;
+      }
+      .ls {
+        height: 38px;
+      }
+      .lt {
+        align-items: center;
+      }
+      .lv svg {
+        margin-right: 8px;
+      }
+      .md {
+        font-size: 18px;
+      }
+      .me {
+        margin-top: 1.56em;
+      }
+      .mf {
+        line-height: 28px;
+      }
+      .mg {
+        letter-spacing: -0.003em;
+      }
+      .nc {
+        font-size: 20px;
+      }
+      .nd {
+        margin-top: 1.2em;
+      }
+      .ne {
+        line-height: 24px;
+      }
+      .nf {
+        letter-spacing: 0;
+      }
+      .nu {
+        margin-top: 0.67em;
+      }
+      .oc {
+        margin-top: 40px;
+      }
+      .ox {
+        max-width: 100%;
+      }
+      .qb {
+        flex-direction: column;
+      }
+      .qj {
+        margin-bottom: 20px;
+      }
+      .qk {
+        margin-right: 0;
+      }
+      .rb {
+        font-size: 24px;
+      }
+      .rc {
+        line-height: 30px;
+      }
+      .rd {
+        letter-spacing: -0.016em;
+      }
+      .ro {
+        margin-bottom: 64px;
+      }
+      .rz {
+        margin: 32px 0 16px;
+      }
+      .sq {
+        width: 100%;
+      }
+      .sy {
+        padding-top: 48px;
+      }
+      .lu:hover {
+        border-color: #e5e5e5;
+      }
+    </style>
+    <style
+      type="text/css"
+      data-fela-rehydration="526"
+      data-fela-type="RULE"
+      media="print"
+    >
+      .ps {
+        display: none;
+      }
+    </style>
+    <style
+      type="text/css"
+      data-fela-rehydration="526"
+      data-fela-type="RULE"
+      media="(prefers-reduced-motion: no-preference)"
+    >
+      .oh {
+        transition: transform 300ms cubic-bezier(0.2, 0, 0.2, 1);
+      }
+    </style>
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="https://miro.medium.com/v2/resize:fill:152:152/10fd5c419ac61637245384e7099e131627900034828f4f386bdaa47a74eae156"
+      data-rh="true"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="https://miro.medium.com/v2/resize:fill:120:120/10fd5c419ac61637245384e7099e131627900034828f4f386bdaa47a74eae156"
+      data-rh="true"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="https://miro.medium.com/v2/resize:fill:76:76/10fd5c419ac61637245384e7099e131627900034828f4f386bdaa47a74eae156"
+      data-rh="true"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="https://miro.medium.com/v2/resize:fill:60:60/10fd5c419ac61637245384e7099e131627900034828f4f386bdaa47a74eae156"
+      data-rh="true"
+    />
+    <link
+      rel="mask-icon"
+      href="https://miro.medium.com/v2/resize:fill:500:500/7*GAOKVe--MXbEJmV9230oOQ.png"
+      color="#171717"
+      data-rh="true"
+    />
+    <script async="true" src="./147254dd6379_files/js" data-rh="true"></script>
+    <script data-rh="true">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-7JY7T788PK");
+    </script>
+    <style
+      data-fela-type="RULE"
+      type="text/css"
+      media="(orientation: landscape) and (max-width: 903.98px)"
+    ></style>
+    <meta
+      name="apple-itunes-app"
+      content="app-id=828256236, app-argument=/iceapple-tech-talks/web-audio-api-part-1-playing-filtering-and-visualizing-sound-147254dd6379, affiliate-data=pt=698524&amp;ct=smart_app_banner&amp;mt=8"
+      data-rh="true"
+    />
+    <style
+      data-fela-type="RULE"
+      type="text/css"
+      media="all and (max-width: 1472px)"
+    ></style>
+    <link
+      rel="author"
+      href="https://medium.com/@senthilkumaran.chinnathambi"
+      data-rh="true"
+    />
+    <link
+      rel="canonical"
+      href="https://medium.com/iceapple-tech-talks/web-audio-api-part-1-playing-filtering-and-visualizing-sound-147254dd6379"
+      data-rh="true"
+    />
+    <link
+      rel="alternate"
+      href="android-app://com.medium.reader/https/medium.com/p/147254dd6379"
+      data-rh="true"
+    />
+    <meta property="og:type" content="article" data-rh="true" />
+    <meta
+      property="article:published_time"
+      content="2025-09-29T04:58:14.646Z"
+      data-rh="true"
+    />
+    <meta
+      name="title"
+      content="Web Audio API — Part 1: Building a Real-Time Audio Visualizer with Web Audio API and Canvas | by Senthil Kumaran Chinnathambi | IceApple Tech Talks | Sep, 2025 | Medium"
+      data-rh="true"
+    />
+    <meta
+      property="og:title"
+      content="Web Audio API — Part 1: Playing, Filtering, and Visualizing Sound"
+      data-rh="true"
+    />
+    <meta
+      property="al:android:url"
+      content="medium://p/147254dd6379"
+      data-rh="true"
+    />
+    <meta
+      property="al:ios:url"
+      content="medium://p/147254dd6379"
+      data-rh="true"
+    />
+    <meta
+      name="description"
+      content="Web Audio API — Part 1: Building a Real-Time Audio Visualizer with Web Audio API and Canvas Creating beautiful frequency-based visualizations that dance to your music 🎵 What We’re …"
+      data-rh="true"
+    />
+    <meta
+      property="og:description"
+      content="When we think about the web, we usually picture visuals — animations, graphics, responsive layouts. But the modern web has another…"
+      data-rh="true"
+    />
+    <meta
+      property="og:url"
+      content="https://medium.com/iceapple-tech-talks/web-audio-api-part-1-playing-filtering-and-visualizing-sound-147254dd6379"
+      data-rh="true"
+    />
+    <meta
+      property="al:web:url"
+      content="https://medium.com/iceapple-tech-talks/web-audio-api-part-1-playing-filtering-and-visualizing-sound-147254dd6379"
+      data-rh="true"
+    />
+    <meta
+      property="og:image"
+      content="https://miro.medium.com/v2/resize:fit:742/1*NHzS7IcrcdYrfty9Lb5GXQ.png"
+      data-rh="true"
+    />
+    <meta
+      property="article:author"
+      content="https://medium.com/@senthilkumaran.chinnathambi"
+      data-rh="true"
+    />
+    <meta name="author" content="Senthil Kumaran Chinnathambi" data-rh="true" />
+    <meta
+      name="robots"
+      content="index,noarchive,follow,max-image-preview:large"
+      data-rh="true"
+    />
+    <meta name="referrer" content="unsafe-url" data-rh="true" />
+    <meta
+      property="twitter:title"
+      content="Web Audio API — Part 1: Playing, Filtering, and Visualizing Sound"
+      data-rh="true"
+    />
+    <meta name="twitter:site" content="@iceapple_india" data-rh="true" />
+    <meta
+      name="twitter:app:url:iphone"
+      content="medium://p/147254dd6379"
+      data-rh="true"
+    />
+    <meta
+      property="twitter:description"
+      content="When we think about the web, we usually picture visuals — animations, graphics, responsive layouts. But the modern web has another…"
+      data-rh="true"
+    />
+    <meta
+      name="twitter:image:src"
+      content="https://miro.medium.com/v2/resize:fit:742/1*NHzS7IcrcdYrfty9Lb5GXQ.png"
+      data-rh="true"
+    />
+    <meta name="twitter:card" content="summary_large_image" data-rh="true" />
+    <meta name="twitter:label1" content="Reading time" data-rh="true" />
+    <meta name="twitter:data1" content="5 min read" data-rh="true" />
+    <script type="application/ld+json" data-rh="true">
+      {
+        "@context": "https://schema.org",
+        "@id": "https://medium.com/iceapple-tech-talks/web-audio-api-part-1-playing-filtering-and-visualizing-sound-147254dd6379",
+        "@type": "SocialMediaPosting",
+        "image": ["https://miro.medium.com/1*NHzS7IcrcdYrfty9Lb5GXQ.png"],
+        "url": "https://medium.com/iceapple-tech-talks/web-audio-api-part-1-playing-filtering-and-visualizing-sound-147254dd6379",
+        "dateCreated": "2025-09-28T22:44:54Z",
+        "datePublished": "2025-09-28T22:44:54Z",
+        "dateModified": "2025-09-29T04:58:14Z",
+        "headline": "Web Audio API — Part 1: Building a Real-Time Audio Visualizer with Web Audio API and Canvas",
+        "name": "Web Audio API — Part 1: Building a Real-Time Audio Visualizer with Web Audio API and Canvas",
+        "description": "Web Audio API — Part 1: Building a Real-Time Audio Visualizer with Web Audio API and Canvas Creating beautiful frequency-based visualizations that dance to your music 🎵 What We’re …",
+        "identifier": "147254dd6379",
+        "author": {
+          "@context": "https://schema.org",
+          "@id": "https://medium.com/@senthilkumaran.chinnathambi",
+          "@type": "Person",
+          "identifier": "senthilkumaran.chinnathambi",
+          "name": "Senthilkumaran Chinnathambi",
+          "url": "https://medium.com/@senthilkumaran.chinnathambi"
+        },
+        "creator": {
+          "@context": "https://schema.org",
+          "@id": "https://medium.com/@senthilkumaran.chinnathambi",
+          "@type": "Person",
+          "identifier": "senthilkumaran.chinnathambi",
+          "name": "Senthilkumaran Chinnathambi",
+          "url": "https://medium.com/@senthilkumaran.chinnathambi"
+        },
+        "publisher": {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://medium.com/iceapple-tech-talks",
+          "name": "IceApple Tech Talks",
+          "description": "Blog about day to day learnings \u0026 interesting solutions provided by Team IceApple to its customers. Reach us @ https://iceapple.tech",
+          "url": "https://medium.com/iceapple-tech-talks",
+          "sameAs": [
+            "https://twitter.com/iceapple_india",
+            "https://instagram.com/iceapple_india/"
+          ],
+          "logo": {
+            "@type": "ImageObject",
+            "width": 64,
+            "height": 64,
+            "url": "https://miro.medium.com/v2/resize:fit:64/1%2AP2d4NQR9_ME2I1kCa7TmEg.png"
+          }
+        },
+        "mainEntityOfPage": "https://medium.com/iceapple-tech-talks/web-audio-api-part-1-playing-filtering-and-visualizing-sound-147254dd6379",
+        "isAccessibleForFree": true
+      }
+    </script>
+  </head>
+  <body>
+    <section>
+      <div>
+        <div class="eq ga als gc gd ge"></div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <figure class="sd og ny nz paragraph-image">
+                <div role="button" tabindex="0" class="oh oi em oj bi ok">
+                  <span class="eq er es ao et eu ev ew ex speechify-ignore"
+                    >Press enter or click to view image in full size</span
+                  >
+                  <div class="ny nz akc">
+                    <picture
+                      ><source
+                        srcset="
+                          https://miro.medium.com/v2/resize:fit:640/format:webp/1*NHzS7IcrcdYrfty9Lb5GXQ.png   640w,
+                          https://miro.medium.com/v2/resize:fit:720/format:webp/1*NHzS7IcrcdYrfty9Lb5GXQ.png   720w,
+                          https://miro.medium.com/v2/resize:fit:750/format:webp/1*NHzS7IcrcdYrfty9Lb5GXQ.png   750w,
+                          https://miro.medium.com/v2/resize:fit:786/format:webp/1*NHzS7IcrcdYrfty9Lb5GXQ.png   786w,
+                          https://miro.medium.com/v2/resize:fit:828/format:webp/1*NHzS7IcrcdYrfty9Lb5GXQ.png   828w,
+                          https://miro.medium.com/v2/resize:fit:1100/format:webp/1*NHzS7IcrcdYrfty9Lb5GXQ.png 1100w,
+                          https://miro.medium.com/v2/resize:fit:1400/format:webp/1*NHzS7IcrcdYrfty9Lb5GXQ.png 1400w
+                        "
+                        sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 700px"
+                        type="image/webp" />
+                      <source
+                        data-testid="og"
+                        srcset="
+                          https://miro.medium.com/v2/resize:fit:640/1*NHzS7IcrcdYrfty9Lb5GXQ.png   640w,
+                          https://miro.medium.com/v2/resize:fit:720/1*NHzS7IcrcdYrfty9Lb5GXQ.png   720w,
+                          https://miro.medium.com/v2/resize:fit:750/1*NHzS7IcrcdYrfty9Lb5GXQ.png   750w,
+                          https://miro.medium.com/v2/resize:fit:786/1*NHzS7IcrcdYrfty9Lb5GXQ.png   786w,
+                          https://miro.medium.com/v2/resize:fit:828/1*NHzS7IcrcdYrfty9Lb5GXQ.png   828w,
+                          https://miro.medium.com/v2/resize:fit:1100/1*NHzS7IcrcdYrfty9Lb5GXQ.png 1100w,
+                          https://miro.medium.com/v2/resize:fit:1400/1*NHzS7IcrcdYrfty9Lb5GXQ.png 1400w
+                        "
+                        sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 700px" />
+                      <img
+                        alt=""
+                        class="bi lg ol c"
+                        width="700"
+                        height="615"
+                        loading="eager"
+                        role="presentation"
+                        src="https://miro.medium.com/v2/resize:fit:700/1*NHzS7IcrcdYrfty9Lb5GXQ.png"
+                    /></picture>
+                  </div>
+                </div>
+              </figure>
+          
+            </div>
+          </div>
+        </div>
+        <div class="ac ci sd akd ake akf" role="separator">
+          <span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh"></span>
+        </div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <h2
+                id="c98e"
+                class="mv mw gm bg mx my aki na nb nc akj ne nf ng akk ni nj nk akl nm nn no akm nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                🎵 What We’re Building
+              </h2>
+              <p
+                id="888d"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                Ever wondered how music streaming apps create those mesmerizing
+                visual effects that pulse and dance with your favorite songs?
+                Today, we’ll build a real-time audio visualizer using the Web
+                Audio API and HTML5 Canvas that breaks down audio into frequency
+                bands and visualizes their energy levels with colorful, animated
+                bars.
+              </p>
+              <p
+                id="fb62"
+                class="pw-post-body-paragraph lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                <strong class="ly gn">🔗 </strong
+                ><a
+                  class="ah mu"
+                  href="https://thirstyneuronsteam.github.io/web-audio-part1/"
+                  rel="noopener ugc nofollow"
+                  target="_blank"
+                  ><strong class="ly gn">Live Demo</strong></a
+                ><strong class="ly gn"> | </strong
+                ><a
+                  class="ah mu"
+                  href="https://github.com/ThirstyNeuronsTeam/web-audio-part1"
+                  rel="noopener ugc nofollow"
+                  target="_blank"
+                  ><strong class="ly gn">Source Code</strong></a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="ac ci sd akd ake akf" role="separator">
+          <span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh"></span>
+        </div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <h2
+                id="11cd"
+                class="mv mw gm bg mx my aki na nb nc akj ne nf ng akk ni nj nk akl nm nn no akm nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                🚀 The Magic Behind the Music
+              </h2>
+              <p
+                id="e467"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                Our visualizer uses a sophisticated approach called
+                <strong class="ly gn">bandpass filtering</strong> to isolate
+                specific frequency ranges from audio and visualize their energy
+                levels. Here’s what makes it special:
+              </p>
+              <ul class="">
+                <li
+                  id="608b"
+                  class="lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">8 Frequency Bands</strong>: From deep
+                  bass (55Hz) to crisp highs (4000Hz)
+                </li>
+                <li
+                  id="f1e1"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">Real-time Processing</strong>: 60fps
+                  smooth animations
+                </li>
+                <li
+                  id="23ae"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">Color-coded Visualization</strong>: Each
+                  frequency gets its unique color
+                </li>
+                <li
+                  id="1fdb"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">Modular Architecture</strong>: Clean,
+                  reusable ES6 modules
+                </li>
+                <li
+                  id="8943"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">Mobile-friendly</strong>: Responsive
+                  design that works everywhere
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="ac ci sd akd ake akf" role="separator">
+          <span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh"></span>
+        </div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <h2
+                id="c466"
+                class="mv mw gm bg mx my aki na nb nc akj ne nf ng akk ni nj nk akl nm nn no akm nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                🎛️ The Technical Architecture
+              </h2>
+              <p
+                id="22ab"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                Our visualizer follows a clean three-layer architecture:
+              </p>
+              <h2
+                id="5969"
+                class="mv mw gm bg mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                1. Audio Processing Layer (<code class="de akv akw akx aky b"
+                  >audio.js</code
+                >)
+              </h2>
+              <p
+                id="b88e"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                Handles Web Audio API setup, frequency filtering, and audio
+                analysis
+              </p>
+              <h2
+                id="d250"
+                class="mv mw gm bg mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                2. Visualization Layer (<code class="de akv akw akx aky b"
+                  >visualizer.js</code
+                >)
+              </h2>
+              <p
+                id="4ba8"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                Manages Canvas rendering and animation loops
+              </p>
+              <h2
+                id="5445"
+                class="mv mw gm bg mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                3. UI Controller (<code class="de akv akw akx aky b"
+                  >main.js</code
+                >)
+              </h2>
+              <p
+                id="5b5c"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                Coordinates user interactions and module communication
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="ac ci sd akd ake akf" role="separator">
+          <span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh"></span>
+        </div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <h2
+                id="e771"
+                class="mv mw gm bg mx my aki na nb nc akj ne nf ng akk ni nj nk akl nm nn no akm nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                🔧 Building the Audio Processing Engine
+              </h2>
+              <p
+                id="83c0"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                The heart of our visualizer lies in creating separate analysis
+                chains for each frequency band:
+              </p>
+              <pre
+                class="ob oc od oe of akz aky ala bq alb bc bl"
+              ><span id="0b9e" class="alc mw gm aky b bh ald ale m alf alg" data-selectable-paragraph=""><span class="hljs-string">const</span> <span class="hljs-string">frequencyBands</span> <span class="hljs-string">=</span> [<br>  { <span class="hljs-attr">frequency:</span> <span class="hljs-number">55</span>,   <span class="hljs-attr">color:</span> <span class="hljs-string">"#D5B3E5"</span> }, <span class="hljs-string">//</span> <span class="hljs-string">Sub-bass</span><br>  { <span class="hljs-attr">frequency:</span> <span class="hljs-number">110</span>,  <span class="hljs-attr">color:</span> <span class="hljs-string">"#7F3CAC"</span> }, <span class="hljs-string">//</span> <span class="hljs-string">Bass</span><br>  { <span class="hljs-attr">frequency:</span> <span class="hljs-number">220</span>,  <span class="hljs-attr">color:</span> <span class="hljs-string">"#22A722"</span> }, <span class="hljs-string">//</span> <span class="hljs-string">Low-mid</span><br>  { <span class="hljs-attr">frequency:</span> <span class="hljs-number">440</span>,  <span class="hljs-attr">color:</span> <span class="hljs-string">"#F1892A"</span> }, <span class="hljs-string">//</span> <span class="hljs-string">Mid</span><br>  { <span class="hljs-attr">frequency:</span> <span class="hljs-number">570</span>,  <span class="hljs-attr">color:</span> <span class="hljs-string">"#E84420"</span> }, <span class="hljs-string">//</span> <span class="hljs-string">High-mid</span><br>  { <span class="hljs-attr">frequency:</span> <span class="hljs-number">960</span>,  <span class="hljs-attr">color:</span> <span class="hljs-string">"#F4CD00"</span> }, <span class="hljs-string">//</span> <span class="hljs-string">Presence</span><br>  { <span class="hljs-attr">frequency:</span> <span class="hljs-number">2000</span>, <span class="hljs-attr">color:</span> <span class="hljs-string">"#3E58E2"</span> }, <span class="hljs-string">//</span> <span class="hljs-string">Brilliance</span><br>  { <span class="hljs-attr">frequency:</span> <span class="hljs-number">4000</span>, <span class="hljs-attr">color:</span> <span class="hljs-string">"#F391C7"</span> }, <span class="hljs-string">//</span> <span class="hljs-string">Air</span><br>]<span class="hljs-string">;</span></span></pre>
+              <p
+                id="c020"
+                class="pw-post-body-paragraph lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                For each frequency band, we create a
+                <strong class="ly gn">BiquadFilter</strong> and
+                <strong class="ly gn">AnalyserNode</strong> chain:
+              </p>
+              <pre
+                class="ob oc od oe of akz aky ala bq alb bc bl"
+              ><span id="9c5d" class="alc mw gm aky b bh ald ale m alf alg" data-selectable-paragraph="">signals = frequencyBands.<span class="hljs-title.function">map</span>(<span class="hljs-function">(<span class="hljs-params">{ frequency, color }</span>) =&gt;</span> {<br>  <span class="hljs-keyword">const</span> analyser = audioContext.<span class="hljs-title.function">createAnalyser</span>();<br>  analyser.<span class="hljs-property">fftSize</span> = <span class="hljs-number">2048</span>;<br>  analyser.<span class="hljs-property">smoothingTimeConstant</span> = <span class="hljs-number">0.8</span>;</span></pre>
+              <pre
+                class="rm akz aky ala bq alb bc bl"
+              ><span id="1e9f" class="alc mw gm aky b bh ald ale m alf alg" data-selectable-paragraph="">const <span class="hljs-built_in">filter</span> = audioContext.createBiquadFilter();<br>  <span class="hljs-built_in">filter</span>.<span class="hljs-built_in">type</span> = <span class="hljs-string">'bandpass'</span>;<br>  <span class="hljs-built_in">filter</span>.frequency.value = frequency;<br>  <span class="hljs-built_in">filter</span>.Q.value = <span class="hljs-number">1.2</span>; // Controls <span class="hljs-built_in">filter</span> bandwidth<br>  // Create the audio processing chain<br>  sourceNode.connect(<span class="hljs-built_in">filter</span>);<br>  <span class="hljs-built_in">filter</span>.connect(analyser);<br>  <span class="hljs-keyword">return</span> { analyser, <span class="hljs-built_in">filter</span>, color, frequency };<br>});</span></pre>
+              <ul class="">
+                <li
+                  id="a014"
+                  class="lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">BiquadFilter</strong>: Isolates specific
+                  frequency ranges using bandpass filtering
+                </li>
+                <li
+                  id="0a98"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">AnalyserNode</strong>: Provides
+                  real-time audio analysis data
+                </li>
+                <li
+                  id="6e09"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">Q Factor (1.2)</strong>: Balances
+                  frequency isolation vs. natural sound
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="ac ci sd akd ake akf" role="separator">
+          <span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh"></span>
+        </div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <h2
+                id="f7e9"
+                class="mv mw gm bg mx my aki na nb nc akj ne nf ng akk ni nj nk akl nm nn no akm nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                🎨 Real-Time Visualization Magic
+              </h2>
+              <p
+                id="d423"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                The visualization engine transforms audio data into smooth,
+                responsive graphics:
+              </p>
+              <pre
+                class="ob oc od oe of akz aky ala bq alb bc bl"
+              ><span id="d6d0" class="alc mw gm aky b bh ald ale m alf alg" data-selectable-paragraph=""><span class="hljs-keyword">function</span> <span class="hljs-title.function">drawFrame</span>() {<br>  signals.<span class="hljs-title.function">forEach</span>(<span class="hljs-function">(<span class="hljs-params">signal, i</span>) =&gt;</span> {<br>    <span class="hljs-comment">// Get time-domain data for energy calculation</span><br>    signal.<span class="hljs-property">analyser</span>.<span class="hljs-title.function">getFloatTimeDomainData</span>(signal.<span class="hljs-property">data</span>);</span></pre>
+              <pre
+                class="rm akz aky ala bq alb bc bl"
+              ><span id="f93b" class="alc mw gm aky b bh ald ale m alf alg" data-selectable-paragraph=""><span class="hljs-comment">// Calculate RMS energy for this frequency band</span><br>    <span class="hljs-keyword">const</span> energy = <span class="hljs-title.function">rootMeanSquared</span>(signal.<span class="hljs-property">data</span>);<br>    <span class="hljs-comment">// Scale energy to visual height</span><br>    <span class="hljs-keyword">const</span> scaleFactor = <span class="hljs-number">12</span>;<br>    <span class="hljs-keyword">let</span> barHeight = <span class="hljs-title.class">Math</span>.<span class="hljs-title.function">min</span>(<br>      cssH * <span class="hljs-number">0.9</span>, <br>      <span class="hljs-title.class">Math</span>.<span class="hljs-title.function">max</span>(<span class="hljs-number">2</span>, energy * <span class="hljs-title.class">Math</span>.<span class="hljs-title.function">min</span>(cssW, cssH) * scaleFactor)<br>    );<br>    <span class="hljs-comment">// Draw the frequency bar</span><br>    ctx.<span class="hljs-property">fillStyle</span> = signal.<span class="hljs-property">color</span>;<br>    ctx.<span class="hljs-title.function">fillRect</span>(x - w/<span class="hljs-number">2</span>, cssH/<span class="hljs-number">2</span> - barHeight/<span class="hljs-number">2</span>, w, barHeight);<br>  });<br>  <span class="hljs-title.function">requestAnimationFrame</span>(drawFrame); <span class="hljs-comment">// Smooth 60fps animation</span><br>}</span></pre>
+              <p
+                id="f498"
+                class="pw-post-body-paragraph lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                We use
+                <code class="de akv akw akx aky b"
+                  >getFloatTimeDomainData()</code
+                >
+                instead of
+                <code class="de akv akw akx aky b">getFrequencyData()</code>
+                because:
+              </p>
+              <ul class="">
+                <li
+                  id="b43f"
+                  class="lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">Better Responsiveness</strong>:
+                  Time-domain gives instant energy readings
+                </li>
+                <li
+                  id="a712"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">Musical Feel</strong>: RMS energy
+                  correlates better with perceived loudness
+                </li>
+                <li
+                  id="07df"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">Smooth Animation</strong>: Less choppy
+                  than frequency bin analysis
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="ac ci sd akd ake akf" role="separator">
+          <span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh"></span>
+        </div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <h2
+                id="a42e"
+                class="mv mw gm bg mx my aki na nb nc akj ne nf ng akk ni nj nk akl nm nn no akm nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                ⚡ Performance Optimizations
+              </h2>
+              <h2
+                id="dd6a"
+                class="mv mw gm bg mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                1. Efficient Canvas Rendering
+              </h2>
+              <pre
+                class="ob oc od oe of akz aky ala bq alb bc bl"
+              ><span id="83f2" class="alc mw gm aky b bh ald ale m alf alg" data-selectable-paragraph=""><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title.function">resizeCanvasToDisplaySize</span>(<span class="hljs-params">canvas</span>) {<br>  <span class="hljs-keyword">const</span> dpr = <span class="hljs-variable.language">window</span>.<span class="hljs-property">devicePixelRatio</span> || <span class="hljs-number">1</span>;<br>  canvas.<span class="hljs-property">width</span> = <span class="hljs-title.class">Math</span>.<span class="hljs-title.function">floor</span>(cssW * dpr);<br>  canvas.<span class="hljs-property">height</span> = <span class="hljs-title.class">Math</span>.<span class="hljs-title.function">floor</span>(cssH * dpr);<br>  ctx.<span class="hljs-title.function">setTransform</span>(dpr, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, dpr, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>); <span class="hljs-comment">// Handle retina displays</span><br>}</span></pre>
+              <h2
+                id="0388"
+                class="mv mw gm bg mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                2. Smart Audio Context Management
+              </h2>
+              <pre
+                class="ob oc od oe of akz aky ala bq alb bc bl"
+              ><span id="0ab7" class="alc mw gm aky b bh ald ale m alf alg" data-selectable-paragraph=""><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title.function">ensureAudioContextResumed</span>() {<br>  <span class="hljs-keyword">if</span> (audioContext.<span class="hljs-property">state</span> === <span class="hljs-string">'suspended'</span>) {<br>    <span class="hljs-keyword">await</span> audioContext.<span class="hljs-title.function">resume</span>(); <span class="hljs-comment">// Required for user gesture compliance</span><br>  }<br>}</span></pre>
+              <h2
+                id="ae6c"
+                class="mv mw gm bg mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                3. Memory-Efficient Data Handling
+              </h2>
+              <pre
+                class="ob oc od oe of akz aky ala bq alb bc bl"
+              ><span id="5c90" class="alc mw gm aky b bh ald ale m alf alg" data-selectable-paragraph=""><span class="hljs-comment">// Reuse Float32Array buffers instead of creating new ones</span><br><span class="hljs-keyword">const</span> data = <span class="hljs-keyword">new</span> <span class="hljs-title.class">Float32Array</span>(analyser.<span class="hljs-property">fftSize</span>);</span></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ac ci sd akd ake akf" role="separator">
+          <span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh"></span>
+        </div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <h2
+                id="3241"
+                class="mv mw gm bg mx my aki na nb nc akj ne nf ng akk ni nj nk akl nm nn no akm nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                🛠️ Key Implementation Challenges &amp; Solutions
+              </h2>
+              <h2
+                id="7780"
+                class="mv mw gm bg mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                Challenge 1: Browser Audio Policy
+              </h2>
+              <p
+                id="36a1"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                <strong class="ly gn">Problem</strong>: Modern browsers require
+                user gestures to start audio contexts.
+                <strong class="ly gn">Solution</strong>: Lazy initialization
+                after user interaction.
+              </p>
+              <h2
+                id="f89d"
+                class="mv mw gm bg mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                Challenge 2: Frequency Band Selection
+              </h2>
+              <p
+                id="0190"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                <strong class="ly gn">Problem</strong>: Choosing meaningful
+                frequency ranges for music.
+                <strong class="ly gn">Solution</strong>: Used musical note
+                frequencies and psychoacoustic principles.
+              </p>
+              <h2
+                id="ae35"
+                class="mv mw gm bg mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                Challenge 3: Responsive Design
+              </h2>
+              <p
+                id="f258"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                <strong class="ly gn">Problem</strong>: Canvas visualizations
+                breaking on different screen sizes.
+                <strong class="ly gn">Solution</strong>: Dynamic layout
+                calculations and device pixel ratio handling.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="ac ci sd akd ake akf" role="separator">
+          <span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh"></span>
+        </div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <h2
+                id="e5a3"
+                class="mv mw gm bg mx my aki na nb nc akj ne nf ng akk ni nj nk akl nm nn no akm nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                📱 Making It Production-Ready
+              </h2>
+              <h2
+                id="a5d4"
+                class="mv mw gm bg mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                ES6 Modules for Clean Architecture
+              </h2>
+              <pre
+                class="ob oc od oe of akz aky ala bq alb bc bl"
+              ><span id="b5de" class="alc mw gm aky b bh ald ale m alf alg" data-selectable-paragraph=""><span class="hljs-comment">// main.js - Clean module imports</span><br><span class="hljs-keyword">import</span> { initAudio, togglePlayback, getSignals } <span class="hljs-keyword">from</span> <span class="hljs-string">'./audio.js'</span>;<br><span class="hljs-keyword">import</span> { startVisualizer, stopVisualizer } <span class="hljs-keyword">from</span> <span class="hljs-string">'./visualizer.js'</span>;<br><span class="hljs-keyword">import</span> { resizeCanvasToDisplaySize } <span class="hljs-keyword">from</span> <span class="hljs-string">'./utils.js'</span>;</span></pre>
+              <h2
+                id="f73f"
+                class="mv mw gm bg mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                Error Handling &amp; User Experience
+              </h2>
+              <pre
+                class="ob oc od oe of akz aky ala bq alb bc bl"
+              ><span id="6bd1" class="alc mw gm aky b bh ald ale m alf alg" data-selectable-paragraph=""><span class="hljs-keyword">try</span> {<br>  <span class="hljs-keyword">await</span> ensureAudioContextResumed();<br>  <span class="hljs-keyword">const</span> playing = <span class="hljs-keyword">await</span> togglePlayback();<br>  updatePlayButton(playing);<br>} <span class="hljs-keyword">catch</span> (err) {<br>  statusEl.textContent = <span class="hljs-string">'Playback error: '</span> + err.message;<br>}</span></pre>
+              <h2
+                id="da82"
+                class="mv mw gm bg mx my mz na nb nc nd ne nf ng nh ni nj nk nl nm nn no np nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                Cleanup &amp; Memory Management
+              </h2>
+              <pre
+                class="ob oc od oe of akz aky ala bq alb bc bl"
+              ><span id="65f5" class="alc mw gm aky b bh ald ale m alf alg" data-selectable-paragraph=""><span class="hljs-variable.language">window</span>.<span class="hljs-title.function">addEventListener</span>(<span class="hljs-string">'beforeunload'</span>, <span class="hljs-function">() =&gt;</span> {<br>  <span class="hljs-keyword">try</span> { <span class="hljs-title.function">teardown</span>(); } <span class="hljs-keyword">catch</span> (e) {}<br>});</span></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ac ci sd akd ake akf" role="separator">
+          <span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh"></span>
+        </div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <pre
+                class="ob oc od oe of akz aky ala bq alb bc bl"
+              ><span id="827c" class="alc mw gm aky b bh ald ale m alf alg" data-selectable-paragraph=""><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title.function">teardown</span>() {<br>  <span class="hljs-keyword">if</span> (audioContext) audioContext.<span class="hljs-title.function">close</span>();<br>  <span class="hljs-keyword">if</span> (audioElement) audioElement.<span class="hljs-property">src</span> = <span class="hljs-string">''</span>;<br>  <span class="hljs-comment">// Clean up all references</span><br>}</span></pre>
+              <p
+                id="8f4d"
+                class="pw-post-body-paragraph lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                The project is designed for
+                <strong class="ly gn">zero-config deployment</strong>:
+              </p>
+              <ol class="">
+                <li
+                  id="7b9b"
+                  class="lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt alh ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">GitHub Pages Ready</strong>: Just push
+                  and enable Pages
+                </li>
+                <li
+                  id="b52f"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt alh ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">No Build Process</strong>: Pure ES6
+                  modules work in modern browsers
+                </li>
+                <li
+                  id="5dfa"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt alh ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">Static Files Only</strong>: No
+                  server-side dependencies
+                </li>
+              </ol>
+              <pre
+                class="ob oc od oe of akz aky ala bq alb bc bl"
+              ><span id="9392" class="alc mw gm aky b bh ald ale m alf alg" data-selectable-paragraph=""><span class="hljs-comment"># Deploy to GitHub Pages</span><br>git add .<br>git commit -m <span class="hljs-string">"Add audio visualizer"</span><br>git push origin main<br><span class="hljs-comment"># Enable Pages in GitHub repo settings</span></span></pre>
+            </div>
+          </div>
+        </div>
+        <div class="ac ci sd akd ake akf" role="separator">
+          <span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh"></span>
+        </div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <h2
+                id="e917"
+                class="mv mw gm bg mx my aki na nb nc akj ne nf ng akk ni nj nk akl nm nn no akm nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                🎯 What’s Next?
+              </h2>
+              <p
+                id="8910"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                This visualizer opens doors to exciting possibilities:
+              </p>
+              <ul class="">
+                <li
+                  id="79c6"
+                  class="lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">🎪 Different Visualization Modes</strong
+                  >: Circular, waveform, particle systems
+                </li>
+                <li
+                  id="9096"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">🎵 Dynamic Frequency Ranges</strong>:
+                  Auto-adjust based on music genre
+                </li>
+                <li
+                  id="35d5"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">🎨 Customizable Themes</strong>:
+                  User-selectable color palettes
+                </li>
+                <li
+                  id="e922"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">📊 Audio Analysis Features</strong>: BPM
+                  detection, key signature analysis
+                </li>
+                <li
+                  id="2ba2"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt akn ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">🎬 Recording Capabilities</strong>:
+                  Export visualizations as video
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="ac ci sd akd ake akf" role="separator">
+          <span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh"></span>
+        </div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <h2
+                id="a85a"
+                class="mv mw gm bg mx my aki na nb nc akj ne nf ng akk ni nj nk akl nm nn no akm nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                🏁 Wrapping Up
+              </h2>
+              <p
+                id="cd61"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                Building this audio visualizer taught us the power of combining
+                Web Audio API’s sophisticated audio processing with Canvas’s
+                flexible rendering capabilities. The key insights:
+              </p>
+              <ol class="">
+                <li
+                  id="f350"
+                  class="lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt alh ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">Modular Architecture</strong>:
+                  Separating concerns makes code maintainable and testable
+                </li>
+                <li
+                  id="7072"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt alh ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">Performance Matters</strong>: Smart
+                  optimizations enable smooth 60fps animations
+                </li>
+                <li
+                  id="f6b8"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt alh ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">User Experience First</strong>: Proper
+                  error handling and responsive design create polished
+                  applications
+                </li>
+                <li
+                  id="3dd5"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt alh ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">Web Standards Rock</strong>: Modern
+                  browser APIs provide professional-grade capabilities
+                </li>
+              </ol>
+              <p
+                id="456d"
+                class="pw-post-body-paragraph lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                The complete project weighs in at just
+                <strong class="ly gn">~200 lines of code</strong> yet delivers a
+                feature-rich, performant audio visualizer that rivals native
+                applications.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="ac ci sd akd ake akf" role="separator">
+          <span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh"></span>
+        </div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <h2
+                id="4ece"
+                class="mv mw gm bg mx my aki na nb nc akj ne nf ng akk ni nj nk akl nm nn no akm nq nr ns bl"
+                data-selectable-paragraph=""
+              >
+                🎉 Try It Yourself
+              </h2>
+              <p
+                id="b077"
+                class="pw-post-body-paragraph lw lx gm ly b lz nt mb mc md nu mf mg mh nv mj mk ml nw mn mo mp nx mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                <strong class="ly gn"
+                  >Ready to build your own music visualizer?</strong
+                >
+              </p>
+              <ol class="">
+                <li
+                  id="b3db"
+                  class="lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt alh ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">🔗 </strong
+                  ><a
+                    class="ah mu"
+                    href="https://markdown-to-medium.surge.sh/your-github-repo"
+                    rel="noopener ugc nofollow"
+                    target="_blank"
+                    ><strong class="ly gn">Fork the Repository</strong></a
+                  >
+                </li>
+                <li
+                  id="53a8"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt alh ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn">🎵 Replace </strong
+                  ><code class="de akv akw akx aky b"
+                    ><strong class="ly gn">piano.mp3</strong></code
+                  ><strong class="ly gn"> with your favorite track</strong>
+                </li>
+                <li
+                  id="1146"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt alh ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn"
+                    >🚀 Deploy to GitHub Pages in 30 seconds</strong
+                  >
+                </li>
+                <li
+                  id="5d00"
+                  class="lw lx gm ly b lz akq mb mc md akr mf mg mh aks mj mk ml akt mn mo mp aku mr ms mt alh ako akp bl"
+                  data-selectable-paragraph=""
+                >
+                  <strong class="ly gn"
+                    >🎨 Customize colors and frequencies to match your
+                    style</strong
+                  >
+                </li>
+              </ol>
+              <p
+                id="7a22"
+                class="pw-post-body-paragraph lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                <strong class="ly gn"
+                  >Found this helpful? Give it a ⭐ on GitHub and share your
+                  creations!</strong
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="ac ci sd akd ake akf" role="separator">
+          <span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh pz"></span
+          ><span class="akg by bn ajk akh"></span>
+        </div>
+        <div class="gf gg gh gi gj">
+          <div class="ac ci">
+            <div class="cp bi fr fs ft fu">
+              <p
+                id="9bfd"
+                class="pw-post-body-paragraph lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                <em class="ov"
+                  >Want more web audio adventures? Follow me for tutorials on
+                  advanced audio processing, WebGL visualizations, and
+                  cutting-edge web technologies.</em
+                >
+              </p>
+              <p
+                id="2329"
+                class="pw-post-body-paragraph lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                <strong class="ly gn">Tags</strong>: #WebAudio #JavaScript
+                #Canvas #Visualization #MusicTech #WebDev
+              </p>
+              <p
+                id="884a"
+                class="pw-post-body-paragraph lw lx gm ly b lz ma mb mc md me mf mg mh mi mj mk ml mm mn mo mp mq mr ms mt gf bl"
+                data-selectable-paragraph=""
+              >
+                👉 In <strong class="ly gn">Part 2</strong>, we’ll explore
+                <strong class="ly gn">frequency-domain data</strong> (<code
+                  class="de akv akw akx aky b"
+                  >getFloatFrequencyData</code
+                >) and build a full spectrum analyzer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

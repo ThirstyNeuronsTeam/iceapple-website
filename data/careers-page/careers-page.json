@@ -1,0 +1,127 @@
+{
+  "careers": {
+    "heroSection": {
+      "id": 1,
+      "title": [
+        "Chart Your Success",
+        "Path - Cultivate A",
+        "Rewarding Career",
+        "With Us"
+      ],
+      "content": "Exposing all the expert insights to up-level your organization's brilliance.",
+      "btntext": "Default Button",
+      "btnurl": "/",
+      "url": "/assets/general/careers/careers-hero-section.png",
+      "isBtnShow": false
+    },
+    "ourCultureSection": {
+      "subHeading": "Our Culture",
+      "heading": "We craft, develop, and play together",
+      "contents": [
+        "IceApple is proud of our reputation as an ethical and expert firm that puts teamwork and people first. Our culture cant be put into words on the wall but reflected in everything we do & develop every day. People at IceApple are passionate to make clients win.",
+        "We value every voice and consider every idea significant. Our foundation is built on mutual respect, support, and an inclusive environment that embraces diversity, fostering a space where authenticity thrives and self-expression is encouraged. It is this very essence that has fortified us, propelling our brand to surpass the exceptional brilliance of the competition."
+      ]
+    },
+    "contactDetails": {
+      "subHeading": "Contact Details",
+      "heading": "Transformation, Cooperation, And Integrity - Our CornerStone",
+      "contents": [
+        "Our core values define the success we are embracing in just 3 years."
+      ],
+      "info": [
+        {
+          "cardImage": "/assets/general/careers/contact-details-1.jpg",
+          "cardTitle": "Innovation Runs Wild",
+          "cardBoxDescription": "We know how to embrace innovation and magic. Our team unleashes its creative powers and thinks out of the box by challenging the status quo."
+        },
+        {
+          "cardImage": "/assets/general/careers/contact-details-2.jpg",
+          "cardTitle": "Equal Opportunity",
+          "cardBoxDescription": "We foster diversity and are committed to equal opportunities. From our hiring practices to career development, we focus on the sole motive – Diverse talent."
+        },
+        {
+          "cardImage": "/assets/general/careers/contact-details-3.jpg",
+          "cardTitle": "Professional",
+          "cardBoxDescription": "Our team comprises ethical masters of talent with the right attitude, always going the extra mile and reliably dependable."
+        },
+        {
+          "cardImage": "/assets/general/careers/contact-details-4.jpg",
+          "cardTitle": "100% Commitment",
+          "cardBoxDescription": "Our unwavering commitment is to provide clients with high-quality solutions that ensure their satisfaction. We are equally committed to fostering a positive and inspiring work environment."
+        },
+        {
+          "cardImage": "/assets/general/careers/contact-details-5.jpg",
+          "cardTitle": "We Love Fun",
+          "cardBoxDescription": "We aren't just experts in software but also in relaxing. Honestly, we can’t wait to have you have Coffee with us. "
+        },
+        {
+          "cardImage": "/assets/general/careers/contact-details-6.jpg",
+          "cardTitle": "High-Growth Factor",
+          "cardBoxDescription": "Discover a rich variety of learning and development initiatives, complemented by mentorship programs, to cultivate and nurture your talents, allowing you to blossom and reach new heights."
+        }
+      ]
+    },
+    "gallerySection": {
+      "subHeading": "Gallery",
+      "heading": "A Tapestry Of Celebrating Teamwork, Milestone, And Laughter",
+      "contents": [
+        ""
+      ],
+      "info": [
+        {
+          "cardImage": "/assets/general/careers/gallery-1.jpg"
+        },
+        {
+          "cardImage": "/assets/general/careers/gallery-2.jpg"
+        },
+        {
+          "cardImage": "/assets/general/careers/gallery-3.jpg"
+        }
+      ]
+    },
+    "jobOpeningSection": {
+      "subHeading": "Job Openings",
+      "heading": "Find Your Squad!",
+      "contents": [
+        "Ignite your passion to leave a lasting impact. Discover the perfect fit",
+        "and join our unstoppable force today"
+      ],
+      "info": [
+        {
+          "cardTitle": "Job Position 1"
+        },
+        {
+          "cardTitle": "Job Position 2"
+        },
+        {
+          "cardTitle": "Job Position 3"
+        }
+      ]
+    },
+    "enquiryFormSection": {
+      "contents": [],
+      "image": "/assets/general/careers/careers-enquiry.jpg",
+      "cardTitle": "We Are Offering More Than Just A Job",
+      "cardDescription": "Yes, we are offering the finest opportunity to grow in a better work-life balance experience to grow professionally &  personally. Join us today. ",
+      "btnText": "",
+      "btnUrl": "",
+      "info": [
+        {
+          "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+          "cardTitle": "Boundless Possibilities",
+          "cardBoxDescription": "We empower our people to discover a work-life balance and find diversity at the workplace. At IceApple, we don't just grow careers—we ignite industry impact by pushing boundaries and embracing challenges."
+        },
+        {
+          "cardImage": "/assets/general/home-page/win-together.webp",
+          "cardTitle": "Win Together",
+          "cardBoxDescription": "We thrive to lead with shared goals and foster a culture of collaboration to harness the power of synergy for remarkable outcomes."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "How We Act",
+          "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
+        }
+      ]
+    }
+  }
+}

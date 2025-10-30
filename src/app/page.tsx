@@ -1,24 +1,41 @@
-import React from 'react';
-
-import SectionTitle from '@/components/SectionTitle';
-
-// /Users/senthilkumaranchinnathambi/Desktop/Desktop/work/collections/icepple-collection/iceapple-website/src/app/page.tsx
+import CareersSection from "@/components/home/careers";
+import content from "../../data/home-page/home-page.json";
+import AboutUsSection from "@/components/common/about-us";
+import HeroSection from "@/components/common/hero-section";
+import OurLegacySection from "@/components/home/our-legacy";
+import OurServicesSection from "@/components/home/our-services";
+import React from "react";
+import OurSuccessStoriesSection from "@/components/home/our-success-stories";
+import OurEnquiryFormSection from "@/components/common/our-enquiry-form";
 
 const Home: React.FC = () => {
   return (
-
-    <main className='-mt-25 flex flex-col'>
-     
-    
-      <section className="w-screen h-[115vh] bg-red-400 z-100 mt-130">
-        <span className='text-highlight font-bold'>-- Our Services</span>
-        <SectionTitle>-- A brief overview of ‘About us’</SectionTitle>
-
-      </section>
-    </main>
-
+    <section>
+      <HeroSection sectionId="hero" mainClassName="items-end" {...content.home.heroSection} />
+      <AboutUsSection contentClassName="sm:pl-16" {...content.home.aboutUs} />
+      <OurServicesSection
+        contentClassName=""
+        {...content.home.ourServicesSection}
+        servicesData={content.home.ourServicesSection}
+      />
+      <OurLegacySection
+        contentClassName=""
+        {...content.home.ourLegacySection}
+        legacyData={content.home.ourLegacySection}
+      />
+      <CareersSection
+        sectionClass=""
+        contentClassName=""
+        {...content.home.careersSection}
+      />
+      <OurSuccessStoriesSection
+        contentClassName=""
+        {...content.home.ourSuccessStoriesSection}
+        successStoriesData={content.home.ourSuccessStoriesSection}
+      />
+      <OurEnquiryFormSection {...content.home.enquiryFormSection} />
+    </section>
   );
 };
 
 export default Home;
-

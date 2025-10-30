@@ -1,0 +1,117 @@
+"use client";
+import React from "react";
+import Image from "next/image";
+import { useDeviceType } from "../../../../hooks/useDeviceType";
+import HeadingSectionDetail from "@/components/common/heading";
+import Wrapper from "@/components/common/wrapper";
+
+type AboutUsProps = {
+  aboutImageOne: string;
+  aboutImageTwo: string;
+  subHeading: string;
+  heading: string;
+  contents: string[];
+  ourValues: OurValues[];
+  contentClassName: string;
+};
+type OurValues = {
+  title: string;
+  listItem: string[];
+};
+
+const AboutUs: React.FC<AboutUsProps> = ({
+  aboutImageOne,
+  aboutImageTwo,
+  subHeading,
+  heading,
+  contents,
+  ourValues,
+  contentClassName,
+}) => {
+  const deviceType = useDeviceType();
+
+  return (
+    <article className="relative before:hidden sm:before:block sm:before:content-[''] before:absolute before:-top-40 before:h-[500px] before:left-0 before:bg-[#ffffff] before:w-[49vw] after:content-[''] after:absolute after:bottom-0 sm:after:bottom-0 after:h-[248px] sm:after:h-[600px] after:left-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] after:-z-1 pt-20 pb-10 sm:pb-20 xl:pb-80 w-full">
+      <Wrapper className="mx-auto flex flex-col sm:grid sm:grid-cols-1 lg:grid-cols-3 gap-y-4 sm:gap-16 px-5 2xl:px-0">
+        <div className="relative col-span-2 px-5 sm:px-10 xl:px-40">
+          <div className="relative aspect-[4/3] xl:aspect-[5/4] w-48 sm:w-full max-w-sm xl:max-w-lg shadow-[0_6px_20px_rgba(0,0,0,40%)] sm:shadow-[0_42px_173px_rgba(0,0,0,70%)] overflow-hidden z-10">
+            <Image
+              src={aboutImageTwo}
+              alt="Tech Lens"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="shadow-[0_6px_20px_rgba(0,0,0,40%)] sm:shadow-none absolute sm:top-[25%] bottom-[55%] sm:bottom-[inherit] xl:bottom-[5%] right-5 sm:right-[2%] aspect-[4/3] xl:aspect-[5/4] w-48 sm:w-full max-w-sm xl:max-w-lg overflow-hidden z-20">
+            <Image
+              src={aboutImageOne}
+              alt="AI Face"
+              fill
+              className="object-cover"
+            />
+          </div>
+          {deviceType === "desktop"
+            ? ourValues?.map((item, index) => (
+                <div
+                  key={index}
+                  className="w-md sm:absolute -bottom-[15%] xl:-bottom-[25%] left-[5%] right-0 z-0 bg-white p-10 sm:pt-200"
+                >
+                  <h3 className="text-3xl font-bold mb-6">{item.title}</h3>
+                  {item.listItem.length > 1 ? (
+                    <ul className="grid grid-cols-1 gap-y-4 text-gray-700 text-lg list-disc pl-6 font-inter">
+                      {item.listItem.map((list, index) => (
+                        <li key={index}>{list}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="text-lg tracking-[1px]">
+                      {item.listItem.map((list, index) => (
+                        <p key={index}>{list}</p>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))
+            : ""}
+        </div>
+        <div className="z-30 col-span-2 sm:col-span-1 px-5 sm:px-0">
+          <HeadingSectionDetail
+            contentClassName={contentClassName}
+            subHeading={subHeading}
+            heading={heading}
+            contents={contents}
+          />
+        </div>
+        {deviceType === "mobile"
+          ? ourValues?.map((item, index) => (
+              <div
+                className={`${
+                  item.listItem.length > 1 ? "w-max" : "w-3/4"
+                } bg-white p-5 text-right self-end`}
+                key={index}
+              >
+                <h3 className="text-lg sm:text-3xl font-bold mb-2 sm:mb-6">
+                  {item.title}
+                </h3>
+                {item.listItem.length > 1 ? (
+                  <ul className="flex flex-col items-end gap-y-2 text-gray-700 text-sm sm:text-lg list-disc pl-6 font-inter">
+                    {item.listItem.map((list, index) => (
+                      <li key={index}>{list}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="text-sm sm:text-lg tracking-[1px] font-inter font-light leading-7">
+                    {item.listItem.map((list, index) => (
+                      <p key={index}>{list}</p>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))
+          : ""}
+      </Wrapper>
+    </article>
+  );
+};
+
+export default AboutUs;

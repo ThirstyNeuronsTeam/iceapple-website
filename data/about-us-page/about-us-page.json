@@ -1,0 +1,180 @@
+{
+  "about": {
+    "heroSection": {
+      "id": 1,
+      "title": [
+        "Ignite Business",
+        "Brilliance With",
+        "Futuristic Digital",
+        "Solutions"
+      ],
+      "content": "Empower The Needs Of Today And Opportunities Of Tomorrow",
+      "btntext": "Default Button",
+      "btnurl": "/",
+      "url": "/assets/general/about-us/aboutus_main.png",
+      "isBtnShow": false
+    },
+    "aboutUs": {
+      "aboutImageOne": "/assets/general/about-us/about-image-4.png",
+      "aboutImageTwo": "/assets/general/about-us/about-image-3.jpg",
+      "subHeading": "A brief overview of ‘About us’",
+      "heading": "DISCOVER The ESSENCE Of OUR IDENTITY",
+      "contents": [
+        "IceApple is a leading software development company serving cutting-edge software solutions & consultation to India, the US, Singapore, Australia, and New Zealand. Our close-knit team of 50+ software developers, innovators & designers undertake collaborative development & research to develop next-gen solutions & applications that are perfectly adapted to this evolving tech space.",
+        "As a technology leader with extensive experience & knowledge in Mobile app development, AI, Machine learning, blockchain and, other advanced technologies like IoT, we believe in supporting companies to overcome the most tangled technology challenges to drive business growth."
+      ],
+      "ourValues": [
+        {
+          "title": "Our Slogan",
+          "listItem": [
+            "“ You dream it big and we’ll help you to pop it up” reflects our team’s motto. From the manifestation of your concept to delivering the envisioned outcome, we leave no stone unturned till we enjoy your project triumph."
+          ]
+        }
+      ]
+    },
+    "whatWeDo": {
+      "subHeading": "What we do:",
+      "heading": "Transforming Visions Into Reality With Cutting-Edge Software Solutions",
+      "content": "Our exceptional software development expertise is everything from front-end development to back-end integration along with quality assurance and consultation. We as tech pioneers handle every phase of the software development lifecycle with utmost precision. Our agile software development approach includes five steps - Strategy, design, development, testing, and support. We follow never-ending research about trending development strategies to get maximum results for clients in every project in order to achieve business goals effectively & efficiently.",
+      "imageOne": "/assets/general/about-us/what-we-do-1.png",
+      "imageTwo": "/assets/general/about-us/what-we-do-2.jpg"
+    },
+    "ourTeam": {
+      "subHeading": "Our Team:",
+      "heading": "Introducing the Powerhouse Tech Squad",
+      "contents": [
+        "Our team’s “can do” attitude help you expand and scale your project rapidly. Hire talent and get premium results."
+      ],
+      "sectionBg": "/assets/general/about-us/team-bg.png",
+      "teamOne": {
+        "name": "Senthil",
+        "description": "A thought-provoking leader who carries 17+ years of experience in building Web-Applications.",
+        "image": "/assets/general/about-us/team-1.png"
+      },
+      "teamTwo": {
+        "name": "Arjun",
+        "description": "A hands-on individual, he comes with 17 years in building embedded systems solutions for varied domains.",
+        "image": "/assets/general/about-us/team-2.png"
+      },
+      "teamThree": {
+        "name": "Soundar",
+        "description": "Our AWS Dev-Ops & certified architect with 10+ years of experience in building Web Apps.",
+        "image": "/assets/general/about-us/team-3.png"
+      },
+      "teamFour": {
+        "name": "Sai",
+        "description": "An experienced software developer with 17+ Yrs. Exp in building Embedded systems & AIML solutions. He holds a PG in AI & ML a certified SAFe expert.",
+        "image": "/assets/general/about-us/team-4.png"
+      },
+      "teamFive": {
+        "name": "Saran",
+        "description": "One of our responsible leaders with 10+ Years of experience in building AI solutions, and web Applications for varied sectors.",
+        "image": "/assets/general/about-us/team-5.png"
+      },
+      "teamSix": {
+        "name": "Ramesh",
+        "description": "An exceptional Azure Dev Ops and AWS-certified Architect with more than 17 years of experience in developing Web Apps.",
+        "image": "/assets/general/about-us/team-6.png"
+      },
+      "teamSeven": {
+        "name": "Nagi",
+        "description": "Plays a key role in building Web UI and Mobile Apps and holds 10+ years of experience. He is also an expert in Vue.js, Angular, and React technologies.",
+        "image": "/assets/general/about-us/team-7.png"
+      }
+    },
+    "historySection": {
+      "subHeading": "Our History",
+      "heading": "Tracing Our Remarkable Legacy",
+      "contents": [],
+      "cardTitle": "",
+      "cardDescription": "IceApple started with the sole thought of offering premium software & web development services. It all started in 2020 when seven visionary individuals ignited the spark for a shared passion of innovation. From the beginning, we witnessed many challenges and were guided by our core values of creativity, and integrity by placing our customers first. Regardless of all the uncertainties, we are focused & determined to build something exceptional. As time passed, we grew stronger together and embraced new opportunities to upgrade our products and services, in order to reach the evolving needs of the clients. Today, we access organizations with top software developers and put out second-to-none solutions to develop performance while improving cost efficiency.",
+      "btnText": "",
+      "btnUrl": ""
+    },
+    "whyChooseUsSection": {
+      "subHeading": "Why Choose us",
+      "heading": "Experience the Extraordinary with our Revolutionary Approach",
+      "contents": [],
+      "sectionBg": "",
+      "info": [
+        {
+          "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+          "cardTitle": "Code Crafters",
+          "cardBoxDescription": "Our code wizards get work done within time and budget, with all the specifications."
+        },
+        {
+          "cardImage": "/assets/general/home-page/win-together.webp",
+          "cardTitle": "Dedicated & Passionate Minds",
+          "cardBoxDescription": "Every project is assigned to beautiful minds who possess unwavering dedication and passion for programming. Nothing can hinder their progress."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "High Quality Products",
+          "cardBoxDescription": "Prepare to get a flawless professional app, built with modern technology, without bugs, and fully optimized for years of seamless usage and development."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "Unlimited Scalability & Support",
+          "cardBoxDescription": "We work based on software development motives to deliver maximum value and return on investment while devising ingenious strategies."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "Industry Specific Experience",
+          "cardBoxDescription": "Our team of core software developers boasts more than 10+ experience in the market and is equipped with industry-specific knowledge to serve extraordinary app development solutions."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "Source Code & IP Ownership",
+          "cardBoxDescription": "Our bespoke software solutions needs no licensing fees after project completion. You gain complete ownership of the intellectual property and source code of the proprietary software."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "Client Champions",
+          "cardBoxDescription": "An astound 90% of our clients hired us again. They believe in getting what they need with zero hassle."
+        }
+      ]
+    },
+    "ourSuccessStoriesSection": {
+      "subHeading": "Uncovering Our Success Stories",
+      "heading": "Trusted Solution for Many",
+      "contents": [
+        "Turning ideas into realities, empowering clients with innovative solutions"
+      ],
+      "sliders": [
+        {
+          "id": 1,
+          "image": "/assets/general/home-page/slider.webp",
+          "cardTitle": "Journey of Transformation with CRVS",
+          "cardDescription": "We partnered with an African startup that revolutionized its Civil Registration and Vital Statistics system with NodeJS and Mongo DB to overcome challenges such as remote redeployment and complex requirements.",
+          "btnText": "Know More",
+          "btnUrl": "/"
+        }
+      ]
+    },
+    "enquiryFormSection": {
+      "contents": [],
+      "image": "/assets/general/about-us/enquiry-form-about.png",
+      "cardTitle": "We would love to hear from you",
+      "cardDescription": "Please fill out the form below and our team will get in touch with you shortly.",
+      "btnText": "",
+      "btnUrl": "",
+      "info": [
+        {
+          "cardImage": "/assets/general/home-page/boundless-possibilities.webp",
+          "cardTitle": "Boundless Possibilities",
+          "cardBoxDescription": "We empower our people to discover a work-life balance and find diversity at the workplace. At IceApple, we don't just grow careers—we ignite industry impact by pushing boundaries and embracing challenges."
+        },
+        {
+          "cardImage": "/assets/general/home-page/win-together.webp",
+          "cardTitle": "Win Together",
+          "cardBoxDescription": "We thrive to lead with shared goals and foster a culture of collaboration to harness the power of synergy for remarkable outcomes."
+        },
+        {
+          "cardImage": "/assets/general/home-page/how-we-act.webp",
+          "cardTitle": "How We Act",
+          "cardBoxDescription": "Beyond technology, we are architects of positive change, crafting a brighter future for society and the planet through our impactful endeavors."
+        }
+      ]
+    }
+  }
+}
