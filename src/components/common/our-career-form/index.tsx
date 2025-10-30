@@ -52,6 +52,10 @@ const countryCodes = [
   { code: "+41", country: "Switzerland", minLength: 9, maxLength: 9 },
 ];
 
+// Maximum file size for resume upload: 30 MB
+const MAX_FILE_SIZE_IN_MB = 30;
+const MAX_FILE_SIZE = MAX_FILE_SIZE_IN_MB * 1024 * 1024; // 30 MB in bytes
+
 // ----------------- Zod schema -----------------
 const careerSchema = z
   .object({
@@ -88,10 +92,9 @@ const careerSchema = z
         (val) => {
           if (typeof File === "undefined" || !(val instanceof File))
             return true;
-          const maxSize = 30 * 1024 * 1024; // 30 MB
-          return val.size <= maxSize;
+          return val.size <= MAX_FILE_SIZE;
         },
-        { message: "File size must not exceed 30 MB" }
+        { message: `File size must not exceed ${MAX_FILE_SIZE_IN_MB} MB` }
       )
       .refine(
         (val) => {
@@ -473,24 +476,7 @@ const OurCareerFormSection: React.FC<CareerFormProps> = ({
                             accept=".pdf,.doc,.docx"
                             onChange={(e) => {
                               const file = e.target.files?.[0];
-                              const maxSize = 30 * 1024 * 1024; // 30 MB
-
-                              if (file) {
-                                if (file.size > maxSize) {
-                                  onChange(undefined); // Clear invalid file
-                                  form.setError("resume", {
-                                    type: "manual",
-                                    message:
-                                      "File too large. Maximum allowed size is 30 MB.",
-                                  });
-                                  e.target.value = ""; // reset input so user can pick again
-                                } else {
-                                  onChange(file); // valid file
-                                  form.clearErrors("resume"); // clear previous error if any
-                                }
-                              } else {
-                                onChange(undefined); // if no file selected
-                              }
+                              onChange(file || undefined);
                             }}
                             ref={ref}
                             className="h-16 w-full rounded-none border border-gray-300 px-3 py-2"
