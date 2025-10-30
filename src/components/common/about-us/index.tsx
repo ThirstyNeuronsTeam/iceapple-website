@@ -54,7 +54,7 @@ const AboutUs: React.FC<AboutUsProps> = ({
             ? ourValues?.map((item, index) => (
                 <div
                   key={index}
-                  className="w-md sm:absolute -bottom-[15%] xl:-bottom-[25%] left-[5%] right-0 z-0 bg-white p-10 sm:pt-200"
+                  className="w-md sm:absolute -bottom-[15%] xl:-bottom-[31%] left-[5%] right-0 z-0 bg-white p-10 sm:pt-200"
                 >
                   <h3 className="text-3xl font-bold mb-6">{item.title}</h3>
                   {item.listItem.length > 1 ? (
