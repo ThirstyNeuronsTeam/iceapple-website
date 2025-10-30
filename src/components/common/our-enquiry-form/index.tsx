@@ -108,7 +108,7 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
   return (
     <article className="relative py-20 after:content-[''] after:absolute after:top-[10%] sm:after:top-0 after:bottom-0 after:right-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] z-0 after:-z-10">
       {/* Image */}
-      <div className="absolute top-0 sm:top-[30%] sm:left-0 right-0 w-[55vw] sm:w-[25vw] h-[300px] sm:h-[600px]">
+      <div className="absolute top-0 sm:top-[30%] sm:left-0 right-5 sm:right-0 w-[55vw] sm:w-[25vw] h-[300px] sm:h-[600px]">
         <Image fill src={image} alt="" className="object-cover" />
       </div>
 

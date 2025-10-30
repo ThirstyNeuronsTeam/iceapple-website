@@ -55,10 +55,13 @@ export default async function CaseStudyDetailedPage({ params }: { params: Promis
   const raw = fs.readFileSync(p, "utf8");
   const content: CaseStudyContent = JSON.parse(raw);
 
+  // Filter out the current case study from the related case studies
+  const relatedCaseStudies = content2.caseStudyGrid?.data.filter(study => study.id !== id) || [];
+
   return (
     <section>
       <CaseStudyHero {...content.heroSection} />
-      <CaseStudyDetailedSection dataSection={content.details} dataCaseStudy={content2.caseStudyGrid?.data} />
+      <CaseStudyDetailedSection dataSection={content.details} dataCaseStudy={relatedCaseStudies} />
     </section>
   );
 }

@@ -42,12 +42,12 @@ const HeroSection: React.FC<HeadingSectionProps> = ({
             />
 
           {/* Image Section */}
-          <div className="relative w-full h-[300px] sm:h-[600px] flex justify-center sm:justify-start -mt-20 sm:mt-0">
+          <div className="relative w-full h-[380px] sm:h-[750px] flex justify-start -mt-20 sm:mt-0 -ml-6 sm:-ml-12">
           <Image
               src={url}
               alt=""
               fill
-              className="object-contain object-center rounded-xl"
+              className="object-contain object-left rounded-xl"
               priority
             />
           </div>

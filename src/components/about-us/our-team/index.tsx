@@ -100,10 +100,10 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
           </div>
           <div className="flex flex-col sm:items-center xl:flex-row w-full xl:justify-between mt-10">
             <div className="w-full sm:w-xl xl:max-w-xl font-inter relative flex justify-end xl:justify-center mt-25 sm:mt-30 xl:mt-0">
-              <div className="bg-[rgba(245,245,245,0.8)] pt-4 sm:pt-8 xl:pt-14 pb-4 sm:pb-12 xl:pb-17 px-8 sm:px-10 w-4/5 max-w-xs sm:max-w-lg xl:max-w-xs">
+              <div className="bg-[rgba(245,245,245,0.8)] pt-4 sm:pt-8 xl:pt-14 pb-4 sm:pb-12 xl:pb-17 px-8 sm:px-10 w-4/5 max-w-xs sm:max-w-lg xl:max-w-xs mt-3">
                 <h5 className="text-base sm:text-3xl font-bold tracking-[3px]">
                   {teamTwo.name}
-                </h5>
+                </h5>  
                 <p className="text-sm sm:text-lg tracking-[1px]">
                   {teamTwo.description}
                 </p>
