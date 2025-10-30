@@ -67,7 +67,8 @@ const CareersSection: React.FC<careerProps> = ({
         </div>
       </div>
       {info && (
-        <div className="w-full mx-auto px-5 2xl:px-0 container">
+        <div className="w-full mx-auto px-5 2xl:px-0 container relative overflow-x-hidden sm:overflow-visible">
+          <div className="absolute  w-[60vw] h-[600px] bg-[#F3F3F3] right-[-20%] top-[48%] z-[-2] sm:hidden"></div>
           <div className="grid sm:flex lg:grid grid-cols-1 sm:grid-cols-3 sm:overflow-x-auto xl:overflow-visible gap-10 sm:gap-10 xl:gap-20 my-25">
             <CardWithImageSection
               sectionClass="sm:min-w-[500px] lg:min-w-full"

@@ -93,6 +93,7 @@ const OurClientsSection: React.FC<ClientsProps> = ({
                         alt={item.title}
                         fill
                         sizes="100vw"
+                        className=" object-cover "
                       />
                     </div>
                   </div>

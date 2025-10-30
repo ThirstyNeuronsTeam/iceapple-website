@@ -44,6 +44,25 @@ function SheetOverlay({
   );
 }
 
+const VisuallyHidden = React.forwardRef<
+  HTMLSpanElement,
+  React.HTMLAttributes<HTMLSpanElement>
+>(({ className, ...props }, ref) => (
+  <span
+    ref={ref}
+    className={cn(
+      "absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0",
+      className
+    )}
+    style={{
+      clip: "rect(0, 0, 0, 0)",
+      clipPath: "inset(50%)",
+    }}
+    {...props}
+  />
+));
+VisuallyHidden.displayName = "VisuallyHidden";
+
 function SheetContent({
   className,
   children,
@@ -71,6 +90,9 @@ function SheetContent({
         )}
         {...props}
       >
+        <SheetPrimitive.Title asChild>
+          <VisuallyHidden>Menu</VisuallyHidden>
+        </SheetPrimitive.Title>
         {children}
         <SheetPrimitive.Close className="ring-offset-background focus:ring-ring data-[state=open]:bg-secondary fixed top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
           <XIcon className="size-6" />

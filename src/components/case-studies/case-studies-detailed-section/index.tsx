@@ -1,7 +1,7 @@
 "use client";
-import React, { useState } from 'react';
-import { useDeviceType } from '../../../../hooks/useDeviceType';
-import InfoCard from '../info-card';
+import React, { useState } from "react";
+import { useDeviceType } from "../../../../hooks/useDeviceType";
+import InfoCard from "../info-card";
 
 type Section = {
   title: string;
@@ -40,8 +40,7 @@ const CaseStudyDetailedSection: React.FC<CaseStudyDetailedSectionProps> = ({
             <div
               className="bg-blue-600 shadow-md flex items-center justify-start px-4 text-white 
               max-w-[643px] h-auto py-4 
-               text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-[2px] sm:tracking-[3px]"
-    style={{ lineHeight: "121%" }}
+               text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-[2px] sm:tracking-[3px] leading-[121%]"
             >
               {section.title}
             </div>
@@ -49,7 +48,10 @@ const CaseStudyDetailedSection: React.FC<CaseStudyDetailedSectionProps> = ({
             <p
               className="mt-4 text-gray-700 px-2 sm:px-6 lg:px-10 text-left
                text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed"
-              style={{ fontFamily: "'Inter', sans-serif", letterSpacing: "1px" }}
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                letterSpacing: "1px",
+              }}
             >
               {section.content}
             </p>
@@ -59,19 +61,21 @@ const CaseStudyDetailedSection: React.FC<CaseStudyDetailedSectionProps> = ({
 
       {/* Scrollable InfoCards Container */}
       <div
-        className={`overflow-y-auto px-2 ${showAll ? 'max-h-full' : 'max-h-full'
-          } ${deviceType !== 'mobile'
-            ? 'grid grid-cols-1 md:grid-cols-2 gap-6' 
-            : 'flex flex-col gap-6'                
-          }`}
+        className={`overflow-y-auto px-2 ${
+          showAll ? "max-h-full" : "max-h-full"
+        } ${
+          deviceType !== "mobile"
+            ? "grid grid-cols-1 md:grid-cols-2 gap-6"
+            : "flex flex-col gap-6"
+        }`}
       >
         {displayedCaseStudies.map((study, index) => (
           <div key={index} className="flex justify-center">
             <div
               className={
-                deviceType === 'mobile'
-                  ? 'w-10/12'
-                  : 'w-full md:w-11/12 lg:w-full '
+                deviceType === "mobile"
+                  ? "w-10/12"
+                  : "w-full md:w-11/12 lg:w-full "
               }
             >
               <InfoCard
@@ -91,10 +95,10 @@ const CaseStudyDetailedSection: React.FC<CaseStudyDetailedSectionProps> = ({
         <div className="flex justify-center mt-10">
           <button
             onClick={() => setShowAll(!showAll)}
-            className={`px-6 py-3 rounded-full bg-blue-900 text-white font-medium hover:bg-blue-800 ${deviceType === 'mobile' ? 'w-full' : 'w-auto'
-              }`}
+            className={`px-8 py-3 bg-blue-900 text-white font-medium transition-colors duration-200 hover:bg-blue-800 
+             rounded-[30px_0px_30px_0px]`}
           >
-            {showAll ? 'Show Less' : 'View All Case Studies'}
+            {showAll ? "Show Less" : "View All Case Studies"}
           </button>
         </div>
       )}
