@@ -97,7 +97,7 @@ const GalleryCarousel: React.FC<galleryProps> = ({
                       fill
                       className="object-cover"
                       src={slide.cardImage}
-                      alt=""
+                      alt={`Career gallery image ${index + 1}`}
                     />
                   </div>
                 </SwiperSlide>

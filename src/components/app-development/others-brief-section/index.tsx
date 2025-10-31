@@ -51,7 +51,7 @@ const OthersServicesSection: React.FC<OthersServicesProps> = ({
                 id="item.id"
                 className="relative z-0 aspect-video before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-[rgba(0,0,0,0.6)] before:z-10"
               >
-                <Image src={item.imgSrc} alt="" fill objectFit="cover" />
+                <Image src={item.imgSrc} alt={item.title} fill objectFit="cover" />
                 <h3 className="text-[22px] sm:text-7xl text-white font-bold absolute bottom-10 left-10 z-20">
                   {item.title}
                 </h3>

@@ -42,7 +42,7 @@ const ContactMapSection: React.FC<contactMapProps> = ({
           </div>
           <div className="grid gap-x-14">
             <div className="relative w-full h-[250px] sm:h-[500px] xl:h-[800px] mx-auto aspect-square">
-              <Image fill className="object-fill" src={mapImage} alt="" />
+              <Image fill className="object-fill" src={mapImage} alt="IceApple office locations map showing our global presence" />
             </div>
           </div>
         </div>

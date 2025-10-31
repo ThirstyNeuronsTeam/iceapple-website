@@ -93,7 +93,7 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                   className="object-cover"
                   fill
                   src={teamOne.image}
-                  alt=""
+                  alt={`${teamOne.name} - ${teamOne.description}`}
                 />
               </div>
             </div>
@@ -113,7 +113,7 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                   className="object-cover"
                   fill
                   src={teamTwo.image}
-                  alt=""
+                  alt={`${teamTwo.name} - ${teamTwo.description}`}
                 />
               </div>
             </div>
@@ -131,7 +131,7 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                   className="object-cover"
                   fill
                   src={teamThree.image}
-                  alt=""
+                  alt={`${teamThree.name} - ${teamThree.description}`}
                 />
               </div>
             </div>
@@ -149,7 +149,7 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                   className="object-cover"
                   fill
                   src={teamFour.image}
-                  alt=""
+                  alt={`${teamFour.name} - ${teamFour.description}`}
                 />
               </div>
             </div>
@@ -169,7 +169,7 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                   className="object-cover"
                   fill
                   src={teamFive.image}
-                  alt=""
+                  alt={`${teamFive.name} - ${teamFive.description}`}
                 />
               </div>
             </div>
@@ -187,7 +187,7 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                   className="object-cover"
                   fill
                   src={teamSix.image}
-                  alt=""
+                  alt={`${teamSix.name} - ${teamSix.description}`}
                 />
               </div>
             </div>
@@ -205,7 +205,7 @@ const OurTeamSection: React.FC<ourTeamProps> = ({
                   className="object-cover"
                   fill
                   src={teamSeven.image}
-                  alt=""
+                  alt={`${teamSeven.name} - ${teamSeven.description}`}
                 />
               </div>
             </div>

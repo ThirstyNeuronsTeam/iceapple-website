@@ -30,14 +30,14 @@ const BannerSectionDetail: React.FC<HeroSectionProps> = ({
       className={clsx(
         mainClassName,
         // Responsive flex direction tweaks for smaller screens
-        "relative z-10 h-full sm:pt-16 flex flex-col sm:flex-row items-end sm:items-center order-1 sm:order-2"
+        "relative z-10 h-full sm:pt-16 flex flex-col sm:flex-row items-start sm:items-center order-1 sm:order-2"
       )}
     >
-      <div className="w-full sm:max-w-none space-y-6 pr-4 ml-auto sm:ml-0">
+      <div className="w-full sm:max-w-none space-y-6 pr-4 pl-24 sm:pl-0 ml-auto sm:ml-0 -mt-12 sm:mt-0">
         <div className="overflow-hidden">
-          <div className="space-y-3 sm:space-y-6 lg:pl-10 text-right sm:text-left">
+          <div className="space-y-3 sm:space-y-6 lg:pl-10 text-left">
             <div className="text-[#0B68FF]">
-              <h1 className="flex flex-col items-end sm:items-start font-extrabold leading-none text-[clamp(1.75rem,4vw,4.5rem)] break-words max-w-full">
+              <h1 className="flex flex-col items-start font-extrabold leading-none text-[clamp(1.75rem,4vw,4.5rem)] break-words max-w-full">
                 {title?.map((item, index) => (
                   <div className="w-max" key={index}>
                     {item}
@@ -45,7 +45,7 @@ const BannerSectionDetail: React.FC<HeroSectionProps> = ({
                 ))}
               </h1>
             </div>
-            <p className="font-medium mb-4 sm:mb-11 w-3/4 sm:w-full text-[clamp(0.875rem,1.5vw,1.5rem)] ml-auto sm:ml-0">
+            <p className="font-medium mb-4 sm:mb-11 w-3/4 sm:w-full text-[clamp(0.875rem,1.5vw,1.5rem)] ml-0">
               {content}
             </p>
             {isBtnShow && btnurl && btntext && (

@@ -42,7 +42,7 @@ const ServiceItem: React.FC<{
           "relative w-full sm:w-2/4 aspect-[3/4]"
         )}
       >
-        <Image fill alt="" sizes="100vw" src={item.imgSrc} />
+        <Image fill alt={item.title} sizes="100vw" src={item.imgSrc} />
       </div>
 
       {/* Content Section overlapping */}
@@ -135,7 +135,7 @@ const AppServicesSection: React.FC<AppServicesProps> = ({
                           "relative w-full sm:w-2/4 aspect-[3/4]"
                         )}
                       >
-                        <Image fill alt="" sizes="100vw" src={item.imgSrc} />
+                        <Image fill alt={item.title} sizes="100vw" src={item.imgSrc} />
                       </div>
                       {/* Content Section overlapping */}
                       <div

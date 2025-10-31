@@ -26,7 +26,7 @@ const CaseStudies: React.FC = () => {
                   className="rounded-none"
                 />
               </CardWrapper>
-            })
+            }) 
           }
         </ResourcesGrid>
       </div>

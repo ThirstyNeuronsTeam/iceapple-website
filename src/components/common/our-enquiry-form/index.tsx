@@ -133,6 +133,7 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
 
   const [isOther, setIsOther] = useState(false);
   const [otherInputValue, setOtherInputValue] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error";
     message: string;
@@ -140,7 +141,11 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
   const deviceType = useDeviceType();
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    if (isSubmitting) return; // Prevent duplicate submissions
+
     setSubmitStatus(null);
+    setIsSubmitting(true);
+
     try {
       // Combine country code and phone number for API submission
       const submissionData = {
@@ -173,6 +178,8 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
     } catch (err) {
       console.error(err);
       setSubmitStatus({ type: "error", message: "Something went wrong!" });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -180,14 +187,14 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
     <article className="relative py-20 after:content-[''] after:absolute after:top-[10%] sm:after:top-0 after:bottom-0 after:right-0 after:bg-[#F3F3F3] after:w-full sm:after:w-[75vw] z-0 after:-z-10">
       {/* Image */}
       <div className="absolute top-0 sm:top-[30%] sm:left-0 right-0 w-[55vw] sm:w-[25vw] h-[300px] sm:h-[600px] hidden sm:block">
-        <Image fill src={image} alt="" className="object-cover" />
+        <Image fill src={image} alt="Contact form decorative background" className="object-cover" />
       </div>
 
       {/* Form container */}
       <div className="w-full mx-auto px-5 2xl:px-0 container">
         <div className="grid grid-cols-1 gap-6 sm:gap-0 sm:grid-cols-[40%_60%] relative">
           <div className="absolute top-[-5%] sm:top-[30%] right-0 sm:left-0 w-[55vw] sm:w-[25vw] h-[300px] sm:h-[600px] sm:hidden">
-            <Image fill src={image} alt="" className="object-cover" />
+            <Image fill src={image} alt="Contact form decorative background" className="object-cover" />
           </div>
 
           {/* Card section */}
@@ -623,9 +630,9 @@ const OurEnquiryFormSection: React.FC<EnquiryProps> = ({
                 <Button
                   type="submit"
                   className="rounded-none text-xl py-4 px-8 bg-[#002656] disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={!form.formState.isValid}
+                  disabled={!form.formState.isValid || isSubmitting}
                 >
-                  Submit
+                  {isSubmitting ? "Submitting..." : "Submit"}
                 </Button>
 
                 {/* Submit status */}

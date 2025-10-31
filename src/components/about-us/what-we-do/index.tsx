@@ -45,7 +45,7 @@ const WhatWeDoSection: React.FC<whatWeDoProps> = ({
             <div className="relative sm:absolute right-0 top-0 z-10 w-full sm:w-1/4 order-1 sm:order-2 pb-20 sm:pb-0">
               {["desktop", "mobile"].includes(deviceType) ? (
                 <div className="relative aspect-3/2 sm:aspect-square w-[50%] sm:w-auto">
-                  <Image src={imageTwo} fill alt="" />
+                  <Image src={imageTwo} fill alt="What we do - Decorative illustration" />
                 </div>
               ) : (
                 ""
@@ -53,7 +53,7 @@ const WhatWeDoSection: React.FC<whatWeDoProps> = ({
               {deviceType === "mobile" ? (
                 <div className="absolute -right-[-5%] bottom-[0%] top-[2%] z-10 w-3/5 transform scale-x-[-1]">
                   <div className="relative aspect-square">
-                    <Image src={imageOne} fill alt="" />
+                    <Image src={imageOne} fill alt="What we do - Background illustration" />
                   </div>
                 </div>
               ) : (
@@ -64,7 +64,7 @@ const WhatWeDoSection: React.FC<whatWeDoProps> = ({
           {["desktop"].includes(deviceType) ? (
             <div className="absolute right-[10%] xl:right-[15%] -bottom-[18%] z-10 w-2/6 xl:w-2/5">
               <div className="relative aspect-square">
-                <Image src={imageOne} fill alt="" />
+                <Image src={imageOne} fill alt="What we do - Background illustration" />
               </div>
             </div>
           ) : (

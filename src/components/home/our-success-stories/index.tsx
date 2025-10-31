@@ -54,7 +54,7 @@ const OurSuccessStoriesSection: React.FC<LegacyProps> = ({
                 <CarouselItem key={index}>
                   <div className="flex flex-col sm:flex-row xl:pr-20">
                     <div className="w-[150px] sm:w-[250px] xl:w-[450px] h-[170px] sm:h-[400px] xl:h-[600px] aspect-3/2 absolute -top-30 sm:-top-50 -z-[1]">
-                      <Image fill src={item.image} alt="" />
+                      <Image fill src={item.image} alt={`${item.cardTitle} - Case study illustration`} />
                     </div>
                     <div className="flex justify-end w-full pb-20 sm:pb-50">
                       <CardBlueBoxSection

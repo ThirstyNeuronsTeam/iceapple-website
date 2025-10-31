@@ -58,7 +58,7 @@ const ContactDetailsSection: React.FC<contactDetailsProps> = ({
                     fill
                     className="object-fill"
                     src={item.cardIcon}
-                    alt=""
+                    alt={`${item.cardHeading} icon`}
                   />
                 </div>
                 <h6 className="text-base sm:text-3xl font-bold">

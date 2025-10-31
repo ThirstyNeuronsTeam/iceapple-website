@@ -79,7 +79,7 @@ export default function RootLayout({
       lang="en"
       className={`${moskFont.variable} ${inter.variable} antialiased`}
     >
-      <body className={cn`${moskFont.variable} ${inter.variable} font-main`}>
+      <body className={cn(moskFont.variable, inter.variable, "font-main")}>
         <Navbar />
         <main>{children}</main>
         <Footer footerData={content.footer} />
