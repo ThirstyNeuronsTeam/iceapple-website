@@ -1,0 +1,147 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 4079 >>
+stream
+BT
+/F1 11 Tf
+1 14 TL
+72 800 Td
+(IceApple Website ? Remediation Plan) Tj
+T*
+() Tj
+T*
+(Critical Issues) Tj
+T*
+(1. Root layout breaks because cn is used as a tagged template \(src/app/layout.tsx\).) Tj
+T*
+(   - Update body className to call cn\(moskFont.variable, inter.variable, "font-main"\).) Tj
+T*
+(   - Add a simple render test to guarantee the layout mounts without throwing.) Tj
+T*
+() Tj
+T*
+(2. SendGrid setup runs at import time in api/client and api/career routes.) Tj
+T*
+(   - Move sgMail.setApiKey and env validations inside each handler; return 500 when missing.) Tj
+T*
+(   - Guard outbound email calls with try/except and log sanitized errors only once per request.) Tj
+T*
+(   - Document required SENDGRID_* variables in env.example.md and deployment checklist.) Tj
+T*
+() Tj
+T*
+(3. download-resume endpoint allows path traversal and serves every file as PDF.) Tj
+T*
+(   - Store original filename, MIME type, and generated key when saving uploads.) Tj
+T*
+(   - Sanitize requests by rejecting names that contain path separators or unmatched keys.) Tj
+T*
+(   - Stream the file using createReadStream and set Content-Type from the stored metadata.) Tj
+T*
+(   - Add automated test covering invalid file names and missing files.) Tj
+T*
+() Tj
+T*
+(4. Career upload overwrites filenames and forces .pdf extension.) Tj
+T*
+(   - Capture file.name when available, normalize it, and persist alongside the generated id.) Tj
+T*
+(   - Use the captured extension to build the storage key and SendGrid attachment metadata.) Tj
+T*
+(   - Expose the original name in the download endpoint response headers.) Tj
+T*
+() Tj
+T*
+(Quality Improvements) Tj
+T*
+(5. useDeviceType drives layout changes client side leading to hydration mismatch.) Tj
+T*
+(   - Replace deviceType checks with Tailwind responsive classes or CSS container queries.) Tj
+T*
+(   - Where runtime checks are unavoidable, gate them behind useEffect to keep SSR consistent.) Tj
+T*
+(   - Audit pages with React profiler after the change to confirm layout stability.) Tj
+T*
+() Tj
+T*
+(6. Navigation menu drops navigationMenuTriggerStyle styles.) Tj
+T*
+(   - Wrap navigationMenuTriggerStyle\(\) in cn\(\) so focus and keyboard styles are preserved.) Tj
+T*
+(   - Add a Storybook interaction test to ensure arrow-key navigation works on desktop.) Tj
+T*
+() Tj
+T*
+(7. Enquiry form lacks Content-Type header, loading state, and surfaced errors.) Tj
+T*
+(   - Send fetch with headers: { 'Content-Type': 'application/json' } and disable submit while pending.) Tj
+T*
+(   - Surface API failures in the UI \(toast or inline alert\) and re-enable the button afterwards.) Tj
+T*
+(   - Write a Playwright test submitting the form with mocked API responses \(success + failure\).) Tj
+T*
+() Tj
+T*
+(8. Key images render with empty alt text.) Tj
+T*
+(   - Provide descriptive alt strings in hero, enquiry, and map sections or mark them as decorative when appropriate.) Tj
+T*
+(   - Run axe-core against each page to confirm the accessibility regression is fixed.) Tj
+T*
+() Tj
+T*
+(Maintainability) Tj
+T*
+(9. Inconsistent import paths and skipped TypeScript safety.) Tj
+T*
+(   - Replace ../../.. imports with the configured @ alias using a codemod or eslint rule.) Tj
+T*
+(   - Disable allowJs and skipLibCheck once stray JS files are migrated, then fix exposed typing bugs.) Tj
+T*
+() Tj
+T*
+(10. Blogs page performs synchronous disk I/O and logs directly to console.) Tj
+T*
+(    - Switch to async read with fs.promises.readFile and memoize the parsed feed with cache\(\).) Tj
+T*
+(    - Remove console.log or wrap it behind debug logging controlled by NODE_ENV.) Tj
+T*
+(    - Add an integration test confirming the page renders fallback content when XML parsing fails.) Tj
+T*
+() Tj
+T*
+(11. Missing automated test coverage for critical flows.) Tj
+T*
+(    - Add unit tests for API handlers using supertest and mocked MongoDB/SendGrid dependencies.) Tj
+T*
+(    - Create end-to-end smoke tests covering contact form submission, resume upload, and navigation.) Tj
+T*
+(    - Configure CI to run lint, type-check, unit, and e2e suites on every pull request.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000004371 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+4441
+%%EOF

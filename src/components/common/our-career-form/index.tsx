@@ -487,7 +487,7 @@ const OurCareerFormSection: React.FC<CareerFormProps> = ({
                             ref={ref}
                             className="h-16 w-full rounded-none border border-gray-300 px-3 py-2"
                           />
-                          {value instanceof File && (
+                          {typeof File !== "undefined" && value instanceof File && (
                             <p className="text-xs text-gray-600">
                               Selected: {value.name} (
                               {(value.size / 1024 / 1024).toFixed(2)} MB)

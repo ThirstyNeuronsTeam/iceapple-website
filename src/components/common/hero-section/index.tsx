@@ -47,7 +47,7 @@ const HeroSection: React.FC<HeadingSectionProps> = ({
               src={url}
               alt={`${title.join(' ')} - Hero illustration`}
               fill
-              className="object-contain object-left rounded-xl"
+              className="object-contain object-right rounded-xl"
               priority
             />
           </div>

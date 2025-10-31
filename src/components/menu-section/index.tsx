@@ -88,12 +88,17 @@ export function MenuSection() {
                 return (
                   <NavigationMenuItem key={index}>
                     <NavigationMenuTrigger className="bg-transparent 2xl:text-xl">
-                      <Link
-                        href={link.path || '#'}
-                        className={`hover:!text-[#0B68FF] ${isLinkActive(link) ? '!text-[#0B68FF]' : ''}`}
-                      >
-                        {link.name}
-                      </Link>
+                      <NavigationMenuLink
+                    asChild
+                    className={
+                      (navigationMenuTriggerStyle(),
+                        "bg-transparent font-medium 2xl:text-xl")
+                    }
+                  >
+                    <Link href={link.path} className={`hover:!text-[#0B68FF] ${isLinkActive(link) ? '!text-[#0B68FF]' : ''}`}>
+                      {link.name}
+                    </Link>
+                  </NavigationMenuLink>
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="grid w-[200px] gap-4">
