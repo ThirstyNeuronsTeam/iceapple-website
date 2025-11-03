@@ -7,14 +7,17 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'cdn-images-1.medium.com',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'cdn-images.medium.com',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'miro.medium.com',
+        pathname: '/**',
       },
     ],
   },

@@ -41,6 +41,7 @@ export function BlogPostCard({ title, date, readTime, description, imageUrl, lin
           alt={title}
           fill
           className="object-cover"
+          unoptimized
         />
       </div>
 
