@@ -81,7 +81,7 @@ export async function POST(req: Request) {
       const hrEmail = process.env.SENDGRID_TO;
       const domainEmail = process.env.SENDGRID_FROM;
       const base64Resume = buffer.toString("base64");
-      const downloadUrl = `${process.env.DOMAIN}/api/download-resume?file=${encodeURIComponent(fileName)}`;
+      const downloadUrl = `api/download-resume?file=${encodeURIComponent(fileName)}`;
 
       // HR Email
       const hrMsg: MailDataRequired = {
