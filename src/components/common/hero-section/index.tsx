@@ -25,9 +25,10 @@ const HeroSection: React.FC<HeadingSectionProps> = ({
   sectionId,
 }) => {
   return (
-    <article
+    <section
       id={sectionId}
       className="relative before:content-[''] before:absolute before:top-0 before:h-[60%] sm:before:-top-20 sm:before:bottom-0 sm:before:h-auto before:right-0 before:bg-[#F3F3F3] sm:before:w-[89vw] before:w-[80vw]"
+      aria-label="Hero section"
     >
       <div className="relative w-full mx-auto">
         <div className="flex flex-col-reverse sm:grid sm:grid-cols-2 py-12 items-center sm:items-center min-h-[500px] sm:min-h-[600px] gap-8 sm:gap-12">
@@ -38,7 +39,7 @@ const HeroSection: React.FC<HeadingSectionProps> = ({
             btntext={btntext}
             btnurl={btnurl}
             isBtnShow={isBtnShow}
-            mainClassName={`${mainClassName || ""} mt-6        `} // space only on mobile
+            mainClassName={`${mainClassName || ""} mt-6`}
             />
 
           {/* Image Section */}
@@ -49,11 +50,12 @@ const HeroSection: React.FC<HeadingSectionProps> = ({
               fill
               className="object-contain object-right rounded-xl"
               priority
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         </div>
       </div>
-    </article>
+    </section>
   );
 };
 

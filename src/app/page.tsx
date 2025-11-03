@@ -10,31 +10,33 @@ import OurEnquiryFormSection from "@/components/common/our-enquiry-form";
 
 const Home: React.FC = () => {
   return (
-    <section>
+    <>
       <HeroSection sectionId="hero" mainClassName="items-end" {...content.home.heroSection} />
-      <AboutUsSection contentClassName="sm:pl-16" {...content.home.aboutUs} />
-      <OurServicesSection
-        contentClassName=""
-        {...content.home.ourServicesSection}
-        servicesData={content.home.ourServicesSection}
-      />
-      <OurLegacySection
-        contentClassName=""
-        {...content.home.ourLegacySection}
-        legacyData={content.home.ourLegacySection}
-      />
-      <CareersSection
-        sectionClass=""
-        contentClassName=""
-        {...content.home.careersSection}
-      />
-      <OurSuccessStoriesSection
-        contentClassName=""
-        {...content.home.ourSuccessStoriesSection}
-        successStoriesData={content.home.ourSuccessStoriesSection}
-      />
-      <OurEnquiryFormSection {...content.home.enquiryFormSection} />
-    </section>
+      <main role="main">
+        <AboutUsSection contentClassName="sm:pl-16" {...content.home.aboutUs} />
+        <OurServicesSection
+          contentClassName=""
+          {...content.home.ourServicesSection}
+          servicesData={content.home.ourServicesSection}
+        />
+        <OurLegacySection
+          contentClassName=""
+          {...content.home.ourLegacySection}
+          legacyData={content.home.ourLegacySection}
+        />
+        <CareersSection
+          sectionClass=""
+          contentClassName=""
+          {...content.home.careersSection}
+        />
+        <OurSuccessStoriesSection
+          contentClassName=""
+          {...content.home.ourSuccessStoriesSection}
+          successStoriesData={content.home.ourSuccessStoriesSection}
+        />
+        <OurEnquiryFormSection {...content.home.enquiryFormSection} />
+      </main>
+    </>
   );
 };
 

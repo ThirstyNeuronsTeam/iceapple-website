@@ -1,0 +1,16 @@
+{
+  "name": "IceApple - Technology and Business Solutions",
+  "short_name": "IceApple",
+  "description": "IceApple provides comprehensive technology and business solutions including intelligent apps, device development, data science, and DevOps services.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#002656",
+  "icons": [
+    {
+      "src": "/assets/general/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

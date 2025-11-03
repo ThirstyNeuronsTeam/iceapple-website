@@ -144,12 +144,20 @@ export function MenuSection() {
       {/* Mobile Navigation */}
       {["tablet", "mobile"].includes(deviceType) ? (
         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger>
-            <Menu className="w-6 h-6" />
+          <SheetTrigger asChild>
+            <button
+              aria-label="Open navigation menu"
+              aria-expanded={open}
+              aria-controls="mobile-navigation"
+              className="inline-flex items-center justify-center rounded-md p-2 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
           </SheetTrigger>
           <SheetContent side="right" className="w-full overflow-y-auto">
-            <div className="items-start w-full max-w-full">
-              <div className="w-3/4 py-4 p-15 flex flex-col gap-y-3 relative before:content-[''] before:absolute before:-top-0 before:bottom-0 before:left-0 before:right-0 before:bg-[#F3F3F3] before:-z-1">
+            <nav id="mobile-navigation" aria-label="Mobile navigation">
+              <div className="items-start w-full max-w-full">
+                <div className="w-3/4 py-4 p-15 flex flex-col gap-y-3 relative before:content-[''] before:absolute before:-top-0 before:bottom-0 before:left-0 before:right-0 before:bg-[#F3F3F3] before:-z-1">
                 {
                   navLinks
                     .filter((link) => link.name !== "Services")
@@ -159,20 +167,27 @@ export function MenuSection() {
                           <div key={index}>
                             <button
                               onClick={() => toggleSubmenu(link.name)}
-                              className={`flex justify-between w-full font-medium text-lg py-4 hover:!text-[#0B68FF]`}
+                              aria-expanded={openSub === link.name}
+                              aria-controls={`submenu-${link.name.replace(' ', '-').toLowerCase()}`}
+                              className={`flex justify-between w-full font-medium text-lg py-4 hover:!text-[#0B68FF] focus:outline-none focus:ring-2 focus:ring-blue-500`}
                             >
                               <span className="hover:!text-[#0B68FF]">{link.name}</span>
-                              {openSub === link.name ? <ChevronUp /> : <ChevronDown />}
+                              {openSub === link.name ? <ChevronUp aria-hidden="true" /> : <ChevronDown aria-hidden="true" />}
                             </button>
 
                             {openSub === link.name && (
-                              <div className="pl-4 mt-2 space-y-2">
+                              <div
+                                id={`submenu-${link.name.replace(' ', '-').toLowerCase()}`}
+                                className="pl-4 mt-2 space-y-2"
+                                role="menu"
+                              >
                                 {link.submenu.map((sublink, subIndex) => (
                                   <div key={subIndex}>
                                     <Link
                                       onClick={() => setOpen(false)}
                                       href={sublink.path}
-                                      className={`block py-3 hover:!text-[#0B68FF] ${pathname?.startsWith(sublink.path) ? '!text-[#0B68FF] underline' : ''}`}
+                                      className={`block py-3 hover:!text-[#0B68FF] focus:outline-none focus:ring-2 focus:ring-blue-500 ${pathname?.startsWith(sublink.path) ? '!text-[#0B68FF] underline' : ''}`}
+                                      role="menuitem"
                                     >
                                       {sublink.name}
                                     </Link>
@@ -188,7 +203,7 @@ export function MenuSection() {
                           onClick={() => setOpen(false)}
                           key={index}
                           href={link.path}
-                          className={`block font-medium text-lg py-4 hover:!text-[#0B68FF] ${isLinkActive(link) ? '!text-[#0B68FF] underline' : ''}`}
+                          className={`block font-medium text-lg py-4 hover:!text-[#0B68FF] focus:outline-none focus:ring-2 focus:ring-blue-500 ${isLinkActive(link) ? '!text-[#0B68FF] underline' : ''}`}
                         >
                           {link.name}
                         </Link>
@@ -225,8 +240,9 @@ export function MenuSection() {
                     </div>
                   );
                 })}
+                </div>
               </div>
-            </div>
+            </nav>
           </SheetContent>
         </Sheet>
       ) : (

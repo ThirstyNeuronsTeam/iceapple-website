@@ -8,33 +8,38 @@ import content from "../../data/footer/footer.json";
 import Footer from "@/components/common/footer";
 
 export const metadata: Metadata = {
-  title: "IceApple",
-  description: "Provides Technology and Business Solutions",
+  title: "IceApple - Technology and Business Solutions",
+  description: "IceApple provides comprehensive technology and business solutions including intelligent apps, device development, data science, and DevOps services. Empowering businesses with innovative technology solutions.",
+  keywords: "technology solutions, intelligent apps, device development, data science, DevOps, business solutions, software development",
+  authors: [{ name: "IceApple Team" }],
+  creator: "IceApple",
+  publisher: "IceApple",
+  robots: "index, follow",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://iceapple.ai",
+    title: "IceApple - Technology and Business Solutions",
+    description: "IceApple provides comprehensive technology and business solutions including intelligent apps, device development, data science, and DevOps services.",
+    siteName: "IceApple",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IceApple - Technology and Business Solutions",
+    description: "IceApple provides comprehensive technology and business solutions including intelligent apps, device development, data science, and DevOps services.",
+  },
 };
 
 export const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter", // optional for CSS variable
+  variable: "--font-inter",
   weight: ["400", "700"],
+  display: "swap",
+  preload: true,
 });
 
 const moskFont = localFont({
   src: [
-    {
-      path: "./fonts/Mosk-Thin-100.ttf",
-      weight: "100",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Mosk-Extra-Light-200.ttf",
-      weight: "200",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Mosk-Light-300.ttf",
-      weight: "300",
-      style: "normal",
-    },
     {
       path: "./fonts/Mosk-Normal-400.ttf",
       weight: "400",
@@ -55,18 +60,10 @@ const moskFont = localFont({
       weight: "700",
       style: "normal",
     },
-    {
-      path: "./fonts/Mosk-Extra-Bold-800.ttf",
-      weight: "800",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Mosk-Ultra-Bold-900.ttf",
-      weight: "900",
-      style: "normal",
-    },
   ],
   variable: "--font-mosk",
+  display: "swap",
+  preload: true,
 });
 
 export default function RootLayout({
@@ -79,6 +76,15 @@ export default function RootLayout({
       lang="en"
       className={`${moskFont.variable} ${inter.variable} antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn-images-1.medium.com" />
+        <link rel="preconnect" href="https://cdn-images.medium.com" />
+        <link rel="preconnect" href="https://miro.medium.com" />
+        <meta name="theme-color" content="#002656" />
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body className={cn(moskFont.variable, inter.variable, "font-main")}>
         <Navbar />
         <main>{children}</main>

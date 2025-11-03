@@ -20,6 +20,9 @@ npm start
 
 # Run linter
 npm run lint
+
+# Type checking (no dedicated script, use build for type check)
+npm run build
 ```
 
 ## Architecture
@@ -104,20 +107,24 @@ src/components/
 ```
 MONGODB_URI=mongodb://...
 SENDGRID_API_KEY=...
-SENDGRID_TO=team@iceapple.com
-SENDGRID_FROM=noreply@iceapple.com
+SENDGRID_TO=team@iceapple.ai
+SENDGRID_FROM=noreply@iceapple.ai
 ```
 
 ### Styling System
 
-- **Tailwind CSS 4** with custom Mosk font family (9 weights from thin to ultra-bold)
+- **Tailwind CSS 4** with custom Mosk font family (9 weights: 100-900)
 - **Font variables**: `--font-mosk` (primary), `--font-inter` (secondary)
 - **shadcn/ui**: Uses "new-york" style with neutral base color
-- Custom utilities in `lib/utils.ts` for class name merging
+- **Container**: Responsive with max-width 1400px, custom padding per breakpoint
+- Custom utilities in `lib/utils.ts` for class name merging (`cn` function)
 
 ### Custom Hooks
 
 - `hooks/useDeviceType.ts`: Detects device type (mobile/tablet/desktop) for responsive behavior
+  - Mobile: < 768px
+  - Tablet: 768px - 1180px
+  - Desktop: ≥ 1181px
 
 ## Working with Dynamic Routes
 
@@ -143,3 +150,9 @@ TypeScript path alias `@/*` maps to `./src/*`:
 Main branch: `main`
 Current branch: `home-page-ui`
 Recent focus: UI improvements, blog/case study prerendering, JSON-based data loading
+
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless they're absolutely necessary for achieving your goal.
+ALWAYS prefer editing an existing file to creating a new one.
+NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.
