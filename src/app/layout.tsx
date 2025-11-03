@@ -79,9 +79,6 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://cdn-images-1.medium.com" />
-        <link rel="preconnect" href="https://cdn-images.medium.com" />
-        <link rel="preconnect" href="https://miro.medium.com" />
         <meta name="theme-color" content="#002656" />
         <link rel="manifest" href="/manifest.json" />
       </head>

@@ -92,7 +92,7 @@ const OurClientsSection: React.FC<ClientsProps> = ({
                         src={item.imgSrc}
                         alt={item.title}
                         fill
-                        sizes="100vw"
+                        sizes="(min-width:1200px) 18vw, (min-width:1024px) 25vw, (min-width:768px) 40vw, 90vw"
                         className=" object-cover "
                       />
                     </div>

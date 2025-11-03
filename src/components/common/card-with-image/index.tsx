@@ -32,7 +32,12 @@ const CardWithImageSection: React.FC<CardProps> = ({
               )}
             >
               <div className="aspect-3/2 w-full relative">
-                <Image fill sizes="100vw" src={item.cardImage} alt={item.cardTitle} />{" "}
+                <Image
+                  fill
+                  sizes="(min-width:1280px) 22vw, (min-width:1024px) 28vw, (min-width:640px) 45vw, 90vw"
+                  src={item.cardImage}
+                  alt={item.cardTitle}
+                />{" "}
               </div>
               <div
                 className={clsx(

@@ -73,7 +73,7 @@ const OurServicesSection: React.FC<ServicesProps> = ({
                     src={item.imgSrc}
                     alt={item.title}
                     fill
-                    sizes="100vw"
+                    sizes="(min-width:1280px) 28vw, (min-width:1024px) 35vw, (min-width:640px) 50vw, 90vw"
                     className={`${
                       item.shadow
                         ? "shadow-[0_10px_24px_rgba(0,0,0,25%))] sm:shadow-[0_93px_128px_rgba(0,0,0,25%))]"
