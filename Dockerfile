@@ -29,6 +29,8 @@ COPY --from=builder /app/public ./public
 # RUN addgroup -S app && adduser -S app -G app
 # USER app
 
+RUN apk add --no-cache ca-certificates && update-ca-certificates
+
 EXPOSE 3000
 ENV PORT=3000
 

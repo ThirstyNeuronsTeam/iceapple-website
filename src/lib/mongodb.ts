@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, MongoClientOptions } from "mongodb";
 
 // ----------------- Types -----------------
 declare global {
@@ -8,7 +8,11 @@ declare global {
 
 const uri: string = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/careerDB";
 
-const options = {}; // You can add MongoClientOptions if needed
+const options: MongoClientOptions = {
+  serverApi: { version: "1", strict: true, deprecationErrors: true },
+  serverSelectionTimeoutMS: 10000,
+  tls: true,
+}; // You can add MongoClientOptions if needed
 
 // Use a global variable to preserve MongoClient across hot reloads in development
 const clientPromise: Promise<MongoClient> = global._mongoClientPromise ?? new MongoClient(uri, options).connect();
