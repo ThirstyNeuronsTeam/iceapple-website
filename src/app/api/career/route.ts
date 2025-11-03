@@ -94,7 +94,6 @@ export async function POST(req: Request) {
           <p><b>Email:</b> ${email}</p>
           <p><b>Phone:</b> ${phone}</p>
           <p><b>LinkedIn:</b> <a href="${linkedIn}" target="_blank">${linkedIn}</a></p>
-          <p><b>Resume:</b> <a href="${downloadUrl}" target="_blank">Download Securely</a></p>
           <p><b>Authorized to Work:</b> ${authorize ? "✅ Yes" : "❌ No"}</p>
           <hr/>
           <p style="font-size:12px;color:#888;">Automated email from IceApple Careers portal.</p>
