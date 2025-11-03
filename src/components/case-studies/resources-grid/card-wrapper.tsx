@@ -1,7 +1,7 @@
 'use client';
 
+import clsx from "clsx";
 import { PropsWithChildren } from "react";
-import { useDeviceType } from "../../../../hooks/useDeviceType";
 
 interface CardWrapperProps extends PropsWithChildren {
     zigzag: boolean,
@@ -10,28 +10,39 @@ interface CardWrapperProps extends PropsWithChildren {
 
 export default function CardWrapper({ zigzag, children, index }: CardWrapperProps) {
 
-    const deviceType = useDeviceType();
+    const wrapperClasses = clsx(
+        "flex",
+        zigzag
+            ? [
+                index % 2 === 0 ? "justify-start" : "justify-end",
+                index % 2 !== 0 && "md:mt-[35%]"
+            ]
+            : "justify-center"
+    );
 
-    return <div
+    const innerClasses = clsx(
+        "mx-auto w-full",
+        zigzag
+            ? [
+                "max-w-[95vw]",
+                "sm:max-w-xl",
+                "md:max-w-none",
+                "md:w-11/12",
+                "lg:w-10/12",
+                "md:pr-4"
+            ]
+            : [
+                "max-w-[95vw]",
+                "sm:max-w-2xl",
+                "md:max-w-none",
+                "md:w-11/12",
+                "lg:w-11/12"
+            ]
+    );
 
-        className={
-            zigzag
-                ? deviceType === "mobile"
-                    ? `flex ${index % 2 === 0 ? "justify-start" : "justify-end"}`
-                    : index % 2 !== 0
-                        ? "md:mt-[35%] flex"
-                        : "flex"
-                : "flex justify-center"
-        }
-    >
-        <div
-            className={
-                deviceType === "mobile"
-  ? "max-w-[95vw] w-full mx-auto"
-                    : "w-full md:w-11/12 lg:w-auto md:pr-4 mx-auto"
-            }
-        >
-            {children}
+    return (
+        <div className={wrapperClasses}>
+            <div className={innerClasses}>{children}</div>
         </div>
-    </div>
+    );
 }
