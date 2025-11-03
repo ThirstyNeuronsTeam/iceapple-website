@@ -8,7 +8,6 @@ import { parseStringPromise } from "xml2js";
 import { BlogPostCard } from "@/components/blogs/blogs-card";
 import CardWrapper from "@/components/case-studies/resources-grid/card-wrapper";
 
-
 interface XmlItem {
   guid: { _: string };
   title?: string;
@@ -37,18 +36,29 @@ interface NormalizedData {
 
 async function fetchXmlData(): Promise<NormalizedData | null> {
   try {
-    const p = path.join(process.cwd(), "data", "blogs", "iceapple-tech-talks.xml");
+    const p = path.join(
+      process.cwd(),
+      "data",
+      "blogs",
+      "iceapple-tech-talks.xml"
+    );
 
     const xmlData = fs.readFileSync(p, "utf8");
 
-    const jsonData = await parseStringPromise(xmlData, { explicitArray: false });
+    const jsonData = await parseStringPromise(xmlData, {
+      explicitArray: false,
+    });
 
-    console.log(jsonData)
+    // console.log(jsonData);
 
     const channel = jsonData?.rss?.channel;
     if (!channel) return null;
 
-    const items: XmlItem[] = Array.isArray(channel.item) ? channel.item : [channel.item];
+    const items: XmlItem[] = Array.isArray(channel.item)
+      ? channel.item
+      : [channel.item];
+
+    // console.log(items);
 
     const normalizeItem = (item: XmlItem): NormalizedItem => {
       const id = item.guid._.split("/").pop() || item.guid._;
@@ -57,42 +67,54 @@ async function fetchXmlData(): Promise<NormalizedData | null> {
 
       // Extract image from content:encoded HTML
       const extractImage = (html: string): string => {
-        // Find all img tags (match both single and double quotes)
-        const imgRegex = /<img[^>]+src=["']([^"'>]+)["']/gi;
-        const matches = Array.from(html.matchAll(imgRegex));
+        // Early return if no HTML content
+        if (!html || html.trim().length === 0) {
+          return "/assets/general/blogs/blogs_card.jpg";
+        }
 
-        // Loop through all images and find the first valid one (not a tracking pixel)
+        // Extract all img src attributes (supports both single and double quotes)
+        const imgRegex = /<img[^>]+src=["']([^"']+)["']/gi;
+        const matches = html.matchAll(imgRegex);
+
+        // Medium CDN domains to look for
+        const validCDNPatterns = [
+          "cdn-images-1.medium.com",
+          "cdn-images.medium.com",
+          "miro.medium.com",
+        ];
+
+        // Tracking pixel patterns to exclude
+        const trackingPatterns = [
+          "medium.com/_/stat",
+          'width="1"',
+          'height="1"',
+        ];
+
         for (const match of matches) {
           const imgSrc = match[1];
 
-          // Filter out Medium tracking pixels and only keep actual content images
-          const isTrackingPixel =
-            imgSrc.includes('medium.com/_/stat') ||
-            imgSrc.includes('width="1"') ||
-            imgSrc.includes('height="1"');
+          // Skip tracking pixels
+          if (trackingPatterns.some((pattern) => imgSrc.includes(pattern))) {
+            continue;
+          }
 
           // Check if it's a valid Medium CDN image
-          const isMediumCDN =
-            imgSrc.includes('cdn-images-1.medium.com') ||
-            imgSrc.includes('cdn-images.medium.com') ||
-            imgSrc.includes('miro.medium.com');
+          const isMediumCDN = validCDNPatterns.some((cdn) =>
+            imgSrc.includes(cdn)
+          );
 
-          const hasImageFormat =
-            imgSrc.includes('.jpg') ||
-            imgSrc.includes('.jpeg') ||
-            imgSrc.includes('.png') ||
-            imgSrc.includes('.gif') ||
-            imgSrc.includes('.webp') ||
-            // Match Medium's image format without extension (e.g., /1024/0*q3_SGI0prc4yssxl or /1*ABC123)
-            imgSrc.match(/\/\d+[*/][a-zA-Z0-9_-]+$/);
+          // Check for valid image formats or Medium's dynamic image URLs
+          const hasValidFormat =
+            /\.(jpe?g|png|gif|webp)(\?|$)/i.test(imgSrc) || // Standard image extensions
+            /\/\d+\/[\d*][a-zA-Z0-9_-]+$/i.test(imgSrc); // Medium's format: /1024/1*abc123 or /742/0*xyz
 
-          const isValidImage = isMediumCDN && hasImageFormat;
-
-          if (!isTrackingPixel && isValidImage) {
+          // Return first valid Medium image found
+          if (isMediumCDN && hasValidFormat) {
             return imgSrc;
           }
         }
 
+        // Fallback to default image
         return "/assets/general/blogs/blogs_card.jpg";
       };
 
@@ -107,7 +129,9 @@ async function fetchXmlData(): Promise<NormalizedData | null> {
           month: "long",
           day: "numeric",
         }),
-        readTime: `${Math.ceil(contentText.trim().split(/\s+/).length / 200)} min read`,
+        readTime: `${Math.ceil(
+          contentText.trim().split(/\s+/).length / 200
+        )} min read`,
         link: "/resources/blogs/" + id,
       };
     };
@@ -129,13 +153,17 @@ export default async function BlogsMainPage() {
 
   return (
     <section>
-      <HeroSection sectionId=" " mainClassName="items-end" {...content.heroSection} />
+      <HeroSection
+        sectionId=" "
+        mainClassName="items-end"
+        {...content.heroSection}
+      />
 
       <div className="container mx-auto px-4">
         <ResourcesGrid {...(normalizedData ?? content.caseStudyGrid)}>
-          {
-            normalizedData?.data.map((study, index) => {
-              return <CardWrapper zigzag={false} index={index} key={study.link}>
+          {normalizedData?.data.map((study, index) => {
+            return (
+              <CardWrapper zigzag={false} index={index} key={study.link}>
                 <BlogPostCard
                   key={study.link}
                   title={study.title}
@@ -147,8 +175,8 @@ export default async function BlogsMainPage() {
                   creator={study.creator ?? ""}
                 />
               </CardWrapper>
-            })
-          }
+            );
+          })}
         </ResourcesGrid>
       </div>
 
