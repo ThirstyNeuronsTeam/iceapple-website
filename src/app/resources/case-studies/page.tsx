@@ -10,8 +10,8 @@ import CardWrapper from "@/components/case-studies/resources-grid/card-wrapper";
 const CaseStudies: React.FC = () => {
   return (
     <section>
-      <HeroSection sectionId={""} mainClassName="items-end" {...content.heroSection} />
-      <div className="container mx-auto px-4">
+      <HeroSection sectionId="case-studies-hero" mainClassName="items-end" {...content.heroSection} />
+      <div id="case-studies-grid" className="container mx-auto px-4">
         <ResourcesGrid {...content.caseStudyGrid}>
           {
             content.caseStudyGrid?.data.map((study,index) => {

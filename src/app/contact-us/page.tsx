@@ -9,21 +9,25 @@ const ContactUs: React.FC = () => {
   return (
     <section>
       <HeroSection
-        sectionId="hero"
+        sectionId="contact-hero"
         mainClassName="items-end"
         {...content.contact.heroSection}
       />
-      <ContactDetailsSection
-        sectionClass=""
-        contentClassName=""
-        {...content.contact.contactDetailsSection}
-        contactData={content.contact.contactDetailsSection}
-      />
-      <ContactMapSection
-        sectionClass=""
-        contentClassName=""
-        {...content.contact.contactMapSection}
-      />
+      <div id="contact-details">
+        <ContactDetailsSection
+          sectionClass=""
+          contentClassName=""
+          {...content.contact.contactDetailsSection}
+          contactData={content.contact.contactDetailsSection}
+        />
+      </div>
+      <div id="contact-map">
+        <ContactMapSection
+          sectionClass=""
+          contentClassName=""
+          {...content.contact.contactMapSection}
+        />
+      </div>
       <OurEnquiryFormSection {...content.contact.enquiryFormSection} />
     </section>
   );

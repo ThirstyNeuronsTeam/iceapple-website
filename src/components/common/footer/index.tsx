@@ -1,6 +1,7 @@
 "use client";
 import LogoWithCompanyName from "@/components/logoWithCompanyName";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 type FooterProps = {
   footerData: {
@@ -24,14 +25,11 @@ type FooterProps = {
   };
 };
 const Footer: React.FC<FooterProps> = ({ footerData }) => {
-  const handleScrollUp = () => {
-    const hero = document.getElementById("hero");
-    if (hero) {
-      hero.scrollIntoView({ behavior: "smooth" });
-    } else {
-      // fallback to top
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+  const pathname = usePathname();
+
+  const isLinkActive = (menuUrl: string) => {
+    if (menuUrl === "/") return pathname === "/";
+    return pathname?.startsWith(menuUrl);
   };
 
   return (
@@ -51,7 +49,12 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
               <ul className="grid grid-cols-1 gap-4">
                 {footerData.menuItems?.map((item, index) => (
                   <li key={index}>
-                    <Link href={item.menuUrl}>{item.menuName}</Link>
+                    <Link
+                      href={item.menuUrl}
+                      className={`hover:!text-[#0B68FF] transition-colors ${isLinkActive(item.menuUrl) ? '!text-[#0B68FF]' : ''}`}
+                    >
+                      {item.menuName}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -61,7 +64,12 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
                 <li className="font-semibold">{footerData.menuTitle}</li>
                 {footerData.menuItemsTwo?.map((item, index) => (
                   <li key={index}>
-                    <Link href={item.menuUrl}>{item.menuName}</Link>
+                    <Link
+                      href={item.menuUrl}
+                      className={`hover:!text-[#0B68FF] transition-colors ${isLinkActive(item.menuUrl) ? '!text-[#0B68FF]' : ''}`}
+                    >
+                      {item.menuName}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -70,22 +78,17 @@ const Footer: React.FC<FooterProps> = ({ footerData }) => {
           <div className="text-sm sm:text-lg xl:text-2xl sm:w-[25%] order-2 sm:order-3">
             <div className="grid grid-cols-1 gap-1 sm:gap-10">
               {footerData.companyInfo?.map((item, index) => (
-                <Link key={index} href={item.menuUrl}>
+                <Link
+                  key={index}
+                  href={item.menuUrl}
+                  className={`hover:!text-[#0B68FF] transition-colors ${isLinkActive(item.menuUrl) ? '!text-[#0B68FF]' : ''}`}
+                >
                   {item.menuName}
                 </Link>
               ))}
             </div>
           </div>
         </div>
-        {/* Scroll Up button similar to banner (visible on xl and up) */}
-        <button
-          type="button"
-          onClick={handleScrollUp}
-          aria-label="Scroll to top"
-          className="cursor-pointer absolute -right-2 top-4 transform -rotate-90 text-xl tracking-wide font-bold hidden xl:block"
-        >
-          Scroll Up
-        </button>
       </div>
       <div className="max-w-7xl mx-auto">
         <hr className="border-1 border-[#696969] sm:mx-4 lg:mx-0" />

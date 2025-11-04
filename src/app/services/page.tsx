@@ -8,15 +8,17 @@ const AboutUs: React.FC = () => {
   return (
     <section>
       <HeroSection
-        sectionId="hero"
+        sectionId="services-hero"
         mainClassName="items-end"
         {...content.services.heroSection}
       />
-      <OurServicesSection
-        contentClassName=""
-        {...content.services.ourServicesSection}
-        servicesData={content.services.ourServicesSection}
-      />
+      <div id="our-services">
+        <OurServicesSection
+          contentClassName=""
+          {...content.services.ourServicesSection}
+          servicesData={content.services.ourServicesSection}
+        />
+      </div>
       <OurEnquiryFormSection {...content.services.enquiryFormSection} />
     </section>
   );

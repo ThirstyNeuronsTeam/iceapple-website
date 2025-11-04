@@ -13,30 +13,42 @@ const AboutUs: React.FC = () => {
   return (
     <section>
       <HeroSection
-        sectionId="hero"
+        sectionId="about-hero"
         mainClassName="items-end"
         {...content.about.heroSection}
       />
-      <AboutUsSection
-        contentClassName="sm:pl-0 xl:pl-16"
-        {...content.about.aboutUs}
-      />
-      <WhatWeDoSection contentClassName="" {...content.about.whatWeDo} />
-      <OurTeamSection contentClassName="" {...content.about.ourTeam} />
-      <OurHistorySection
-        sectionClass=""
-        contentClassName=""
-        {...content.about.historySection}
-      />
-      <WhyChooseUsSection
-        contentClassName=""
-        {...content.about.whyChooseUsSection}
-      />
-      <OurSuccessStoriesSection
-        contentClassName=""
-        {...content.about.ourSuccessStoriesSection}
-        successStoriesData={content.about.ourSuccessStoriesSection}
-      />
+      <div id="about-us">
+        <AboutUsSection
+          contentClassName="sm:pl-0 xl:pl-16"
+          {...content.about.aboutUs}
+        />
+      </div>
+      <div id="what-we-do">
+        <WhatWeDoSection contentClassName="" {...content.about.whatWeDo} />
+      </div>
+      <div id="our-team">
+        <OurTeamSection contentClassName="" {...content.about.ourTeam} />
+      </div>
+      <div id="our-history">
+        <OurHistorySection
+          sectionClass=""
+          contentClassName=""
+          {...content.about.historySection}
+        />
+      </div>
+      <div id="why-choose-us">
+        <WhyChooseUsSection
+          contentClassName=""
+          {...content.about.whyChooseUsSection}
+        />
+      </div>
+      <div id="success-stories">
+        <OurSuccessStoriesSection
+          contentClassName=""
+          {...content.about.ourSuccessStoriesSection}
+          successStoriesData={content.about.ourSuccessStoriesSection}
+        />
+      </div>
       <OurEnquiryFormSection {...content.about.enquiryFormSection} />
     </section>
   );

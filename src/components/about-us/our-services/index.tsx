@@ -47,10 +47,18 @@ const OurServicesSection: React.FC<ServicesProps> = ({
       <div className="sm:bg-white">
         <div className="mx-auto px-6 pb-16 sm:py-16 container">
           <div className="sm:space-y-40">
-            {servicesData.services.map((item) => (
-              <div
-                key={item.id}
-                className={`${
+            {servicesData.services.map((item) => {
+              // Create ID from title for scroll navigation
+              const cardId = `service-${item.title
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '')}`;
+
+              return (
+                <div
+                  key={item.id}
+                  id={cardId}
+                  className={`${
                   item.alignRight === true
                     ? "sm:justify-end"
                     : "sm:justify-center justify-end"
@@ -109,7 +117,8 @@ const OurServicesSection: React.FC<ServicesProps> = ({
                   </p>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

@@ -57,8 +57,12 @@ export default async function CaseStudyDetailedPage({ params }: { params: Promis
 
   return (
     <section>
-      <CaseStudyHero {...content.heroSection} />
-      <CaseStudyDetailedSection dataSection={content.details} dataCaseStudy={content2.caseStudyGrid?.data} />
+      <section id="case-study-hero">
+        <CaseStudyHero {...content.heroSection} />
+      </section>
+      <section id="case-study-details">
+        <CaseStudyDetailedSection dataSection={content.details} dataCaseStudy={content2.caseStudyGrid?.data} />
+      </section>
     </section>
   );
 }

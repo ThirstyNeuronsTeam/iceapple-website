@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Link from "next/link";
 import clsx from "clsx";
@@ -20,11 +19,6 @@ const BannerSectionDetail: React.FC<HeroSectionProps> = ({
   btnurl,
   isBtnShow,
 }) => {
-  const handleScroll = () => {
-    const hero = document.getElementById("hero");
-    const afterHero = hero?.nextElementSibling as HTMLElement;
-    afterHero?.scrollIntoView({ behavior: "smooth" });
-  };
   return (
     <div
       className={clsx(
@@ -58,13 +52,6 @@ const BannerSectionDetail: React.FC<HeroSectionProps> = ({
             )}
           </div>
         </div>
-        {/* Hide "Scroll Down" button on screens smaller than xl */}
-        <span
-          onClick={handleScroll}
-          className="cursor-pointer absolute right-4 xl:right-10 top-auto bottom-6 xl:bottom-auto xl:top-1/4 transform -rotate-90 text-xl tracking-wide font-bold hidden xl:block"
-        >
-          Scroll Down
-        </span>
       </div>
     </div>
   );

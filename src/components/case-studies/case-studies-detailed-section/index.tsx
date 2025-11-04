@@ -35,28 +35,37 @@ const CaseStudyDetailedSection: React.FC<CaseStudyDetailedSectionProps> = ({
     <section className="w-full px-4 sm:px-6 md:px-12 lg:px-16 py-12">
       {/* Section Titles */}
       <div className="bg-white py-10 flex flex-col gap-10">
-        {dataSection.map((section, index) => (
-          <div key={index} className="">
-            <div
-              className="bg-blue-600 shadow-md flex items-center justify-start px-4 text-white 
-              max-w-[643px] h-auto py-4 
-               text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-[2px] sm:tracking-[3px] leading-[121%]"
-            >
-              {section.title}
-            </div>
+        {dataSection.map((section, index) => {
+          // Create ID from section title
+          const sectionId = section.title
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '')
+            .substring(0, 50) || `section-${index}`;
 
-            <p
-              className="mt-4 text-gray-700 px-2 sm:px-6 lg:px-10 text-left
-               text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed"
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                letterSpacing: "1px",
-              }}
-            >
-              {section.content}
-            </p>
-          </div>
-        ))}
+          return (
+            <div key={index} id={sectionId} className="">
+              <div
+                className="bg-blue-600 shadow-md flex items-center justify-start px-4 text-white
+                max-w-[643px] h-auto py-4
+                 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-[2px] sm:tracking-[3px] leading-[121%]"
+              >
+                {section.title}
+              </div>
+
+              <p
+                className="mt-4 text-gray-700 px-2 sm:px-6 lg:px-10 text-left
+                 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  letterSpacing: "1px",
+                }}
+              >
+                {section.content}
+              </p>
+            </div>
+          );
+        })}
       </div>
 
       {/* Scrollable InfoCards Container */}

@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar";
 import { Inter } from "next/font/google";
 import content from "../../data/footer/footer.json";
 import Footer from "@/components/common/footer";
+import StickyScrollButton from "@/components/common/sticky-scroll-button";
 
 export const metadata: Metadata = {
   title: "IceApple - Technology and Business Solutions",
@@ -84,8 +85,9 @@ export default function RootLayout({
       </head>
       <body className={cn(moskFont.variable, inter.variable, "font-main")}>
         <Navbar />
-        <main>{children}</main>
+        <main className="xl:pr-16">{children}</main>
         <Footer footerData={content.footer} />
+        <StickyScrollButton />
       </body>
     </html>
   );

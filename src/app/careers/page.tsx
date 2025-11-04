@@ -10,29 +10,35 @@ const Careers: React.FC = () => {
   return (
     <section>
       <HeroSection
-        sectionId="hero"
+        sectionId="careers-hero"
         mainClassName="items-end"
         {...content.careers.heroSection}
       />
-      <OurCultureSection
-        sectionClass=""
-        contentClassName="font-inter sm:font-main"
-        paraClassName="sm:leading-10"
-        {...content.careers.ourCultureSection}
-      />
-      <ContactDetailsCareersSection
-        sectionClass=""
-        contentClassName="font-inter sm:font-main"
-        paraClassName=""
-        {...content.careers.contactDetails}
-      />
-      <GalleryCarousel
-        sectionClass=""
-        headingWidthClass="ml-0"
-        contentClassName="font-inter sm:font-main"
-        paraClassName=""
-        {...content.careers.gallerySection}
-      />
+      <div id="our-culture">
+        <OurCultureSection
+          sectionClass=""
+          contentClassName="font-inter sm:font-main"
+          paraClassName="sm:leading-10"
+          {...content.careers.ourCultureSection}
+        />
+      </div>
+      <div id="career-details">
+        <ContactDetailsCareersSection
+          sectionClass=""
+          contentClassName="font-inter sm:font-main"
+          paraClassName=""
+          {...content.careers.contactDetails}
+        />
+      </div>
+      <div id="gallery">
+        <GalleryCarousel
+          sectionClass=""
+          headingWidthClass="ml-0"
+          contentClassName="font-inter sm:font-main"
+          paraClassName=""
+          {...content.careers.gallerySection}
+        />
+      </div>
       {/* Job openings section removed to fix ESLint warning */}
       <OurCareerFormSection {...content.careers.enquiryFormSection} />
     </section>

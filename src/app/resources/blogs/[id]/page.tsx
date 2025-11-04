@@ -108,8 +108,12 @@ export default async function BlogsDetailPage({ params }: PageProps) {
 
   return (
     <section>
-      <BlogsHeader {...content.heroSection} />
-      <DynamicTextBlock {...content.heroSection} className="bg-white" />
+      <section id="blog-header">
+        <BlogsHeader {...content.heroSection} />
+      </section>
+      <section id="blog-content">
+        <DynamicTextBlock {...content.heroSection} className="bg-white" />
+      </section>
     </section>
   );
 }

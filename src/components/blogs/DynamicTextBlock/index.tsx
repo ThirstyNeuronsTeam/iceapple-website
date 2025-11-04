@@ -56,6 +56,26 @@ export  function RemoteHtml({ id }: { id: string }) {
         // Optionally sanitize here with DOMPurify when installed
 
         ref.current.innerHTML = html;
+
+        // Add IDs to headings for scroll navigation
+        const headings = ref.current.querySelectorAll('h1, h2, h3');
+        headings.forEach((heading, index) => {
+          if (!heading.id) {
+            // Create a slug from heading text or use index
+            const text = heading.textContent?.trim() || '';
+            const slug = text
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-+|-+$/g, '')
+              .substring(0, 50);
+            heading.id = slug || `heading-${index}`;
+          }
+        });
+
+        // Dispatch custom event to notify that content has loaded
+        // This helps the scroll button re-detect sections
+        window.dispatchEvent(new CustomEvent('dynamicContentLoaded'));
+
         // run scripts as in previous example (extract and replace)
         // ...
       } catch (err: unknown) {
@@ -67,6 +87,6 @@ export  function RemoteHtml({ id }: { id: string }) {
   }, [id]);
 
   if (error) return <div>Error loading content: {error}</div>;
-  return <div ref={ref} />;
+  return <div ref={ref} className="blog-content" />;
 }
 

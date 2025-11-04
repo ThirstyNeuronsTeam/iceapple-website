@@ -154,12 +154,12 @@ export default async function BlogsMainPage() {
   return (
     <section>
       <HeroSection
-        sectionId=" "
+        sectionId="blogs-hero"
         mainClassName="items-end"
         {...content.heroSection}
       />
 
-      <div className="container mx-auto px-4">
+      <div id="blogs-grid" className="container mx-auto px-4">
         <ResourcesGrid {...(normalizedData ?? content.caseStudyGrid)}>
           {normalizedData?.data.map((study, index) => {
             return (
