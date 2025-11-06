@@ -43,7 +43,7 @@ const HeroSection: React.FC<HeadingSectionProps> = ({
             />
 
           {/* Image Section */}
-          <div className="relative w-full h-[400px] sm:h-[700px] flex justify-start -mt-20 sm:mt-0 -ml-24 sm:-ml-12">
+          <div className="relative w-full h-[400px] sm:h-[700px] flex justify-start -ml-40 sm:-ml-12">
           <Image
               src={url}
               alt={`${title.join(' ')} - Hero illustration`}
