@@ -2,31 +2,32 @@
   "home": {
     "heroSection": {
       "id": 1,
-      "title": ["Creating", "Tomorrow's", "Solutions Today"],
-      "content": "Innovation-driven tech resolution for Success",
-      "btntext": "Default Button",
-      "btnurl": "/",
+      "title": ["Your Partner in", "Intelligent", "Solutions"],
+      "content": "Specialized in building AI-powered apps and smart devices to accelerate your business success.",
+      "btntext": "Explore Our Solutions",
+      "btnurl": "/services",
       "url": "/assets/general/home-page/home-page-banner.webp",
-      "isBtnShow": false
+      "isBtnShow": true
     },
     "aboutUs": {
       "aboutImageOne": "/assets/general/home-page/about-image-1.jpg",
       "aboutImageTwo": "/assets/general/home-page/about-image-2.jpg",
-      "subHeading": "A brief overview of ‘About us’",
-      "heading": "Driven by the desire to drive innovation.",
+      "subHeading": "A brief overview of 'About us'",
+      "heading": "Your Success is our Signature",
       "contents": [
-        "We are a dynamic technology company providing innovative and cost-effective solutions for businesses across industries. Our passionate team of engineers, with expertise in Automotive, Industrial, and Gaming domains, focuses on developing deep technology products and delivering niche software development services.",
-        "With a vision to build a world-class technology services and product development company, IceApple leverages cutting-edge technologies like Artificial Intelligence, Machine Learning, web, cloud, IoT, mobile app development, and embedded software."
+        "We believe every solution we deliver is a reflection of our commitment to client success. As a boutique technology firm, we specialize in creating <strong>Intelligent Apps and Smart Devices</strong> that enable businesses to innovate, scale, and lead in their industries.",
+        "Our approach is anchored in <strong>integrity, excellence, and innovation</strong>, values that have earned us the trust of clients who repeatedly choose to partner with us. We strive to go beyond expectations, delivering solutions that combine cutting-edge technology with reliability and precision.",
+        "With deep expertise in <strong>Industrial, Healthcare, and Gaming domains</strong>, we design and develop solutions powered by advanced technologies such as <strong>Artificial Intelligence, Machine Learning, IoT, Edge Computing, Cloud Platforms, Mobile Technologies, and Embedded Systems</strong>—all underpinned by our strength in deep tech services. Our vision is clear: to be the trusted technology partner that drives measurable impact and sustainable growth."
       ],
       "ourValues": [
         {
           "title": "Our Values",
           "listItem": [
-            "Partnerships and Collaboration",
-            "Empowering Innovation",
-            "Long-lasting Relationships",
-            "Thriving Together",
-            "Inspiring Possibilities"
+            "<strong>Innovation</strong> – Driving creativity and cutting-edge solutions.",
+            "<strong>Integrity</strong> – Operating with transparency and ethics",
+            "<strong>Customer Success</strong> – Making client outcomes the top priority.",
+            "<strong>Excellence</strong> – Delivering high-quality, reliable solutions.",
+            "<strong>Collaboration</strong> – Building strong partnerships internally and externally."
           ]
         }
       ]

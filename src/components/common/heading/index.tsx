@@ -70,9 +70,8 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
           <p
             className={clsx(paraClassName, "text-sm sm:text-lg mb-5")}
             key={index}
-          >
-            {item}
-          </p>
+            dangerouslySetInnerHTML={{ __html: item }}
+          />
         </div>
       ))}
     </>
