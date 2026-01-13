@@ -22,7 +22,6 @@ type OurValues = {
 const AboutUs: React.FC<AboutUsProps> = ({
   aboutImageOne,
   aboutImageTwo,
-  subHeading,
   heading,
   contents,
   ourValues,
@@ -60,13 +59,19 @@ const AboutUs: React.FC<AboutUsProps> = ({
                   {item.listItem.length > 1 ? (
                     <ul className="grid grid-cols-1 gap-y-4 text-gray-700 text-lg list-disc pl-6 font-inter">
                       {item.listItem.map((list, index) => (
-                        <li key={index} dangerouslySetInnerHTML={{ __html: list }} />
+                        <li
+                          key={index}
+                          dangerouslySetInnerHTML={{ __html: list }}
+                        />
                       ))}
                     </ul>
                   ) : (
                     <div className="text-lg tracking-[1px]">
                       {item.listItem.map((list, index) => (
-                        <p key={index} dangerouslySetInnerHTML={{ __html: list }} />
+                        <p
+                          key={index}
+                          dangerouslySetInnerHTML={{ __html: list }}
+                        />
                       ))}
                     </div>
                   )}
@@ -77,7 +82,6 @@ const AboutUs: React.FC<AboutUsProps> = ({
         <div className="z-30 col-span-2 sm:col-span-1 px-5 sm:px-0">
           <HeadingSectionDetail
             contentClassName={contentClassName}
-            subHeading={subHeading}
             heading={heading}
             contents={contents}
           />
@@ -96,13 +100,19 @@ const AboutUs: React.FC<AboutUsProps> = ({
                 {item.listItem.length > 1 ? (
                   <ul className="flex flex-col items-end gap-y-2 text-gray-700 text-sm sm:text-lg list-disc pl-6 font-inter">
                     {item.listItem.map((list, index) => (
-                      <li key={index} dangerouslySetInnerHTML={{ __html: list }} />
+                      <li
+                        key={index}
+                        dangerouslySetInnerHTML={{ __html: list }}
+                      />
                     ))}
                   </ul>
                 ) : (
                   <div className="text-sm sm:text-lg tracking-[1px] font-inter font-light leading-7">
                     {item.listItem.map((list, index) => (
-                      <p key={index} dangerouslySetInnerHTML={{ __html: list }} />
+                      <p
+                        key={index}
+                        dangerouslySetInnerHTML={{ __html: list }}
+                      />
                     ))}
                   </div>
                 )}

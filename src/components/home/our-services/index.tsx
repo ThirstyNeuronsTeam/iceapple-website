@@ -24,7 +24,6 @@ type ServicesProps = {
 
 const OurServicesSection: React.FC<ServicesProps> = ({
   servicesData,
-  subHeading,
   heading,
   contents,
   contentClassName,
@@ -37,7 +36,6 @@ const OurServicesSection: React.FC<ServicesProps> = ({
             align="smRight"
             headingWidth="xl"
             contentClassName={contentClassName}
-            subHeading={subHeading}
             heading={heading}
             contents={contents}
           />

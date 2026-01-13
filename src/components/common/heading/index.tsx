@@ -20,24 +20,26 @@ type HeadingProps = {
   headingWidth?: "w-full" | "xl" | "lg" | "md";
 };
 const HeadingSectionDetail: React.FC<HeadingProps> = ({
+  align = "left",
   headingWidth = "auto",
   contentClassName,
+  subHeading,
   heading,
   contents,
   paraClassName,
 }) => {
-  // const alignmentClass = {
-  //   left: "text-left",
-  //   center: "text-center justify-center",
-  //   right: "justify-end",
-  //   smRight: "sm:justify-end",
-  //   smRightXsLeft: "sm:justify-end justify-start",
-  //   smLeftXsRight: "sm:justify-start justify-end",
-  //   xlLeftXsRight: "xl:justify-start justify-end",
-  //   xlLeftXsCenter: "xl:justify-start justify-center",
-  //   smRightXsCenter: "sm:justify-end justify-center",
-  //   smLeftXsCenter: "sm:justify-start justify-center",
-  // }[align];
+  const alignmentClass = {
+    left: "text-left",
+    center: "text-center justify-center",
+    right: "justify-end",
+    smRight: "sm:justify-end",
+    smRightXsLeft: "sm:justify-end justify-start",
+    smLeftXsRight: "sm:justify-start justify-end",
+    xlLeftXsRight: "xl:justify-start justify-end",
+    xlLeftXsCenter: "xl:justify-start justify-center",
+    smRightXsCenter: "sm:justify-end justify-center",
+    smLeftXsCenter: "sm:justify-start justify-center",
+  }[align];
 
   const headingWidthClass = {
     auto: "w-auto",
@@ -48,7 +50,7 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
 
   return (
     <>
-      {/* {subHeading && (
+      {subHeading && (
         <div
           className={`${alignmentClass} flex items-center gap-1 sm:gap-4 mb-2 sm:mb-0`}
         >
@@ -58,7 +60,7 @@ const HeadingSectionDetail: React.FC<HeadingProps> = ({
             {subHeading || ""}
           </p>
         </div>
-      )} */}
+      )}
 
       <h2
         className={`${headingWidthClass} sm:ml-auto text-[22px] sm:text-4xl xl:text-7xl font-bold leading-none mb-2 sm:mb-11`}

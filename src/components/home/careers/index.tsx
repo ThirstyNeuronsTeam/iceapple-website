@@ -22,7 +22,6 @@ type careerProps = {
 };
 
 const CareersSection: React.FC<careerProps> = ({
-  subHeading,
   heading,
   contents,
   contentClassName,
@@ -48,7 +47,6 @@ const CareersSection: React.FC<careerProps> = ({
                 align="right"
                 headingWidth="xl"
                 contentClassName={contentClassName}
-                subHeading={subHeading}
                 heading={heading}
                 contents={contents}
               />
